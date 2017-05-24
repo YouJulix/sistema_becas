@@ -32,9 +32,9 @@
 * El nombre de variables, funciones, clases, id's utilizará el formato **camelCase** (e.g myAwesomeComponent)  
 * Cada modulo deberá estar dentro de una carpeta(la cual a su vez estará dentro de _app_ ) con el nombre del modulo en formato **kebab-case** (e.g. my-awesome-component)    
 * Cada modulo deberá contener los 3 siguientes archivos:  
- * _nombremodulo_-module.js   
- * _nombremodulo_-component.js  
- * _nombremodulo_-template.html  
+  * _nombremodulo_-module.js   
+  * _nombremodulo_-component.js  
+  * _nombremodulo_-template.html  
 * Los archivos dde tipo template no utilizarán el atributo _style_ , si son necesarios los estilos, estos se colocarán dentro de la carpeta _css/_ y llevarán comentarios al inicio del código sobre el componente que están modificando.
 * Dentro de cada controlador no se ocupará directamente la variable _this_ en vez de esto se utilizará una variable auxiliar: _var self = this;_
 
