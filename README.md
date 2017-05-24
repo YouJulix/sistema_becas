@@ -20,7 +20,7 @@
      * angular-route.js  
      * ...  
   * css  
-   * style.css
+    * style.css
   * module1  
   * module2  
   * ...
@@ -35,7 +35,7 @@
   * _nombremodulo_-module.js   
   * _nombremodulo_-component.js  
   * _nombremodulo_-template.html  
-* Los archivos dde tipo template no utilizarán el atributo _style_ , si son necesarios los estilos, estos se colocarán dentro de la carpeta _css/_ y llevarán comentarios al inicio del código sobre el componente que están modificando.
+* Los archivos html no utilizarán el atributo _style_ , si son necesarios los estilos, estos se colocarán dentro de la carpeta _css/_ y llevarán comentarios al inicio del código sobre el componente que están modificando.
 * Dentro de cada controlador no se ocupará directamente la variable _this_ en vez de esto se utilizará una variable auxiliar: _var self = this;_
 
 ### Enlace a tablero kanban con tareas asignadas
