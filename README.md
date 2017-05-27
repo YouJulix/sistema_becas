@@ -13,22 +13,29 @@
 * app  
   * core
   * img  
+  * lib  
+    * angular
+      * angular.js
+      * angular-route.js
+    * bootstrap
+      * bootstrap.css
+     
+    * jquery  
+      * jquery.js
   * js  
-    * lib   
-     * jquery.js  
-     * angular.js  
-     * angular-route.js  
-     * ...  
   * css  
-    * lib
-     * _bootstrap.css_
     * style.css
-  * module1  
-  * module2  
-  * ...
-* index.html  
-* app.module.js  
-* app.config.js
+  * module-1  
+    * _module-1_.module.js  
+    * _module-1_.component.js
+    * _module-1_.template.html
+  * module-2  
+    * _module-2_.module.js  
+    * _module-2_.component.js
+    * _module-2_.template.html
+  * index.html  
+  * app.module.js  
+  * app.config.js
 
 ### Estándares
 1. El nombre de variables, funciones, clases, id's utilizará el formato **camelCase** (e.g myAwesomeComponent)  
