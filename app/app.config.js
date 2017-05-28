@@ -7,6 +7,10 @@ angular.
 				//Al agregar este prefijo, en nuestros enlaces debemos colocar dicho prefijo: ejemplo:  <a href="#!/phones/{{phone.id}}>..."
 				$routeProvider.when('/login',{
 					template: '<login-becas></login-becas>'
-				}).otherwise('/login');
+				}).
+				when('/registro',{
+					template: '<h2>Modulo registro</h2>'
+				}).
+				otherwise('/login');
 			}
 		]);

@@ -1,19 +1,22 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<img id="logoCabecera" src="img/logo.png">
+			<img id="logoCabecera" src="img/logo.png" />
 			<h2> Sistema de Becas NU</h2>
-			<hr>
+			<hr />
 		</div>
 	</div>
 	<div class="row">
 		<div id="loginBecasForm" class="col-md-6 col-md-offset-3" >
-			<p>Matrícula</p>
-			<input type="text" placeholder="" name="matricula" placeholder="Matricula" /><br /><br />
-			<p>Contraseña</p>
-			<input type="password" placeholder="" name="password" placeholder="Contraseña" /><br /><br />
-			<input type="submit" value="Ingresar" /><br /><br />
-			<a href="#!/registro" >Registrarse</a>
+			<form ng-submit="$ctrl.validateData()">
+				<p ng-show="$ctrl.dataValid" style="color:red;">Usuario no encontrado</p>
+				<p><b>Matrícula</b></p>
+				<input type="text" name="matricula" required ng-model="$ctrl.matricula" /><br /><br /><!-- Si el atributo 'matricula' no está creado en mi controlador, con ng-model="$ctrl.matricula" se creará y se enlazará; ó si ya está creado solo se enlazará.-->
+				<p><b>Contraseña</b></p>
+				<input type="password" name="password" required ng-model="$ctrl.password" /><br /><br />
+				<input type="submit" value="Ingresar" /><br /><br />
+				<a href="#!/registro" >Registrarse</a>
+			</form>
 		</div>
 	</div>	
 </div>
