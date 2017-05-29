@@ -15,7 +15,12 @@
 * server.js
 * package.json
 * config
-* routes
+  * db.js
+* routes  
+  * users-api  
+    * users.controller.js
+    * users.schema.js
+    * users.routes.js
 * node_modules
 * public  
   * core
