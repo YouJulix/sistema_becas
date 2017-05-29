@@ -65,6 +65,8 @@
 8. Los routers que correspondan a cada página se agregarán en el archivo archivo: _app.config.js_  
 9. Los modulos que se creen se deberán ligar con el modulo principal de la aplicación _app.module.js_  
 10. Los componentes que cada quien cree se dibujarán dentro del div con la directiva ngView del archivo index.html. 
+11. La ruta donde se creará la base de datos de mongoDB será en (http://localhost:27017)
+12. La ruta donde node js habilitará el servidor será en (http://localhost:3000)
 
 ### Notas de ayuda
 1. _npm install_ ejecutará el archivo package.json y descargará las dependencias dentro de la carpeta _node_modules_
