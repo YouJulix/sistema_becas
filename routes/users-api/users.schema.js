@@ -1,4 +1,4 @@
-//SCHEMA
+//SCHEMA //Será un esquema o tambiéb se podría llamar modelo de como será la estructura de una colección
 var mongoose = require('mongoose');
 	Schema = mongoose.Schema;
 

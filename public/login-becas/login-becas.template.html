@@ -8,8 +8,8 @@
 	</div>
 	<div class="row">
 		<div id="loginBecasForm" class="col-md-6 col-md-offset-3" >
-			<form ng-submit="$ctrl.validateData()">
-				<p ng-show="$ctrl.dataValid" style="color:red;">Usuario no encontrado</p>
+			<form ng-submit="$ctrl.validateData()"> <!--Cuando se trabaja con componentes $ctrl hace referencia al controlador(Así no se manipula directamente el $scope) == -->
+				<p ng-show="!$ctrl.dataValid" style="color:red;">Usuario no encontrado</p>
 				<p><b>Matrícula</b></p>
 				<input type="text" name="matricula" required ng-model="$ctrl.matricula" /><br /><br /><!-- Si el atributo 'matricula' no está creado en mi controlador, con ng-model="$ctrl.matricula" se creará y se enlazará; ó si ya está creado solo se enlazará.-->
 				<p><b>Contraseña</b></p>

@@ -4,7 +4,9 @@
 		<title>NU Help Desk</title>
 		<meta charset="utf-8">
 		<!-- Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css"></link>
+		<!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css"></link> NOta: cuando se corre index.html en el navegador como 'file//..''  los enlaces no necesitan la diagonal de inicio en href-->
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css"></link> <!-- NOta: cuando se corre desde un servidor(Nodejs en este caso) si necesita la diagonal de inicio en href-->
+
 		<!-- My CSS-->
 		<link rel="stylesheet" type="text/css" href="css/style.css"></link>
 	</head>
@@ -13,7 +15,8 @@
 		<div ng-view></div>	<!--Aquí se diburán todos los componentes, de acuerdo a la ruta en la que se encuentre(Las rutas están definidas en app.config.js) -->
 
 		<!-- Angular JS-->
-		<script type="text/javascript" src="lib/angular/angular.js"></script>
+			<!-- <script type="text/javascript" src="lib/angular/angular.js"></script> NOta: cuando se corre index.html en el navegador como 'file//..''  los enlaces no necesitan la diagonal de inicio en src -->
+		<script type="text/javascript" src="lib/angular/angular.js"></script> <!-- NOta: cuando se corre desde un servidor(Nodejs en este caso) si necesita la diagonal de inicio en src-->
 		<script type="text/javascript" src="lib/angular-route/angular-route.js"></script>
 
 		<!-- Config modulo principal-->

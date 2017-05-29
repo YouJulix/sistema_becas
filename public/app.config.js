@@ -11,6 +11,9 @@ angular.
 				when('/registro',{
 					template: '<h2>Modulo registro</h2>'
 				}).
+				when('/entrada', {
+					template: '<h2>Modulo Entrada</h2>'
+				}).
 				otherwise('/login');
 			}
 		]);
