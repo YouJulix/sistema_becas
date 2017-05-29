@@ -67,6 +67,7 @@
 10. Los componentes que cada quien cree se dibujarán dentro del div con la directiva ngView del archivo index.html. 
 11. La ruta donde se creará la base de datos de mongoDB será en (http://localhost:27017)
 12. La ruta donde node js habilitará el servidor será en (http://localhost:3000)
+13. Dentro de la carpeta _public_ sólo irán archivos de la página front end.
 
 ### Notas de ayuda
 1. _npm install_ ejecutará el archivo package.json y descargará las dependencias dentro de la carpeta _node_modules_
