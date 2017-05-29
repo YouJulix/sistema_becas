@@ -4,13 +4,20 @@
 * HTML 5  
 * CSS 3  
 * JavaScript  
-* JQuery  
-* AngularJS  
-* NodeJS  
-* MongoDB
+* JQuery 3.2
+* MEAN
+ * MongoDB 3.4
+ * Express JS 4.0
+ * AngularJS 1.6
+ * Node JS 4.2
 
 ### Estructura del proyecto
-* app  
+* server.js
+* package.json
+* config
+* routes
+* node_modules
+* public  
   * core
   * img  
   * lib  
@@ -36,6 +43,8 @@
   * index.html  
   * app.module.js  
   * app.config.js
+* example_MyFIRST-API-REST_angular_node_mongodb
+* example_angular-phonecat
 
 ### Estándares
 1. El nombre de variables, funciones, clases, id's utilizará el formato **camelCase** (e.g myAwesomeComponent)  
@@ -53,7 +62,7 @@
 10. Los componentes que cada quien cree se dibujarán dentro del div con la directiva ngView del archivo index.html. 
 
 ### Notas de ayuda
-1. ...
+1. _npm install_ ejecutará el archivo package.json y descargará las dependencias dentro de la carpeta _node_modules_
 
 ### Enlace a tablero kanban con tareas asignadas
 
