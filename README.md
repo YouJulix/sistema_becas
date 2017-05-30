@@ -1,5 +1,31 @@
 # Sistema de Asignación de becas de NovaUniversitas
 
+### Páginas de ayuda
+** Comprender componentes(vista, controlador), Rutas, organización de archivos, e inyección de dependencias en Angular JS**
+<https://docs.angularjs.org/tutorial>
+
+**Cómo crear un API REST usando Node.js, Express y MongoDB**  
+*Un API será para cada tabla y servirá para hacer altas, bajas y modificaciones sobre dicha tabla*
+<https://carlosazaustre.es/blog/como-crear-una-api-rest-usando-node-js/>
+...  
+<http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/>
+
+**Complemento *Postman* para probar API REST con  **
+<https://www.programacion.com.py/web/javascript/tutorial-api-rest-usando-node-js-express-mongodb>
+
+**Usar API Rest desde nuestro controlador Angular**
+*... el objeto $http es el que hace toda la magia, ya que nos permite hacer llamadas AJAX a nuestro API con pocas líneas de código.*
+<https://carlosazaustre.es/blog/tutorial-ejemplo-de-aplicacion-web-con-angular-js-y-api-rest-con-node/>
+
+### Rutas que corresponden a cada módulo:
+Login:   
+<http://localhost:8000/#!/login>  
+Registro:  
+<http://localhost:8000/#!/registro>  
+
+Notificación: <http://localhost:8000/#!/notificacion>  
+
+
 ### Tecnologías ocupadas
 * HTML 5  
 * CSS 3  
