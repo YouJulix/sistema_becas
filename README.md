@@ -5,11 +5,11 @@
 * CSS 3  
 * JavaScript  
 * JQuery 3.2
-* MEAN
- * MongoDB 3.4
- * Express JS 4.0
- * AngularJS 1.6
- * Node JS 4.2
+* MEAN(Mongo, Express, AngularJS, NodeJS)
+  * MongoDB 3.4
+  * Express JS 4.0
+  * AngularJS 1.6
+  * Node JS 4.2
 
 ### Estructura del proyecto
 * server.js
