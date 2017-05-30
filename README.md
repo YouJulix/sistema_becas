@@ -6,20 +6,20 @@
 -----
 
 ## Páginas de ayuda
-**Comprender componentes(vista, controlador), Rutas, organización de archivos, e inyección de dependencias en Angular JS**
+**Comprender componentes(vista, controlador), Rutas, organización de archivos, e inyección de dependencias en Angular JS**  
 <https://docs.angularjs.org/tutorial>
 
 **Cómo crear un API REST usando Node.js, Express y MongoDB**  
-*Un API será para cada tabla y servirá para hacer altas, bajas y modificaciones sobre dicha tabla*
-<https://carlosazaustre.es/blog/como-crear-una-api-rest-usando-node-js/>
-...  
+*Cada tabla tendrá su API y servirá para hacer altas(POST), bajas(DELETE), modificaciones(PUT) y consultas(GET) sobre dicha tabla*  
+<https://carlosazaustre.es/blog/como-crear-una-api-rest-usando-node-js/>  
+...   
 <http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/>
 
-**Complemento *Postman* para probar API REST con  **
+**Complemento *Postman* para probar API REST**  
 <https://www.programacion.com.py/web/javascript/tutorial-api-rest-usando-node-js-express-mongodb>
 
-**Usar API Rest desde nuestro controlador Angular**
-*... el objeto $http es el que hace toda la magia, ya que nos permite hacer llamadas AJAX a nuestro API con pocas líneas de código.*
+**Usar API Rest desde nuestro controlador Angular**  
+*... el objeto $http es el que hace toda la magia, ya que nos permite hacer llamadas AJAX a nuestro API con pocas líneas de código.*  
 <https://carlosazaustre.es/blog/tutorial-ejemplo-de-aplicacion-web-con-angular-js-y-api-rest-con-node/>
 
 -----
