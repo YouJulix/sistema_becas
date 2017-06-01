@@ -9,7 +9,7 @@ angular.
 					template: '<login-becas></login-becas>'
 				}).
 				when('/registro',{
-					template: '<h2>Modulo registro</h2>'
+					template: '<registro-form></registro-form>'
 				}).
 				when('/entrada', {
 					template: '<h2>Modulo Entrada</h2>'

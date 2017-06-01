@@ -4,9 +4,28 @@ var mongoose = require('mongoose');
 
 var  userSchema = new Schema({
 	//var userSchema = new mongoose.Schema({
-		matricula:	{ type:String },
-		password:	{ type:String },
-		nombre:		{ type:String }
+		matricula: 	{type:String},
+		password: 	{type:String},
+		password2: 	{type:String},
+		nombre: 	{type:String},
+		apellido1: 	{type:String},
+		apellido2: 	{type:String},
+		fecha_Nac: 	{type:String},
+		carrera: 	{type:String},
+		semestre: 	{type:String},
+		grupo: 		{type:String},
+		sexo: 		{type:String},
+		idiomaExt: 	{type:String},
+		estdCivil: 	{type:String},
+		telefono: 	{type:String},
+		recidencia: {type:String},
+		calle: 		{type:String},
+		numCalle: 	{type:String},
+		colonia: 	{type:String},
+		municipio: 	{type:String},
+		estado: 	{type:String},
+		nombreHuesped: {type:String},
+		parestesco: {type:String}
 	},
 	{ collection: 'users' }
 );

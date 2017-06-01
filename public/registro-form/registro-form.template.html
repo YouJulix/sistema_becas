@@ -1,0 +1,52 @@
+<div class="container">
+		<h1>Sistema de Asignación de Becas NU</h1>
+		<h4>CREACIÓN DE CUENTA</h4>
+		<h4>Datos Generales</h4>
+		<form ng-submit="$ctrl.addUser()">
+			<div class="row">
+				<div class="col-md-3"><label>MATRICULA</label><input type="text" ng-model="$ctrl.matricula"></div>
+				<div class="col-md-3"><label>Contraseña:</label><input type="password" ng-model="$ctrl.password"></div>
+				<div class="col-md-3"><label>Repetir Contraseña:</label><input type="password" ng-model="$ctrl.password2"></div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-3"><label>Nombre (s):</label><input type="text" ng-model="$ctrl.nombre"></div>
+				<div class="col-md-3"><label>Primer Apellido:</label><input type="text" ng-model="$ctrl.apellido1"></div>
+				<div class="col-md-3"><label>Segundo Apellido:</label><input type="text" ng-model="$ctrl.apellido2"></div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-3"><label>Fecha de Nacimiento:</label><input type="text" ng-model="$ctrl.fechaNac"></div>
+				<div class="col-md-2"><label>Carrera: </label><input type="text" ng-model="$ctrl.carrera"></div>
+				<div class="col-md-2"><label>Semestre:</label><input type="text" ng-model="$ctrl.semestre"></div>
+				<div class="col-md-2"><label>Grupo:</label><input type="text" ng-model="$ctrl.grupo"></div>
+				<div class="col-md-2"><label>Sexo:</label><br><input type="radio" ng-model="$ctrl.sexo"><label>F</label><input type="radio" ng-model="$ctrl.sexo"><label>M</label></div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-3"><label>Idioma, Lenguaje o Dialecto a parte del español:</label><input type="text" ng-model="$ctrl.idioma"></div>
+				<div class="col-md-3"><label>Estadi Civil:</label><input type="text" ng-model="$ctrl.estadoCivil"></div>
+				<div class="col-md-3"><label>Telefono Celular (lada):</label><input type="text" ng-model="$ctrl.telefono"></div>
+				<div class="col-md-3"><label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?</label><input type="text" ng-model="$ctrl.otraRecidencia"></div>
+			</div>
+			<br>
+			<div><label>Domicilio donde vivirá mientras estudias:</label></div>
+			<div class="row">				
+				<div class="col-md-3"><input type="text" placeholder="Calle" ng-model="$ctrl.calle"></div>
+				<div class="col-md-3"><input type="text" placeholder="No." ng-model="$ctrl.numero"></div>
+				<div class="col-md-3"><input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia"></div>
+				<div class="col-md-3"><input type="text" placeholder="Municipio" ng-model="$ctrl.municipio"></div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-3"><input type="text" placeholder="Estado" ng-model="$ctrl.estado"></div>
+				<div class="col-md-3"><input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreProp"></div>
+				<div class="col-md-3"><input type="text" placeholder="Parentesco" ng-model="$ctrl.parentesco"></div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-md-offset-6"><input type="submit" class="btn btn-default" value="Aceptar"></div>
+				<div class="col-md-2"><input id="cancel" type="submit" class="btn btn-default" value="Cancelar"></div>
+			</div>
+		</form>
+</div>
