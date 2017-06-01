@@ -6,7 +6,7 @@ angular.
 				function RegistroFormController($http){
 					var self = this;
 					self.addUser = function(){
-						alert("Activa funcion addUser");
+						//alert("Activa funcion addUser");
 						$http({
 							method: 'POST',
 							url: 'http://localhost:8000/api/v1.0/users',
