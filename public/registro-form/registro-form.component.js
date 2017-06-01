@@ -31,8 +31,7 @@ angular.
 								'&municipio='+self.municipio+
 								'&estado='+self.estado+
 								'&nombreHuesped='+self.nombreHuesped+
-								'&parestesco='+self.parestesco+
-								,
+								'&parestesco='+self.parestesco,
 							headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
 						}).
