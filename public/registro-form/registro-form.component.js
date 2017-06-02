@@ -36,7 +36,8 @@ angular.
 
 						}).
 						success(function(data){
-							alert("Registro Realizado Exitosamente.! :)");
+							//alert("Registro Realizado Exitosamente.! :)");
+							window.location="#!/notificacion";
 						}).
 						error(function(){
 							alert("Error al registrar Usuario! :'(");
