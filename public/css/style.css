@@ -8,3 +8,16 @@ img#logoCabecera{
 	height: 60px;
 }
 /**/
+
+/*Estilo para el menu superior*/
+#menuSuperior ul li{
+	list-style:none;
+	float: left;
+	padding:1%;
+}
+
+/*Estilo para el menu*/
+#menu ul li{
+	list-style:none;
+}
+

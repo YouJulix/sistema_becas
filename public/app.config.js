@@ -14,6 +14,12 @@ angular.
 				when('/entrada', {
 					template: '<h2>Modulo Entrada</h2>'
 				}).
+				when('/notificacion', {
+					template: '<notificacion-registro></notificacion-registro>'
+				}).
+				when('/cartaProtesta', {
+					template: '<modulo-beca6></modulo-beca6>'
+				}).
 				otherwise('/login');
 			}
 		]);

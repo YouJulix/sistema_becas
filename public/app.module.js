@@ -1,5 +1,7 @@
 angular.module('sistBecasApp',[
 	'ngRoute',
 	'registroForm',
-	'loginBecas'
+	'loginBecas',
+	'notificacionRegistro',
+	'moduloBeca6'
 	]);
