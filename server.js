@@ -30,8 +30,3 @@ users_routes.addAPIRouter(app, UserCtrl); //La funcion addAPIRouter enlaza rutas
 app.listen(port, function(){
 	console.log("Node server running on http://localhost:" + port);
 });
-
-
-
-
-

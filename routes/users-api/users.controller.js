@@ -32,7 +32,7 @@ exports.checkUser = function(req, res){
 	});	
 }
 
-exports.addUser = function(req, res){
+/*exports.addUser = function(req, res){
 	console.log('POST');
 	console.log(req.body);
 
@@ -46,4 +46,84 @@ exports.addUser = function(req, res){
 			return res.status(500).send(err.message);
 		res.status(200).jsonp(user);
 	});
-}
+}*/
+
+//POST -- ADD Alumno
+exports.addUser = function(req,res){
+	console.log('POST');
+	console.log(req.body);
+
+	var user = new User({
+		matricula: 	req.body.matricula,
+		password: 	req.body.password,
+		password2: 	req.body.password2,
+		nombre: 	req.body.nombre,
+		apellido1: 	req.body.apellido1,
+		apellido2: 	req.body.apellido2,
+		fecha_Nac: 	req.body.fecha_Nac,
+		carrera: 	req.body.carrera,
+		semestre: 	req.body.semestre,
+		grupo: 		req.body.grupo,
+		sexo: 		req.body.sexo,
+		idiomaExt: 	req.body.idiomaExt,
+		estdCivil: 	req.body.estdCivil,
+		telefono: 	req.body.telefono,
+		recidencia: req.body.recidencia,
+		calle: 		req.body.calle,
+		numCalle: 	req.body.numCalle,
+		colonia: 	req.body.colonia,
+		municipio: 	req.body.municipio,
+		estado: 	req.body.estado,
+		nombreHuesped: req.body.nombreHuesped,
+		parestesco: req.body.parestesco
+	});
+
+	user.save(function(err,user){
+		if(err) return res.status(500).send(err.message);
+		res.status(200).jsonp(user);
+	});
+};
+
+//PUT - UPDATE Alumno
+exports.updateAlumno = function(req,res){
+	User.findByMatricula({'matricula' : req.params.matricula},function(err,user){
+
+		user.matricula = 	req.body.matricula;
+		user.password= 	req.body.password;
+		user.password2= 	req.body.password2;
+		user.nombre= 		req.body.nombre;
+		user.apellido1= 	req.body.apellido1;
+		user.apellido2= 	req.body.apellido2;
+		user.fecha_Nac= 	req.body.fecha_Nac;
+		user.carrera=		req.body.carrera;
+		user.semestre= 		req.body.semestre;
+		user.grupo=			req.body.grupo;
+		user.sexo= 			req.body.sexo;
+		user.idiomaExt= 	req.body.idiomaExt;
+		user.estdCivil= 	req.body.estdCivil;
+		user.telefono= 	req.body.telefono;
+		user.recidencia= 	req.body.recidencia;
+		user.calle= 		req.body.calle;
+		user.numCalle= 	req.body.numCalle;
+		user.colonia=	req.body.colonia;
+		user.municipio= 	req.body.municipio;
+		user.estado= 	req.body.estado;
+		user.nombreHuesped= req.body.nombreHuesped;
+		user.parestesco= 	req.body.parestesco;
+
+		user.save(function(err){
+			if (err) return res.status(500).send(err.message);
+			res.status(200).jsonp(user);;
+		});
+	})
+};
+
+//DELETE Alumno
+exports.deleteAlumno = function(req,res){
+	User.findByMatricula({'matricula' : req.params.matricula},function(err,user){
+		user.remove(function(err){
+			if(err) return res.status(500).send(err.message);
+			res.status(200).send();
+		});
+	});
+};
