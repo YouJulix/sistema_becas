@@ -8,6 +8,9 @@ angular.
 				$routeProvider.when('/login',{
 					template: '<login-becas></login-becas>'
 				}).
+				when('/gastos_alumno',{
+					template:'<gastos-alumno></gastos-alumno>'
+				}).
 				when('/registro',{
 					template: '<registro-form></registro-form>'
 				}).
