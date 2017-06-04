@@ -20,6 +20,12 @@ angular.
 				when('/cartaProtesta', {
 					template: '<modulo-beca6></modulo-beca6>'
 				}).
+				when('/dependencia_economica', {
+					template: '<dependencia-economica></dependencia-economica>'
+				}).
+				when('/ingreso_mensual', {
+					template: '<h2>Ingreso Mensual</h2>'
+				}).
 				otherwise('/login');
 			}
 		]);

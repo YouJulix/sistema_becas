@@ -6,10 +6,14 @@ var db = require('./config/db');
 var app = express();
 var port = 8000;
 
+//INstancias de rutas, Modelos y controladores
 var users_routes = require('./routes/users-api/users.routes'); //Routes y app.use(...)
 var UserModel = require('./routes/users-api/users.schema'); //Instancio el codigo 'users.schema.js' en la variable UserModel, el codigo de 'users.schema.js' registra un schema al modelo 'User', para que posteriormente dicho modelo se pueda utilizar en el controlador (Busquedas sobre ese modelo base)
 var UserCtrl = require('./routes/users-api/users.controller'); //Instancio el codigo 'users.controller.js' en la variable UserCtrl,
 
+var depEconRoutes = require('./routes/dependencia-economica-api/depEcon.routes'); //Routes y app.use(...)
+var depEconModel = require('./routes/dependencia-economica-api/depEcon.schema'); //Instancio el codigo 'users.schema.js' en la variable UserModel, el codigo de 'users.schema.js' registra un schema al modelo 'User', para que posteriormente dicho modelo se pueda utilizar en el controlador (Busquedas sobre ese modelo base)
+var depEconCtrl = require('./routes/dependencia-economica-api/depEcon.controller'); //Instancio el codigo 'users.controller.js' en la variable UserCtrl,
 //Connection to BD
 mongoose.connect(db.url);
 
@@ -24,8 +28,8 @@ app.use(express.static('public')); //Para el servicio de archivos estáticos com
 
 
 //API routes
-users_routes.addAPIRouter(app, UserCtrl); //La funcion addAPIRouter enlaza rutas de un api que creamos a sus controladores(funciones); y hace que 'app' use esas rutas(app.use())
-
+users_routes.addAPIRouter(app, UserCtrl); //Apuntadores a app y a UsaerCtrl //La funcion addAPIRouter enlaza rutas de un api que creamos a sus controladores(funciones); y hace que 'app' use esas rutas(app.use())
+depEconRoutes.addAPIRouter(app, depEconCtrl);
 //Start Server
 app.listen(port, function(){
 	console.log("Node server running on http://localhost:" + port);

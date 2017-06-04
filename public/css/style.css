@@ -20,4 +20,9 @@ img#logoCabecera{
 #menu ul li{
 	list-style:none;
 }
+/*Boton continuar flotarlo a la derecha*/
+#btnContinuar{
+	float: right;
+}
+
 

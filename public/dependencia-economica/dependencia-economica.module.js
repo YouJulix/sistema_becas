@@ -1,0 +1,1 @@
+angular.module('dependenciaEconomica', ['ngRoute']); //Siempre es buena practica incluir las dependencias(como en este caso 'ngRoute', aún cuando el modulo principal de este sistema ya se las herede al presente modulo)
