@@ -60,16 +60,16 @@
 					<div class="form-group">
 						<label class="col-sm-4">Modo de traslado:</label>
 						<div class="checkbox col-sm-8">
-						 	<label class="checkbox-inline"><input type="checkbox" id="taxi"  ng-model="ctrl.taxi" ng-click="$ctrl.taxi = !$ctrl.taxi"> Taxi</label>
-						    <label class=" checkbox-inline col-sm-offset-3"><input type="checkbox" id="Vehiculo" ng-click="$ctrl.vehiculo = !$ctrl.vehiculo"> Vehículo propio (Moto/auto)</label>
+						 	<label class="checkbox-inline"><input type="checkbox" id="taxi"  ng-model="$ctrl.taxi" > Taxi</label>
+						    <label class=" checkbox-inline col-sm-offset-3"><input type="checkbox"  ng-model="$ctrl.vehiculo"> Vehículo propio (Moto/auto)</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-sm-4"></label>
 						<div class="checkbox col-sm-8">
-						 	<label class="checkbox-inline"><input type="checkbox" id="caminar"  value="Caminado" ng-click="$ctrl.caminar = !$ctrl.caminar">Caminado</label>
-						    <label class="checkbox-inline col-md-offset-3"><input type="checkbox"  id="bicicleta" value="Bicicleta" ng-click="$ctrl.bicicleta = !$ctrl.bicicleta">Bicicleta</label>
+						 	<label class="checkbox-inline"><input type="checkbox" ng-model="$ctrl.caminar">Caminado</label>
+						    <label class="checkbox-inline col-md-offset-3"><input type="checkbox"  ng-model="$ctrl.bicicleta">Bicicleta</label>
 						</div>
 					</div>
 

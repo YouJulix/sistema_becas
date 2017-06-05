@@ -5,8 +5,8 @@ angular.
 			controller: ['$http',
 				function gastosAlumnoController($http){
 					var self = this;
-					//self.solicitud = 5000; //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
- 					self.solicitud = localStorage.getItem("idSolicitud");
+					self.solicitud = 5000; //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
+ 					//self.solicitud = localStorage.getItem("idSolicitud");
  					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud
@@ -17,13 +17,17 @@ angular.
 							self.gastosMedicos	= parseInt(object.gastosMedicos);
 							self.rentaSi 		= object.isRenta.renta;
 							self.montoRenta 	= parseInt(object.isRenta.monto);
+							//
+							self.taxi = object.transporteMetodo.taxi;
+							self.vehiculo = object.transporteMetodo.vehiculo;
+							self.caminar = object.transporteMetodo.caminar;
+							self.bicicleta = object.transporteMetodo.bicicleta;
 							//Retornadas a false por comodidad 
+						}else{
 							self.taxi = false;
 							self.vehiculo = false;
 							self.caminar = false;
 							self.bicicleta = false;
-						}else{
-							
 							self.montoRenta = 0;
 							self.gastosMedicos = 0;
 						}   

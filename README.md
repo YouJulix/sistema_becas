@@ -33,7 +33,7 @@ Registro:
 Notificación:  
 <http://localhost:8000/#!/notificacion>   
 
-Gastos de alumnos
+Gastos de alumnos:
 <http://localhost:8000/#!/gastos_alumno>
 -----
 
