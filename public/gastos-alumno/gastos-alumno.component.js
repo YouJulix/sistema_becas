@@ -5,8 +5,8 @@ angular.
 			controller: ['$http',
 				function gastosAlumnoController($http){
 					var self = this;
-					self.solicitud = 5000; //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
- 					//self.solicitud = localStorage.getItem("idSolicitud");
+					//self.solicitud = 5000; //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
+ 					self.solicitud = localStorage.getItem("idSolicitud");
  					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud
