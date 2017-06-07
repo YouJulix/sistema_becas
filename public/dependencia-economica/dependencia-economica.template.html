@@ -36,7 +36,7 @@
 			<form ng-submit="$ctrl.saveSection()">
 				Grado de escolaridad:<br>
 				<select name="escolaridad" ng-model="$ctrl.escolaridad" required>
-					<option value=""> --- Selecciona una opción --- </option><!-- Al agregar la directiva ng-model de Angular a un select HTML, se hace necesario agregar un option con value="" para que este aparezca seleccionado(Ya que el navegador deja de seleccionar el primero option que estaba), de lo contrario, aparecerá el select con opcion blanca seleccionada por default -->
+					<option value=""> --- Selecciona una opción --- </option>
 					<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
 					<option value="preescolar" >Preescolar</option>
 					<option value="primaria">Primaria</option>

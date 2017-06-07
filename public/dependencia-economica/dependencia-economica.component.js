@@ -6,14 +6,12 @@ angular.
 				var self = this;
 
 				self.saveSection = function(){
-					
-					//self.data = JSON.stringify(self.data);
 					self.data =  {
 						"solicitudId" : localStorage.getItem("idSolicitud"),
 						"escolaridad" : self.escolaridad,
 						"tipoTrabajo" : self.tipoTrabajo
 					};
-
+					//self.data = JSON.stringify(self.data);
 					$http({
 						method: 'POST',
 						url: 'http://localhost:8000/api/v1.0/deps_econs',
@@ -30,5 +28,24 @@ angular.
 						alert("Error al guardar información");
 					});
 				}
+
+				self.searchSaved = function(){
+					$http({
+						method: 'GET',
+						url: 'http://localhost:8000/api/v1.0/deps_econs/' + localStorage.getItem("idSolicitud")
+					}).
+					success(function(data){//data es un array que contiene lo que enviamos(Un solo objeto en este caso)
+						if(data.length == 0){//Se respondio con un conjunto vacio: data = []
+							//No se ha guardado información de esta tabla en la BD
+						}else{
+							self.escolaridad = data[0].escolaridad; //data[0] = objeto regresado por el servidor
+							self.tipoTrabajo = data[0].tipoTrabajo;
+						}
+					}).
+					error(function(){
+						alert("NOT found");
+					});
+				}
+				self.searchSaved();
 			}]
 		});

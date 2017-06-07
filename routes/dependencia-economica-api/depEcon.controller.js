@@ -13,6 +13,14 @@ exports.findAllDepsEcons = function(req, res){
 	});
 }
 
+exports.findBySolicitudId = function(req, res){
+	DepEcon.find({ "solicitudId" : req.params.solicitudId }, function(err, depEcon){
+		if(err)
+			res.send(500, err.message);
+		res.status(200).jsonp(depEcon);
+	})
+}
+
 exports.addDepEcon = function(req, res){
 	console.log('POST');
 	console.log(req.body);

@@ -5,6 +5,8 @@ exports.addAPIRouter = function(app, depEconCtrl){
 		depsEcons.route('/deps_econs')
 			.get(depEconCtrl.findAllDepsEcons)
 			.post(depEconCtrl.addDepEcon);
+		depsEcons.route('/deps_econs/:solicitudId').
+			get(depEconCtrl.findBySolicitudId);
 	
 	app.use('/api/v1.0', depsEcons);
 }
