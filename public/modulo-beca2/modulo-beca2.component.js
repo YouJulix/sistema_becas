@@ -1,0 +1,61 @@
+angular.
+	module('moduloBeca2').
+		component('moduloBeca2', {
+			templateUrl: 'modulo-beca2/modulo-beca2.template.html',
+			controller: ['$http',
+				function ModuloBeca2Controller($http){
+					var self=this;
+					self.solicitudId=localStorage.getItem("idSolicitud");
+					/**Obtener los datos guardados*/
+					self.method="POST";
+					object = $http({
+						method 	: 	'GET',
+						url 	: 	'http://localhost:8000/api/v1.0/ingresoMensual/'+ self.solicitudId
+					}).success(function(data){
+						object = data[0];
+						console.log(object);
+						if(object){
+							self.ingresoMenJefe	= parseInt(object.ingresoMenJefe);
+							self.ingresoMenGubernamental = parseInt(object.ingresoMenGubernamental);
+							self.ingresoMenTerceros = parseInt(object.ingresoMenTerceros);
+							self.method="PUT";
+						}else{
+							self.ingresoMenJefe	= 0;	
+							self.ingresoMenGubernamental = 0;	
+							self.ingresoMenTerceros = 0;	
+						}   
+					}).error(function(err){
+						console.log(err);
+					});
+					
+					
+					self.addIngresoMensual = function(){
+						console.log(self.ingresoMenJefe);
+						if( (self.ingresoMenJefe <500 || self.ingresoMenJefe >=25000) || (self.ingresoMenGubernamental <500 || self.ingresoMenGubernamental >=25000 ) || (self.ingresoMenTerceros <500 || self.ingresoMenTerceros >=25000) ){
+							alert("ingresa cantidades en el rango de 500-25,000");
+							return;
+						}
+						
+						$http({
+							method: self.method,
+							url: 'http://localhost:8000/api/v1.0/ingresoMensual',
+							data: 'ingresoMenJefe='+self.ingresoMenJefe+
+								'&ingresoMenGubernamental='+self.ingresoMenGubernamental+
+								'&ingresoMenTerceros='+self.ingresoMenTerceros+
+								'&solicitudId='+localStorage.getItem('idSolicitud'),
+								headers: {'Content-Type':'application/x-www-form-urlencoded'}
+						}).
+						success(function(data){
+							//alert("ingresos mensuales guardados");
+							window.location = "#!/gastos_alumno";
+							console.log(data);
+						}).
+						error(function(data){
+							console.log(data);
+							alert("Error al agregar ingresos mensuales");
+						});
+					}
+					
+				}
+			]
+		});
