@@ -1,7 +1,7 @@
 angular.
-	module('registroForm').
-		component('registroForm',{
-			templateUrl: 'registro-form/registro-form.template.html',
+	module('editAdminInfo').
+		component('editAdminInfo',{
+			templateUrl: 'edit-admin-info/edit-admin-info.template.html',
 			controller: ['$http',
 				function RegistroFormController($http){
 					var self = this;
@@ -90,11 +90,53 @@ angular.
 
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
 
-					self.addUser = function(){
-						//alert("Activa funcion addUser");
+
+					self.renderUser = function(matriculaGet){
 						$http({
-							method: 'POST',
-							url: 'http://localhost:8000/api/v1.0/users',
+							method:'GET',
+							url: 'http://localhost:8000/api/v1.0/users/'+matriculaGet
+						}).
+						success(function(data){
+							//alert(data[0].fechaNac);
+							self.matricula = data[0].matricula;
+							self.password = data[0].password;
+							self.password2 = data[0].password2;
+							self.nombre = data[0].nombre;
+							self.apellido1 = data[0].apellido1;
+							self.apellido2 = data[0].apellido2;
+							self.fechaNac = data[0].fechaNac;
+							self.carrera = data[0].carrera;
+							self.semestre = data[0].semestre;
+							self.grupo = data[0].grupo;
+							self.sexo = data[0].sexo;
+							self.idiomaExt = data[0].idiomaExt;
+							self.edoCivil = data[0].edoCivil;
+							self.telefono = data[0].telefono;
+							self.recidencia = data[0].recidencia;
+							self.calle = data[0].calle;
+							self.numCalle = data[0].numCalle;
+							self.colonia = data[0].colonia;
+							self.municipio = data[0].municipio;
+							self.estado = data[0].estado;
+							self.nombreHuesped = data[0].nombreHuesped;
+							self.parentesco = data[0].parentesco;
+
+							self.valueGrupo();
+						}).
+						error(function(){
+							alert("Error. El Usuario no existe");
+							window.location = "#!/lista-becas";
+						});
+					}
+
+					//Ccarga los datos con la siguiente matricula.
+					//Para cargar los datos de determinado alumno, la funcion recibe como parametro la matricula
+					//self.renderUser('0113010010');
+
+					self.updateUser = function(){
+						$http({
+							method: 'PUT',
+							url: 'http://localhost:8000/api/v1.0/users/'+self.matricula,
 							data: 'matricula='+self.matricula+
 								'&password='+self.password+
 								'&password2='+self.password2+
@@ -121,16 +163,16 @@ angular.
 
 						}).
 						success(function(data){
-							alert("Registro Realizado Exitosamente.! :)");
-							window.location="#!/notificacion";
+							alert("Actualización Realizada Exitosamente.! :)");
+							window.location="#!/lista-becas";
 						}).
 						error(function(){
 							alert("Error al registrar Usuario! :'(");
 						});
 					}
 					self.cancel = function(){
-						alert("Registro Cancelado! :'(");
-						window.location = "/#!/login";
+						alert("Actualización Cancelada! :'(");
+						window.location = "/#!/lista-becas";
 					}
 				}
 			]

@@ -3,5 +3,6 @@ angular.module('sistBecasApp',[
 	'registroForm',
 	'loginBecas',
 	'notificacionRegistro',
-	'moduloBeca6'
+	'moduloBeca6',
+	'editAdminInfo'
 	]);

@@ -10,16 +10,15 @@ exports.findAllUsers = function(req, res) {
 		res.send(500, err.message);
 
 	console.log('GET /users')
-	res.status(200).jsonp(users);
+		res.status(200).jsonp(users);
     });
 };
 
 exports.findByMatricula = function(req, res){
-	User.find( {"matricula" : req.params.matricula}, function(err, user){ //En este caso ya no es un find directo, sino uno que pide explicitamente 'matricula': variable_matricula_recibida_en_la_URL
-		if(err)
-			res.send(500, err.message);
-		console.log('GET /users/matricula');
-		res.status(200).jsonp(user);
+	User.find({'matricula':req.params.matricula}, function(err, user){ //En este caso ya no es un find directo, sino uno que pide explicitamente 'matricula': variable_matricula_recibida_en_la_URL
+		if(err) return res.send(500, err.message);
+		console.log('GET /users/'+req.params.matricula);
+			res.status(200).jsonp(user);
 	});
 }
 
@@ -60,13 +59,13 @@ exports.addUser = function(req,res){
 		nombre: 	req.body.nombre,
 		apellido1: 	req.body.apellido1,
 		apellido2: 	req.body.apellido2,
-		fecha_Nac: 	req.body.fecha_Nac,
+		fechaNac: 	req.body.fechaNac,
 		carrera: 	req.body.carrera,
 		semestre: 	req.body.semestre,
 		grupo: 		req.body.grupo,
 		sexo: 		req.body.sexo,
 		idiomaExt: 	req.body.idiomaExt,
-		estdCivil: 	req.body.estdCivil,
+		edoCivil: 	req.body.edoCivil,
 		telefono: 	req.body.telefono,
 		recidencia: req.body.recidencia,
 		calle: 		req.body.calle,
@@ -75,7 +74,7 @@ exports.addUser = function(req,res){
 		municipio: 	req.body.municipio,
 		estado: 	req.body.estado,
 		nombreHuesped: req.body.nombreHuesped,
-		parestesco: req.body.parestesco
+		parentesco: req.body.parentesco
 	});
 
 	user.save(function(err,user){
@@ -84,46 +83,46 @@ exports.addUser = function(req,res){
 	});
 };
 
-//PUT - UPDATE Alumno
-exports.updateAlumno = function(req,res){
-	User.findByMatricula({'matricula' : req.params.matricula},function(err,user){
+//PUT - UPDATE Usuario
+exports.updateUser = function(req,res){
+	User.find({'matricula' : req.params.matricula},function(err,user){
 
-		user.matricula = 	req.body.matricula;
-		user.password= 	req.body.password;
-		user.password2= 	req.body.password2;
-		user.nombre= 		req.body.nombre;
-		user.apellido1= 	req.body.apellido1;
-		user.apellido2= 	req.body.apellido2;
-		user.fecha_Nac= 	req.body.fecha_Nac;
-		user.carrera=		req.body.carrera;
-		user.semestre= 		req.body.semestre;
-		user.grupo=			req.body.grupo;
-		user.sexo= 			req.body.sexo;
-		user.idiomaExt= 	req.body.idiomaExt;
-		user.estdCivil= 	req.body.estdCivil;
-		user.telefono= 	req.body.telefono;
-		user.recidencia= 	req.body.recidencia;
-		user.calle= 		req.body.calle;
-		user.numCalle= 	req.body.numCalle;
-		user.colonia=	req.body.colonia;
-		user.municipio= 	req.body.municipio;
-		user.estado= 	req.body.estado;
-		user.nombreHuesped= req.body.nombreHuesped;
-		user.parestesco= 	req.body.parestesco;
+		//user[0].matricula = 	req.body.matricula;
+		user[0].password= 	req.body.password;
+		user[0].password2= 	req.body.password2;
+		user[0].nombre= 		req.body.nombre;
+		user[0].apellido1= 	req.body.apellido1;
+		user[0].apellido2= 	req.body.apellido2;
+		user[0].fechaNac= 	req.body.fechaNac;
+		user[0].carrera=		req.body.carrera;
+		user[0].semestre= 		req.body.semestre;
+		user[0].grupo=			req.body.grupo;
+		user[0].sexo= 			req.body.sexo;
+		user[0].idiomaExt= 	req.body.idiomaExt;
+		user[0].edoCivil= 	req.body.edoCivil;
+		user[0].telefono= 	req.body.telefono;
+		user[0].recidencia= 	req.body.recidencia;
+		user[0].calle= 		req.body.calle;
+		user[0].numCalle= 	req.body.numCalle;
+		user[0].colonia=	req.body.colonia;
+		user[0].municipio= 	req.body.municipio;
+		user[0].estado= 	req.body.estado;
+		user[0].nombreHuesped= req.body.nombreHuesped;
+		user[0].parentesco= 	req.body.parentesco;
 
-		user.save(function(err){
+		user[0].save(function(err){
 			if (err) return res.status(500).send(err.message);
 			res.status(200).jsonp(user);;
 		});
-	})
+	});
 };
 
 //DELETE Alumno
-exports.deleteAlumno = function(req,res){
+exports.deleteUser = function(req,res){
 	User.findByMatricula({'matricula' : req.params.matricula},function(err,user){
 		user.remove(function(err){
 			if(err) return res.status(500).send(err.message);
 			res.status(200).send();
-		});
+		})
 	});
 };

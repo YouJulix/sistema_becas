@@ -6,10 +6,12 @@ exports.addAPIRouter = function(app, UserCtrl){ //Siempre hay que utilizar el ex
 	var users = express.Router();
 	users.route('/users')
 		.get(UserCtrl.findAllUsers)
-		.post(UserCtrl.addUser);
+		.post(UserCtrl.addUser)
 		//Dos puntos(:) antecedidos a una palabra, significa que esta será una variable
 	users.route('/users/:matricula') //la variable 'req', trae como 'params' una variable llamada 'matricula'
-		.get(UserCtrl.findByMatricula);
+		.get(UserCtrl.findByMatricula)
+		.put(UserCtrl.updateUser)
+		.delete(UserCtrl.deleteUser);
 	users.route('/users/:matricula/:password') //la variable 'req', trae como 'params' una variable llamada 'matricula' y otra llamada 'password'
 		.get(UserCtrl.checkUser);
 

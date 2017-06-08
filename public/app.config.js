@@ -20,6 +20,9 @@ angular.
 				when('/cartaProtesta', {
 					template: '<modulo-beca6></modulo-beca6>'
 				}).
+				when('/edit-user', {
+					template: '<edit-admin-info></edit-admin-info>'
+				}).
 				otherwise('/login');
 			}
 		]);

@@ -10,13 +10,13 @@ var  userSchema = new Schema({
 		nombre: 	{type:String},
 		apellido1: 	{type:String},
 		apellido2: 	{type:String},
-		fecha_Nac: 	{type:String},
+		fechaNac: 	{type:String},
 		carrera: 	{type:String},
 		semestre: 	{type:String},
 		grupo: 		{type:String},
 		sexo: 		{type:String},
 		idiomaExt: 	{type:String},
-		estdCivil: 	{type:String},
+		edoCivil: 	{type:String},
 		telefono: 	{type:String},
 		recidencia: {type:String},
 		calle: 		{type:String},
@@ -25,7 +25,7 @@ var  userSchema = new Schema({
 		municipio: 	{type:String},
 		estado: 	{type:String},
 		nombreHuesped: {type:String},
-		parestesco: {type:String}
+		parentesco: {type:String}
 	},
 	{ collection: 'users' }
 );
