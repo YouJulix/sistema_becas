@@ -27,6 +27,11 @@ var infHogar_routes = require('./routes/informacion-hogar-api/informacion-hogar.
 var infHogarModel = require('./routes/informacion-hogar-api/informacion-hogar.schema'); //Instancio el codigo 'users.schema.js' en la variable UserModel, el codigo de 'users.schema.js' registra un schema al modelo 'User', para que posteriormente dicho modelo se pueda utilizar en el controlador (Busquedas sobre ese modelo base)
 var infHogarCtrl = require('./routes/informacion-hogar-api/informacion-hogar.controller'); //Instancio el codigo 'users.controller.js' en la variable UserCtrl,
 
+//Ingresos Mensuales
+var ingresoMensual_routes = require('./routes/ingreso-mensual-api/ingreso-mensual.routes');
+var ingresoMensualModel = require('./routes/ingreso-mensual-api/ingreso-mensual.schema');
+var ingresoMensualCtrl = require('./routes/ingreso-mensual-api/ingreso-mensual.controller');
+
 //Connection to BD
 mongoose.connect(db.url);
 
@@ -48,6 +53,9 @@ GstsAl_routes.addAPIRouter(app, GstsAlCtrl)
 
 //API infomacion del hogar
 infHogar_routes.addAPIRouter(app,infHogarCtrl);
+
+// ingreso mensual
+ingresoMensual_routes.addAPIRouter(app, ingresoMensualCtrl);
 
 //Start Server
 app.listen(port, function(){

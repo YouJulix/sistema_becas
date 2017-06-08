@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img id="logoCabecera" src="img/logo.png" />
+			<h2> Sistema de Becas NU</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div id="menu" class="col-md-3 col-md-offset-9">			
+			<ul>
+				<li><a href="#!/login" >Cerrar sesión</a></li>
+				<li><a href="#!/login" >Regresar a solicitudes</a></li>
+				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
+			</ul>
+		</div>
+
+		<div id="menuSuperior" class="col-md-12">
+			<ul>
+				<li><a href="#!/login" >Persona de quien depende económicamente</a></li>
+				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
+				<li><a href="#!/login" >Gastos del alumno</a></li>
+				<li><a href="#!/login" >Información del hogar</a></li>
+				<li><a href="#!/login" >Gastos familiares</a></li>
+				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
+			</ul>
+			<div class="col-md-12">
+				<h2>Ingreso mensual en el hogar</h2>
+			</div>
+		</div>
+        <div id="moduloBeca2" class="col-md-12" >
+			<form ng-submit="$ctrl.addIngresoMensual()">
+				<div class="form-group">
+					<label >Ingreso mensual del jefe de familia</label>
+						<input type="text" class="form-control" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe">
+				</div>
+				<div class="form-group">
+					<label >Apoyo mensual gubernamental</label>
+						<input type="text" class="form-control" placeholder="apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental">
+				</div>
+				<div class="form-group">
+					<label >Apoyo mensual de terceros</label>
+						<input type="text" class="form-control" placeholder="apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros">
+				</div>
+				<br>
+				<a href="#!/login" class="btn btn-default" >Volver</a>
+				<button type="submit" class="btn btn-default">Continuar</button>
+			</form>
+		</div>
+    </div>
+</div>

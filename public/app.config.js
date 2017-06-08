@@ -27,7 +27,7 @@ angular.
 					template: '<dependencia-economica></dependencia-economica>'
 				}).
 				when('/ingreso_mensual', {
-					template: '<h2>Ingreso Mensual</h2>'
+					template: '<modulo-beca2></modulo-beca2>'
 				}).
 				when('/informacion_hogar', {
 					template: '<informacion-hogar></informacion-hogar>'

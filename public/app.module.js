@@ -6,5 +6,6 @@ angular.module('sistBecasApp',[
 	'moduloBeca6',
 	'dependenciaEconomica',
 	'gastosAlumno',
-	'informacionHogar'
+	'informacionHogar',
+	'moduloBeca2'
 	]);
