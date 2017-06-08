@@ -23,6 +23,10 @@ angular.
 				when('/cartaProtesta', {
 					template: '<modulo-beca6></modulo-beca6>'
 				}).
+<<<<<<< HEAD
+				when('/edit-user', {
+					template: '<edit-admin-info></edit-admin-info>'
+=======
 				when('/dependencia_economica', {
 					template: '<dependencia-economica></dependencia-economica>'
 				}).
@@ -31,6 +35,7 @@ angular.
 				}).
 				when('/informacion_hogar', {
 					template: '<informacion-hogar></informacion-hogar>'
+>>>>>>> b54bdaf27d7f8e9aa81564cacc7e4a426b8f0850
 				}).
 				otherwise('/login');
 			}
