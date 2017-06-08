@@ -25,6 +25,7 @@ angular.
 				}).
 				when('/edit-user', {
 					template: '<edit-admin-info></edit-admin-info>'
+				}).
 				when('/dependencia_economica', {
 					template: '<dependencia-economica></dependencia-economica>'
 				}).

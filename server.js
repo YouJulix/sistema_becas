@@ -11,6 +11,7 @@ var users_routes = require('./routes/users-api/users.routes'); //Routes y app.us
 var UserModel = require('./routes/users-api/users.schema'); //Instancio el codigo 'users.schema.js' en la variable UserModel, el codigo de 'users.schema.js' registra un schema al modelo 'User', para que posteriormente dicho modelo se pueda utilizar en el controlador (Busquedas sobre ese modelo base)
 var UserCtrl = require('./routes/users-api/users.controller'); //Instancio el codigo 'users.controller.js' en la variable UserCtrl,
 
+
 //Api sobre gastos de los alumnos
 var GstsAl_routes = require('./routes/gastos-alumno-api/gastos-alumno.routes');
 var GstsAlModel = require('./routes/gastos-alumno-api/gastos-alumno.schema');
@@ -31,6 +32,7 @@ var infHogarCtrl = require('./routes/informacion-hogar-api/informacion-hogar.con
 var ingresoMensual_routes = require('./routes/ingreso-mensual-api/ingreso-mensual.routes');
 var ingresoMensualModel = require('./routes/ingreso-mensual-api/ingreso-mensual.schema');
 var ingresoMensualCtrl = require('./routes/ingreso-mensual-api/ingreso-mensual.controller');
+
 
 //Connection to BD
 mongoose.connect(db.url);

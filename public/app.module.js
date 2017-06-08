@@ -4,10 +4,9 @@ angular.module('sistBecasApp',[
 	'loginBecas',
 	'notificacionRegistro',
 	'moduloBeca6',
-	'editAdminInfo'
+	'editAdminInfo',
 	'dependenciaEconomica',
 	'gastosAlumno',
-	'informacionHogar',
 	'moduloBeca2',
-	'informacionHogar'
+	'informacionHogar',
 	]);
