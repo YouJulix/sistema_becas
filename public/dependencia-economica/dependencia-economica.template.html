@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img id="logoCabecera" src="img/logo.png" />
+			<h2> Sistema de Becas NU</h2>
+			<hr />
+		</div>
+	</div>
+	<div class="row">
+		<div id="menu" class="col-md-3 col-md-offset-9">			
+			<ul>
+				<li><a href="#!/login" >Cerrar sesión</a></li>
+				<li><a href="#!/login" >Regresar a solicitudes</a></li>
+				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
+			</ul>
+		</div>
+
+		<div id="menuSuperior" class="col-md-12">
+			<ul>
+				<li><b><a href="#!/login" >Persona de quien depende económicamente</a></b></li>
+				<li><a href="#!/login" >Ingreso mensual</a></li>
+				<li><a href="#!/login" >Gastos del alumno</a></li>
+				<li><a href="#!/login" >Información del hogar</a></li>
+				<li><a href="#!/login" >Gastos familiares</a></li>
+				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
+			</ul>
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Personas de quien depende económicamente</h3>	
+			</div>
+		</div>
+		<div class="col-md-5 col-md-offset-3 " >
+			<!-- <form action="l.php" method="post"> -->
+			<form ng-submit="$ctrl.saveSection()">
+				Grado de escolaridad:<br>
+				<select name="escolaridad" ng-model="$ctrl.escolaridad" required>
+					<option value=""> --- Selecciona una opción --- </option>
+					<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
+					<option value="preescolar" >Preescolar</option>
+					<option value="primaria">Primaria</option>
+					<option value="secundaria">Secundaria</option>
+					<option value="bachillerato">Bachillerato</option>
+					<option value="universidad">Universidad</option>
+					<option value="maestria">Maestría</option>
+					<option value="doctorado">Doctorado</option>
+					<option value="post-doctorado">Post-Doctorado</option>
+				</select>
+				<br><br>
+				Tipo de trabajo:<br>
+				<select name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
+					<option value=""> --- Selecciona una opción --- </option>
+					<option value="temporal">Temporal</option>
+					<option value="permanente">Permanente</option>
+				</select><br><br>
+				<button id="btnContinuar" type="submit">Continuar</button>
+
+			</form>
+		</div>
+	</div>	
+</div>
