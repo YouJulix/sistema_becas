@@ -5,5 +5,6 @@ angular.module('sistBecasApp',[
 	'notificacionRegistro',
 	'moduloBeca6',
 	'dependenciaEconomica',
-	'gastosAlumno'
+	'gastosAlumno',
+	'informacionHogar'
 	]);
