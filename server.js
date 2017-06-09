@@ -33,6 +33,10 @@ var ingresoMensual_routes = require('./routes/ingreso-mensual-api/ingreso-mensua
 var ingresoMensualModel = require('./routes/ingreso-mensual-api/ingreso-mensual.schema');
 var ingresoMensualCtrl = require('./routes/ingreso-mensual-api/ingreso-mensual.controller');
 
+//Gastos Familiares
+var GastFamRoute = require('./routes/gastosfamiliares-api/gastosfamiliares.routes');
+var GastFamSchema = require('./routes/gastosfamiliares-api/gastosfamiliares.schema');
+var GastFamCtrl = require('./routes/gastosfamiliares-api/gastosfamiliares.controller');
 
 //Connection to BD
 mongoose.connect(db.url);
@@ -58,6 +62,9 @@ infHogar_routes.addAPIRouter(app,infHogarCtrl);
 
 // ingreso mensual
 ingresoMensual_routes.addAPIRouter(app, ingresoMensualCtrl);
+
+//api gastos familiares
+GastFamRoute.addAPIRouter(app, GastFamCtrl);
 
 //Start Server
 app.listen(port, function(){
