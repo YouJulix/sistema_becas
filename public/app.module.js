@@ -9,4 +9,5 @@ angular.module('sistBecasApp',[
 	'gastosAlumno',
 	'moduloBeca2',
 	'informacionHogar',
+	'gastosFamiliares',
 	]);
