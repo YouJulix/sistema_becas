@@ -1,0 +1,176 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img id="logoCabecera" src="img/logo.png" />
+			<h2>Sistema de Becas NU</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-10">
+			<div class="row">
+				<a href="#">Cerrar sesión</a>
+			</div>
+			<div class="row">
+				<a href="#">Regresar a Solicitudes</a>
+			</div>
+			<div class="row">
+				<a href="#">Cancelar Solicitud Actual</a>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="col-md-2">
+				<a href="#">Personas de quien depende económicamente</a>
+			</div>
+			<div class="col-md-2">
+				<a href="#">Ingreso Mensual</a>
+			</div>
+			<div class="col-md-2">
+				<a href="#">Gastos del alumno</a>
+			</div>
+			<div class="col-md-2">
+				<a href="#">Gastos del Hogar</a>
+			</div>
+			<div class="col-md-2">
+				<a href="#"><b>Gastos Familiares</b></a>
+			</div>
+			<div class="col-md-2">
+				<a href="#">Carta Protesta</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<h4>Gastos Familiares</h4>
+		<p><b>Escribir los gastos familiares mensuales (sin incluir los del solicitante):</b></p>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<form ng-submit="$ctrl.validat()">
+				<p>Pago mensual de servicios</p>
+				<p ng-show="!$ctrl.msgerror" style="color:red;">Error con algunos de los campos</p>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Agua</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="agua" required ng-model="$ctrl.agua"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Luz</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="luz" required ng-model="$ctrl.luz"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Télefono</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="telefono" required ng-model="$ctrl.telefono"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Gas</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="gas" required ng-model="$ctrl.gas"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Educación</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="educacion" required ng-model="$ctrl.educacion"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Transporte</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="transporte" required ng-model="$ctrl.transporte"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Renta de Domicilio</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="renta_domicilio" required ng-model="$ctrl.rentadomicilio"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Television por Cable</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="television_cable" required ng-model="$ctrl.television"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Internet</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="internet" required ng-model="$ctrl.internet"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Alimentación</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="alimentacion" required ng-model="$ctrl.alimentacion"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Vestido</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="vestido" required ng-model="$ctrl.vestido"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Médico</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="medico" required ng-model="$ctrl.medico"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Diversión</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="diversion" required ng-model="$ctrl.diversion"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Otro</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="otro" required ng-model="$ctrl.otro"/><br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<input type="button" class="btn" value="Volver"/>
+					</div>
+					<div class="col-md-6">
+						<input type="submit" class="btn" value="Continuar"/>
+					</div>
+				</div>			
+			</form>
+		</div>
+	</div>
+</div>
