@@ -35,6 +35,9 @@ angular.
 				when('/informacion_hogar', {
 					template: '<informacion-hogar></informacion-hogar>'
 				}).
+				when('/gastos_familiares', {
+					template: '<gastos_familiares></gastos_familiares>'
+				}).
 				otherwise('/login');
 			}
 		]);
