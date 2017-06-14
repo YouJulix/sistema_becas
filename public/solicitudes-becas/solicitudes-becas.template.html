@@ -1,0 +1,92 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img id="logoCabecera" src="img/logo.png" />
+			<h2> Sistema de Becas NU</h2>
+			<hr />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<input ng-click="agregar()" type="button" name="" value="Nueva Solicitud">
+		</div>
+
+		<div class="col-md-2 col-md-offset-8">
+			<a href="" ng-click="cerrarSesion()">Cerrar Sesion</a>
+		</div>
+		
+	</div>
+	<hr />
+
+	<div class="row">
+		<div class="col-md-3">
+			<b>Matricula: {{dato[0].matricula}}</b><br />
+			<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
+		</div>
+		<div class="col-md-3">
+			<b>Carrera: {{dato[0].carrera}}</b><br />
+			<b>Semestre: {{dato[0].semestre}}</b>
+		</div>
+		<div class="col-md-3">
+			<br />
+			<b>Porcentaje de beca actual:</b>
+		</div>
+	</div>
+	<br />
+
+	<div class="row">
+		<h4>Solicitud en Proceso</h4>
+
+		<div class="col-md-10">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="bg-info">
+						<td>Matricula</td>
+						<td>Fecha de envio</td>
+						<td>Continuar</td>
+						<td>Borrar</td>
+					</tr>
+				</thead>
+
+				<tbody ng-repeat="u in pendientes">
+					<td>{{u.matricula}}</td>
+					<td>{{u.fecha_envio}}</td>
+					<td> <button class="btn btn-default" ng-click="modificar(u._id)">Continuar</button></td>
+					<!--<td> <button class="btn btn-default" ng-click="prueba()">Borrar</button></td>-->
+					<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
+				</tbody>
+
+				
+				
+			</table>
+		</div>
+		
+	</div>
+	<br />
+
+	<div class="row">
+		<h4>Historial de Solicitudes</h4>
+
+		<div class="col-md-8">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="bg-info">
+						<td>Matricula</td>
+						<td>Fecha de envio</td>
+						<td>% de beca fina asignada</td>
+					</tr>
+				</thead>
+
+
+			<tbody ng-repeat="u in terminados">
+				<td>{{u.matricula}}</td>
+				<td>{{u.fecha_envio}}</td>
+				<td>{{u.porcentaje_sugerido}}</td>
+			</tbody>
+				
+			</table>
+		</div>
+	</div>
+
+</div>
