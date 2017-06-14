@@ -6,6 +6,27 @@ angular.
 				function gastosFamiliaresController($http){
 					var self = this; //BUena practica es no manipular el this directamente
 					
+					//metodo para dicernir visualmente si es admin o alumno ===Ed=
+					if(localStorage.getItem("isAdmin")){						//
+						self.solicitudToMenu = "Menú principal";				//	
+					}else{														//
+						self.solicitudToMenu = "Regresar a solicitudes";		//
+					}															//
+					//==========================================================//
+					
+					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
+					self.menuChangue = function(){									//
+						if(localStorage.getItem("isAdmin")){
+							console.log("is admin to #!menu_admin");				//
+							window.location = "/#!/menu_admin";						//	
+						}else{														//
+							console.log("is not admin to #!solicitudes");
+							window.location = "/#!/solicitudes";						//
+						}															//
+					}																//
+					//================================================================
+					
+					
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					self.solicitudId=localStorage.getItem("idSolicitud");
 					console.log(self.solicitudId);

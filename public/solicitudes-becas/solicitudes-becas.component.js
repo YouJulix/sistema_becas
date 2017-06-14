@@ -123,16 +123,16 @@ angular.
 							}
 
 						};
-
+						//Sugerencia... podrian ser la misma funcion
 						$scope.modificar = function(id){
 
-							window.location = "/#!/entrada";
+							window.location = "/#!/dependencia_economica";
 
 						};
 
 						$scope.agregar = function(id){
 
-							window.location = "/#!/entrada";
+							window.location = "/#!/dependencia_economica";
 
 						};
 
