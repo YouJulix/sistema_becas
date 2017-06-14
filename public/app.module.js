@@ -10,4 +10,6 @@ angular.module('sistBecasApp',[
 	'moduloBeca2',
 	'informacionHogar',
 	'gastosFamiliares',
+	'solicitudesBecas',
+	'notificbecaenviadaBecas',
 	]);
