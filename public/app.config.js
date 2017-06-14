@@ -38,6 +38,12 @@ angular.
 				when('/gastos_familiares', {
 					template: '<gastos_familiares></gastos_familiares>'
 				}).
+				when('/solicitudes',{
+					template: '<solicitudes-becas></solicitudes-becas>'
+				}).
+				when('/notificbecaenviada',{
+					template: '<notificbecaenviada-becas></notificbecaenviada-becas>'
+				}).
 				otherwise('/login');
 			}
 		]);
