@@ -38,6 +38,11 @@ var GastFamRoute = require('./routes/gastosfamiliares-api/gastosfamiliares.route
 var GastFamSchema = require('./routes/gastosfamiliares-api/gastosfamiliares.schema');
 var GastFamCtrl = require('./routes/gastosfamiliares-api/gastosfamiliares.controller');
 
+//Api solicitudes
+var solicitudes_routes = require('./routes/solicitudes-api/solicitudes.routes'); //Routes y app.use(...)
+var SolicitudesModel = require('./routes/solicitudes-api/solicitudes.schema'); //Instancio el codigo 'users.schema.js' en la variable UserModel, el codigo de 'users.schema.js' registra un schema al modelo 'User', para que posteriormente dicho modelo se pueda utilizar en el controlador (Busquedas sobre ese modelo base)
+var SolicitudesCtrl = require('./routes/solicitudes-api/solicitudes.controller'); //Instancio el codigo 'users.controller.js' en la variable UserCtrl,
+
 //Connection to BD
 mongoose.connect(db.url);
 
@@ -65,6 +70,9 @@ ingresoMensual_routes.addAPIRouter(app, ingresoMensualCtrl);
 
 //api gastos familiares
 GastFamRoute.addAPIRouter(app, GastFamCtrl);
+
+//api solicitudes
+solicitudes_routes.addAPIRouter(app, SolicitudesCtrl);
 
 //Start Server
 app.listen(port, function(){
