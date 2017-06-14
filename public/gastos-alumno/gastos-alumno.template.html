@@ -35,7 +35,7 @@
 					<div class="form-group">
 						<label for="medicalServices" class="col-sm-4">Servicios medicos:</label>
 						<div class="col-sm-8">
-							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos" required />	
+							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos"/>	
 						</div>
 					</div>
 					
@@ -46,7 +46,7 @@
 						    	<input type="radio"   ng-click="$ctrl.rentaSi = true" value="" name="renta">Si
 						    </label>
 						    <label class="radio-inline">
-						    	<input type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">No
+						    	<input checked="checked" type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">No
 						    </label>
 						</div>
 					</div>
