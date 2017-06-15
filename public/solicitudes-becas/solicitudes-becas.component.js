@@ -152,7 +152,7 @@ angular.
 									'fecha_envio' : fecha,
 									'matricula' : $scope.matricula }
 						    }).success(function (data, status, headers, config) {
-						localStorage.setItem("idsolicitud",data._id);
+						localStorage.setItem("idSolicitud",data._id);
 						//alert(data._id);
 						window.location = "/#!/dependencia_economica";
 					    }).error(function (data, status, headers, config) {
