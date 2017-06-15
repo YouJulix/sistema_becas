@@ -1,0 +1,75 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<img id="logoCabecera" src="img/logo.png" />
+			<h2>Sistema de Becas NU</h2>
+		</div>
+		<div class="col-md-2">
+			<a href="#">Cerrar Sesion</a>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<form ng-submit="$ctrl.busqueda()">
+				<p>Buscar Alumno: </p>
+				<input type="text" name="matricula" ng-model="$ctrl.matricula" required />
+				<button type="submit">Buscar</button>
+			</form>
+			<p ng-show="!$ctrl.msgerror" style="color:red;">No se encontraron resultados</p>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-4">
+			<p><b>Matricula: </b></p>
+			<p id="tmatricula">{{dato.matricula}}</p>
+		</div>
+		<div class="col-md-4">
+			<p><b>Carrera: </b></p>
+			<p id="tcarrera">{{dato.carrera}}</p>
+		</div>
+		<div class="col-md-4">
+			<p><b>Porcentaje de beca Actual: </b></p>
+			<p id="tbecaact"></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<p><b>Nombre: </b></p>
+			<p id="tnombre">{{dato.nombre}} {{dato.apellido1}} {{dato.apellido2}}</p>
+		</div>
+		<div class="col-md-4">
+			<p><b>Semestre: </b></p>
+			<p id="tsemestre">{{dato.semestre}}</p>
+		</div>
+		<div class="col-md-4">
+			<a ng-click="editinfo()">Editar informacion Personal</a>
+		</div>
+	</div>
+	<div class="row">
+		<p><b>Becas Solicitadas: </b></p>
+		<br>
+		<table class="table table-bordered">
+			<thead>
+				<tr class="bg-info">
+					<td>Matricula</td>
+					<td>Fecha de envio</td>
+					<td>% de beca calculado</td>
+					<td>% de beca asignado</td>
+					<td colspan="3">Opciones</td>
+				</tr>
+			</thead>
+
+			<tbody ng-repeat="u in solicitudes">
+				<td>{{u.matricula}}</td>
+				<td>{{u.fecha_envio}}</td>
+				<td>{{u.porcentaje_sugerido}}</td>
+				<td>{{u.porcentaje_final}}</td>
+				<td><button class="btn btn-default" ng-click="detalle(u._id)">Editar Porcentaje</button></td>
+				<td><button class="btn btn-default" ng-click="modificar(u._id)">Editar Solicitud</button></td>
+				<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
+			</tbody>
+		</table>
+	</div>
+</div>
