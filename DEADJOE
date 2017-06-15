@@ -48,3 +48,31 @@ Processing '/etc/joe/editorrc'...
 Processing '/etc/joe/ftyperc'...
 Finished processing /etc/joe/ftyperc
 Finished processing /etc/joe/editorrc
+
+*** These modified files were found in JOE when it aborted on Thu Jun 15 12:33:42 2017
+*** JOE was aborted because the terminal closed
+
+*** File '/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG'
+Merge branch 'master' of https://github.com/YouJulix/sistema_becas
+
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+UNIDO login  EDDY Y MIO
+*** File '(Unnamed)'
+/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG
+/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG
+/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG
+/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG
+/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG
+/home/julix/Github Projects/helpdesk/.git/MERGE_MSG
+mensaje del merge
+/home/julix/Github Projects/sistema_becas/.git/MERGE_MSG
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
