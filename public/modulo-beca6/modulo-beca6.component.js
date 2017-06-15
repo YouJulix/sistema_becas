@@ -47,7 +47,7 @@ angular.
 
 					$scope.aceptar = function(){
 						
-						$scope.idsolicitud = localStorage.getItem("idsolicitud");
+						$scope.idsolicitud = localStorage.getItem("idSolicitud");
 
 						$http({
 							method: 'GET',
