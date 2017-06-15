@@ -34,7 +34,7 @@ angular.
 
  					object = $http({
 						method 	: 	'GET',
-						url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ self.solicitudId
+						url 	: 	'http://192.168.43.247:8000/api/v1.0/informacionHogar/'+ self.solicitudId
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
@@ -84,7 +84,7 @@ angular.
 						$http({
 							method: self.method,
 							//url: 'localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //NO Funciona
-							url: 'http://localhost:8000/api/v1.0/informacionHogar',   //Es necesario ponerle http:// al inicio para que funcione
+							url: 'http://192.168.43.247:8000/api/v1.0/informacionHogar',   //Es necesario ponerle http:// al inicio para que funcione
 							data : self.data,  //Pero también funciona enviarlo como simple objeto
 							headers : {//Parametro opcional //Si se enviará la data a Node js no es necesario definir un 'Content-Type' pues por default el 'Content-Type' de $http es 'application/json'
 								//'Content-Type' : 'application/x-www-form-urlencoded' //codificacion usada por defecto en PHP(con = y &) y en muchos otros servidores, Node js la soporta pero la 'data' se debe enviar en forma: 'matricula='+self.matricula+'&password='+self.password+
