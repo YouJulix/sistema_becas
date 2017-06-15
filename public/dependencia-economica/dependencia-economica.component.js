@@ -35,7 +35,7 @@
 					//self.data = JSON.stringify(self.data);
 					$http({
 						method: 'POST',
-						url: 'http://localhost:8000/api/v1.0/deps_econs',
+						url: 'http://192.168.43.247:8000/api/v1.0/deps_econs',
 						//data : JSON.stringify(self.data), //FUnciona enviarlo como String también
 						data : self.data,  //Pero también funciona enviarlo como simple objeto
 						headers : {//Parametro opcional //Si se enviará la data a Node js no es necesario definir un 'Content-Type' pues por default el 'Content-Type' de $http es 'application/json'
@@ -53,7 +53,7 @@
 				self.searchSaved = function(){
 					$http({
 						method: 'GET',
-						url: 'http://localhost:8000/api/v1.0/deps_econs/' + localStorage.getItem("idSolicitud")
+						url: 'http://192.168.43.247:8000/api/v1.0/deps_econs/' + localStorage.getItem("idSolicitud")
 					}).
 					success(function(data){//data es un array que contiene lo que enviamos(Un solo objeto en este caso)
 						if(data.length == 0){//Se respondio con un conjunto vacio: data = []
