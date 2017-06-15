@@ -142,7 +142,7 @@ angular.
 															'fecha_envio' : fecha,
 															'matricula' : $scope.matricula }
 												    }).success(function(data){
-														
+													window.location = "/#!/notificbecaenviada";	
 											        }).
 													error(function(){
 														alert('Error al intentar recuperar el cliente');
