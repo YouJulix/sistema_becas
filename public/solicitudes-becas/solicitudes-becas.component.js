@@ -125,16 +125,37 @@ angular.
 						};
 						//Sugerencia... podrian ser la misma funcion
 						$scope.modificar = function(id){
-
+							localStorage.setItem("idsolicitud",id);
 							window.location = "/#!/dependencia_economica";
+
 
 						};
 
 						$scope.agregar = function(id){
+							var f = new Date();
+							var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
 
-							window.location = "/#!/dependencia_economica";
 
-						};
+						    $http({
+							url: 'http://localhost:8000/api/v1.0/solicitudes/',
+							method: "POST",
+							data: { 								
+								'estado' : "pendiente",
+									'porcentaje_sugerido' : 0,
+									'porcentaje_final' : 0,
+									'libre_de_extra' : false,
+									'biblioteca_completa' : false,
+									'fecha_envio' : fecha,
+									'matricula' : $scope.matricula }
+						    }).success(function (data, status, headers, config) {
+						localStorage.setItem("idsolicitud",data._id);
+						//alert(data._id);
+						window.location = "/#!/dependencia_economica";
+					    }).error(function (data, status, headers, config) {
+						alert('Error al intentar recuperar el cliente');
+					    });
+
+					};
 
 
 						$scope.cerrarSesion = function() {
