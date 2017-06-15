@@ -8,6 +8,8 @@ angular.
 					self.method = 'POST';
 					self.solicitudId = localStorage.getItem('idSolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					//self.solicitud = localStorage.getItem("idSolicitud");
+
+
  					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ self.solicitudId
@@ -36,7 +38,16 @@ angular.
 						console.log(err);
 					});
 					self.saveData = function(){
-						
+						self.materialPisoError = false;
+						self.materialTechoError = false;
+						if(/^[a-z][a-z]*$/.test(self.materialPiso)==false){
+							self.materialPisoError = true;
+							return;
+						}
+						if(/^[a-z][a-z]*$/.test(self.materialTecho)==false){
+							self.materialTechoError = true;
+							return;
+						}
 						self.data =  {
 							"solicitudId" : localStorage.getItem("idSolicitud"),
 							"tipoCasa" : self.tipoCasa,

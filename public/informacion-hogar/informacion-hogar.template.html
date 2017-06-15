@@ -2,19 +2,19 @@
 	<div class="row">
 		<div id="menuSuperior" class="col-md-9">
 			<ul>
-				<li><a href="#!/login" >Persona de quien depende económicamente</a></li>
-				<li><a href="#!/login" >Ingreso mensual</a></li>
-				<li><a href="#!/login" >Gastos del alumno</a></li>
+				<li><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></li>
+				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
+				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
 				<li><b><a href="#!/informacion_hogar" >Información del hogar</a></b></li>
-				<li><a href="#!/login" >Gastos familiares</a></li>
-				<li><a href="#!/login" >Carta Protesta</a></li>
+				<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
+				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
 			</ul>
 		</div>
 		<div id="menu" class="col-md-3">			
 			<ul>
 				<li><a href="#!/login" >Cerrar sesión</a></li>
-				<li><a href="#!/login" >Regresar a solicitudes</a></li>
-				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
+				<li><a href="#!/solicitudes" >Regresar a solicitudes</a></li>
+				<li><a href="#!/solicitudes" >Cancelar solicitud actual</a></li>
 			</ul>
 		</div>	
 	</div>
@@ -38,21 +38,27 @@
 					<option value="madera">Madera</option>
 					<option value="Concreto">Concreto</option>
 				</select>
-				<p>Material del piso</p>
-				<input type="text" name="piso" ng-model="$ctrl.materialPiso" required>
-				<p>Material del techo</p>
-				<input type="text" name="techo" ng-model="$ctrl.materialTecho" required>
+				<div>
+					<p>Material del piso</p>
+					<input type="text" name="piso" ng-model="$ctrl.materialPiso" required>
+					<span class="error" ng-init="$ctrl.materialPisoError=false" ng-show="$ctrl.materialPisoError">Error! El material del piso debe ser solo texto.</span>
+				</div>
+				<div>
+					<p>Material del techo</p>
+					<input type="text" name="techo" ng-model="$ctrl.materialTecho" required>
+					<span class="error" ng-init="$ctrl.materialTechoError=false" ng-show="$ctrl.materialTechoError">Error! El material del piso debe ser solo texto.</span>
+				</div>
 				<p>Número de personas que habitan la vivienda:</p>
 				<input type="number" name="habitantes" ng-model="$ctrl.habitantes">
 				<hr>
 				<p>Espacio con los que cuenta la vivienda(Indique con número)</p>
 				<div>
 					<p>Cuartos</p>
-					<input type="number" name="cuartos" ng-model="$ctrl.cuartos">
+					<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" required>
 					<p>Baños</p>
-					<input type="number" name="banios" ng-model="$ctrl.banios">
+					<input type="number" name="banios" ng-model="$ctrl.banios" min="1" required>
 					<p>Focos</p>
-					<input type="number" name="focos" ng-model="$ctrl.focos">
+					<input type="number" name="focos" ng-model="$ctrl.focos" min="1" required>
 				</div>
 				<br><br>
 				<input type="submit" value="Continuar" /><br /><br />
