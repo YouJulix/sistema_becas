@@ -44,6 +44,9 @@ angular.
 				when('/notificbecaenviada', {
 					template: '<notificbecaenviada-becas></notificbecaenviada-becas>'
 				}).
+				when('/detalles_solicitud_admin', {
+					template: '<detalles-solicitud-admin></detalles-solicitud-admin>'
+				}).
 				otherwise('/login');
 			}
 		]);
