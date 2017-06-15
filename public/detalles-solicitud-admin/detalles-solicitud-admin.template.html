@@ -17,7 +17,7 @@
 				<p><b>Carrera:</b> {{$ctrl.carrera}}</p>				
 			</div>
 			<div class="col-md-4">
-				<p><b>Fecha:</b> {{$ctrl.fecha}}</p>				
+				<p><b>Fecha:</b> {{$ctrl.fecha_envio}}</p>				
 			</div>
 		</div>
 		<div class="row">
@@ -30,17 +30,24 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-				<p><i>Porcentaje sugerido para esta beca: </i>{{$ctrl.porcentajeBeca}}</p>
+				<p><i>Porcentaje sugerido para esta beca: </i>{{$ctrl.porcentaje_sugerido}}</p>
 			</div>			
 		</div>
 		<div class="row">
 			<div class="col-md-offset-1">
 				<p><b>Actividades complementarias: </b></p>
 
-				<input type="checkbox" ng-model="$ctrl.biblioteca" id="biblioteca">
+				<input type="checkbox" ng-model="$ctrl.biblioteca_completa" id="biblioteca">
 				<label for="biblioteca">El alumno cumplio con el 85% de sus actividades complementarias</label>
-
-				<p>{{$ctrl.biblioteca}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-offset-1">
+				<p><b>Examenes extraordinarios: </b></p>
+				<div>
+					<input type="checkbox" ng-model="$ctrl.libre_de_extra" id="biblioteca">
+					<label for="biblioteca">El alumno adeuda después de exámenes extraordinario 1, 3 asignaturas de un semestre en el que curse o recurse 5 o más. </label>
+				</div>
 			</div>
 		</div>
 		

@@ -5,6 +5,27 @@ angular.
 			controller: ['$http',
 				function RegistroFormController($http){
 					var self = this;
+					/*
+					//metodo para dicernir visualmente si es admin o alumno ===Ed=
+					if(localStorage.getItem("isAdmin")){						//
+						self.solicitudToMenu = "Menú principal";				//	
+					}else{														//
+						self.solicitudToMenu = "Regresar a solicitudes";		//
+					}															//
+					//==========================================================//
+					
+					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
+					self.menuChangue = function(){									//
+						if(localStorage.getItem("isAdmin")){
+							console.log("is admin to #!menu_admin");				//
+							window.location = "/#!/menu_admin";						//	
+						}else{														//
+							console.log("is not admin to #!solicitudes");
+							window.location = "/#!/solicitudes";						//
+						}															//
+					}																//
+					//================================================================
+					*/
 
 					self.carreras = ['Lic. en Informática',
 									'Ing. en Agronomía',
@@ -89,12 +110,14 @@ angular.
 					self.estado = self.estados[0];
 
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
-
-
-					self.renderUser = function(matriculaGet){
+					
+					self.matricula = localStorage.getItem('matricula');
+					self.solicitudId = localStorage.getItem('idSolicitud');
+					
+					self.renderUser = function(){
 						$http({
 							method:'GET',
-							url: 'http://localhost:8000/api/v1.0/users/'+matriculaGet
+							url: 'http://localhost:8000/api/v1.0/users/'+ self.matricula
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
@@ -127,54 +150,35 @@ angular.
 							alert("Error. El Usuario no existe");
 							window.location = "#!/lista-becas";
 						});
-					}
-
-					//Ccarga los datos con la siguiente matricula.
-					//Para cargar los datos de determinado alumno, la funcion recibe como parametro la matricula
-					//self.renderUser('0113010010');
-
-					self.updateUser = function(){
+/*
+{
+"matricula": "0113010003",
+"estado": "completa",
+"porcentaje_sugerido": "100",
+"porcentaje_final": "100",
+"libre_de_extra": "true",
+"biblioteca_completa": "true",
+"fecha_envio": "15/06/2017"
+}
+*/
 						$http({
-							method: 'PUT',
-							url: 'http://localhost:8000/api/v1.0/users/'+self.matricula,
-							data: 'matricula='+self.matricula+
-								'&password='+self.password+
-								'&password2='+self.password2+
-								'&nombre='+self.nombre+
-								'&apellido1='+self.apellido1+
-								'&apellido2='+self.apellido2+
-								'&fechaNac='+self.fechaNac+
-								'&carrera='+self.carrera+
-								'&semestre='+self.semestre+
-								'&grupo='+self.grupo+
-								'&sexo='+self.sexo+
-								'&idiomaExt='+self.idiomaExt+
-								'&edoCivil='+self.edoCivil+
-								'&telefono='+self.telefono+
-								'&recidencia='+self.recidencia+
-								'&calle='+self.calle+
-								'&numCalle='+self.numCalle+
-								'&colonia='+self.colonia+
-								'&municipio='+self.municipio+
-								'&estado='+self.estado+
-								'&nombreHuesped='+self.nombreHuesped+
-								'&parentesco='+self.parentesco,
-							headers: {'Content-Type':'application/x-www-form-urlencoded'}
-
+							method:'GET',
+							url: 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula
 						}).
 						success(function(data){
-							alert("Actualización Realizada Exitosamente.! :)");
-							window.location="#!/lista-becas";
+							//alert(data[0].fechaNac);
+							self.estado 			 		= data[0].estado;
+							self.porcentaje_sugerido 		= data[0].porcentaje_sugerido;
+							self.porcentaje_final			= data[0].porcentaje_final;
+							self.libre_de_extra				= data[0].libre_de_extra;
+							self.biblioteca_completa		= data[0].biblioteca_completa;
+							self.fecha_envio				= data[0].fecha_envio;
 						}).
 						error(function(){
-							alert("Error al registrar Usuario! :'(");
+							alert("Error.");
 						});
 					}
-					self.cancel = function(){
-						alert("Actualización Cancelada! :'(");
-						window.location = "/#!/lista-becas";
-					}
-					this.renderUser("0113010003");
+					this.renderUser(self.matricula);
 				}
 			]
 		});
