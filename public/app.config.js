@@ -47,6 +47,9 @@ angular.
 				when('/detalles_solicitud_admin', {
 					template: '<detalles-solicitud-admin></detalles-solicitud-admin>'
 				}).
+				when('/admin_principal', {
+					template: '<admin-search></admin-search>'
+				}).
 				otherwise('/login');
 			}
 		]);
