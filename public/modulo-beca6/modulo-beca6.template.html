@@ -9,8 +9,8 @@
 	<div class="row">
 		<div id="menu" class="col-md-3 col-md-offset-9">			
 			<ul>
-				<li><a href="#!/login" >Cerrar sesión</a></li>
-				<li><a href="#!/login" >Regresar a solicitudes</a></li>
+				<li><a href="" ng-click="cerrarSesion()" >Cerrar sesión</a></li>
+				<li><a href="#!/solicitudes" >Regresar a solicitudes</a></li>
 				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
 			</ul>
 		</div>
@@ -30,12 +30,12 @@
 
 		<div id="modBeca6" class="col-md-6 col-md-offset-3" >
 			<div class="checkbox">
-				<label><input type="checkbox" value="">Declaro que los datos aquí asentados son verídicos, entrando en conocimiento de que 						   la falsedad de los mismos es motivo de pérdida temporal o definitiva del derecho a la beca.
+				<label><input ng-model="checked" type="checkbox" value="">Declaro que los datos aquí asentados son verídicos, entrando en conocimiento de que 						   la falsedad de los mismos es motivo de pérdida temporal o definitiva del derecho a la beca.
 				</label>
 			</div>
 			<br><br>
 			<button>Continuar</button>
-			<button>Enviar</button>
+			<button ng-disabled="!checked" ng-click="aceptar()">Enviar</button>
 		</div>
 	</div>	
 </div>

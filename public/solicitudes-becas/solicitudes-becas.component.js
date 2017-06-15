@@ -114,6 +114,15 @@ angular.
 
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
+
+					        $http({ 
+					            method: 'DELETE',
+								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
+					        }).success(function(data){
+					        	self.imprimir();
+					        	window.location = "/#!/solicitudes";
+					        }).
+
 						$http({ 
 						    method: 'DELETE',
 								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
@@ -121,12 +130,47 @@ angular.
 							self.imprimir();
 							window.location = "/#!/solicitudes";
 						}).
+
 							error(function(){
 								alert('Error al intentar recuperar el cliente');
 							});
 						}
 
 					};
+
+
+					$scope.modificar = function(id){
+						localStorage.setItem("idsolicitud",id);
+						window.location = "/#!/dependencia_economica";
+
+
+					};
+
+					$scope.agregar = function(id){
+						var f = new Date();
+						var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+						
+
+					    $http({
+					        url: 'http://localhost:8000/api/v1.0/solicitudes/',
+					        method: "POST",
+					        data: { 								
+					        	'estado' : "pendiente",
+								'porcentaje_sugerido' : 0,
+								'porcentaje_final' : 0,
+								'libre_de_extra' : false,
+								'biblioteca_completa' : false,
+								'fecha_envio' : fecha,
+								'matricula' : $scope.matricula }
+					    }).success(function (data, status, headers, config) {
+			                localStorage.setItem("idsolicitud",data._id);
+			            	//alert(data._id);
+			            	window.location = "/#!/dependencia_economica";
+			            }).error(function (data, status, headers, config) {
+			                alert('Error al intentar recuperar el cliente');
+			            });
+
+
 					//Sugerencia... podrian ser la misma funcion
 					$scope.modificar = function(id){
 						localStorage.setItem("idSolicitud",id);
@@ -152,21 +196,29 @@ angular.
 									'fecha_envio' : fecha,
 									'matricula' : $scope.matricula }
 						    }).success(function (data, status, headers, config) {
-						localStorage.setItem("idsolicitud",data._id);
+						localStorage.setItem("idSolicitud",data._id);
 						//alert(data._id);
 						window.location = "/#!/dependencia_economica";
 					    }).error(function (data, status, headers, config) {
 						alert('Error al intentar recuperar el cliente');
 					    });
 
+
 					};
 
 
 					$scope.cerrarSesion = function() {
+
+				  
+				        localStorage.removeItem("matricula");
+				        window.location = "/#!/login";
+				    }
+
 					  
 					        localStorage.removeItem("matricula");
 					        window.location = "/#!/login";
 					}
+
 
 
 

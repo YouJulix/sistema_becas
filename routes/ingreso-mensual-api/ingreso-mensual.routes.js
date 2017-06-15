@@ -4,10 +4,11 @@ exports.addAPIRouter = function(app, ingresoMensualCtrl){
 	var ingresoMensual = express.Router();
 		ingresoMensual.route('/ingresoMensual')
 			.get(ingresoMensualCtrl.findIngresoMensual)
-			.put(ingresoMensualCtrl.updateIngresoMensual)
 			.post(ingresoMensualCtrl.addIngresoMensual);
 		ingresoMensual.route('/ingresoMensual/:solicitudId')
-		.get(ingresoMensualCtrl.findBySolicitudId);
+		.get(ingresoMensualCtrl.findBySolicitudId)
+		.put(ingresoMensualCtrl.updateIngresoMensual);
+		
 	
 	app.use("/api/v1.0", ingresoMensual);
 }
