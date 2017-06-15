@@ -97,7 +97,10 @@ angular.
 						error(function(){
 							alert('Error al intentar agregar informacion del hogar');
 						});
-					}				
+					};
+					self.regresar = function(){
+						window.location = "#!/gastos_alumno";	
+					};				
 				}
 			]
 		});
