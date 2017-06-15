@@ -5,7 +5,7 @@ angular.
 			controller: ['$http',
 				function RegistroFormController($http){
 					var self = this;
-					/*
+					
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
 					if(localStorage.getItem("isAdmin")){						//
 						self.solicitudToMenu = "Menú principal";				//	
@@ -25,7 +25,7 @@ angular.
 						}															//
 					}																//
 					//================================================================
-					*/
+					
 
 					self.matricula = localStorage.getItem('matricula');
 					self.solicitudId = localStorage.getItem('idSolicitud');
