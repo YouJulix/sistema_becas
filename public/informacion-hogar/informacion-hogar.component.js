@@ -28,7 +28,7 @@ angular.
 					
 					
 					self.method = 'POST';
-					self.solicitudId = localStorage.getItem('idSolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
+					self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					//self.solicitud = localStorage.getItem("idSolicitud");
 
 
@@ -71,7 +71,7 @@ angular.
 							return;
 						}
 						self.data =  {
-							"solicitudId" : localStorage.getItem("idSolicitud"),
+							"solicitudId" : localStorage.getItem("idsolicitud"),
 							"tipoCasa" : self.tipoCasa,
 							"materialParedes" : self.materialParedes,
 							"materialPiso" : self.materialPiso,
