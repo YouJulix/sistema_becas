@@ -81,6 +81,10 @@ angular.
 
 					self.imprimir();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7008cbdacebb3fd99d223664e8cb23969fbd72f
 					self.imprimirDatos = function(){
 						$http({
 							method: 'GET',
@@ -113,6 +117,7 @@ angular.
 
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
+<<<<<<< HEAD
 					        $http({ 
 					            method: 'DELETE',
 								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
@@ -120,12 +125,22 @@ angular.
 					        	self.imprimir();
 					        	window.location = "/#!/solicitudes";
 					        }).
+=======
+						$http({ 
+						    method: 'DELETE',
+								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
+						}).success(function(data){
+							self.imprimir();
+							window.location = "/#!/solicitudes";
+						}).
+>>>>>>> d7008cbdacebb3fd99d223664e8cb23969fbd72f
 							error(function(){
 								alert('Error al intentar recuperar el cliente');
 							});
 						}
 
 					};
+<<<<<<< HEAD
 
 					$scope.modificar = function(id){
 						localStorage.setItem("idsolicitud",id);
@@ -158,14 +173,55 @@ angular.
 			                alert('Error al intentar recuperar el cliente');
 			            });
 
+=======
+					//Sugerencia... podrian ser la misma funcion
+					$scope.modificar = function(id){
+						localStorage.setItem("idSolicitud",id);
+						window.location = "/#!/dependencia_economica";
+
+
+					};
+
+					$scope.agregar = function(id){
+					    var f = new Date();
+					    var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+
+
+					    $http({
+							url: 'http://localhost:8000/api/v1.0/solicitudes/',
+							method: "POST",
+							data: { 								
+								'estado' : "pendiente",
+									'porcentaje_sugerido' : 0,
+									'porcentaje_final' : 0,
+									'libre_de_extra' : false,
+									'biblioteca_completa' : false,
+									'fecha_envio' : fecha,
+									'matricula' : $scope.matricula }
+						    }).success(function (data, status, headers, config) {
+						localStorage.setItem("idSolicitud",data._id);
+						//alert(data._id);
+						window.location = "/#!/dependencia_economica";
+					    }).error(function (data, status, headers, config) {
+						alert('Error al intentar recuperar el cliente');
+					    });
+
+>>>>>>> d7008cbdacebb3fd99d223664e8cb23969fbd72f
 					};
 
 
 					$scope.cerrarSesion = function() {
+<<<<<<< HEAD
 				  
 				        localStorage.removeItem("matricula");
 				        window.location = "/#!/login";
 				    }
+=======
+					  
+					        localStorage.removeItem("matricula");
+					        window.location = "/#!/login";
+					}
+>>>>>>> d7008cbdacebb3fd99d223664e8cb23969fbd72f
 
 
 

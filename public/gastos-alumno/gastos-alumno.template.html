@@ -1,33 +1,12 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<img id="logoCabecera" src="img/logo.png" />
-			<h2> Sistema de Becas NU</h2>
-			<hr />
-		</div>
-	</div>
-	<div class="row">
-		<div id="menu" class="col-md-3 col-md-offset-9">			
-			<ul>
-				<li><a href="#!/login" >Cerrar sesión</a></li>
-				<li><a href="#!/login" >Regresar a solicitudes</a></li>
-				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
-			</ul>
-		</div>
+	
+	<barra-principal></barra-principal>
 
-		<div id="menuSuperior" class="container">
-			<ul>
-				<li><a href="#!/login" >Persona de quien depende económicamente</a></li>
-				<li><a href="#!/login" >Ingreso mensual</a></li>
-				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
-				<li><a href="#!/login" >Información del hogar</a></li>
-				<li><a href="#!/login" >Gastos familiares</a></li>
-				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
-			</ul>
-		</div>
+	<div class="row">
 		<div id="tittle" class="container">
 				<h2>Gastos del alumno</h2>
 		</div>
+		
 		<div id="gastosAlumnos" class="container">
 			<div class="container">
 				<form ng-submit="$ctrl.saveData()" class="form-horizontal col-md-6 col-md-offset-3">
@@ -35,7 +14,7 @@
 					<div class="form-group">
 						<label for="medicalServices" class="col-sm-4">Servicios medicos:</label>
 						<div class="col-sm-8">
-							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos" required />	
+							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos"/>	
 						</div>
 					</div>
 					
@@ -46,7 +25,7 @@
 						    	<input type="radio"   ng-click="$ctrl.rentaSi = true" value="" name="renta">Si
 						    </label>
 						    <label class="radio-inline">
-						    	<input type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">No
+						    	<input checked="checked" type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">No
 						    </label>
 						</div>
 					</div>

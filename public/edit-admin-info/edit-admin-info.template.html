@@ -11,80 +11,125 @@
 		</div>
 		<form ng-submit="$ctrl.updateUser()">
 			<div class="row">
-				<div class="col-md-3"><label>MATRÍCULA</label><input type="text" ng-model="$ctrl.matricula" required placeholder="0113010000"></div>
-				<div class="col-md-3"><label>Contraseña:</label><input type="password" ng-model="$ctrl.password" required placeholder="Contraseña"></div>
-				<div class="col-md-3"><label>Repetir Contraseña:</label><input type="password" ng-model="$ctrl.password2" required placeholder="Contraseña"></div>
+				<div class="col-md-3">
+					<label>MATRÍCULA<span>*</span></label>
+					<input type="text" ng-model="$ctrl.matricula" required pattern="^[0-9]{10}$" title="sólo números" placeholder="0113010000">
+				</div>
+				<div class="col-md-3">
+					<label>Contraseña:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9]{1,30}$" title="Verifique que no contenga caracteres especiales" placeholder="Contraseña">
+				</div>
+				<div class="col-md-3">
+					<label>Repetir Contraseña:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9]{1,30}$" title="Verifique que no contenga caracteres especiales" placeholder="Contraseña">
+				</div>
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-3"><label>Nombre (s):</label><input type="text" ng-model="$ctrl.nombre" required placeholder="Nombre(s)"></div>
-				<div class="col-md-3"><label>Primer Apellido:</label><input type="text" ng-model="$ctrl.apellido1" required placeholder="Apellido"></div>
-				<div class="col-md-3"><label>Segundo Apellido:</label><input type="text" ng-model="$ctrl.apellido2" required placeholder="Apellido"></div>
+				<div class="col-md-3">
+					<label>Nombre (s):<span>*</span></label>
+					<input type="text" ng-model="$ctrl.nombre" required pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" placeholder="Nombre(s)">
+				</div>
+				<div class="col-md-3">
+					<label>Primer Apellido:<span>*</span></label>
+					<input type="text" ng-model="$ctrl.apellido1" required pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" placeholder="Apellido">
+				</div>
+				<div class="col-md-3">
+					<label>Segundo Apellido:<span>*</span></label>
+					<input type="text" ng-model="$ctrl.apellido2" required pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" placeholder="Apellido">
+				</div>
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-3"><label>Fecha de Nacimiento:</label><input type="text" ng-model="$ctrl.fechaNac" required placeholder="dd/mm/aaaa"></div>
+				<div class="col-md-3">
+					<label>Fecha de Nacimiento:<span>*</span></label>
+					<input type="text" ng-model="$ctrl.fechaNac" required pattern="^[0-3]{1}[0-9]{1}\/[0|1]{1}[0-9]\/[12][09][0-9][0-9]$" title="Verifique que la Fecha cumpla con el formato dd/mm/aaaa" placeholder="dd/mm/aaaa">
+				</div>
 				<div class="col-md-2">
-					<label>Carrera: </label>
+					<label>Carrera:<span>*</span></label>
 					<select ng-model="$ctrl.carrera" required ng-change="$ctrl.valueGrupo()">
 						<option value="">Seleccione una opción</option>
 						<option ng-repeat="t in $ctrl.carreras">{{t}}</option>
 					</select>
 				</div>
 				<div class="col-md-2">
-					<label>Semestre:</label>
+					<label>Semestre:<span>*</span></label>
 					<select ng-model="$ctrl.semestre" required ng-change="$ctrl.valueGrupo()">
 						<option value="">Seleccione una opción</option>
 						<option ng-repeat="s in $ctrl.semestres">{{s}}</option>
 					</select>
 				</div>
 				<div class="col-md-2">
-					<label>Grupo:</label>
+					<label>Grupo:<span>*</span></label>
 					<select ng-model="$ctrl.grupo" required>
 						<option value="">Seleccione una opción</option>
 						<option ng-repeat="g in $ctrl.grupos">{{g}}</option>
 					</select>
 				</div>
 				<div class="col-md-2">
-					<label>Sexo:</label><br>
+					<label>Sexo:<span>*</span></label><br>
 					<label><input type="radio" ng-model="$ctrl.sexo" value="F" ng-checked="($ctrl.sexo == F)">F</label>
 					<label><input type="radio" ng-model="$ctrl.sexo" value="M">M</label>
 				</div>
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-3"><label>Idioma, Lenguaje o Dialecto a parte del español:</label><input type="text" ng-model="$ctrl.idiomaExt"></div>
 				<div class="col-md-3">
-					<label>Estado Civil:</label>
+					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
+					<input type="text" ng-model="$ctrl.idiomaExt" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Estado Civil:<span>*</span></label>
 					<select ng-model="$ctrl.edoCivil" required>
 						<option value="">Seleccione una Opción</option>
 						<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
 					</select>
 				</div>
-				<div class="col-md-3"><label>Telefono Celular (lada):</label><input type="text" ng-model="$ctrl.telefono" placeholder="000 000 00 00"></div>
 				<div class="col-md-3">
-					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?</label>
-					<label><input type="radio" ng-model="$ctrl.recidencia" value="No" >No</label>
+					<label>Telefono Celular (lada):</label>
+					<input type="text" ng-model="$ctrl.telefono"  placeholder="000 000 00 00">
+				</div>
+				<div class="col-md-3">
+					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
+					<label><input type="radio" ng-model="$ctrl.recidencia" value="No" ng-checked="($ctrl.recidencia == No)">No</label>
 					<label><input type="radio" ng-model="$ctrl.recidencia" value="Si">Si</label>
 				</div>
 			</div>
 			<br>
 			<div><label>Domicilio donde vivirá mientras estudias:</label></div>
 			<div class="row">				
-				<div class="col-md-3"><input type="text" placeholder="Calle" ng-model="$ctrl.calle" required></div>
-				<div class="col-md-3"><input type="text" placeholder="No." ng-model="$ctrl.numCalle" required></div>
-				<div class="col-md-3"><input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia"></div>
-				<div class="col-md-3"><input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required></div>
+				<div class="col-md-3">
+					<label>Nombre Calle:<span>*</span></label>
+					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="^[a-zA-Z\\\sáéíóú0-9]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Número de Calle:<span>*</span></label>
+					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,5}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Colonia o Barrio:<span>*</span></label>
+					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Municipio:<span>*</span></label>
+					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú0-9]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
 			</div>
 			<br>
 			<div class="row">
 				<div class="col-md-3">
+					<label>Estado : <span>*</span></label>
+					<br>
 					<select ng-model="$ctrl.estado" required>
 						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
 					</select>
 				</div>
-				<div class="col-md-3"><input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" required></div>
 				<div class="col-md-3">
+					<label>Nombre, Dueño de la Casa:</label>
+					<input type="text" ng-disabled="$ctrl.recidencia==No" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Parentesco<span>*</span></label>
 					<select ng-model="$ctrl.parentesco" required>
 						<option value="">Seleccione una Opción</option>
 						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
@@ -93,7 +138,7 @@
 			</div>		
 			<br>
 			<div class="row">
-				<div class="col-md-2 col-md-offset-6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
+				<div class="col-md-2 col-md-offset-6"><input type="submit" class="btn btn-default" value="Aceptar"></div>
 				<div class="col-md-2"><input type="button" class="btn btn-default" value="Cancelar" ng-click="$ctrl.cancel()"></div>
 			</div>
 		</form>

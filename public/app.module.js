@@ -12,4 +12,6 @@ angular.module('sistBecasApp',[
 	'gastosFamiliares',
 	'solicitudesBecas',
 	'notificbecaenviadaBecas',
+	'detallesSolicitudAdmin',
+	'barraPrincipal'
 	]);

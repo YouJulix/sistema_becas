@@ -18,9 +18,15 @@ angular.
 								if(data == ""){ //Si no se encuentra ningun usuario con ese user y ese password
 									self.dataValid = false; //Boolean activará mensaje de error en la vista
 								}else{
-									self.dataValid = true;
-									//Cambiar a otra locacion de los routes //De la Single Page Application
-									window.location = "/#!/entrada"; //De la ruta, cambia lo que hay despues de index.html/
+									//self.dataValid = true;
+									localStorage.setItem("matricula",data[0].matricula);
+									if(data[0].isAdmin){
+										//Cambiar a otra locacion de los routes //De la Single Page Application
+										window.location = "#!/admin_principal";
+										localStorage.setItem("isAdmin", data[0].isAdmin);
+									}else{
+										window.location = "/#!/solicitudes"; //De la ruta, cambia lo que hay despues de index.html/
+									}
 								}
 							}else{
 								alert('Error al intentar recuperar el cliente');

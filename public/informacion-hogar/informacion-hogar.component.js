@@ -5,9 +5,33 @@ angular.
 			controller: ['$http', //Se incluye aquí para que al minificar los archivos js no exista problema(para que NO se borre $http )
 				function informacion_hogarController($http){
 					var self = this; //Buena practica es no manipular el this directamente
+					
+					//metodo para dicernir visualmente si es admin o alumno ===Ed=
+					if(localStorage.getItem("isAdmin")){						//
+						self.solicitudToMenu = "Menú principal";				//	
+					}else{														//
+						self.solicitudToMenu = "Regresar a solicitudes";		//
+					}															//
+					//==========================================================//
+					
+					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
+					self.menuChangue = function(){									//
+						if(localStorage.getItem("isAdmin")){
+							console.log("is admin to #!menu_admin");				//
+							window.location = "/#!/menu_admin";						//	
+						}else{														//
+							console.log("is not admin to #!solicitudes");
+							window.location = "/#!/solicitudes";						//
+						}															//
+					}																//
+					//================================================================
+					
+					
 					self.method = 'POST';
 					self.solicitudId = localStorage.getItem('idSolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					//self.solicitud = localStorage.getItem("idSolicitud");
+
+
  					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ self.solicitudId
@@ -36,7 +60,16 @@ angular.
 						console.log(err);
 					});
 					self.saveData = function(){
-						
+						self.materialPisoError = false;
+						self.materialTechoError = false;
+						if(/^[a-z][a-z]*$/.test(self.materialPiso)==false){
+							self.materialPisoError = true;
+							return;
+						}
+						if(/^[a-z][a-z]*$/.test(self.materialTecho)==false){
+							self.materialTechoError = true;
+							return;
+						}
 						self.data =  {
 							"solicitudId" : localStorage.getItem("idSolicitud"),
 							"tipoCasa" : self.tipoCasa,
@@ -59,12 +92,15 @@ angular.
 			                    'Content-Type' : 'application/json' //Codificacion por defecto de Angular, y soportada por Node Js(No es soportado directamente por PHP) con esta tipo de contenido se puede enviar 'data' como un objeto o un String de objeto(stringify)
 							}
 						}).success(function(data){
-							window.location = "#!/ingreso_mensual";
+							window.location = "#!/gastos_familiares";
 						}).
 						error(function(){
 							alert('Error al intentar agregar informacion del hogar');
 						});
-					}				
+					};
+					self.regresar = function(){
+						window.location = "#!/gastos_alumno";	
+					};				
 				}
 			]
 		});

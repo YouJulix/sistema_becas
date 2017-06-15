@@ -25,7 +25,8 @@ var  userSchema = new Schema({
 		municipio: 	{type:String},
 		estado: 	{type:String},
 		nombreHuesped: {type:String},
-		parentesco: {type:String}
+		parentesco: {type:String},
+		isAdmin: Boolean
 	},
 	{ collection: 'users' }
 );
