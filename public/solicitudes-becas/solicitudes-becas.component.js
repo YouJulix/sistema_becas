@@ -82,6 +82,7 @@ angular.
 					self.imprimir();
 
 
+					self.imprimirDatos = function(){
 						$http({
 							method: 'GET',
 							url: 'http://localhost:8000/api/v1.0/users/' + $scope.matricula
@@ -104,39 +105,42 @@ angular.
 						error(function(){
 							alert('Error al intentar recuperar el cliente');
 						});
+					}
+
+					self.imprimirDatos();
 
 
-						$scope.remove = function(idm){
+					$scope.remove = function(idm){
 
-							confirmar=confirm("Esta seguro que desea eliminar"); 
-							if(confirmar){  
-						        $http({ 
-						            method: 'DELETE',
-									url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
-						        }).success(function(data){
-						        	self.imprimir();
-						        	window.location = "/#!/solicitudes";
-						        }).
-								error(function(){
-									alert('Error al intentar recuperar el cliente');
-								});
-							}
+						confirmar=confirm("Esta seguro que desea eliminar"); 
+						if(confirmar){  
+						$http({ 
+						    method: 'DELETE',
+								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
+						}).success(function(data){
+							self.imprimir();
+							window.location = "/#!/solicitudes";
+						}).
+							error(function(){
+								alert('Error al intentar recuperar el cliente');
+							});
+						}
 
-						};
-						//Sugerencia... podrian ser la misma funcion
-						$scope.modificar = function(id){
-							localStorage.setItem("idsolicitud",id);
-							window.location = "/#!/dependencia_economica";
-
-
-						};
-
-						$scope.agregar = function(id){
-							var f = new Date();
-							var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+					};
+					//Sugerencia... podrian ser la misma funcion
+					$scope.modificar = function(id){
+						localStorage.setItem("idsolicitud",id);
+						window.location = "/#!/dependencia_economica";
 
 
-						    $http({
+					};
+
+					$scope.agregar = function(id){
+					    var f = new Date();
+					    var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+
+
+					    $http({
 							url: 'http://localhost:8000/api/v1.0/solicitudes/',
 							method: "POST",
 							data: { 								
@@ -158,11 +162,11 @@ angular.
 					};
 
 
-						$scope.cerrarSesion = function() {
+					$scope.cerrarSesion = function() {
 					  
 					        localStorage.removeItem("matricula");
 					        window.location = "/#!/login";
-					    }
+					}
 
 
 
