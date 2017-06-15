@@ -91,43 +91,83 @@ angular.
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
 
 					self.addUser = function(){
-						//alert("Activa funcion addUser");
-						$http({
-							method: 'POST',
-							url: 'http://localhost:8000/api/v1.0/users',
-							data: 'matricula='+self.matricula+
-								'&password='+self.password+
-								'&password2='+self.password2+
-								'&nombre='+self.nombre+
-								'&apellido1='+self.apellido1+
-								'&apellido2='+self.apellido2+
-								'&fechaNac='+self.fechaNac+
-								'&carrera='+self.carrera+
-								'&semestre='+self.semestre+
-								'&grupo='+self.grupo+
-								'&sexo='+self.sexo+
-								'&idiomaExt='+self.idiomaExt+
-								'&edoCivil='+self.edoCivil+
-								'&telefono='+self.telefono+
-								'&recidencia='+self.recidencia+
-								'&calle='+self.calle+
-								'&numCalle='+self.numCalle+
-								'&colonia='+self.colonia+
-								'&municipio='+self.municipio+
-								'&estado='+self.estado+
-								'&nombreHuesped='+self.nombreHuesped+
-								'&parentesco='+self.parentesco,
-							headers: {'Content-Type':'application/x-www-form-urlencoded'}
+						var expReg = new RegExp("^[a-zA-Z0-9]{0,30}$");
+						var expRegText = new RegExp("^[a-zA-Z\\\sáéíóú]{0,40}$");
+						var expRegFecha = new RegExp("^[0-3]{1}[0-9]{1}\/[0|1]{1}[0-9]\/[12][09][0-9][0-9]$");
+						var expRegTel = new RegExp("^[0-9\\\s]{7,20}$");
+						var expRegDom =  new RegExp("^[a-zA-Z\\\sáéíóú0-9]{0,40}$");
+						if (!parseInt(self.matricula)){
+							alert("Matricula Incorrecta");
+						}else if(!(self.matricula.length===10)){
+							//$('#inputMAtricula')[0].setCustomValidity("Matricula Incorrecta");
+							alert("Matricula Incorrecta");
+						}else if (!expReg.test(self.password)){
+							alert("Las Contraseñas no debe contener caracteres especiales");	
+						}else if (!expReg.test(self.password2)){
+							alert("Las Contraseñas no debe contener caracteres especiales");	
+						}else if (!(self.password===self.password2)){
+							alert("Las Contraseñas no coinciden");	
+						}else if (!(expRegText.test(self.nombre))) {
+							alert("El campo nombre contiene datos incorrectos");
+						}else if (!(expRegText.test(self.apellido1))) {
+							alert("El campo de Primer Apellido contiene datos incorrectos");
+						}else if (!(expRegText.test(self.apellido2))) {
+							alert("El campo de Segundo Apellido contiene datos incorrectos");
+						}else if (!(expRegFecha.test(self.fechaNac))) {
+							alert("Formato de Fecha incorrecto");
+						}else if (!(expReg.test(self.idiomaExt))) {
+							alert("El campor Idioma datos no permitidos");
+						}else if (!(expRegTel.test(self.telefono))) {
+							alert("El Formato de Telefono es incorrecto");
+						}else if (!(expRegDom.test(self.calle))) {
+							alert("El registro Calle contiene valores incorrectos");	
+						}else if (!(expRegDom.test(self.numCalle))) {
+							alert("El registro Número de Calle contiene valores incorrectos");	
+						}else if (!(expRegDom.test(self.colonia))) {
+							alert("El registro Colonia contiene valores incorrectos");	
+						}else if (!(expRegDom.test(self.municipio))) {
+							alert("El registro Municipio contiene valores incorrectos");	
+						}else if (!(expRegDom.test(self.nombreHuesped))) {
+							alert("El registro Nombre Huesped contiene valores incorrectos");	
+						}else{
+							$http({
+								method: 'POST',
+								url: 'http://localhost:8000/api/v1.0/users',
+								data: 'matricula='+self.matricula+
+									'&password='+self.password+
+									'&password2='+self.password2+
+									'&nombre='+self.nombre+
+									'&apellido1='+self.apellido1+
+									'&apellido2='+self.apellido2+
+									'&fechaNac='+self.fechaNac+
+									'&carrera='+self.carrera+
+									'&semestre='+self.semestre+
+									'&grupo='+self.grupo+
+									'&sexo='+self.sexo+
+									'&idiomaExt='+self.idiomaExt+
+									'&edoCivil='+self.edoCivil+
+									'&telefono='+self.telefono+
+									'&recidencia='+self.recidencia+
+									'&calle='+self.calle+
+									'&numCalle='+self.numCalle+
+									'&colonia='+self.colonia+
+									'&municipio='+self.municipio+
+									'&estado='+self.estado+
+									'&nombreHuesped='+self.nombreHuesped+
+									'&parentesco='+self.parentesco,
+								headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
-						}).
-						success(function(data){
-							alert("Registro Realizado Exitosamente.! :)");
-							window.location="#!/notificacion";
-						}).
-						error(function(){
-							alert("Error al registrar Usuario! :'(");
-						});
+							}).
+							success(function(data){
+								alert("Registro Realizado Exitosamente.! :)");
+								window.location="#!/notificacion";
+							}).
+							error(function(){
+								alert("Error al registrar Usuario! :'(");
+							});
+						}
 					}
+
 					self.cancel = function(){
 						alert("Registro Cancelado! :'(");
 						window.location = "/#!/login";
