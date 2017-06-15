@@ -7,38 +7,23 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2 col-md-offset-10">
-			<div class="row">
-				<a href="#">Cerrar sesión</a>
-			</div>
-			<div class="row">
-				<a href="#">Regresar a Solicitudes</a>
-			</div>
-			<div class="row">
-				<a href="#">Cancelar Solicitud Actual</a>
-			</div>
+			<li><a href="#!/login" >Cerrar sesión</a></li>
+				<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
+				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
 		</div>
 	</div>
 	<hr>
 	<div class="row">
-		<div class="col-md-10">
-			<div class="col-md-2">
-				<a href="#">Personas de quien depende económicamente</a>
-			</div>
-			<div class="col-md-2">
-				<a href="#">Ingreso Mensual</a>
-			</div>
-			<div class="col-md-2">
-				<a href="#">Gastos del alumno</a>
-			</div>
-			<div class="col-md-2">
-				<a href="#">Gastos del Hogar</a>
-			</div>
-			<div class="col-md-2">
-				<a href="#"><b>Gastos Familiares</b></a>
-			</div>
-			<div class="col-md-2">
-				<a href="#">Carta Protesta</a>
-			</div>
+		<div id="menuSuperior" class="col-md-12">
+			<ul>
+				<li><b><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></b></li>
+				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
+				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
+				<li><a href="#!/informacion_hogar" >Información del hogar</a></li>
+				<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
+				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
+			</ul>
+			<br><br>
 		</div>
 	</div>
 	<div class="row">

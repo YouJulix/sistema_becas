@@ -19,8 +19,9 @@ angular.
 									self.dataValid = false; //Boolean activará mensaje de error en la vista
 								}else{
 									self.dataValid = true;
+									localStorage.setItem("matricula",data[0].matricula)
 									//Cambiar a otra locacion de los routes //De la Single Page Application
-									window.location = "/#!/entrada"; //De la ruta, cambia lo que hay despues de index.html/
+									window.location = "/#!/solicitudes"; //De la ruta, cambia lo que hay despues de index.html/
 								}
 							}else{
 								alert('Error al intentar recuperar el cliente');
