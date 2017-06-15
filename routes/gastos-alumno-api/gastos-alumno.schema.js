@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var  gastosAlumnoSchema = new Schema({
 	//var userSchema = new mongoose.Schema({
-		becaSolicitud		:	{ type:Number },
+		becaSolicitud		:	{ type:String },
 		gastosMedicos		:	{ type:String },
 		isRenta				:	{ type:Object },
 		transporteMetodo	: 	{ type:Object }

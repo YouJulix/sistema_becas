@@ -7,7 +7,7 @@ angular.
 					var self = this;
 					
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
-					if(localStorage.getItem("isAdmin")){						//
+					if(localStorage.getItem("isAdmin") == "true"){				//
 						self.solicitudToMenu = "Menú principal";				//	
 					}else{														//
 						self.solicitudToMenu = "Regresar a solicitudes";		//
@@ -20,8 +20,8 @@ angular.
 							console.log("is admin to #!menu_admin");				//
 							window.location = "/#!/menu_admin";						//	
 						}else{														//
-							console.log("is not admin to #!solicitudes");
-							window.location = "/#!/solicitudes";						//
+							console.log("is not admin to #!solicitudes");           //
+							window.location = "/#!/solicitudes";					//
 						}															//
 					}																//
 					//================================================================

@@ -129,7 +129,7 @@ angular.
 					};
 					//Sugerencia... podrian ser la misma funcion
 					$scope.modificar = function(id){
-						localStorage.setItem("idsolicitud",id);
+						localStorage.setItem("idSolicitud",id);
 						window.location = "/#!/dependencia_economica";
 
 
