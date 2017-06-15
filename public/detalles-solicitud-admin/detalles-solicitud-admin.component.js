@@ -105,8 +105,8 @@ angular.
 						};
 						$http({
 							method:'PUT',
-							url: 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula
-							data : self.data,  
+							url: 'http://localhost:8000/api/v1.0/solicitudes/id/'+ self.solicitudId,
+							data : self.data
 						}).
 						success(function(data){
 							alert("Datos guardados");
@@ -124,6 +124,7 @@ angular.
 						else{
 							self.porcentaje_final = self.porcentaje_sugerido - 25; 
 						}
+						self.extraCambio();
 					};
 
 					self.extraCambio = function(){
