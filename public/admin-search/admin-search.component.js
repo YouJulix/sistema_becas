@@ -5,6 +5,12 @@ angular.
 			controller: ['$http', '$scope',//Se incluye aquí para que al minificar los archivos js no exista problema(para que NO se borre $http )
 				function adminSearchController($http,$scope){
 					var self = this; //BUena practica es no manipular el this directamente
+					
+					self.clear = function(){
+						localStorage.clear();
+						window.location = "/#!/login";
+					}
+
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					//console.log("sdds");
 					self.busqueda = function(){

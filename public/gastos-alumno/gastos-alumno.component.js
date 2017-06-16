@@ -89,7 +89,7 @@ angular.
 
 						$http({
 							method	: self.method,
-							url 	: 'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud
+							url 	: 'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud,
 							//url 	: 'http://192.168.43.247:8000/api/v1.0/gastos',
 							data 	: self.data
 						}).success(function(gastos){
