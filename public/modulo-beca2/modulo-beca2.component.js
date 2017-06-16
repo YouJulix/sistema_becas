@@ -33,7 +33,7 @@ angular.
 					self.method="POST";
 					object = $http({
 						method 	: 	'GET',
-						url 	: 	'http://localhost:8000/api/v1.0/ingresoMensual/'+ self.solicitudId
+						url 	: 	'http://l92.168.43.247:8000/api/v1.0/ingresoMensual/'+ self.solicitudId
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
@@ -61,7 +61,7 @@ angular.
 						
 						$http({
 							method: self.method,
-							url: 'http://localhost:8000/api/v1.0/ingresoMensual',
+							url: 'http://l92.168.43.247:8000/api/v1.0/ingresoMensual',
 							data: 'ingresoMenJefe='+self.ingresoMenJefe+
 								'&ingresoMenGubernamental='+self.ingresoMenGubernamental+
 								'&ingresoMenTerceros='+self.ingresoMenTerceros+

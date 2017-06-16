@@ -11,7 +11,11 @@ angular.
 						$http({
 							method: 'GET',
 							//url: 'localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //NO Funciona
+<<<<<<< HEAD
 							url: 'http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
+=======
+							url: 'http://192.168.43.247:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
+>>>>>>> 8179c178379a8ed69e9e51ae641c3df034655d7a
 						}).success(function(data){
 							if(typeof(data) == 'object'){
 								//console.log(data);

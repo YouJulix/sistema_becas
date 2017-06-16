@@ -5,7 +5,7 @@ angular.
 			controller: ['$http',
 				function RegistroFormController($http){
 					var self = this;
-					/*
+					
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
 					if(localStorage.getItem("isAdmin")){						//
 						self.solicitudToMenu = "Menú principal";				//	
@@ -25,15 +25,15 @@ angular.
 						}															//
 					}																//
 					//================================================================
-					*/
+					
 
 					self.matricula = localStorage.getItem('matricula');
-					self.solicitudId = localStorage.getItem('idSolicitud');
+					self.solicitudId = localStorage.getItem('idsolicitud');
 					
 					self.renderUser = function(){
 						$http({
 							method:'GET',
-							url: 'http://localhost:8000/api/v1.0/users/'+ self.matricula
+							url: 'http://192.168.43.247:8000/api/v1.0/users/'+ self.matricula
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
@@ -78,7 +78,7 @@ angular.
 */
 						$http({
 							method:'GET',
-							url: 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula
+							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/'+ self.matricula
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
@@ -105,7 +105,7 @@ angular.
 						};
 						$http({
 							method:'PUT',
-							url: 'http://localhost:8000/api/v1.0/solicitudes/id/'+ self.solicitudId,
+							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/'+ self.solicitudId,
 							data : self.data
 						}).
 						success(function(data){

@@ -10,7 +10,7 @@ angular.
  					self.solicitud = localStorage.getItem("idSolicitud");
  					object = $http({
 						method 	: 	'GET',
-						url 	: 	'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud
+						url 	: 	'http://192.168.43.247/api/v1.0/gastos/'+ self.solicitud
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
@@ -86,7 +86,7 @@ angular.
 						};
 						$http({
 							method	: "POST",
-							url 	: 'http://localhost:8000/api/v1.0/gastos',
+							url 	: 'http://192.168.43.247:8000/api/v1.0/gastos',
 							data 	: self.data
 						}).success(function(gastos){
 							if(typeof(gastos) == "object"){

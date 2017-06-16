@@ -132,7 +132,7 @@ angular.
 						}else{
 							$http({
 								method: 'POST',
-								url: 'http://localhost:8000/api/v1.0/users',
+								url: 'http://192.168.43.247:8000/api/v1.0/users',
 								data: 'matricula='+self.matricula+
 									'&password='+self.password+
 									'&password2='+self.password2+

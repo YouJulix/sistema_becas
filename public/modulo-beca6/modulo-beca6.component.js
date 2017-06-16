@@ -47,11 +47,11 @@ angular.
 
 					$scope.aceptar = function(){
 						
-						$scope.idsolicitud = localStorage.getItem("idsolicitud");
+						$scope.idsolicitud = localStorage.getItem("idSolicitud");
 
 						$http({
 							method: 'GET',
-							url: 'http://localhost:8000/api/v1.0/ingresoMensual/'+$scope.idsolicitud,
+							url: 'http://192.168.43.247:8000/api/v1.0/ingresoMensual/'+$scope.idsolicitud,
 
 						}).success(function(data){
 							//alert("success "+data)
@@ -101,7 +101,7 @@ angular.
 										/////////////////////////////extraer datos de solicitudes
 										$http({
 											method: 'GET',
-											url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
+											url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
 
 										}).success(function(data){
 											console.log(data);
@@ -131,7 +131,7 @@ angular.
 													var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
 
 													$http({
-												        url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
+												        url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
 												        method: "PUT",
 												        data: { 								
 												        	'estado' : "terminado",
@@ -142,7 +142,7 @@ angular.
 															'fecha_envio' : fecha,
 															'matricula' : $scope.matricula }
 												    }).success(function(data){
-														
+													window.location = "/#!/notificbecaenviada";	
 											        }).
 													error(function(){
 														alert('Error al intentar recuperar el cliente');
