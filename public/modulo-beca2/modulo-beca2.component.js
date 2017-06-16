@@ -54,10 +54,11 @@ angular.
 					
 					self.addIngresoMensual = function(){
 						console.log(self.ingresoMenJefe);
+						/*
 						if( (self.ingresoMenJefe <500 || self.ingresoMenJefe >=25000) || (self.ingresoMenGubernamental <500 || self.ingresoMenGubernamental >=25000 ) || (self.ingresoMenTerceros <500 || self.ingresoMenTerceros >=25000) ){
 							alert("ingresa cantidades en el rango de 500-25,000");
 							return;
-						}
+						}*/
 						
 						$http({
 							method: self.method,
