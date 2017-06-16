@@ -47,7 +47,7 @@ angular.
  							return;
  						}
  						if(self.gastosMedicos > 15000){
- 							alert("La cantidad es demaciado alta, comunicarse con el administrador");
+ 							alert("Los gastos medicos son demasiado altos, comunicarse con el administrador");
  							return;
  						}
 						if(self.montoRenta < 0 ){
@@ -56,7 +56,7 @@ angular.
 						}
 
 						if(self.montoRenta > 10000){
-							alert("El monto de la renta es demaciado alto, comunicarse con el administrador");
+							alert("El monto de la renta es demasiado alto, comunicarse con el administrador");
 							return;
 						}
 						
