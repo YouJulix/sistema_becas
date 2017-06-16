@@ -10,7 +10,8 @@ angular.
  					self.solicitud = localStorage.getItem("idSolicitud");
  					$http({
 						method 	: 	'GET',
-						url 	: 	'http://192.168.43.247:8000/api/v1.0/gastos/'+ self.solicitud
+						url 	: 	'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud 
+						//url 	: 	'http://192.168.43.247:8000/api/v1.0/gastos/'+ self.solicitud
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
@@ -37,7 +38,6 @@ angular.
 					}).error(function(err){
 						console.log(err);
 					});
-					
 					
 					//Funcion para guardadr solicitud... 
 					self.saveData = function(){
@@ -89,7 +89,8 @@ angular.
 
 						$http({
 							method	: self.method,
-							url 	: 'http://192.168.43.247:8000/api/v1.0/gastos',
+							url 	: 'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud
+							//url 	: 'http://192.168.43.247:8000/api/v1.0/gastos',
 							data 	: self.data
 						}).success(function(gastos){
 							if(typeof(gastos) == "object"){
@@ -99,6 +100,16 @@ angular.
 						}).error(function(err){
 							console.log(err);
 						});
+					}
+
+					//Validación de campo transporte
+
+					self.transportValid = function(){
+						if(self.vehiculo){
+							self.caminar = false;
+							self.taxi = false;
+							self.bicicleta = false;
+						}
 					}
 
 				}
