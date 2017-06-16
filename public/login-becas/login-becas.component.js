@@ -12,7 +12,7 @@ angular.
 							method: 'GET',
 							//url: 'localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //NO Funciona
 							//url: 'http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
-							url: 'http://192.168.43.247:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
+							url: 'http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
 						}).success(function(data){
 							console.log(data);
 							if(typeof(data) == 'object'){
