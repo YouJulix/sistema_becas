@@ -109,6 +109,11 @@ angular.
 							self.caminar = false;
 							self.taxi = false;
 							self.bicicleta = false;
+							return;
+						}
+
+						if(self.vehiculo && (self.caminar || self.taxi || self.bicicleta)){
+							self.vehiculo = false;
 						}
 					}
 
