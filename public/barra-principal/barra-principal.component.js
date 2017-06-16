@@ -6,6 +6,13 @@ angular.
 				
 				function ComponentBarraPrincipal($http){
 					var self = this;
+					
+					//=============Valid routes=================================//
+					if(localStorage.getItem("isAdmin") == null){				//
+						window.location = "/#!/login";							//
+					}															//
+					//==========================================================//
+
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
 					if(localStorage.getItem("isAdmin") == "true"){				//
 						self.solicitudToMenu = "Menú principal";				//	
