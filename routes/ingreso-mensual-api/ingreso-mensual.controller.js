@@ -47,16 +47,17 @@ exports.updateIngresoMensual = function(req,res){
 	console.log('PUT');
 	console.log(req.body);
 
-	ingresoMensual.find({"solicitudId": req.params.solicitudId},function(err, ingresos){
-		ingresos.ingresoMenJefe = req.body.ingresoMenJefe,
-		ingresos.ingresoMenGubernamental = req.body.ingresoMenGubernamental,
-		ingresos.ingresoMenTerceros = req.body.ingresoMenTerceros
+	ingresoMensual.find({"solicitudId": req.body.solicitudId},function(err, ingresosm){
 		
-		var query = {"solicitudId" : req.body.solicitudId};
-	    ingresoMensual.update(query, ingresos, function(err, ingreso){
+		ingresosm.ingresoMenJefe = req.body.ingresoMenJefe,
+		ingresosm.ingresoMenGubernamental = req.body.ingresoMenGubernamental,
+		ingresosm.ingresoMenTerceros = req.body.ingresoMenTerceros
+		
+		var query = {"solicitudId": req.body.solicitudId};
+	    ingresoMensual.update(query, ingresosm, function(err, ingresom){
         	if(err)
 				return res.status(500).send(err.message);
-			res.status(200).jsonp(ingreso);
+			res.status(200).jsonp(ingresom);
 		
     	});
 		

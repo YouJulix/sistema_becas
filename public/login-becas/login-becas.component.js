@@ -11,12 +11,10 @@ angular.
 						$http({
 							method: 'GET',
 							//url: 'localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //NO Funciona
-<<<<<<< HEAD
-							url: 'http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
-=======
+							//url: 'http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
 							url: 'http://192.168.43.247:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
->>>>>>> 8179c178379a8ed69e9e51ae641c3df034655d7a
 						}).success(function(data){
+							console.log(data);
 							if(typeof(data) == 'object'){
 								//console.log(data);
 								if(data == ""){ //Si no se encuentra ningun usuario con ese user y ese password
@@ -24,10 +22,11 @@ angular.
 								}else{
 									//self.dataValid = true;
 									localStorage.setItem("matricula",data[0].matricula);
-									if(data[0].isAdmin){
+									localStorage.setItem("isAdmin", data[0].isAdmin);
+									if(data[0].isAdmin=="true"){
 										//Cambiar a otra locacion de los routes //De la Single Page Application
 										window.location = "#!/admin_principal";
-										localStorage.setItem("isAdmin", data[0].isAdmin);
+										//localStorage.setItem("isAdmin", data[0].isAdmin);
 									}else{
 										window.location = "/#!/solicitudes"; //De la ruta, cambia lo que hay despues de index.html/
 									}

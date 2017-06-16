@@ -50,3 +50,14 @@ exports.updateGastos = function(req, res){
 		});
 	});
 }
+
+//DELETE GASTOS ALUMNO
+
+exports.deleteGastos = function(req,res){
+	Gastos.findByIdAndRemove(req.params.becaSolicitud, function(err){
+		console.log('DELETE /gastos/becaId/');
+		if(err) 
+			return res.status(500).send(err.message);
+		res.status(200).send();
+	});
+};

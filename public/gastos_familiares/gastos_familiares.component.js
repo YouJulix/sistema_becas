@@ -2,8 +2,8 @@ angular.
 	module('gastosFamiliares').
 		component('gastosFamiliares', {
 			templateUrl: 'gastos_familiares/gastos_familiares.template.html',
-			controller: ['$http', //Se incluye aquí para que al minificar los archivos js no exista problema(para que NO se borre $http )
-				function gastosFamiliaresController($http){
+			controller: ['$http','$scope', //Se incluye aquí para que al minificar los archivos js no exista problema(para que NO se borre $http )
+				function gastosFamiliaresController($http,$scope){
 					var self = this; //BUena practica es no manipular el this directamente
 					
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
@@ -73,7 +73,7 @@ angular.
 						console.log(err);
 					});
 					self.validat  = function(){
-						console.log(self.solicitudId);
+						//console.log(self.solicitudId);
 						self.data = {
 							"solicitudId"	: self.solicitudId,
 							"agua"          : self.agua,
@@ -91,20 +91,23 @@ angular.
 							"diversion"     : self.diversion,
 							"otro"          : self.otro
 						};
-						console.log(self.data);
+						//console.log(self.data);
 						$http({
 							method : self.method,
-							url    : 'http://192.168.43.247:8000/api/v1.0/gastos_familiares',
+							url    : 'http://192.168.43.247:8000/api/v1.0/gastos_familiares/',
 							data   : self.data
 						}).success(function(gastosfam){
-							if(typeof(gastosfam) == "object"){
-								console.log(gastosfam);
-								window.location = "#!/cartaprotesta";
-							}
+							console.log(gastosfam);
+							//if(typeof(gastosfam) == "object"){
+								window.location = "/#!/cartaProtesta";
+							//}
 						}).error(function(err){
 							console.log(err);
 						});
-					}			
+					},
+					self.volver = function(){
+						window.location = "/#!/informacion_hogar";
+					}
 				}
 			]
 		});

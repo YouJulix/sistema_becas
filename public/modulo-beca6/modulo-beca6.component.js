@@ -51,12 +51,12 @@ angular.
 
 						$http({
 							method: 'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/ingresoMensual/'+$scope.idsolicitud,
+							url: 'http://192.168.43.247:8000/api/v1.0/ingresoMensual/'+$scope.idsolicitud
 
 						}).success(function(data){
-							//alert("success "+data)
+						
 							if(typeof(data) == 'object'){
-								//console.log(data);
+								
 								if(data != ""){
 
 										$scope.datos = data; //guardar objeto json
@@ -73,14 +73,12 @@ angular.
 
 
 										$scope.suma = parseInt($scope.ingresoMenJefe) + parseInt($scope.ingresoMenGubernamental) + parseInt($scope.ingresoMenTerceros);
-										//console.log($scope.suma);
-										//console.log("----------");
-
+										
+										//calcular porcentaje de beca sugerida
 										$scope.perCapita = (($scope.suma/30) /80.04);
 										$scope.perCapita = ($scope.perCapita * 640.74);
 
-										//console.log($scope.perCapita);
-										//console.log("----------");
+										
 
 										if($scope.perCapita < 2562.97){
 											$scope.becaSugerida = 100;
@@ -97,7 +95,7 @@ angular.
 										console.log($scope.becaSugerida);
 
 										console.log("++++++++++");
-										console.log($scope.idsolicitud);
+										
 										/////////////////////////////extraer datos de solicitudes
 										$http({
 											method: 'GET',
@@ -108,83 +106,79 @@ angular.
 											//alert("success "+data)
 											console.log(data);
 											if(typeof(data) == 'object'){
-												//console.log(data);
-												if(data == ""){ //Si no se encuentra ningun usuario con ese user y ese password
-													//self.dataValid = false; //Boolean activará mensaje de error en la vista
+												console.log(data);
+												if(data != ""){
+													
+														$scope.datos = data;
+														//console.log(datos);
+														$scope.matricul = $scope.datos.matricula;
+														$scope.estado = $scope.datos.estado ;
+														$scope.porcentaje_sugerido = $scope.datos.porcentaje_sugerido ;
+														$scope.porcentaje_final = $scope.datos.porcentaje_final ;
+														$scope.libre_de_extra = $scope.datos.libre_de_extra;
+														$scope.biblioteca_completa = $scope.datos.biblioteca_completa;
+														$scope.fecha_envio = $scope.datos.fecha_envio;
+
+
+														/////////////////////////////actualizar datos de solicitudes
+														/////////////////////////////////////////////////
+														var f = new Date();
+														var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+
+														$http({
+													        url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
+													        method: "PUT",
+													        data: { 								
+													        	'estado' : "terminado",
+																'porcentaje_sugerido' : $scope.becaSugerida,
+																'porcentaje_final' : $scope.porcentaje_final,
+																'libre_de_extra' : $scope.libre_de_extra,
+																'biblioteca_completa' : $scope.biblioteca_completa,
+																'fecha_envio' : fecha,
+																'matricula' : $scope.matricula }
+													    }).success(function(data){
+													    	localStorage.removeItem("idSolicitud");
+															window.location = "/#!/notificbecaenviada";
+												        }).error(function(){
+															alert('! ERROR No se envio la solicitud!');
+														});
+
+
+														//////////////////////////////////////////////////
+													}
 												}else{
-													
-													$scope.datos = data;
-													
-													//console.log(datos);
-													$scope.matricul = $scope.datos.matricula;
-													$scope.estado = $scope.datos.estado ;
-													$scope.porcentaje_sugerido = $scope.datos.porcentaje_sugerido ;
-													$scope.porcentaje_final = $scope.datos.porcentaje_final ;
-													$scope.libre_de_extra = $scope.datos.libre_de_extra;
-													$scope.biblioteca_completa = $scope.datos.biblioteca_completa;
-													$scope.fecha_envio = $scope.datos.fecha_envio;
-
-
-													/////////////////////////////actualizar datos de solicitudes
-													/////////////////////////////////////////////////
-													var f = new Date();
-													var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
-
-													$http({
-												        url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
-												        method: "PUT",
-												        data: { 								
-												        	'estado' : "terminado",
-															'porcentaje_sugerido' : $scope.becaSugerida,
-															'porcentaje_final' : $scope.porcentaje_final,
-															'libre_de_extra' : $scope.libre_de_extra,
-															'biblioteca_completa' : $scope.biblioteca_completa,
-															'fecha_envio' : fecha,
-															'matricula' : $scope.matricula }
-												    }).success(function(data){
-													window.location = "/#!/notificbecaenviada";	
-											        }).
-													error(function(){
-														alert('Error al intentar recuperar el cliente');
-													});
-
-													//////////////////////////////////////////////////
-
-
-
+													alert('! ERROR No se encontro la solicitud en la base de datos!');
 												}
-											}else{
-												alert('Error al intentar recuperar el cliente');
-											}
+
 										}).error(function(){
-											alert('Error al intentar recuperar el cliente');
+											alert('! ERROR No se encontro la solicitud en la base de datos !');
 										});
 
-
-
-
 								}
+
+
 							}else{
-								alert('Error al intentar recuperar el cliente');
+								alert('! No se encontro el ingreso mensual !');
 							}
-						}).
-						error(function(){
-							alert('Error al intentar recuperar el cliente');
+						})
+						.error(function(){
+							alert('! No se encontro el ingreso mensual !');
 						});
 
 
 						
 
-					};
-
-
-
+					}
 
 
 					$scope.cerrarSesion = function() {
 				  
-				        localStorage.removeItem("matricula");
+				        localStorage.clear();
 				        window.location = "/#!/login";
+				    }
+
+				    $scope.regresar = function() {
+				    	window.location = "/#!/gastos_familiares"
 				    }
 				}
 			]

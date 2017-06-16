@@ -33,7 +33,7 @@ angular.
 					self.method="POST";
 					object = $http({
 						method 	: 	'GET',
-						url 	: 	'http://l92.168.43.247:8000/api/v1.0/ingresoMensual/'+ self.solicitudId
+						url 	: 	'http://192.168.43.247:8000/api/v1.0/ingresoMensual/'+ self.solicitudId
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
@@ -53,29 +53,25 @@ angular.
 					
 					
 					self.addIngresoMensual = function(){
-						console.log(self.ingresoMenJefe);
-						/*
-						if( (self.ingresoMenJefe <500 || self.ingresoMenJefe >=25000) || (self.ingresoMenGubernamental <500 || self.ingresoMenGubernamental >=25000 ) || (self.ingresoMenTerceros <500 || self.ingresoMenTerceros >=25000) ){
-							alert("ingresa cantidades en el rango de 500-25,000");
-							return;
-						}*/
 						
+						self.data = {
+							"solicitudId"	: self.solicitudId,
+							"ingresoMenJefe": self.ingresoMenJefe,
+							"ingresoMenGubernamental" : self.ingresoMenGubernamental,
+							"ingresoMenTerceros"      : self.ingresoMenTerceros
+						};
+						console.log(self.method);
 						$http({
+							
 							method: self.method,
-							url: 'http://l92.168.43.247:8000/api/v1.0/ingresoMensual',
-							data: 'ingresoMenJefe='+self.ingresoMenJefe+
-								'&ingresoMenGubernamental='+self.ingresoMenGubernamental+
-								'&ingresoMenTerceros='+self.ingresoMenTerceros+
-								'&solicitudId='+localStorage.getItem('idSolicitud'),
-								headers: {'Content-Type':'application/x-www-form-urlencoded'}
-						}).
-						success(function(data){
-							//alert("ingresos mensuales guardados");
-							window.location = "#!/gastos_alumno";
-							console.log(data);
-						}).
-						error(function(data){
-							console.log(data);
+							url: 'http://192.168.43.247:8000/api/v1.0/ingresoMensual',
+							data: self.data
+						}).success(function(ingresos){
+							if(typeof(ingresos) == "object"){
+								window.location = "#!/gastos_alumno";
+							}
+						}).error(function(error){
+							console.log(error);
 							alert("Error al agregar ingresos mensuales");
 						});
 					}

@@ -6,29 +6,8 @@ angular.
 				function RegistroFormController($http){
 					var self = this;
 					
-					//metodo para dicernir visualmente si es admin o alumno ===Ed=
-					if(localStorage.getItem("isAdmin")){						//
-						self.solicitudToMenu = "Menú principal";				//	
-					}else{														//
-						self.solicitudToMenu = "Regresar a solicitudes";		//
-					}															//
-					//==========================================================//
-					
-					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
-					self.menuChangue = function(){									//
-						if(localStorage.getItem("isAdmin")){
-							console.log("is admin to #!menu_admin");				//
-							window.location = "/#!/menu_admin";						//	
-						}else{														//
-							console.log("is not admin to #!solicitudes");
-							window.location = "/#!/solicitudes";						//
-						}															//
-					}																//
-					//================================================================
-					
-
 					self.matricula = localStorage.getItem('matricula');
-					self.solicitudId = localStorage.getItem('idsolicitud');
+					self.solicitudId = localStorage.getItem('idSolicitud');
 					
 					self.renderUser = function(){
 						$http({
@@ -76,9 +55,10 @@ angular.
 "fecha_envio": "15/06/2017"
 }
 */
+						alert(self.solicitudId);
 						$http({
 							method:'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/'+ self.matricula
+							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/'+ self.solicitudId
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
@@ -147,7 +127,7 @@ angular.
 
 					}
 
-					this.renderUser(self.matricula);
+					this.renderUser(self.solicitudId);
 				}
 			]
 		});
