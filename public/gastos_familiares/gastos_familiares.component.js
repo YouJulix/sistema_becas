@@ -7,6 +7,13 @@ angular.
 					var self = this; //BUena practica es no manipular el this directamente
 					
 					
+					if(localStorage.getItem("isAdmin") == "true"){		//
+						self.terminar = "Terminar";
+					}else{	
+						self.terminar = "Continuar";				   //
+					}
+
+
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					self.solicitudId=localStorage.getItem("idSolicitud");
 					console.log(self.solicitudId);
@@ -53,6 +60,7 @@ angular.
 						console.log(err);
 					});
 					self.validat  = function(){
+						console.log("Im here");
 						//console.log(self.solicitudId);
 						self.data = {
 							"solicitudId"	: self.solicitudId,
@@ -79,7 +87,13 @@ angular.
 						}).success(function(gastosfam){
 							console.log(gastosfam);
 							//if(typeof(gastosfam) == "object"){
-								window.location = "/#!/cartaProtesta";
+								if(localStorage.getItem("isAdmin") == "true"){
+									console.log("isAdmin return to admin_principal");		
+									window.location = "/#!/admin_principal";   				
+								}{
+									console.log("is not Admin return to cartaProtesta");
+									window.location = "/#!/cartaProtesta";
+								}
 							//}
 						}).error(function(err){
 							console.log(err);
