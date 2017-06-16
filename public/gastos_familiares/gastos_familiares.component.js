@@ -8,10 +8,10 @@ angular.
 					
 					
 					if(localStorage.getItem("isAdmin") == "true"){		//
-						self.terminar = "Terminar";
-					}else{	
-						self.terminar = "Continuar";				   //
-					}
+						self.terminar = "Terminar";						//
+					}else{												//
+						self.terminar = "Continuar";				   	//
+					}					
 
 
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
@@ -90,7 +90,7 @@ angular.
 								if(localStorage.getItem("isAdmin") == "true"){
 									console.log("isAdmin return to admin_principal");		
 									window.location = "/#!/admin_principal";   				
-								}{
+								}else{
 									console.log("is not Admin return to cartaProtesta");
 									window.location = "/#!/cartaProtesta";
 								}
