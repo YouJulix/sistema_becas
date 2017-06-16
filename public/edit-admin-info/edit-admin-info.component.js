@@ -91,7 +91,7 @@ angular.
 					self.renderUser = function(matriculaGet){
 							$http({
 								method:'GET',
-								url: 'http://192.168.43.247:8000/api/v1.0/users/'+matriculaGet,
+								url: 'http://localhost:8000/api/v1.0/users/'+matriculaGet,
 							}).
 							success(function(data){
 								if (data===""){
@@ -178,7 +178,7 @@ angular.
 						}else{
 							$http({
 								method: 'PUT',
-								url: 'http://192.168.43.247:8000/api/v1.0/users/'+self.matricula,
+								url: 'http://localhost:8000/api/v1.0/users/'+self.matricula,
 								data: 'matricula='+self.matricula+
 									'&password='+self.password+
 									'&password2='+self.password2+
