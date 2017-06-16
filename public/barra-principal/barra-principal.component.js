@@ -6,6 +6,14 @@ angular.
 				
 				function ComponentBarraPrincipal($http){
 					var self = this;
+					
+					//Metodo para saber si quien intenta acceder esta logeado===//
+					if(localStorage.getItem("isAdmin") == null){
+						console.log("El usuario no esta loggeado");
+						window.location = "/#!/login";
+					}
+
+
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
 					if(localStorage.getItem("isAdmin") == "true"){				//
 						self.solicitudToMenu = "Menú principal";				//	
