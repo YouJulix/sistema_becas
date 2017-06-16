@@ -128,11 +128,8 @@ angular.
 
 					}
 
-<<<<<<< HEAD
 					this.renderUser();
-=======
 					this.renderUser(self.solicitudId);
->>>>>>> 066d94b541c3a24bf6e3ff677f3d9663cf03137e
 				}
 			]
 		});
