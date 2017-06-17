@@ -42,12 +42,92 @@ angular.
 					self.validar();
 
 
-
-
-
 					$scope.aceptar = function(){
-						
+
 						$scope.idsolicitud = localStorage.getItem("idSolicitud");
+
+						//ingreso mensual
+						$http({
+						method 	: 	'GET',
+						url 	: 	'http://localhost:8000/api/v1.0/ingresoMensual/'+ $scope.idsolicitud,
+						async : true
+						}).success(function(data){
+							object = data[0];
+							//console.log(object);
+							if(!object){
+								alert("Falta Agregar Ingreso Mensual");
+								window.location = "/#!/ingreso_mensual";
+							}else{
+								//gastos del alumno
+								$http({
+									method 	: 	'GET',
+									url 	: 	'http://localhost:8000/api/v1.0/gastos/'+ $scope.idsolicitud,
+									async : true
+								}).success(function(data){
+									object = data[0];
+									console.log(object);
+									if(!object){
+										alert("Falta Ingresar Datos Del Alumno");
+										window.location = "/#!/gastos_alumno";
+									}else{
+
+
+										//informacion del hogar
+										object = $http({
+											method 	: 	'GET',
+											url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ $scope.idsolicitud,
+											async : true
+										}).success(function(data){
+											object = data[0];
+											//console.log(object);
+											if(!object){
+												alert("Falta Ingresar Informacion Del Hogar");
+												window.location = "/#!/informacion_hogar";
+											}else{
+												//gastos familiares
+												$http({
+													method 	: 	'GET',
+													url 	: 	'http://localhost:8000/api/v1.0/gastos_familiares/'+ $scope.idsolicitud,
+													async : true
+												}).success(function(data){
+													object = data[0];
+													//console.log(object);
+													if(!object){
+														alert("Falta Ingresar Gastos Familiares");
+														window.location = "/#!/gastos_familiares";
+													}else{
+														$scope.aceptar2();
+													}
+												}).error(function(err){
+													console.log(err);
+												});
+											}
+										}).error(function(err){
+											console.log(err);
+										});
+
+
+									}
+								}).error(function(err){
+									console.log(err);
+								});
+							}
+						}).error(function(err){
+							console.log(err);
+						});
+
+						
+					}	
+
+
+
+					$scope.aceptar2 = function(){
+
+						//Funcion para enviar solicitud
+
+						/////////////////////////////////////////////////////////////////////
+						
+						
 
 						$http({
 							method: 'GET',
@@ -126,7 +206,7 @@ angular.
 														var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
 
 														$http({
-													        url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
+													        url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
 													        method: "PUT",
 													        data: { 								
 													        	'estado' : "terminado",
