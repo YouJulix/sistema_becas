@@ -72,7 +72,7 @@ angular.
 							return;
 						}
 						self.data =  {
-							"solicitudId" : localStorage.getItem("idsolicitud"),
+							"solicitudId" : localStorage.getItem("idSolicitud"),
 							"tipoCasa" : self.tipoCasa,
 							"materialParedes" : self.materialParedes,
 							"materialPiso" : self.materialPiso,
