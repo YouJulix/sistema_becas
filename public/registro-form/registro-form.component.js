@@ -90,6 +90,26 @@ angular.
 
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
 
+					self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+					self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+					self.anyos = ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017',];
+					self.valueFecha = function(){
+						if(self.mesFecha == '02'){
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'];
+						}else if (self.mesFecha == '04' || self.mesFecha == '06' || self.mesFecha == '09' || self.mesFecha == '11') {
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
+						}else if(self.diaFecha == '29' || self.diaFecha == '30'){
+							self.meses = ['01','03','04','05','06','07','08','09','10','11','12'];
+						}else if ( self.diaFecha == '31') {
+							self.meses = ['01','03','05','07','08','10','12'];
+						}else{
+							self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+						}
+					}
+
+					self.valueFecha();
+
 					self.addUser = function(){
 						var expReg = new RegExp("^[a-zA-Z0-9]{0,30}$");
 						var expRegText = new RegExp("^[a-zA-Z\\\sáéíóú]{0,40}$");
@@ -113,12 +133,8 @@ angular.
 							alert("El campo de Primer Apellido contiene datos incorrectos");
 						}else if (!(expRegText.test(self.apellido2))) {
 							alert("El campo de Segundo Apellido contiene datos incorrectos");
-						}else if (!(expRegFecha.test(self.fechaNac))) {
-							alert("Formato de Fecha incorrecto");
 						}else if (!(expReg.test(self.idiomaExt))) {
 							alert("El campor Idioma datos no permitidos");
-						}else if (!(expRegTel.test(self.telefono))) {
-							alert("El Formato de Telefono es incorrecto");
 						}else if (!(expRegDom.test(self.calle))) {
 							alert("El registro Calle contiene valores incorrectos");	
 						}else if (!(expRegDom.test(self.numCalle))) {
@@ -139,7 +155,7 @@ angular.
 									'&nombre='+self.nombre+
 									'&apellido1='+self.apellido1+
 									'&apellido2='+self.apellido2+
-									'&fechaNac='+self.fechaNac+
+									'&fechaNac='+self.diaFecha+"/"+self.mesFecha+"/"+self.anyoFecha+
 									'&carrera='+self.carrera+
 									'&semestre='+self.semestre+
 									'&grupo='+self.grupo+
