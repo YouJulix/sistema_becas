@@ -41,8 +41,16 @@ angular.
 
 					self.validar();
 
-
 					$scope.aceptar = function(){
+						//console.log(document.getElementById("aceptare").checked);
+						if(document.getElementById("aceptare").checked == true ){
+							$scope.aceptar1();
+						}else{
+							alert("Deberá Aceptar Condiciones");
+						}
+					}
+
+					$scope.aceptar1 = function(){
 
 						$scope.idsolicitud = localStorage.getItem("idSolicitud");
 
