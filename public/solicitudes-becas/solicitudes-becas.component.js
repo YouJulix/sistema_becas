@@ -286,6 +286,8 @@ angular.
 						var expRegDom =  new RegExp("^[a-zA-Z\\\sáéíóú0-9]{0,40}$");
 						if (!parseInt(self.matricula)){
 							alert("Matricula Incorrecta");
+						}else if(self.telefono.length != 10 ){
+							alert("Formato de telefono incorrecto");
 						}else if(!(self.matricula.length===10)){
 							//$('#inputMAtricula')[0].setCustomValidity("Matricula Incorrecta");
 							alert("Matricula Incorrecta");
