@@ -173,7 +173,8 @@ angular.
 									'&municipio='+self.municipio+
 									'&estado='+self.estado+
 									'&nombreHuesped='+self.nombreHuesped+
-									'&parentesco='+self.parentesco,
+									'&parentesco='+self.parentesco+
+									'&isAdmin=false',
 								headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
 							}).

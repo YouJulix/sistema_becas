@@ -44,20 +44,21 @@
 				</div>
 				<div>
 					<p>Material de las paredes:</p>
-					<select ng-model="$ctrl.materialParedes" required>
+					<select ng-model="$ctrl.materialParedes" required ng-change="$ctrl.cambioParedes()">
 						<option value="" disabled>-Seleccion una opcion-</option>
-						<option value="adobe" selected>Adobe</option>
+						<option value="adobe">Adobe</option>
 						<option value="lamina">Lámina</option>
 						<option value="madera">Madera</option>
-						<option value="Concreto">Concreto</option>
+						<option value="concreto">Concreto</option>
 					</select>
 				</div>
+					
 				<div>
 					<p>Material del piso:</p>
 					<select ng-model="$ctrl.materialPiso" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="tierra">Tierra</option>
-						<option value="contreto">Concreto</option>
+						<option value="contreto" >Concreto</option>
 					</select>
 				</div>
 				<div>
@@ -65,22 +66,22 @@
 					<select ng-model="$ctrl.materialTecho" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="lamina">Lamina</option>
-						<option value="concreto">Concreto</option>
-						<option value="teja">Teja</option>
+						<option value="teja" ng-show="$ctrl.errorTeja">Teja</option>
+						<option value="concreto" ng-show="$ctrl.errorConcreto">Concreto</option>
 					</select>
 				</div>
 				<div>
 					<p>Número de personas que habitan la vivienda:</p>
-					<input type="number" name="habitantes" ng-model="$ctrl.habitantes" min="1" max="25">
+					<input type="number" name="habitantes" ng-model="$ctrl.habitantes" min="1" max="15">
 					<hr>
 					<p>Espacio con los que cuenta la vivienda(Indique con número)</p>
 					<div>
 						<p>Cuartos</p>
-						<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" max="25" required>
+						<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" max="10" required>
 						<p>Baños</p>
-						<input type="number" name="banios" ng-model="$ctrl.banios" min="1" max="25" required>
+						<input type="number" name="banios" ng-model="$ctrl.banios" min="1" max="5" required>
 						<p>Focos</p>
-						<input type="number" name="focos" ng-model="$ctrl.focos" min="1" max="25" required>
+						<input type="number" name="focos" ng-model="$ctrl.focos" min="1" max="15" required>
 					</div>
 				</div>
 				<br><br>

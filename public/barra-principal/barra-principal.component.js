@@ -7,12 +7,11 @@ angular.
 				function ComponentBarraPrincipal($http){
 					var self = this;
 					
-					//Metodo para saber si quien intenta acceder esta logeado===//
-					if(localStorage.getItem("isAdmin") == null){
-						console.log("El usuario no esta loggeado");
-						window.location = "/#!/login";
-					}
-
+					//=============Valid routes=================================//
+					if(localStorage.getItem("isAdmin") == null){				//
+						window.location = "/#!/login";							//
+					}															//
+					//==========================================================//
 
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
 					if(localStorage.getItem("isAdmin") == "true"){				//
@@ -39,6 +38,42 @@ angular.
 						localStorage.clear();
 						window.location = "/#!/login";
 					}
+
+
+					self.CancelarSolicitud = function(){
+
+						//console.log("==================");
+
+						self.id = localStorage.getItem("idSolicitud");	
+
+						confirmar=confirm("Esta seguro que desea eliminar"); 
+						if(confirmar){  
+
+				            $http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + self.id).success(function() {
+				              	
+					        	
+
+					        	////////////////////////////////////////
+					        	$http['delete']('http://localhost:8000/api/v1.0/ingresoMensual/' + self.id).success(function() {
+					        	});
+					        	$http['delete']('http://localhost:8000/api/v1.0/gastos/' + self.id).success(function() {
+					        	});
+					        	$http['delete']('http://localhost:8000/api/v1.0/informacionHogar/' + self.id).success(function() {
+					        	});
+					        	$http['delete']('http://localhost:8000/api/v1.0/gastos_familiares/' + self.id).success(function() {
+					        	});
+					        	////////////////////////////////////////
+
+					        	window.location = "/#!/solicitudes";
+
+				            });
+						}
+
+					}
+
+
+
+
 
 				}]
 			});
