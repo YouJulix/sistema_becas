@@ -35,16 +35,17 @@ exports.addGastos = function(req, res){
 		res.status(200).jsonp(gsts);
 	});
 }
-//POST UPDATE GASTOS
+
+// PUT UPDATE GASTOS
 exports.updateGastos = function(req, res){
 	console.log("/gastos/update");
 	Gastos.find({"becaSolicitud": req.body.becaSolicitud},function(err, gastos){
 
-		gastos.gastosMedicos		=	req.body.gastosMedicos,
-		gastos.isRenta				=	req.body.isRenta,
-		gastos.transporteMetodo		= 	req.body.transporteMetodo
+		gastos[0].gastosMedicos			=	req.body.gastosMedicos,
+		gastos[0].isRenta				=	req.body.isRenta,
+		gastos[0].transporteMetodo		= 	req.body.transporteMetodo
 
-		Gastos.save(function(err){
+		gastos[0].save(function(err){
 			if(err)
 				return res.status(500).send(err.message);
 			res.status(200).jsonp(gastos);
