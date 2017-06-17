@@ -33,49 +33,60 @@
 		<h3>Información del hogar</h3>
 		<div class="col-md-8 col-md-offset-2" >
 			<form ng-submit="$ctrl.saveData()"> 
-			<!--Cuando se trabaja con componentes $ctrl hace referencia al controlador(Así no se manipula directamente el $scope) == -->
-				<p>Tipo de casa:</p>
-				<select ng-model="$ctrl.tipoCasa" required>
-					<option value="" disabled>-Seleccion una opcion-</option>
-					<option value="propia">Propia</option>
-					<option value="alquilada">Alquilada</option>
-					<option value="prestada">Prestada</option>
-				</select>
-				<p>Material de las paredes:</p>
-				<select ng-model="$ctrl.materialParedes" required>
-					<option value="" disabled>-Seleccion una opcion-</option>
-					<option value="adobe" selected>Adobe</option>
-					<option value="lamina">Lámina</option>
-					<option value="madera">Madera</option>
-					<option value="Concreto">Concreto</option>
-				</select>
 				<div>
-					<p>Material del piso</p>
-					<input type="text" name="piso" ng-model="$ctrl.materialPiso" required>
-					<span class="error" ng-init="$ctrl.materialPisoError=false" ng-show="$ctrl.materialPisoError">Error! El material del piso debe ser solo texto.</span>
+					<p>Tipo de casa:</p>
+					<select ng-model="$ctrl.tipoCasa" required>
+						<option value="" disabled>-Seleccion una opcion-</option>
+						<option value="propia">Propia</option>
+						<option value="alquilada">Alquilada</option>
+						<option value="prestada">Prestada</option>
+					</select>
 				</div>
 				<div>
-					<p>Material del techo</p>
-					<input type="text" name="techo" ng-model="$ctrl.materialTecho" required>
-					<span class="error" ng-init="$ctrl.materialTechoError=false" ng-show="$ctrl.materialTechoError">Error! El material del piso debe ser solo texto.</span>
+					<p>Material de las paredes:</p>
+					<select ng-model="$ctrl.materialParedes" required>
+						<option value="" disabled>-Seleccion una opcion-</option>
+						<option value="adobe" selected>Adobe</option>
+						<option value="lamina">Lámina</option>
+						<option value="madera">Madera</option>
+						<option value="Concreto">Concreto</option>
+					</select>
 				</div>
-				<p>Número de personas que habitan la vivienda:</p>
-				<input type="number" name="habitantes" ng-model="$ctrl.habitantes" min="1">
-				<hr>
-				<p>Espacio con los que cuenta la vivienda(Indique con número)</p>
 				<div>
-					<p>Cuartos</p>
-					<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" required>
-					<p>Baños</p>
-					<input type="number" name="banios" ng-model="$ctrl.banios" min="1" required>
-					<p>Focos</p>
-					<input type="number" name="focos" ng-model="$ctrl.focos" min="1" required>
+					<p>Material del piso:</p>
+					<select ng-model="$ctrl.materialPiso" required>
+						<option value="" disabled>-Seleccione una opcion-</option>
+						<option value="tierra">Tierra</option>
+						<option value="contreto">Concreto</option>
+					</select>
+				</div>
+				<div>
+					<p>Material del techo:</p>
+					<select ng-model="$ctrl.materialTecho" required>
+						<option value="" disabled>-Seleccione una opcion-</option>
+						<option value="lamina">Lamina</option>
+						<option value="concreto">Concreto</option>
+						<option value="teja">Teja</option>
+					</select>
+				</div>
+				<div>
+					<p>Número de personas que habitan la vivienda:</p>
+					<input type="number" name="habitantes" ng-model="$ctrl.habitantes" min="1" max="25">
+					<hr>
+					<p>Espacio con los que cuenta la vivienda(Indique con número)</p>
+					<div>
+						<p>Cuartos</p>
+						<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" max="25" required>
+						<p>Baños</p>
+						<input type="number" name="banios" ng-model="$ctrl.banios" min="1" max="25" required>
+						<p>Focos</p>
+						<input type="number" name="focos" ng-model="$ctrl.focos" min="1" max="25" required>
+					</div>
 				</div>
 				<br><br>
 				<input type="button" class="btn" value="Regresar" ng-click="$ctrl.regresar()"/>
 				<input type="submit" class="btn" value="Continuar" />
 				<br /><br />
 			</form>
-		</div>
-	</div>	
+		</div>	
 </div>

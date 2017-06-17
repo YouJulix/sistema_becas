@@ -4,28 +4,9 @@
 			templateUrl: 'dependencia-economica/dependencia-economica.template.html',
 			controller: ['$http', function DependenciaEconomicaController($http){
 				var self = this;
-				
-				//metodo para dicernir visualmente si es admin o alumno ===Ed=
-				if(localStorage.getItem("isAdmin")){						//
-					self.solicitudToMenu = "Menú principal";				//	
-				}else{														//
-					self.solicitudToMenu = "Regresar a solicitudes";		//
-				}															//
-				//==========================================================//
-				
-				//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
-				self.menuChangue = function(){									//
-					if(localStorage.getItem("isAdmin")){
-						console.log("is admin to #!menu_admin");				//
-						window.location = "/#!/menu_admin";						//	
-					}else{														//
-						console.log("is not admin to #!solicitudes");
-						window.location = "/#!/solicitudes";						//
-					}															//
-				}																//
-				//================================================================
-				
-				
+			
+				self.method = "POST"; //Metodo que se mandará a llamar cuando se cargue la página
+
 				self.saveSection = function(){
 					self.data =  {
 						"solicitudId" : localStorage.getItem("idSolicitud"),
@@ -34,7 +15,8 @@
 					};
 					//self.data = JSON.stringify(self.data);
 					$http({
-						method: 'POST',
+						//method: 'POST',
+						method: self.method,
 						url: 'http://192.168.43.247:8000/api/v1.0/deps_econs',
 						//data : JSON.stringify(self.data), //FUnciona enviarlo como String también
 						data : self.data,  //Pero también funciona enviarlo como simple objeto
@@ -58,7 +40,9 @@
 					success(function(data){//data es un array que contiene lo que enviamos(Un solo objeto en este caso)
 						if(data.length == 0){//Se respondio con un conjunto vacio: data = []
 							//No se ha guardado información de esta tabla en la BD
+							self.method = 'POST';
 						}else{
+							self.method = 'PUT';
 							self.escolaridad = data[0].escolaridad; //data[0] = objeto regresado por el servidor
 							self.tipoTrabajo = data[0].tipoTrabajo;
 						}

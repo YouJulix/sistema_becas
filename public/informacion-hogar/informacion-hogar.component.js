@@ -6,30 +6,10 @@ angular.
 				function informacion_hogarController($http){
 					var self = this; //Buena practica es no manipular el this directamente
 					
-					//metodo para dicernir visualmente si es admin o alumno ===Ed=
-					if(localStorage.getItem("isAdmin")){						//
-						self.solicitudToMenu = "Menú principal";				//	
-					}else{														//
-						self.solicitudToMenu = "Regresar a solicitudes";		//
-					}															//
-					//==========================================================//
-					
-					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
-					self.menuChangue = function(){									//
-						if(localStorage.getItem("isAdmin")){
-							console.log("is admin to #!menu_admin");				//
-							window.location = "/#!/menu_admin";						//	
-						}else{														//
-							console.log("is not admin to #!solicitudes");
-							window.location = "/#!/solicitudes";						//
-						}															//
-					}																//
-					//================================================================
-					
 					
 					self.method = 'POST';
-					self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
- 					//self.solicitud = localStorage.getItem("idSolicitud");
+					//self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
+ 					self.solicitud = localStorage.getItem("idSolicitud");
 
 
  					object = $http({
@@ -71,7 +51,7 @@ angular.
 							return;
 						}
 						self.data =  {
-							"solicitudId" : localStorage.getItem("idsolicitud"),
+							"solicitudId" : localStorage.getItem("idSolicitud"),
 							"tipoCasa" : self.tipoCasa,
 							"materialParedes" : self.materialParedes,
 							"materialPiso" : self.materialPiso,

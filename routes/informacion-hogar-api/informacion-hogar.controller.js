@@ -70,6 +70,14 @@ exports.updateInformacionHogar = function(req, res) {
 	});
 }
 
+exports.deleteInformacionHogarBySolicitudId = function(req, res){
+	Informacion.findOneAndRemove({"solicitudId": req.params.solicitudId},function(err,post){
+		if(err) return next(err);
+		console.log(post);
+		res.json(post);
+	});
+}
+
 exports.getInformacionHogar = function(req, res) {  
     Informacion.find(function(err, informacions) { //CUando hacemos un find directo, es como si estuvieramos haciendo: collection.find(); //Se muestra todo
 	if(err) 

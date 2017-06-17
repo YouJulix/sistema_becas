@@ -9,6 +9,7 @@ exports.addAPIRouter = function(app, gastosCtrl){ //Siempre hay que utilizar el 
 		.put(gastosCtrl.updateGastos)
 		.get(gastosCtrl.getAllGastos);
 	gastos_familiares.route('/gastos_familiares/:solicitud')
-		.get(gastosCtrl.findBySolicitud);
+		.get(gastosCtrl.findBySolicitud)
+		.delete(gastosCtrl.deleteSolicitud);
 	app.use("/api/v1.0", gastos_familiares); //Usar en la ruta '/api/v1.0', las rutas/api definidas en el objeto  users
 }

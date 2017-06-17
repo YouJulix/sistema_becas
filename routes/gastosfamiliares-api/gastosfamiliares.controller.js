@@ -3,6 +3,15 @@ var mongoose = require('mongoose');
 //CONTROLERS - FUNCIONES QUE EJECUTARÁN GET, PUT, DELETE...
 var GastoFam = mongoose.model('GastoFamiliar'); //Creo una instancia del Modelo 'User', el cual ya tiene definido un schema.
 
+exports.deleteSolicitud = function(req,res){
+	GastoFam.findByIdAndRemove(req.params.solicitud, function(err){
+		console.log('DELETE');
+		if(err) return res.status(500).send(err.message);
+		res.status(200).send();
+	});
+}
+
+
 exports.getAllGastos = function(req, res){
 	GastoFam.find(function(err, gastos){
 		if(err) 

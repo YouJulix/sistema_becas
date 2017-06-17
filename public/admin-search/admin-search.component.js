@@ -33,8 +33,9 @@ angular.
 							console.log(err);
 						});
 					};
-					$scope.detalle = function(idmat){
+					$scope.detalle = function(idmat,mat){
 						localStorage.setItem("idSolicitud",idmat);
+						localStorage.setItem("matricula",mat);
 						window.location = "/#!/detalles_solicitud_admin";
 					};
 					$scope.modificar = function(idmat){

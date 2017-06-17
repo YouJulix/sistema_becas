@@ -6,29 +6,8 @@ angular.
 				function RegistroFormController($http){
 					var self = this;
 					
-					//metodo para dicernir visualmente si es admin o alumno ===Ed=
-					if(localStorage.getItem("isAdmin")){						//
-						self.solicitudToMenu = "Menú principal";				//	
-					}else{														//
-						self.solicitudToMenu = "Regresar a solicitudes";		//
-					}															//
-					//==========================================================//
-					
-					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
-					self.menuChangue = function(){									//
-						if(localStorage.getItem("isAdmin")){
-							console.log("is admin to #!menu_admin");				//
-							window.location = "/#!/menu_admin";						//	
-						}else{														//
-							console.log("is not admin to #!solicitudes");
-							window.location = "/#!/solicitudes";						//
-						}															//
-					}																//
-					//================================================================
-					
-
 					self.matricula = localStorage.getItem('matricula');
-					self.solicitudId = localStorage.getItem('idsolicitud');
+					self.solicitudId = localStorage.getItem('idSolicitud');
 					
 					self.renderUser = function(){
 						$http({
@@ -78,16 +57,17 @@ angular.
 */
 						$http({
 							method:'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/'+ self.matricula
+							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/'+ self.solicitudId
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
-							self.estado 			 		= data[0].estado;
-							self.porcentaje_sugerido 		= data[0].porcentaje_sugerido;
-							self.porcentaje_final			= data[0].porcentaje_final;
-							self.libre_de_extra				= data[0].libre_de_extra;
-							self.biblioteca_completa		= data[0].biblioteca_completa;
-							self.fecha_envio				= data[0].fecha_envio;
+							console.log(data);
+							self.estado 			 		= data.estado;
+							self.porcentaje_sugerido 		= data.porcentaje_sugerido;
+							self.porcentaje_final			= data.porcentaje_final;
+							self.libre_de_extra				= data.libre_de_extra;
+							self.biblioteca_completa		= data.biblioteca_completa;
+							self.fecha_envio				= data.fecha_envio;
 						}).
 						error(function(){
 							alert("Error.");
@@ -110,7 +90,7 @@ angular.
 						}).
 						success(function(data){
 							alert("Datos guardados");
-							window.location = "#!/login";
+							window.location = "#!/admin_principal";
 						}).
 						error(function(){
 							alert("Error.");
@@ -147,7 +127,7 @@ angular.
 
 					}
 
-					this.renderUser(self.matricula);
+					this.renderUser();
 				}
 			]
 		});

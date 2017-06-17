@@ -34,18 +34,18 @@
 			<form ng-submit="$ctrl.addIngresoMensual()">
 				<div class="form-group">
 					<label >Ingreso mensual del jefe de familia</label>
-						<input type="text" class="form-control" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe">
+						<input type="number" min="500" max="10000" class="form-control" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe">
 				</div>
 				<div class="form-group">
 					<label >Apoyo mensual gubernamental</label>
-						<input type="text" class="form-control" placeholder="apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental">
+						<input type="number" min="0" max="10000" class="form-control" placeholder="apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental">
 				</div>
 				<div class="form-group">
 					<label >Apoyo mensual de terceros</label>
-						<input type="text" class="form-control" placeholder="apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros">
+						<input type="number" min="0" max="10000" class="form-control" placeholder="apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros">
 				</div>
 				<br>
-				<a href="#!/login" class="btn btn-default" >Volver</a>
+				<a href="#!/dependencia_economica" class="btn btn-default" >Volver</a>
 				<button type="submit" class="btn btn-default">Continuar</button>
 			</form>
 		</div>

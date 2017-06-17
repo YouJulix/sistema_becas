@@ -37,7 +37,8 @@ exports.addGastos = function(req, res){
 }
 //POST UPDATE GASTOS
 exports.updateGastos = function(req, res){
-	Gastos.find({"becaSolicitud": req.params.solicitud},function(err, gastos){
+	console.log("/gastos/update");
+	Gastos.find({"becaSolicitud": req.body.becaSolicitud},function(err, gastos){
 
 		gastos.gastosMedicos		=	req.body.gastosMedicos,
 		gastos.isRenta				=	req.body.isRenta,
@@ -49,4 +50,14 @@ exports.updateGastos = function(req, res){
 			res.status(200).jsonp(gastos);
 		});
 	});
+}
+
+//DELETE GASTOS ALUMNO
+
+exports.deleteGastosByBecaSolicitud = function(req, res){
+	Gastos.remove({"becaSolicitud": req.params.solicitud},function(err,result){
+		if(err)
+			return res.status(500).send(err.message);
+		res.status(200).jsonp(result);
+	})
 }

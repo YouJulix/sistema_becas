@@ -8,13 +8,14 @@ angular.
 					
 					//self.solicitud = 5000; //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					self.solicitud = localStorage.getItem("idSolicitud");
- 					object = $http({
+ 					$http({
 						method 	: 	'GET',
-						url 	: 	'http://192.168.43.247/api/v1.0/gastos/'+ self.solicitud
+						url 	: 	'http://192.168.43.247:8000/api/v1.0/gastos/'+ self.solicitud
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
 						if(object){
+							self.method = "PUT";
 							self.gastosMedicos	= parseInt(object.gastosMedicos);
 							self.rentaSi 		= object.isRenta.renta;
 							self.montoRenta 	= parseInt(object.isRenta.monto);
@@ -25,6 +26,7 @@ angular.
 							self.bicicleta = object.transporteMetodo.bicicleta;
 							//Retornadas a false por comodidad 
 						}else{
+							self.method = "POST";
 							self.taxi = false;
 							self.vehiculo = false;
 							self.caminar = false;
@@ -84,8 +86,9 @@ angular.
 														"bicicleta"	:self.bicicleta	
 													}
 						};
+
 						$http({
-							method	: "POST",
+							method	: self.method,
 							url 	: 'http://192.168.43.247:8000/api/v1.0/gastos',
 							data 	: self.data
 						}).success(function(gastos){

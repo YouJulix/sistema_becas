@@ -38,3 +38,33 @@ exports.addDepEcon = function(req, res){
 
 	})
 }
+
+exports.updateDepEcon = function(req, res){
+	console.log("UPDATE Dep Econ");
+
+	DepEcon.find({"solicitudId" : req.body.solicitudId}, function(err, depEcon){
+		//depEcon = depEcon[0]; //Primer elemento de lo retornado
+		depEcon[0].escolaridad = req.body.escolaridad,
+		depEcon[0].tipoTrabajo = req.body.tipoTrabajo
+
+		depEcon[0].save(function(err){
+			if(err)
+				return res.status(500).send(err.message);
+			res.status(200).jsonp(depEcon);
+		});
+	});
+}
+
+
+exports.deleteSolicitudById = function(req, res){
+	console.log("/DELETE Dep Econ");
+	DepEcon.find({"solicitudId" : req.params.solicitudId}, function(err, depEcon){ //depEcon apuntador hacia los elementos encontrados(En este caso solo se encontrará uno, pues el Id debe ser diferente siempre para cada registro)
+		depEcon[0].remove(function(err){ //[0], primer y unico elemento
+			if(err)
+				return res.status(500).send(err.message);
+			res.status(200).send();
+		});
+	});
+
+}
+

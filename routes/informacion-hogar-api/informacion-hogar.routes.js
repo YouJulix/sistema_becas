@@ -11,8 +11,9 @@ exports.addAPIRouter = function(app, infHogarCtrl){ //Siempre hay que utilizar e
 		//Dos puntos(:) antecedidos a una palabra, significa que esta será una variable
 	//beca4.route('/beca4/:matricula') //la variable 'req', trae como 'params' una variable llamada 'matricula'
 	//	.get(UserCtrl.findByMatricula);
-	informacion.route('/informacionHogar/:solicitudId').
-		get(infHogarCtrl.findInformacionHogarBySolicitudId);
+	informacion.route('/informacionHogar/:solicitudId')
+		.get(infHogarCtrl.findInformacionHogarBySolicitudId)
+		.delete(infHogarCtrl.deleteInformacionHogarBySolicitudId);
 
 	informacion.route('/informacionHogar/:tipoCasa/:materialParedes/:materialPiso/:materialTecho/:habitantes/:cuartos/:banios/:focos') //la variable 'req', trae como 'params' una variable llamada 'matricula' y otra llamada 'password'
 		.post(infHogarCtrl.addInformacionHogar);

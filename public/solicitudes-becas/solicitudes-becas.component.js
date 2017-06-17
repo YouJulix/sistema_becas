@@ -39,7 +39,7 @@ angular.
 						
 						$http({
 							method: 'GET',
-							url: 'http://localhost:8000/api/v1.0/solicitudes/'+$scope.matricula
+							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/'+$scope.matricula
 
 						}).success(function(data){
 							//alert("success "+data)
@@ -72,12 +72,11 @@ angular.
 							}else{
 								alert('Error al intentar recuperar el cliente');
 							}
-						}).
-						error(function(){
+						}).error(function(){
 							alert('Error al intentar recuperar el cliente');
 						});
 
-					}
+					};
 
 					self.imprimir();
 
@@ -85,7 +84,7 @@ angular.
 					self.imprimirDatos = function(){
 						$http({
 							method: 'GET',
-							url: 'http://localhost:8000/api/v1.0/users/' + $scope.matricula
+							url: 'http://192.168.43.247:8000/api/v1.0/users/' + $scope.matricula
 
 						}).success(function(data){
 							//alert("success "+data)
@@ -99,48 +98,50 @@ angular.
 									$scope.dato = data;
 								}
 							}else{
-								alert('Error al intentar recuperar el cliente');
+								window.location = "/#!/login";
 							}
-						}).
-						error(function(){
-							alert('Error al intentar recuperar el cliente');
+						}).error(function(){
+							window.location = "/#!/login";
 						});
 					}
 
 					self.imprimirDatos();
 
 
-					$scope.remove = function(idm){
+					$scope.remove = function(idm){	
+
+						console.log("entro aqui 1");
 
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
 
-					        $http({ 
+					        /*$http({ 
 					            method: 'DELETE',
-								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
+								url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + idm
 					        }).success(function(data){
+					        	console.log("entro aqui 2");
 					        	self.imprimir();
+					        	//location.reload();
 					        	window.location = "/#!/solicitudes";
-					        }).
-
-						$http({ 
-						    method: 'DELETE',
-								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
-						}).success(function(data){
-							self.imprimir();
-							window.location = "/#!/solicitudes";
-						}).
-
-							error(function(){
+					        	console.log("entro aqui 3");
+					        }).error(function(){
 								alert('Error al intentar recuperar el cliente');
-							});
+							});*/
+
+				            $http['delete']('http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + idm).success(function() {
+				              	self.imprimir();
+					        	//location.reload();
+					        	window.location = "/#!/solicitudes";
+				              	//console.log("ya");
+				              	location.reload();
+				            });
 						}
 
 					};
 
 
 					$scope.modificar = function(id){
-						localStorage.setItem("idsolicitud",id);
+						localStorage.setItem("idSolicitud",id);
 						window.location = "/#!/dependencia_economica";
 
 
@@ -152,7 +153,7 @@ angular.
 						
 
 					    $http({
-					        url: 'http://localhost:8000/api/v1.0/solicitudes/',
+					        url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/',
 					        method: "POST",
 					        data: { 								
 					        	'estado' : "pendiente",
@@ -163,12 +164,13 @@ angular.
 								'fecha_envio' : fecha,
 								'matricula' : $scope.matricula }
 					    }).success(function (data, status, headers, config) {
-			                localStorage.setItem("idsolicitud",data._id);
+			                localStorage.setItem("idSolicitud",data._id);
 			            	//alert(data._id);
 			            	window.location = "/#!/dependencia_economica";
 			            }).error(function (data, status, headers, config) {
 			                alert('Error al intentar recuperar el cliente');
 			            });
+			        };
 
 
 					//Sugerencia... podrian ser la misma funcion
@@ -185,7 +187,7 @@ angular.
 
 
 					    $http({
-							url: 'http://localhost:8000/api/v1.0/solicitudes/',
+							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/',
 							method: "POST",
 							data: { 								
 								'estado' : "pendiente",
@@ -210,25 +212,14 @@ angular.
 					$scope.cerrarSesion = function() {
 
 				  
-				        localStorage.removeItem("matricula");
+				        localStorage.clear();
 				        window.location = "/#!/login";
-				    }
+				    };
 
 					  
-					        localStorage.removeItem("matricula");
-					        window.location = "/#!/login";
-					}
 
 
-
-
-
-
-
-
-
-
-					//}
+					
 				}
 			]
 		});
