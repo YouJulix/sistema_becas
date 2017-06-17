@@ -11,6 +11,8 @@ angular.
 					$scope.pendientes = [];
 					$scope.terminados = [];
 
+					$scope.becaAsignada = 0;
+
 					//$scope.valor = 5; //ejemplo para declarar variables
 
 					var self = this; //BUena practica es no manipular el this directamente
@@ -66,12 +68,22 @@ angular.
 											}
 
 											
-											if(solicitudes.estado == 'terminado')
+											if(solicitudes.estado == 'terminado'){
 												$scope.terminados.push(solicitudes);
+											}
 
 											
 										});
 
+
+										//console.log('++++++++++++');
+										//console.log($scope.pendientes.length);
+										//console.log($scope.terminados[$scope.terminados.length-1].porcentaje_sugerido);
+										//console.log('++++++++++++');
+
+										if($scope.terminados.length != 0){
+											$scope.becaAsignada = $scope.terminados[$scope.terminados.length-1].porcentaje_sugerido;
+										}
 
 										
 
