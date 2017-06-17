@@ -7,7 +7,7 @@ angular.
 					var self = this;
 					
 					self.matricula = localStorage.getItem('matricula');
-					self.solicitudId = localStorage.getItem('idSolicitud');
+					self.solicitudId = localStorage.getItem('idsolicitud');
 					
 					self.renderUser = function(){
 						$http({
