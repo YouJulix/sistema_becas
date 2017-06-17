@@ -140,11 +140,8 @@ angular.
 					        	//location.reload();
 					        	window.location = "/#!/solicitudes";
 				              	//console.log("ya");
-<<<<<<< HEAD
 				              	location.reload();
-=======
 				              	//location.reload();
->>>>>>> 7c82c0d98a9480463556c9a6ab6900877981498e
 				            });
 						}
 
