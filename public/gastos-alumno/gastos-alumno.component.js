@@ -15,6 +15,7 @@ angular.
 					}).success(function(data){
 						object = data[0];
 						console.log(object);
+						console.log(object);
 						if(object){
 							self.method = "PUT";
 							self.gastosMedicos	= parseInt(object.gastosMedicos);
@@ -41,19 +42,15 @@ angular.
 					
 					//Funcion para guardadr solicitud... 
 					self.saveData = function(){
-						
+			
 						if(self.gastosMedicos < 0){
- 							alert("Solo numeros positivos");
+ 							alert("Error en gastos medicos, solo numeros positivos");
  							return;
  						}
  						if(self.gastosMedicos > 15000){
  							alert("Los gastos medicos son demasiado altos, comunicarse con el administrador");
  							return;
  						}
-						if(self.montoRenta < 0 ){
-							alert("El monto de la renta es incorrecto solo numeros positivos");
-							return;
-						}
 
 						if(self.montoRenta > 10000){
 							alert("El monto de la renta es demasiado alto, comunicarse con el administrador");
@@ -65,11 +62,18 @@ angular.
 							return;
 						}
 
-						if(self.isRenta){
-							if(self.montoRenta == 0){
-								alert("Los gastos de renta mensual deben ser mayor a 0");
+
+
+						if(self.rentaSi){
+							if(self.montoRenta < 200){
+								alert("Los gastos de renta son inferiores a 200, contacta a un administrador");
 								return;
 							}
+
+							if(self.montoRenta < 0 ){
+							alert("El monto de la renta es incorrecto solo numeros positivos");
+							return;
+						}
 						}
 						//Construir un objeto
 						self.data = {

@@ -58,8 +58,12 @@ angular.
 										//guardar las solicitudes pendientes en un arreglo
 										angular.forEach($scope.datos, function(solicitudes){
 
-											if(solicitudes.estado == 'pendiente')
+											
+
+											if(solicitudes.estado == 'pendiente'){
 												$scope.pendientes.push(solicitudes);
+												document.getElementById("ocultar").disabled = true;
+											}
 
 											
 											if(solicitudes.estado == 'terminado')
@@ -67,6 +71,9 @@ angular.
 
 											
 										});
+
+
+										
 
 								}
 							}else{
@@ -117,7 +124,7 @@ angular.
 
 					        /*$http({ 
 					            method: 'DELETE',
-								url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + idm
+								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
 					        }).success(function(data){
 					        	console.log("entro aqui 2");
 					        	self.imprimir();
