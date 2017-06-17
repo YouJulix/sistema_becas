@@ -45,9 +45,7 @@ angular.
 							url: 'http://localhost:8000/api/v1.0/ingresoMensual',
 							data: self.data
 						}).success(function(ingresos){
-							if(typeof(ingresos) == "object"){
-								window.location = "#!/gastos_alumno";
-							}
+							window.location = "#!/gastos_alumno";
 						}).error(function(error){
 							console.log(error);
 							alert("Error al agregar ingresos mensuales");
