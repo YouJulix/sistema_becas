@@ -253,7 +253,7 @@ angular.
 									'porcentaje_sugerido' : 0,
 									'porcentaje_final' : 0,
 									'libre_de_extra' : false,
-									'biblioteca_completa' : false,
+									'biblioteca_completa' : true,
 									'fecha_envio' : fecha,
 									'matricula' : $scope.matricula }
 						    }).success(function (data, status, headers, config) {
