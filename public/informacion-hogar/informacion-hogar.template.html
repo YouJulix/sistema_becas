@@ -32,7 +32,7 @@
 	<div class="row">
 		<h3>Información del hogar</h3>
 		<div class="col-md-8 col-md-offset-2" >
-			<form ng-submit="$ctrl.saveData()"> 
+			<form ng-submit="$ctrl.saveData()"  ng-init="$ctrl.errorTeja=true; $ctrl.errorConcreto=true"> 
 				<div>
 					<p>Tipo de casa:</p>
 					<select ng-model="$ctrl.tipoCasa" required>
@@ -67,8 +67,8 @@
 					<select ng-model="$ctrl.materialTecho" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="lamina">Lamina</option>
-						<option value="teja" ng-show="$ctrl.errorTeja" ng-init="$ctrl.errorTeja=true">Teja</option>
-						<option value="concreto" ng-show="$ctrl.errorConcreto" ng-init="$ctrl.errorConcreto=true">Concreto</option>
+						<option value="teja" ng-show="$ctrl.errorTeja">Teja</option>
+						<option value="concreto" ng-show="$ctrl.errorConcreto">Concreto</option>
 					</select>
 				</div>
 				<div>

@@ -10,12 +10,16 @@ angular.
 					self.method = 'POST';
 <<<<<<< HEAD
 					//self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
+<<<<<<< HEAD
  					self.solicitud = localStorage.getItem("idSolicitud");
 =======
 					self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					//self.solicitud = localStorage.getItem("idSolicitud");
 >>>>>>> 7c82c0d98a9480463556c9a6ab6900877981498e
 
+=======
+ 					self.solicitudId = localStorage.getItem("idSolicitud");
+>>>>>>> 882f559b38eb3875f59ebc5d3de5490577e8681b
 
  					object = $http({
 						method 	: 	'GET',
