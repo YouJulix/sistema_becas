@@ -51,7 +51,7 @@ angular.
 
 						$http({
 							method: 'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/ingresoMensual/'+$scope.idsolicitud
+							url: 'http://localhost:8000/api/v1.0/ingresoMensual/'+$scope.idsolicitud
 
 						}).success(function(data){
 						
@@ -99,7 +99,7 @@ angular.
 										/////////////////////////////extraer datos de solicitudes
 										$http({
 											method: 'GET',
-											url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
+											url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
 
 										}).success(function(data){
 											console.log(data);
