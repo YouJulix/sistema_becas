@@ -45,11 +45,13 @@
 				<div>
 					<p>Material de las paredes:</p>
 					<select ng-model="$ctrl.materialParedes" required>
-						<option value="" disabled>-Seleccion una opcion-</option>
-						<option value="adobe" selected>Adobe</option>
-						<option value="lamina">Lámina</option>
-						<option value="madera">Madera</option>
-						<option value="Concreto">Concreto</option>
+						<option value="" disabled ng-click="$ctrl.errorConcreto=true;$ctrl.errorTeja=true">-Seleccion una opcion-</option>
+
+						<option value="adobe" ng-click="$ctrl.errorConcreto=false;$ctrl.errorTeja=true">Adobe</option>
+						<option value="lamina" ng-click="$ctrl.errorConcreto=false;$ctrl.errorTeja=false">Lámina</option>
+						<option value="madera" ng-click="$ctrl.errorConcreto=false;$ctrl.errorTeja=false">Madera</option>
+						
+						<option value="Concreto" ng-click="$ctrl.errorConcreto=true;$ctrl.errorTeja=true">Concreto</option>
 					</select>
 				</div>
 				<div>
@@ -57,7 +59,7 @@
 					<select ng-model="$ctrl.materialPiso" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="tierra">Tierra</option>
-						<option value="contreto">Concreto</option>
+						<option value="contreto" >Concreto</option>
 					</select>
 				</div>
 				<div>
@@ -65,8 +67,8 @@
 					<select ng-model="$ctrl.materialTecho" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="lamina">Lamina</option>
-						<option value="concreto">Concreto</option>
-						<option value="teja">Teja</option>
+						<option value="teja" ng-show="$ctrl.errorTeja" ng-init="$ctrl.errorTeja=true">Teja</option>
+						<option value="concreto" ng-show="$ctrl.errorConcreto" ng-init="$ctrl.errorConcreto=true">Concreto</option>
 					</select>
 				</div>
 				<div>
