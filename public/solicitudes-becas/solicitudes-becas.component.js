@@ -153,6 +153,7 @@ angular.
 					        	window.location = "/#!/solicitudes";
 				              	//console.log("ya");
 				              	location.reload();
+				              	//location.reload();
 				            });
 						}
 

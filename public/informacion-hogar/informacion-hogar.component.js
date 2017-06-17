@@ -10,8 +10,11 @@ angular.
 					self.method = 'POST';
 					//self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					self.solicitud = localStorage.getItem("idSolicitud");
+					self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
+ 					//self.solicitud = localStorage.getItem("idSolicitud");
 
-
+ 					self.solicitudId = localStorage.getItem("idSolicitud");
+ 					self.errorTeja = true;
  					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ self.solicitudId
@@ -27,18 +30,36 @@ angular.
 							self.cuartos 		= parseInt(object.cuartos);
 							self.banios 		= parseInt(object.banios);
 							self.focos 			= parseInt(object.focos);
+							self.errorTeja 		= true;
 							self.method = 'PUT';
 						}else{
-							self.materialPiso	= "";
-							self.materialTecho	= "";
 							self.habitantes 	= 0;
 							self.cuartos 		= 0;
 							self.banios 		= 0;
 							self.focos 			= 0;
+							self.errorTeja 		= true;
 						}   
 					}).error(function(err){
 						console.log(err);
 					});
+					self.cambioParedes = function(){
+						if(self.materialParedes == "adobe"){
+							self.errorConcreto = false;
+							self.errorTeja = true;
+						}
+						if(self.materialParedes == "lamina"){
+							self.errorConcreto = false;
+							self.errorTeja = false;
+						}
+						if(self.materialParedes == "madera"){
+							self.errorConcreto = false;
+							self.errorTeja = false;
+						}
+						if(self.materialParedes == "concreto"){
+							self.errorConcreto = true;
+							self.errorTeja = true;
+						}
+					};
 					self.saveData = function(){
 						self.materialPisoError = false;
 						self.materialTechoError = false;

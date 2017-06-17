@@ -15,4 +15,5 @@ angular.module('sistBecasApp',[
 	'detallesSolicitudAdmin',
 	'barraPrincipal',
 	'adminSearch',
+	'adminSearch'
 	]);

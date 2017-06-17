@@ -136,6 +136,7 @@ angular.
 						/////////////////////////////////////////////////////////////////////
 						
 						
+						$scope.idsolicitud = localStorage.getItem("idSolicitud");
 
 						$http({
 							method: 'GET',
@@ -266,7 +267,7 @@ angular.
 				    }
 
 				    $scope.regresar = function() {
-				    	window.location = "/#!/gastos_familiares"
+				    	window.location = "/#/gastos_familiares"
 				    }
 				}
 			]
