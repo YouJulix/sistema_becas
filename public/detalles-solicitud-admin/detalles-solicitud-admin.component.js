@@ -54,7 +54,7 @@ angular.
 							console.log(data);
 							self.estado 			 		= data.estado;
 							self.porcentaje_sugerido 		= data.porcentaje_sugerido;
-							self.porcentaje_final			= data.porcentaje_final;
+							self.porcentaje_final			= data.porcentaje_sugerido;
 							self.libre_de_extra				= data.libre_de_extra;
 							self.biblioteca_completa		= data.biblioteca_completa;
 							self.fecha_envio				= data.fecha_envio;
