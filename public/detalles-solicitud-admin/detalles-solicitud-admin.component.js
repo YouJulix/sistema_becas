@@ -44,17 +44,7 @@ angular.
 							alert("Error. El Usuario no existe");
 							window.location = "#!/lista-becas";
 						});
-/*
-{
-"matricula": "0113010003",
-"estado": "completa",
-"porcentaje_sugerido": "100",
-"porcentaje_final": "100",
-"libre_de_extra": "true",
-"biblioteca_completa": "true",
-"fecha_envio": "15/06/2017"
-}
-*/
+
 						$http({
 							method:'GET',
 							url: 'http://localhost:8000/api/v1.0/solicitudes/id/'+ self.solicitudId
@@ -126,9 +116,7 @@ angular.
 						}
 
 					}
-
 					this.renderUser();
-					this.renderUser(self.solicitudId);
 				}
 			]
 		});
