@@ -79,13 +79,13 @@ angular.
 										});
 
 
-										//console.log('++++++++++++');
+										console.log('++++++++++++');
 										//console.log($scope.pendientes.length);
-										//console.log($scope.terminados[$scope.terminados.length-1].porcentaje_sugerido);
-										//console.log('++++++++++++');
+										console.log($scope.terminados[$scope.terminados.length-1].porcentaje_final);
+										console.log('++++++++++++');
 
 										if($scope.terminados.length != 0){
-											$scope.becaAsignada = $scope.terminados[$scope.terminados.length-1].porcentaje_sugerido;
+											$scope.becaAsignada = $scope.terminados[$scope.terminados.length-1].porcentaje_final;
 										}
 
 										
