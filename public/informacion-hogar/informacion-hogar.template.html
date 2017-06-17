@@ -32,7 +32,7 @@
 	<div class="row">
 		<h3>Información del hogar</h3>
 		<div class="col-md-8 col-md-offset-2" >
-			<form ng-submit="$ctrl.saveData()"  ng-init="$ctrl.errorTeja=true; $ctrl.errorConcreto=true"> 
+			<form ng-submit="$ctrl.saveData()"> 
 				<div>
 					<p>Tipo de casa:</p>
 					<select ng-model="$ctrl.tipoCasa" required>
@@ -44,16 +44,15 @@
 				</div>
 				<div>
 					<p>Material de las paredes:</p>
-					<select ng-model="$ctrl.materialParedes" required>
-						<option value="" disabled ng-click="$ctrl.errorConcreto=true;$ctrl.errorTeja=true">-Seleccion una opcion-</option>
-
-						<option value="adobe" ng-click="$ctrl.errorConcreto=false;$ctrl.errorTeja=true">Adobe</option>
-						<option value="lamina" ng-click="$ctrl.errorConcreto=false;$ctrl.errorTeja=false">Lámina</option>
-						<option value="madera" ng-click="$ctrl.errorConcreto=false;$ctrl.errorTeja=false">Madera</option>
-						
-						<option value="Concreto" ng-click="$ctrl.errorConcreto=true;$ctrl.errorTeja=true">Concreto</option>
+					<select ng-model="$ctrl.materialParedes" required ng-change="$ctrl.cambioParedes()">
+						<option value="" disabled>-Seleccion una opcion-</option>
+						<option value="adobe">Adobe</option>
+						<option value="lamina">Lámina</option>
+						<option value="madera">Madera</option>
+						<option value="concreto">Concreto</option>
 					</select>
 				</div>
+					
 				<div>
 					<p>Material del piso:</p>
 					<select ng-model="$ctrl.materialPiso" required>

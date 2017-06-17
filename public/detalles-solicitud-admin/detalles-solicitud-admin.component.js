@@ -55,7 +55,6 @@ angular.
 "fecha_envio": "15/06/2017"
 }
 */
-						alert(self.solicitudId);
 						$http({
 							method:'GET',
 							url: 'http://localhost:8000/api/v1.0/solicitudes/id/'+ self.solicitudId

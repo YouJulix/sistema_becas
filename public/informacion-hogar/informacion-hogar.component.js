@@ -19,8 +19,12 @@ angular.
 
 =======
  					self.solicitudId = localStorage.getItem("idSolicitud");
+<<<<<<< HEAD
 >>>>>>> 882f559b38eb3875f59ebc5d3de5490577e8681b
 
+=======
+ 					self.errorTeja = true;
+>>>>>>> c6d128ec919ee224da5da2f2a93a8656f84c0e7f
  					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ self.solicitudId
@@ -36,18 +40,36 @@ angular.
 							self.cuartos 		= parseInt(object.cuartos);
 							self.banios 		= parseInt(object.banios);
 							self.focos 			= parseInt(object.focos);
+							self.errorTeja 		= true;
 							self.method = 'PUT';
 						}else{
-							self.materialPiso	= "";
-							self.materialTecho	= "";
 							self.habitantes 	= 0;
 							self.cuartos 		= 0;
 							self.banios 		= 0;
 							self.focos 			= 0;
+							self.errorTeja 		= true;
 						}   
 					}).error(function(err){
 						console.log(err);
 					});
+					self.cambioParedes = function(){
+						if(self.materialParedes == "adobe"){
+							self.errorConcreto = false;
+							self.errorTeja = true;
+						}
+						if(self.materialParedes == "lamina"){
+							self.errorConcreto = false;
+							self.errorTeja = false;
+						}
+						if(self.materialParedes == "madera"){
+							self.errorConcreto = false;
+							self.errorTeja = false;
+						}
+						if(self.materialParedes == "concreto"){
+							self.errorConcreto = true;
+							self.errorTeja = true;
+						}
+					};
 					self.saveData = function(){
 						self.materialPisoError = false;
 						self.materialTechoError = false;
