@@ -132,7 +132,7 @@ angular.
 								self.semestre = data[0].semestre;
 								self.grupo = data[0].grupo;
 								self.sexo = data[0].sexo;
-								alert(data[0].sexo);
+								//alert(data[0].sexo);
 								//self.idiomaExt = data[0].idiomaExt;
 								self.edoCivil = data[0].edoCivil;
 								//self.telefono = data[0].telefono;
@@ -247,7 +247,7 @@ angular.
 
 							}).
 							success(function(data){
-								alert("Actualización Realizada Exitosamente.! :)");
+								//alert("Actualización Realizada Exitosamente.! :)");
 								window.location="#!/lista-becas";
 							}).
 							error(function(){
