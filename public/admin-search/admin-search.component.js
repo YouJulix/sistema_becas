@@ -42,10 +42,12 @@ angular.
 					$scope.detalle = function(idmat,mat){
 						localStorage.setItem("idSolicitud",idmat);
 						localStorage.setItem("matricula",mat);
-					$scope.detalle = function(idmat){
-						localStorage.setItem("idSolicitud",idmat);
 						window.location = "/#!/detalles_solicitud_admin";
-					};
+					/*$scope.detalle = function(idmat){
+						localStorage.setItem("idSolicitud",idmat);
+						
+					};*/
+					}
 					$scope.modificar = function(idmat){
 						localStorage.setItem("idSolicitud",idmat);
 						window.location = "/#!/dependencia_economica";
@@ -72,5 +74,4 @@ angular.
 					}		
 				}
 			]
-		});
 		});
