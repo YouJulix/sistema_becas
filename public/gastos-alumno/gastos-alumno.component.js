@@ -89,7 +89,7 @@ angular.
 
 						$http({
 							method	: self.method,
-							url 	: 'http://localhost:8000/api/v1.0/gastos/'+ self.solicitud,
+							url 	: 'http://localhost:8000/api/v1.0/gastos/',
 							//url 	: 'http://192.168.43.247:8000/api/v1.0/gastos',
 							data 	: self.data
 						}).success(function(gastos){
@@ -104,11 +104,15 @@ angular.
 
 					//Validación de campo transporte
 
+					self.transportVehiculo = function(){
+						self.caminar = false;
+						self.taxi = false;
+						self.bicicleta = false;
+					}
+
 					self.transportValid = function(){
 						if(self.vehiculo){
-							self.caminar = false;
-							self.taxi = false;
-							self.bicicleta = false;
+							self.vehiculo = false;
 						}
 					}
 
