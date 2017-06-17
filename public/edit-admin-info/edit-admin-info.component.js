@@ -238,8 +238,8 @@ angular.
 						window.location = "/#!/lista-becas";
 					}
 
-					//self.renderUser(localStorage.getItem("alumno"));
-					self.renderUser("0113010010");
+					self.renderUser(localStorage.getItem("alumno"));
+					//self.renderUser("0113010010");
 				}
 			]
 		});
