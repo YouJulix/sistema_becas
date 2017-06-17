@@ -23,7 +23,7 @@ angular.
 					$scope.porcentaje_sugerido = 0 ;
 					$scope.porcentaje_final = 0 ;
 					$scope.libre_de_extra = false;
-					$scope.biblioteca_completa = false;
+					$scope.biblioteca_completa = true;
 					$scope.fecha_envio = "";
 
 
