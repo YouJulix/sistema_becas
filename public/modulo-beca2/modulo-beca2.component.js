@@ -28,7 +28,17 @@ angular.
 					}).error(function(err){
 						console.log(err);
 					});
-					console.log("val");
+					
+					
+					self.addIngresoMensual = function(){
+						self.data = {
+							"solicitudId"	: self.solicitudId,
+							"ingresoMenJefe": self.ingresoMenJefe,
+							"ingresoMenGubernamental" : self.ingresoMenGubernamental,
+							"ingresoMenTerceros"      : self.ingresoMenTerceros
+						};
+						console.log(self.method);
+						console.log("val");
 					if( (self.ingresoMenGubernamental) > 0 && (self.ingresoMenGubernamental<200) ){
 						console.log("invalido");
 						alert("el rango valido es 200-10000");
@@ -39,15 +49,6 @@ angular.
 						alert("el rango valido es 200-10000");
 						return;
 					}
-					
-					self.addIngresoMensual = function(){
-						self.data = {
-							"solicitudId"	: self.solicitudId,
-							"ingresoMenJefe": self.ingresoMenJefe,
-							"ingresoMenGubernamental" : self.ingresoMenGubernamental,
-							"ingresoMenTerceros"      : self.ingresoMenTerceros
-						};
-						console.log(self.method);
 						$http({
 							
 							method: self.method,
