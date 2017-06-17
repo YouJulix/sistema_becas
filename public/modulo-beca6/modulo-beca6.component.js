@@ -125,7 +125,6 @@ angular.
 						});
 
 						
-<<<<<<< HEAD
 					}	
 
 
@@ -137,9 +136,7 @@ angular.
 						/////////////////////////////////////////////////////////////////////
 						
 						
-=======
 						$scope.idsolicitud = localStorage.getItem("idSolicitud");
->>>>>>> 7c82c0d98a9480463556c9a6ab6900877981498e
 
 						$http({
 							method: 'GET',
@@ -202,12 +199,7 @@ angular.
 												if(data != ""){
 													
 														$scope.datos = data;
-<<<<<<< HEAD
 														//console.log(datos);
-=======
-														
-														console.log(datos);
->>>>>>> 7c82c0d98a9480463556c9a6ab6900877981498e
 														$scope.matricul = $scope.datos.matricula;
 														$scope.estado = $scope.datos.estado ;
 														$scope.porcentaje_sugerido = $scope.datos.porcentaje_sugerido ;
@@ -275,11 +267,7 @@ angular.
 				    }
 
 				    $scope.regresar = function() {
-<<<<<<< HEAD
-				    	window.location = "/#!/gastos_familiares"
-=======
 				    	window.location = "/#/gastos_familiares"
->>>>>>> 7c82c0d98a9480463556c9a6ab6900877981498e
 				    }
 				}
 			]

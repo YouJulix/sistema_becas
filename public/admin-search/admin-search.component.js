@@ -17,16 +17,12 @@ angular.
 						//console.log(self.matricula);
 						object = $http({
 						method 	: 	'GET',
-						url 	: 	'http://192.168.43.247:8000/api/v1.0/users/'+ self.matricula
-						url 	: 	'http://localhost:8000/api/v1.0/users/'+ self.matricula
 						url 	: 	'http://localhost:8000/api/v1.0/users/'+ self.matricula
 						}).success(function(data){
 							$scope.dato = data[0];
 							console.log($scope.dato);
 							object = $http({
 								method : 'GET',
-								url    : 'http://192.168.43.247:8000/api/v1.0/solicitudes/'+ self.matricula 
-								url    : 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula 
 								url    : 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula 
 							}).success(function(data){
 								$scope.solicitudes = [];
@@ -60,8 +56,6 @@ angular.
 						if(confirmar){  
 					        $http({ 
 					            method: 'DELETE',
-								url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + idmat
-								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idmat
 								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idmat
 					        }).success(function(data){
 					        	self.busqueda();
