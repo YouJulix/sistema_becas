@@ -47,6 +47,12 @@ angular.
  							alert("Error en gastos medicos, solo numeros positivos");
  							return;
  						}
+
+ 						if(self.gastosMedicos < 200  &&  self.gastosMedicos > 0){
+ 							alert("Tus gastos medicos deben ser superiores a 200");
+ 							return;
+ 						}
+ 						
  						if(self.gastosMedicos > 15000){
  							alert("Los gastos medicos son demasiado altos, comunicarse con el administrador");
  							return;

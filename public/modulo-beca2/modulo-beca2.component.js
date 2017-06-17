@@ -29,9 +29,17 @@ angular.
 						console.log(err);
 					});
 					
+					if( self.ingresoMenGubernamental > 0 && self.ingresoMenGubernamental<200 ){
+						alert("el rango valido es 200-10000");
+						return;
+					}
+					
+					if( self.ingresoMenTerceros > 0 && self.ingresoMenTerceros<200 ){
+						alert("el rango valido es 200-10000");
+						return;
+					}
 					
 					self.addIngresoMensual = function(){
-						
 						self.data = {
 							"solicitudId"	: self.solicitudId,
 							"ingresoMenJefe": self.ingresoMenJefe,
