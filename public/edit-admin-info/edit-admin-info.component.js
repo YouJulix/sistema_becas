@@ -88,13 +88,39 @@ angular.
 
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
 
+					self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+					self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+					self.anyos = ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017',];
+					self.valueFecha = function(){
+						if(self.mesFecha == '02'){
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'];
+						}else if (self.mesFecha == '04' || self.mesFecha == '06' || self.mesFecha == '09' || self.mesFecha == '11') {
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
+						}else if(self.diaFecha == '29' || self.diaFecha == '30'){
+							self.meses = ['01','03','04','05','06','07','08','09','10','11','12'];
+						}else if ( self.diaFecha == '31') {
+							self.meses = ['01','03','05','07','08','10','12'];
+						}else{
+							self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+						}
+					}
+
+					self.renderFecha = function(fecha){
+						self.diaFecha = fecha.substring(0,2);
+						self.mesFecha = fecha.substring(3,5);
+						self.anyoFecha = fecha.substring(6,10);
+					}
+
+					self.valueFecha();
+
 					self.renderUser = function(matriculaGet){
 							$http({
 								method:'GET',
-								url: 'http://localhost:8000/api/v1.0/users/'+matriculaGet,
+								url: 'http://localhost:8000/api/v1.0/users/'+matriculaGet
 							}).
 							success(function(data){
-								if (data===""){
+								if (!(data == "")){
 								//alert(data[0].fechaNac);
 								self.matricula = data[0].matricula;
 								self.password = data[0].password;
@@ -102,7 +128,6 @@ angular.
 								self.nombre = data[0].nombre;
 								self.apellido1 = data[0].apellido1;
 								self.apellido2 = data[0].apellido2;
-								self.fechaNac = data[0].fechaNac;
 								self.carrera = data[0].carrera;
 								self.semestre = data[0].semestre;
 								self.grupo = data[0].grupo;
@@ -119,6 +144,9 @@ angular.
 								self.nombreHuesped = data[0].nombreHuesped;
 								self.parentesco = data[0].parentesco;
 
+								self.renderFecha(data[0].fechaNac);
+
+								self.valueFecha();
 								self.valueGrupo();
 								//fin if
 								}else{
@@ -131,10 +159,6 @@ angular.
 								window.location = "#!/lista-becas";
 							});
 					}
-
-					//Ccarga los datos con la siguiente matricula.
-					//Para cargar los datos de determinado alumno, la funcion recibe como parametro la matricula
-					//self.renderUser('0113010010');
 
 					self.updateUser = function(){
 						var expReg = new RegExp("^[a-zA-Z0-9]{0,30}$");
@@ -159,12 +183,8 @@ angular.
 							alert("El campo de Primer Apellido contiene datos incorrectos");
 						}else if (!(expRegText.test(self.apellido2))) {
 							alert("El campo de Segundo Apellido contiene datos incorrectos");
-						}else if (!(expRegFecha.test(self.fechaNac))) {
-							alert("Formato de Fecha incorrecto");
 						}else if (!(expReg.test(self.idiomaExt))) {
 							alert("El campor Idioma datos no permitidos");
-						}else if (!(expRegTel.test(self.telefono))) {
-							alert("El Formato de Telefono es incorrecto");
 						}else if (!(expRegDom.test(self.calle))) {
 							alert("El registro Calle contiene valores incorrectos");	
 						}else if (!(expRegDom.test(self.numCalle))) {
@@ -185,7 +205,7 @@ angular.
 									'&nombre='+self.nombre+
 									'&apellido1='+self.apellido1+
 									'&apellido2='+self.apellido2+
-									'&fechaNac='+self.fechaNac+
+									'&fechaNac='+self.diaFecha+"/"+self.mesFecha+"/"+self.anyoFecha+
 									'&carrera='+self.carrera+
 									'&semestre='+self.semestre+
 									'&grupo='+self.grupo+
@@ -212,49 +232,14 @@ angular.
 								alert("Error al registrar Usuario! :'(");
 							});	
 						}
-							/*$http({
-								method: 'PUT',
-								url: 'http://localhost:8000/api/v1.0/users/'+self.matricula,
-								data: 'matricula='+self.matricula+
-									'&password='+self.password+
-									'&password2='+self.password2+
-									'&nombre='+self.nombre+
-									'&apellido1='+self.apellido1+
-									'&apellido2='+self.apellido2+
-									'&fechaNac='+self.fechaNac+
-									'&carrera='+self.carrera+
-									'&semestre='+self.semestre+
-									'&grupo='+self.grupo+
-									'&sexo='+self.sexo+
-									'&idiomaExt='+self.idiomaExt+
-									'&edoCivil='+self.edoCivil+
-									'&telefono='+self.telefono+
-									'&recidencia='+self.recidencia+
-									'&calle='+self.calle+
-									'&numCalle='+self.numCalle+
-									'&colonia='+self.colonia+
-									'&municipio='+self.municipio+
-									'&estado='+self.estado+
-									'&nombreHuesped='+self.nombreHuesped+
-									'&parentesco='+self.parentesco,
-								headers: {'Content-Type':'application/x-www-form-urlencoded'}
-
-							}).
-							success(function(data){
-								alert("Actualización Realizada Exitosamente.! :)");
-								window.location="#!/lista-becas";
-							}).
-							error(function(){
-								alert("Error al registrar Usuario! :'(");
-							});*/
 					}
 					self.cancel = function(){
 						alert("Actualización Cancelada! :'(");
 						window.location = "/#!/lista-becas";
 					}
 
-					self.renderUser(localStorage.getItem("alumno"));
-					//self.renderUser("0113010007");
+					//self.renderUser(localStorage.getItem("alumno"));
+					self.renderUser("0113010010");
 				}
 			]
 		});
