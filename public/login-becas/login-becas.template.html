@@ -12,7 +12,7 @@
 				<p ng-show="!$ctrl.dataValid" style="color:red;">{{$ctrl.mensajeError}}</p>
 				<p><b>Matrícula</b></p>
 				<input type="text" name="matricula" ng-model="$ctrl.matricula" 
-				pattern="(^011[1-9]0[1-9]00[0-9][1-9])|admin[A-Za-z]{5,15}" required/><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
+				pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required/><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
 				<p><b>Contraseña</b></p>
 				<input type="password" name="password" ng-model="$ctrl.password" required pattern="[A-Za-z0-9]{1,}" /><br /><br />
 				<input type="submit" value="Ingresar" /><br /><br />
