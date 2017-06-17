@@ -39,7 +39,7 @@ angular.
 						
 						$http({
 							method: 'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/'+$scope.matricula
+							url: 'http://localhost:8000/api/v1.0/solicitudes/'+$scope.matricula
 
 						}).success(function(data){
 							//alert("success "+data)
@@ -84,7 +84,7 @@ angular.
 					self.imprimirDatos = function(){
 						$http({
 							method: 'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/users/' + $scope.matricula
+							url: 'http://localhost:8000/api/v1.0/users/' + $scope.matricula
 
 						}).success(function(data){
 							//alert("success "+data)
@@ -128,7 +128,7 @@ angular.
 								alert('Error al intentar recuperar el cliente');
 							});*/
 
-				            $http['delete']('http://192.168.43.247:8000/api/v1.0/solicitudes/id/' + idm).success(function() {
+				            $http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + idm).success(function() {
 				              	self.imprimir();
 					        	//location.reload();
 					        	window.location = "/#!/solicitudes";
@@ -153,7 +153,7 @@ angular.
 						
 
 					    $http({
-					        url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/',
+					        url: 'http://localhost:8000/api/v1.0/solicitudes/',
 					        method: "POST",
 					        data: { 								
 					        	'estado' : "pendiente",
@@ -187,7 +187,7 @@ angular.
 
 
 					    $http({
-							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/',
+							url: 'http://localhost:8000/api/v1.0/solicitudes/',
 							method: "POST",
 							data: { 								
 								'estado' : "pendiente",
