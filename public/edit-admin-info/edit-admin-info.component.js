@@ -173,12 +173,12 @@ angular.
 								//fin if
 								}else{
 									alert("Error. El Usuario no existe");
-									window.location = "#!/lista-becas";	
+									window.location = "#!/admin_principal";	
 								}
 							}).
 							error(function(){
 								alert("Error. El Usuario no existe");
-								window.location = "#!/lista-becas";
+								window.location = "#!/admin_principal";
 							});
 					}
 
@@ -247,8 +247,8 @@ angular.
 
 							}).
 							success(function(data){
-								//alert("Actualización Realizada Exitosamente.! :)");
-								window.location="#!/lista-becas";
+								alert("Actualización Realizada Exitosamente.! :)");
+								window.location="#!/admin_principal";
 							}).
 							error(function(){
 								alert("Error al registrar Usuario! :'(");
@@ -257,7 +257,7 @@ angular.
 					}
 					self.cancel = function(){
 						alert("Actualización Cancelada! :'(");
-						window.location = "/#!/lista-becas";
+						window.location = "/#!/admin_principal";
 					}
 
 					self.renderUser(localStorage.getItem("alumno"));
