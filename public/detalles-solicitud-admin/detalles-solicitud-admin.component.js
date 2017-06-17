@@ -12,7 +12,7 @@ angular.
 					self.renderUser = function(){
 						$http({
 							method:'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/users/'+ self.matricula
+							url: 'http://localhost:8000/api/v1.0/users/'+ self.matricula
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
@@ -58,7 +58,7 @@ angular.
 						alert(self.solicitudId);
 						$http({
 							method:'GET',
-							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/'+ self.solicitudId
+							url: 'http://localhost:8000/api/v1.0/solicitudes/id/'+ self.solicitudId
 						}).
 						success(function(data){
 							//alert(data[0].fechaNac);
@@ -86,7 +86,7 @@ angular.
 						};
 						$http({
 							method:'PUT',
-							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/'+ self.solicitudId,
+							url: 'http://localhost:8000/api/v1.0/solicitudes/id/'+ self.solicitudId,
 							data : self.data
 						}).
 						success(function(data){
