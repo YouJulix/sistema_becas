@@ -28,13 +28,14 @@ angular.
 					}).error(function(err){
 						console.log(err);
 					});
-					
-					if( self.ingresoMenGubernamental > 0 && self.ingresoMenGubernamental<200 ){
+					console.log("val");
+					if( (self.ingresoMenGubernamental) > 0 && (self.ingresoMenGubernamental<200) ){
+						console.log("invalido");
 						alert("el rango valido es 200-10000");
 						return;
 					}
 					
-					if( self.ingresoMenTerceros > 0 && self.ingresoMenTerceros<200 ){
+					if( (self.ingresoMenTerceros > 0) && (self.ingresoMenTerceros<200) ){
 						alert("el rango valido es 200-10000");
 						return;
 					}
