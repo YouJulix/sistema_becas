@@ -54,6 +54,7 @@ exports.updateGastos = function(req, res){
 
 //DELETE GASTOS ALUMNO
 
+<<<<<<< HEAD
 exports.deleteGastosByBecaSolicitud = function(req, res){
 	Gastos.remove({"becaSolicitud": req.params.solicitud},function(err,result){
 		if(err)
@@ -61,3 +62,13 @@ exports.deleteGastosByBecaSolicitud = function(req, res){
 		res.status(200).jsonp(result);
 	})
 }
+=======
+exports.deleteGastos = function(req,res){
+	Gastos.findByIdAndRemove(req.params.becaSolicitud, function(err){
+		console.log('DELETE /gastos/becaId/');
+		if(err) 
+			return res.status(500).send(err.message);
+		res.status(200).send();
+	});
+};
+>>>>>>> 066d94b541c3a24bf6e3ff677f3d9663cf03137e

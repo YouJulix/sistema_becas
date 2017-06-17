@@ -23,7 +23,11 @@ angular.
 									//self.dataValid = true;
 									localStorage.setItem("matricula",data[0].matricula);
 									localStorage.setItem("isAdmin", data[0].isAdmin);
+<<<<<<< HEAD
 									if(data[0].isAdmin == true){
+=======
+									if(data[0].isAdmin=="true"){
+>>>>>>> 066d94b541c3a24bf6e3ff677f3d9663cf03137e
 										//Cambiar a otra locacion de los routes //De la Single Page Application
 										window.location = "#!/admin_principal";
 										//localStorage.setItem("isAdmin", data[0].isAdmin);

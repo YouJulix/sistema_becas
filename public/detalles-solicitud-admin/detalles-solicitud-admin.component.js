@@ -55,6 +55,7 @@ angular.
 "fecha_envio": "15/06/2017"
 }
 */
+						alert(self.solicitudId);
 						$http({
 							method:'GET',
 							url: 'http://192.168.43.247:8000/api/v1.0/solicitudes/id/'+ self.solicitudId
@@ -127,7 +128,11 @@ angular.
 
 					}
 
+<<<<<<< HEAD
 					this.renderUser();
+=======
+					this.renderUser(self.solicitudId);
+>>>>>>> 066d94b541c3a24bf6e3ff677f3d9663cf03137e
 				}
 			]
 		});
