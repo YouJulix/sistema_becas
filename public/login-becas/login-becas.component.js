@@ -22,6 +22,8 @@ angular.
 										url: 'http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password //Es necesario ponerle http:// al inicio para que funcione
 									}).
 									success(function(data){
+										console.log("Julio");
+										console.log(data);
 										if(typeof(data) == 'object'){
 											if(data == ""){
 												self.dataValid = false;

@@ -151,12 +151,9 @@
 					<tr class="bg-info">
 						<td>Matricula</td>
 						<td>Fecha de envio</td>
-<<<<<<< HEAD
 						<td>% de beca asignada</td>
 						<td>Estado</td>
-=======
-						<td>% de beca final asignada</td>
->>>>>>> 70140c91a5bc4d19af25d687899180988bd567eb
+						<!-- <td>% de beca final asignada</td> -->
 					</tr>
 				</thead>
 
@@ -164,13 +161,9 @@
 			<tbody ng-repeat="u in terminados">
 				<td>{{u.matricula}}</td>
 				<td>{{u.fecha_envio}}</td>
-<<<<<<< HEAD
-				<td>{{u.porcentaje_sugerido}}</td>
-				<!-- <td>{{u.porcentaje_final}}</td> -->
-				<td>{{u.estado}}</td>
-=======
+				<!-- <td>{{u.porcentaje_sugerido}}</td> -->
 				<td>{{u.porcentaje_final}}</td>
->>>>>>> 70140c91a5bc4d19af25d687899180988bd567eb
+				<td>{{u.estado}}</td>
 			</tbody>
 				
 			</table>
