@@ -62,7 +62,7 @@ angular.
 					self.validat  = function(){
 						console.log("Im here");
 						//console.log(self.solicitudId);
-						if(self.agua > 10000){
+						if(self.agua > 25000){
 							alert("Gasto mensual de agua por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -70,7 +70,7 @@ angular.
 							alert("Gasto mensual de agua por familia, incorrecto, el dato debe ser mayor que 0");
 							return;	
 						}
-						if(self.luz > 10000){
+						if(self.luz > 25000){
 							alert("Gasto mensual de luz por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -78,7 +78,7 @@ angular.
 							alert("Gasto mensual de luz por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.telefono > 10000){
+						if(self.telefono > 25000){
 							alert("Gasto mensual de telefono por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -86,7 +86,7 @@ angular.
 							alert("Gasto mensual de telefono por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.gas > 10000){
+						if(self.gas > 25000){
 							alert("Gasto mensual de gas por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -94,7 +94,7 @@ angular.
 							alert("Gasto mensual de gas por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.educacion > 10000){
+						if(self.educacion > 25000){
 							alert("Gasto mensual de educacion por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -102,7 +102,7 @@ angular.
 							alert("Gasto mensual de educacion por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.transporte > 10000){
+						if(self.transporte > 25000){
 							alert("Gasto mensual de transporte por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -110,7 +110,7 @@ angular.
 							alert("Gasto mensual de transporte por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.rentadomicilio > 10000){
+						if(self.rentadomicilio > 25000){
 							alert("Gasto mensual de renta por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -118,7 +118,7 @@ angular.
 							alert("Gasto mensual de renta por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.television > 10000){
+						if(self.television > 25000){
 							alert("Gasto mensual de television por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -126,7 +126,7 @@ angular.
 							alert("Gasto mensual de television por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.internet > 10000){
+						if(self.internet > 25000){
 							alert("Gasto mensual de internet por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -134,7 +134,7 @@ angular.
 							alert("Gasto mensual de internet por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.alimentacion > 10000){
+						if(self.alimentacion > 25000){
 							alert("Gasto mensual de alimentacion por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -142,7 +142,7 @@ angular.
 							alert("Gasto mensual de alimentacion por familia, incorrecto, el dato debe ser mayor que 0");
 							return;	
 						}
-						if(self.vestido > 10000){
+						if(self.vestido > 25000){
 							alert("Gasto mensual de vestido por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -150,7 +150,7 @@ angular.
 							alert("Gasto mensual de vestido por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.medico > 10000){
+						if(self.medico > 25000){
 							alert("Gasto mensual de medico por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -158,7 +158,7 @@ angular.
 							alert("Gasto mensual de medico por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.diversion > 10000){
+						if(self.diversion > 25000){
 							alert("Gasto mensual de diversion por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
@@ -166,7 +166,7 @@ angular.
 							alert("Gasto mensual de diversion por familia, incorrecto, el dato debe ser mayor o igual que 0");
 							return;	
 						}
-						if(self.otro > 10000){
+						if(self.otro > 25000){
 							alert("Gasto mensual de otros gastos por familia, incorrecto, favor de comunicarse con el administrador");
 							return;
 						}
