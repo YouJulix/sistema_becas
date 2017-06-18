@@ -79,10 +79,7 @@ angular.
 										});
 
 
-										console.log('++++++++++++');
-										//console.log($scope.pendientes.length);
-										console.log($scope.terminados[$scope.terminados.length-1].porcentaje_final);
-										console.log('++++++++++++');
+			
 
 										if($scope.terminados.length != 0){
 											$scope.becaAsignada = $scope.terminados[$scope.terminados.length-1].porcentaje_final;
@@ -106,9 +103,16 @@ angular.
 					self.estadosCivil = ['Soltero/a','Casado/a','Viudo/a','Divorciado/a'];
 
 					self.estados = ['Oaxaca','Puebla','Guerrero','Chiapas','Veracruz'];
-					self.estado = self.estados[0];
+					self.estado1 = self.estados[0];
 
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
+
+
+					self.renderFecha = function(fecha){
+						self.diaFecha = fecha.substring(0,2);
+						self.mesFecha = fecha.substring(3,5);
+						self.anyoFecha = fecha.substring(6,10);
+					}
 
 
 
@@ -131,27 +135,52 @@ angular.
 									
 							
 								
-								self.matricula = data[0].matricula;
-								self.password = data[0].password;
-								self.password2 = data[0].password2;
-								self.nombre = data[0].nombre;
-								self.apellido1 = data[0].apellido1;
-								self.apellido2 = data[0].apellido2;
-								self.carrera = data[0].carrera;
-								self.semestre = data[0].semestre;
-								self.grupo = data[0].grupo;
-								self.sexo = data[0].sexo;
-								self.idiomaExt = data[0].idiomaExt;
-								self.edoCivil = data[0].edoCivil;
-								self.telefono = data[0].telefono;
-								self.recidencia = data[0].recidencia;
-								self.calle = data[0].calle;
-								self.numCalle = data[0].numCalle;
-								self.colonia = data[0].colonia;
-								self.municipio = data[0].municipio;
-								self.estado = data[0].estado;
-								self.nombreHuesped = data[0].nombreHuesped;
-								self.parentesco = data[0].parentesco;
+									self.matricula = data[0].matricula;
+									self.password = data[0].password;
+									self.password2 = data[0].password2;
+									self.nombre = data[0].nombre;
+									self.apellido1 = data[0].apellido1;
+									self.apellido2 = data[0].apellido2;
+									self.carrera = data[0].carrera;
+									self.semestre = data[0].semestre;
+									self.grupo = data[0].grupo;
+									self.sexo = data[0].sexo;
+									//alert(data[0].sexo);
+									//self.idiomaExt = data[0].idiomaExt;
+									self.edoCivil = data[0].edoCivil;
+									//self.telefono = data[0].telefono;
+									self.recidencia = data[0].recidencia;
+									self.calle = data[0].calle;
+									self.numCalle = data[0].numCalle;
+									//self.colonia = data[0].colonia;
+									self.municipio = data[0].municipio;
+									self.estado1 = data[0].estado;
+									//self.nombreHuesped = data[0].nombreHuesped;
+									self.parentesco = data[0].parentesco;
+
+									self.renderFecha(data[0].fechaNac);
+
+
+									if(data[0].telefono == 'undefined'){
+										self.telefono == " ";
+									}else{
+										self.telefono = data[0].telefono;
+									}
+									if(data[0].idiomaExt == 'undefined'){
+										self.idiomaExt == " ";
+									}else{
+										self.idiomaExt = data[0].idiomaExt;
+									}
+									if(data[0].colonia == 'undefined'){
+										self.colonia == " ";
+									}else{
+										self.colonia = data[0].colonia;
+									}
+									if(data[0].nombreHuesped == 'undefined'){
+										self.nombreHuesped == " ";
+									}else{
+										self.nombreHuesped = data[0].nombreHuesped;
+								}
 
 								
 								}
@@ -277,8 +306,7 @@ angular.
 
 
 
-
-				    self.updateUser = function(){
+					self.updateUser = function(){
 						var expReg = new RegExp("^[a-zA-Z0-9]{0,30}$");
 						var expRegText = new RegExp("^[a-zA-Z\\\sáéíóú]{0,40}$");
 						var expRegFecha = new RegExp("^[0-3]{1}[0-9]{1}\/[0|1]{1}[0-9]\/[12][09][0-9][0-9]$");
@@ -286,8 +314,6 @@ angular.
 						var expRegDom =  new RegExp("^[a-zA-Z\\\sáéíóú0-9]{0,40}$");
 						if (!parseInt(self.matricula)){
 							alert("Matricula Incorrecta");
-						}else if(self.telefono.length != 10 ){
-							alert("Formato de telefono incorrecto");
 						}else if(!(self.matricula.length===10)){
 							//$('#inputMAtricula')[0].setCustomValidity("Matricula Incorrecta");
 							alert("Matricula Incorrecta");
@@ -338,7 +364,7 @@ angular.
 									'&numCalle='+self.numCalle+
 									'&colonia='+self.colonia+
 									'&municipio='+self.municipio+
-									'&estado='+self.estado+
+									'&estado='+self.estado1+
 									'&nombreHuesped='+self.nombreHuesped+
 									'&parentesco='+self.parentesco,
 								headers: {'Content-Type':'application/x-www-form-urlencoded'}
@@ -346,7 +372,7 @@ angular.
 							}).
 							success(function(data){
 								alert("Actualización Realizada Exitosamente.! :)");
-								//window.location="#!/lista-becas";
+								//window.location="#!/admin_principal";
 								self.ver = false;
 							}).
 							error(function(){

@@ -54,6 +54,20 @@ angular.
 
 						$scope.idsolicitud = localStorage.getItem("idSolicitud");
 
+						//Depende economicamente
+						$http({
+							method: 'GET',
+							url: 'http://localhost:8000/api/v1.0/deps_econs/' + $scope.idsolicitud
+						}).success(function(data){//data es un array que contiene lo que enviamos(Un solo objeto en este caso)
+							object = data[0];
+							if(!object){
+								alert("Falta Agregar Personas de quien depende económicamente");
+								window.location = "/#!/dependencia_economica";
+							}else{
+	
+
+
+
 						//ingreso mensual
 						$http({
 						method 	: 	'GET',
@@ -121,6 +135,12 @@ angular.
 								});
 							}
 						}).error(function(err){
+							console.log(err);
+						});
+
+
+													}
+						}).error(function(){
 							console.log(err);
 						});
 
