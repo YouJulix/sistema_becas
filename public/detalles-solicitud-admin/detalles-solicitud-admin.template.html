@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-md-2">
 				<a href="#!/login">Cerrar Sesión</a>
-				<a href="#!/___">Regresar</a>
+				<a href="#!/admin_principal">Regresar</a>
 			</div>
 		</div>
 		<div class="row">
@@ -73,8 +73,12 @@
 	
 			<div class="row" ng-show="$ctrl.criterio">
 				<div class="col-md-4 col-md-offset-4">
-					<label for="porcentaje_final">Ingrese el porcentaje final.</label>
-					<input type="number" name="beca" ng-model="$ctrl.porcentaje_final" id="porcentaje_final">
+					<label for="porcentaje_final">Ingrese el porcentaje final.</label><br>
+					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="0">0<br>
+					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="25">25<br>
+					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="50">50<br>
+					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="75">75<br>
+					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="100">100<br>
 				</div>			
 			</div>
 			<br>

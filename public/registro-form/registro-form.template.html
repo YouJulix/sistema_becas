@@ -9,8 +9,9 @@
 		<form ng-submit="$ctrl.addUser()" id="registro-from">
 			<div class="row">
 				<div class="col-md-3">
-					<label>MATRÍCULA<span>*</span></label>
-					<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00[0-9][1-9]$" title="Matricula Inválida" placeholder="0113010000">				</div>
+					<label>Matrícula:<span>*</span></label>
+					<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00[0-9][1-9]$" title="Matricula Inválida" placeholder="0113010000">				
+				</div>
 				<div class="col-md-3">
 					<label>Contraseña:<span>*</span></label>
 					<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9]{1,30}$" title="Verifique que no contenga caracteres especiales" placeholder="Contraseña">
@@ -78,7 +79,7 @@
 				</div>
 				<div class="col-md-2">
 					<label>Sexo:<span>*</span></label><br>
-					<label><input type="radio" ng-model="$ctrl.sexo" value="F" ng-checked="($ctrl.sexo == F)">F</label>
+					<label><input type="radio" ng-model="$ctrl.sexo" value="F">F</label>
 					<label><input type="radio" ng-model="$ctrl.sexo" value="M">M</label>
 				</div>
 			</div>
@@ -97,11 +98,11 @@
 				</div>
 				<div class="col-md-3">
 					<label>Telefono Celular (lada):</label>
-					<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{7,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
+					<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{10,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
 				</div>
 				<div class="col-md-3">
 					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
-					<label><input type="radio" ng-model="$ctrl.recidencia" value="No" ng-checked="($ctrl.recidencia == No)">No</label>
+					<label><input type="radio" ng-model="$ctrl.recidencia" value="No">No</label>
 					<label><input type="radio" ng-model="$ctrl.recidencia" value="Si">Si</label>
 				</div>
 			</div>
@@ -136,7 +137,7 @@
 				</div>
 				<div class="col-md-3">
 					<label>Nombre, Dueño de la Casa:</label>
-					<input type="text" ng-disabled="$ctrl.recidencia==No" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<input type="text" ng-disabled="$ctrl.recidencia=='No'" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
 				</div>
 				<div class="col-md-3">
 					<label>Parentesco<span>*</span></label>

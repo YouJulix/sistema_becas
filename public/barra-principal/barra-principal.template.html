@@ -10,7 +10,7 @@
 		<ul>
 			<li><a href="" ng-click="$ctrl.closeApp()" >Cerrar sesión</a></li>
 			<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
-			<li><a href="" ng-click="$ctrl.CancelarSolicitud()">Cancelar solicitud actualsss</a></li>
+			<li><a href="" ng-click="$ctrl.CancelarSolicitud()">Cancelar solicitud actual</a></li>
 		</ul>
 	</div>
 
@@ -21,7 +21,7 @@
 			<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
 			<li><a href="#!/informacion_hogar" >Información del hogar</a></li>
 			<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
-			<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
+			<li ng-if="$ctrl.carta" ><a href="#!/cartaProtesta" >Carta Protesta</a></li>
 		</ul>
 		<br><br>
 	</div>

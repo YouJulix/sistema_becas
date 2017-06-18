@@ -21,7 +21,7 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<b>Matricula: {{dato[0].matricula}}</b><br />
+			<b>Matriculass: {{dato[0].matricula}}</b><br />
 			<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
 		</div>
 		<div class="col-md-3">
@@ -30,9 +30,88 @@
 		</div>
 		<div class="col-md-3">
 			<br />
-			<b>Porcentaje de beca actual:</b>
+			<b>Porcentaje de beca: {{ becaAsignada }}</b>
 		</div>
 	</div>
+
+	<hr />
+	<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>
+	<br>
+
+		<form ng-submit="$ctrl.updateUser()">
+		<div ng-show="$ctrl.ver">
+			<div class="row">
+				<div class="col-md-3">
+					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
+					<input type="text" ng-model="$ctrl.idiomaExt" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Estado Civil:<span>*</span></label>
+					<select ng-model="$ctrl.edoCivil" required>
+						<option value="">Seleccione una Opción</option>
+						<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label>Telefono Celular (lada):</label>
+					<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{7,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
+				</div>
+				<div class="col-md-3">
+					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
+					<label><input type="radio" ng-model="$ctrl.recidencia" value="No">No</label>
+					<label><input type="radio" ng-model="$ctrl.recidencia" value="Si">Si</label>
+				</div>
+			</div>
+			<br>
+			<div><label>Domicilio donde vivirá mientras estudias:</label></div>
+			<div class="row">				
+				<div class="col-md-3">
+					<label>Nombre Calle:<span>*</span></label>
+					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="^[a-zA-Z\\\sáéíóú0-9]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Número de Calle:<span>*</span></label>
+					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,5}$" title="Verifique que no contenga caracteres especiales, solo números">
+				</div>
+				<div class="col-md-3">
+					<label>Colonia o Barrio:<span>*</span></label>
+					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Municipio:<span>*</span></label>
+					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú]{0,45}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-3">
+					<label>Estado : <span>*</span></label>
+					<br>
+					<select ng-model="$ctrl.estado" required>
+						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label>Nombre, Dueño de la Casa:</label>
+					<input type="text" ng-disabled="$ctrl.recidencia == No" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+				</div>
+				<div class="col-md-3">
+					<label>Parentesco<span>*</span></label>
+					<select ng-model="$ctrl.parentesco" required>
+						<option value="">Seleccione una Opción</option>
+						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
+					</select>
+				</div>
+			</div>		
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-md-offset-6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
+				<div class="col-md-2"><input type="button" class="btn btn-default" value="Cancelar" ng-click="$ctrl.ver = false"></div>
+			</div>
+
+			</div>
+
+		</form>	
 	<br />
 
 	<div class="row">
@@ -72,8 +151,12 @@
 					<tr class="bg-info">
 						<td>Matricula</td>
 						<td>Fecha de envio</td>
+<<<<<<< HEAD
 						<td>% de beca asignada</td>
 						<td>Estado</td>
+=======
+						<td>% de beca final asignada</td>
+>>>>>>> 70140c91a5bc4d19af25d687899180988bd567eb
 					</tr>
 				</thead>
 
@@ -81,9 +164,13 @@
 			<tbody ng-repeat="u in terminados">
 				<td>{{u.matricula}}</td>
 				<td>{{u.fecha_envio}}</td>
+<<<<<<< HEAD
 				<td>{{u.porcentaje_sugerido}}</td>
 				<!-- <td>{{u.porcentaje_final}}</td> -->
 				<td>{{u.estado}}</td>
+=======
+				<td>{{u.porcentaje_final}}</td>
+>>>>>>> 70140c91a5bc4d19af25d687899180988bd567eb
 			</tbody>
 				
 			</table>

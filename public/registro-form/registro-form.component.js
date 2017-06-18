@@ -108,6 +108,9 @@ angular.
 						}
 					}
 
+					self.sexo = "F";
+					self.recidencia = "No";
+
 					self.valueFecha();
 
 					self.addUser = function(){
@@ -176,7 +179,7 @@ angular.
 
 							}).
 							success(function(data){
-								alert("Registro Realizado Exitosamente.! :)");
+								//alert("Registro Realizado Exitosamente.! :)");
 								window.location="#!/notificacion";
 							}).
 							error(function(){

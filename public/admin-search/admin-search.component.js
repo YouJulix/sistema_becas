@@ -12,29 +12,56 @@ angular.
 					}
 
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
+					self.infoper = true;
 					//console.log("sdds");
 					self.busqueda = function(){
 						//console.log(self.matricula);
+						if(self.matricula.length != 10){
+							alert("La matricula del alumno contiene 10 digitos");
+							return;
+						}
+						if(self.matricula < 0){
+							alert("La matricula debe ser mayor de 0 y de 10 digitos");
+							return;
+						}
+						if(self.matricula.indexOf('.') != -1){
+							alert("La matricula no puede contener punto decimal");
+							return;
+						}
 						object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/users/'+ self.matricula
 						}).success(function(data){
-							$scope.dato = data[0];
-							console.log($scope.dato);
-							object = $http({
-								method : 'GET',
-								url    : 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula 
-							}).success(function(data){
+							if(data.length > 0 ){
+								self.msgerror = true;
+								self.infoper = false;
+								$scope.dato = data[0];
+								console.log($scope.dato);
+								object = $http({
+									method : 'GET',
+									url    : 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula 
+								}).success(function(data){
+									$scope.solicitudes = [];
+									$scope.solicitud = data;
+									console.log($scope.solicitud);
+									angular.forEach($scope.solicitud, function(sol){
+										$scope.solicitudes.push(sol);
+									});
+									console.log($scope.solicitudes);
+								}).error(function(err){
+									console.log(err);
+								}); 
+							}else{
+								self.infoper = true;
+								self.msgerror = false;
+								$scope.dato.matricula = "";
+								$scope.dato.carrera = "";
+								$scope.dato.nombre = "";
+								$scope.dato.apellido1 = "";
+								$scope.dato.apellido2 = "";
+								$scope.dato.semestre = "";
 								$scope.solicitudes = [];
-								$scope.solicitud = data;
-								console.log($scope.solicitud);
-								angular.forEach($scope.solicitud, function(sol){
-									$scope.solicitudes.push(sol);
-								});
-								console.log($scope.solicitudes);
-							}).error(function(err){
-								console.log(err);
-							});  
+							}
 						}).error(function(err){
 							console.log(err);
 						});
@@ -57,8 +84,8 @@ angular.
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
 					        $http({ 
-					            method: 'DELETE',
-								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idmat
+					            	method: 'DELETE',
+							url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idmat
 					        }).success(function(data){
 					        	self.busqueda();
 					        	window.location = "/#!/admin_seach";

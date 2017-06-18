@@ -132,31 +132,53 @@ angular.
 								self.semestre = data[0].semestre;
 								self.grupo = data[0].grupo;
 								self.sexo = data[0].sexo;
-								self.idiomaExt = data[0].idiomaExt;
+								//alert(data[0].sexo);
+								//self.idiomaExt = data[0].idiomaExt;
 								self.edoCivil = data[0].edoCivil;
-								self.telefono = data[0].telefono;
+								//self.telefono = data[0].telefono;
 								self.recidencia = data[0].recidencia;
 								self.calle = data[0].calle;
 								self.numCalle = data[0].numCalle;
-								self.colonia = data[0].colonia;
+								//self.colonia = data[0].colonia;
 								self.municipio = data[0].municipio;
 								self.estado = data[0].estado;
-								self.nombreHuesped = data[0].nombreHuesped;
+								//self.nombreHuesped = data[0].nombreHuesped;
 								self.parentesco = data[0].parentesco;
 
 								self.renderFecha(data[0].fechaNac);
 
 								self.valueFecha();
 								self.valueGrupo();
+
+								if(data[0].telefono == 'undefined'){
+									self.telefono == " ";
+								}else{
+									self.telefono = data[0].telefono;
+								}
+								if(data[0].idiomaExt == 'undefined'){
+									self.idiomaExt == " ";
+								}else{
+									self.idiomaExt = data[0].idiomaExt;
+								}
+								if(data[0].colonia == 'undefined'){
+									self.colonia == " ";
+								}else{
+									self.colonia = data[0].colonia;
+								}
+								if(data[0].nombreHuesped == 'undefined'){
+									self.nombreHuesped == " ";
+								}else{
+									self.nombreHuesped = data[0].nombreHuesped;
+								}
 								//fin if
 								}else{
 									alert("Error. El Usuario no existe");
-									window.location = "#!/lista-becas";	
+									window.location = "#!/admin_principal";	
 								}
 							}).
 							error(function(){
 								alert("Error. El Usuario no existe");
-								window.location = "#!/lista-becas";
+								window.location = "#!/admin_principal";
 							});
 					}
 
@@ -226,7 +248,7 @@ angular.
 							}).
 							success(function(data){
 								alert("Actualización Realizada Exitosamente.! :)");
-								window.location="#!/lista-becas";
+								window.location="#!/admin_principal";
 							}).
 							error(function(){
 								alert("Error al registrar Usuario! :'(");
@@ -235,11 +257,11 @@ angular.
 					}
 					self.cancel = function(){
 						alert("Actualización Cancelada! :'(");
-						window.location = "/#!/lista-becas";
+						window.location = "/#!/admin_principal";
 					}
 
-					//self.renderUser(localStorage.getItem("alumno"));
-					self.renderUser("0113010010");
+					self.renderUser(localStorage.getItem("alumno"));
+					//self.renderUser("0113010010");
 				}
 			]
 		});
