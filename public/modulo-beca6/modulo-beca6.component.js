@@ -267,7 +267,7 @@ angular.
 				    }
 
 				    $scope.regresar = function() {
-				    	window.location = "/#/gastos_familiares"
+				    	window.location = "/#!/gastos_familiares"
 				    }
 				}
 			]

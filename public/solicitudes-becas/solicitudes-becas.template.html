@@ -44,6 +44,7 @@
 					<tr class="bg-info">
 						<td>Matricula</td>
 						<td>Fecha de envio</td>
+						<td>Estado</td>
 						<td>Continuar</td>
 						<td>Borrar</td>
 					</tr>
@@ -52,12 +53,10 @@
 				<tbody ng-repeat="u in pendientes">
 					<td>{{u.matricula}}</td>
 					<td>{{u.fecha_envio}}</td>
+					<td>{{u.estado}}</td>
 					<td> <button class="btn btn-default" ng-click="modificar(u._id)">Continuar</button></td>
 					<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
 				</tbody>
-
-				
-				
 			</table>
 		</div>
 		
@@ -73,7 +72,8 @@
 					<tr class="bg-info">
 						<td>Matricula</td>
 						<td>Fecha de envio</td>
-						<td>% de beca fina asignada</td>
+						<td>% de beca asignada</td>
+						<td>Estado</td>
 					</tr>
 				</thead>
 
@@ -82,6 +82,8 @@
 				<td>{{u.matricula}}</td>
 				<td>{{u.fecha_envio}}</td>
 				<td>{{u.porcentaje_sugerido}}</td>
+				<!-- <td>{{u.porcentaje_final}}</td> -->
+				<td>{{u.estado}}</td>
 			</tbody>
 				
 			</table>
