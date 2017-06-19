@@ -88,7 +88,7 @@ angular.
 							url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idmat
 					        }).success(function(data){
 					        	self.busqueda();
-					        	window.location = "/#!/admin_seach";
+					        	window.location = "/#!/admin_principal";
 					        }).
 							error(function(){
 								alert('Error al intentar recuperar el cliente');
