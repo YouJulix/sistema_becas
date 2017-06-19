@@ -18,6 +18,7 @@ exports.findByMatricula = function(req, res){
 	User.find({'matricula':req.params.matricula}, function(err, user){ //En este caso ya no es un find directo, sino uno que pide explicitamente 'matricula': variable_matricula_recibida_en_la_URL
 		if(err) return res.send(500, err.message);
 		console.log('GET /users/'+req.params.matricula);
+		console.log(user);
 			res.status(200).jsonp(user);
 	});
 }

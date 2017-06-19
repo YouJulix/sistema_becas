@@ -7,6 +7,13 @@ angular.
 					var self = this; //BUena practica es no manipular el this directamente
 					
 					
+					if(localStorage.getItem("isAdmin") == "true"){		//
+						self.terminar = "Terminar";						//
+					}else{												//
+						self.terminar = "Continuar";				   	//
+					}					
+
+
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					self.solicitudId=localStorage.getItem("idSolicitud");
 					console.log(self.solicitudId);
@@ -53,7 +60,64 @@ angular.
 						console.log(err);
 					});
 					self.validat  = function(){
+						console.log("Im here");
 						//console.log(self.solicitudId);
+						if(self.agua > 0 && self.agua < 50){
+							alert("Gasto mensual de agua por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.luz > 0 && self.agua < 50){
+							alert("Gasto mensual de luz por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.telefono > 0 && self.agua < 50){
+							alert("Gasto mensual de telefono por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.gas > 0 && self.agua < 50){
+							alert("Gasto mensual de gas por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.educacion > 0 && self.agua < 50){
+							alert("Gasto mensual de educacion por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.transporte > 0 && self.agua < 50){
+							alert("Gasto mensual de transporte por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.rentadomicilio > 0 && self.agua < 50){
+							alert("Gasto mensual de renta por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.television > 0 && self.agua < 50){
+							alert("Gasto mensual de television por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.internet > 0 && self.agua < 50){
+							alert("Gasto mensual de internet por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.alimentacion > 0 && self.agua < 50){
+							alert("Gasto mensual de alimentacion por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.vestido > 0 && self.agua < 50){
+							alert("Gasto mensual de vestido por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.medico > 0 && self.agua < 50){
+							alert("Gasto mensual de medico por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.diversion > 0 && self.agua < 50){
+							alert("Gasto mensual de diversion por familia, incorrecto rango de 50-25000");
+							return;	
+						}
+						if(self.otro > 0 && self.agua < 50){
+							alert("Gasto mensual de otros gastos por familia, incorrecto rango de 50-25000");
+							return;	
+						}
 						self.data = {
 							"solicitudId"	: self.solicitudId,
 							"agua"          : self.agua,
@@ -79,7 +143,13 @@ angular.
 						}).success(function(gastosfam){
 							console.log(gastosfam);
 							//if(typeof(gastosfam) == "object"){
-								window.location = "/#!/cartaProtesta";
+								if(localStorage.getItem("isAdmin") == "true"){
+									console.log("isAdmin return to admin_principal");		
+									window.location = "/#!/admin_principal";   				
+								}else{
+									console.log("is not Admin return to cartaProtesta");
+									window.location = "/#!/cartaProtesta";
+								}
 							//}
 						}).error(function(err){
 							console.log(err);

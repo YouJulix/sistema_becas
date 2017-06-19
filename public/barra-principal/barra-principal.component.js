@@ -15,9 +15,13 @@ angular.
 
 					//metodo para dicernir visualmente si es admin o alumno ===Ed=
 					if(localStorage.getItem("isAdmin") == "true"){				//
-						self.solicitudToMenu = "Menú principal";				//	
-					}else{														//
+						self.solicitudToMenu = "Menú principal";
+						self.terminar = "Terminar";
+						self.carta = false;				                        //	
+					}else{	
+						self.terminar = "Continuar";							//
 						self.solicitudToMenu = "Regresar a solicitudes";		//
+						self.carta = true;
 					}															//
 					//==========================================================//
 					

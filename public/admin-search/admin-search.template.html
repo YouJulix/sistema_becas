@@ -6,7 +6,7 @@
 		</div>
 		<div class="col-md-2">
 			<a href="" ng-click="$ctrl.clear()">Cerrar Sesion</a>
-			<a href="#">Cerrar Sesion</a>
+			<!-- <a href="#">Cerrar Sesion</a> -->
 		</div>
 	</div>
 	<hr>
@@ -45,7 +45,7 @@
 			<p id="tsemestre">{{dato.semestre}}</p>
 		</div>
 		<div class="col-md-4">
-			<a ng-click="editinfo()">Editar informacion Personal</a>
+			<p ng-show="!$ctrl.infoper"><a href="" ng-click="editinfo()">Editar informacion Personal</a></p>
 		</div>
 	</div>
 	<div class="row">

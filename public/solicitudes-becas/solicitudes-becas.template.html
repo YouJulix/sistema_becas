@@ -21,7 +21,7 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<b>Matricula: {{dato[0].matricula}}</b><br />
+			<b>Matriculass: {{dato[0].matricula}}</b><br />
 			<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
 		</div>
 		<div class="col-md-3">
@@ -87,7 +87,7 @@
 				<div class="col-md-3">
 					<label>Estado : <span>*</span></label>
 					<br>
-					<select ng-model="$ctrl.estado" required>
+					<select ng-model="$ctrl.estado1" required>
 						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
 					</select>
 				</div>
@@ -123,6 +123,7 @@
 					<tr class="bg-info">
 						<td>Matricula</td>
 						<td>Fecha de envio</td>
+						<td>Estado</td>
 						<td>Continuar</td>
 						<td>Borrar</td>
 					</tr>
@@ -131,12 +132,10 @@
 				<tbody ng-repeat="u in pendientes">
 					<td>{{u.matricula}}</td>
 					<td>{{u.fecha_envio}}</td>
+					<td>{{u.estado}}</td>
 					<td> <button class="btn btn-default" ng-click="modificar(u._id)">Continuar</button></td>
 					<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
 				</tbody>
-
-				
-				
 			</table>
 		</div>
 		
@@ -152,7 +151,9 @@
 					<tr class="bg-info">
 						<td>Matricula</td>
 						<td>Fecha de envio</td>
-						<td>% de beca final asignada</td>
+						<td>% de beca asignada</td>
+						<td>Estado</td>
+						<!-- <td>% de beca final asignada</td> -->
 					</tr>
 				</thead>
 
@@ -160,7 +161,9 @@
 			<tbody ng-repeat="u in terminados">
 				<td>{{u.matricula}}</td>
 				<td>{{u.fecha_envio}}</td>
-				<td>{{u.porcentaje_sugerido}}</td>
+				<!-- <td>{{u.porcentaje_sugerido}}</td> -->
+				<td>{{u.porcentaje_final}}</td>
+				<td>{{u.estado}}</td>
 			</tbody>
 				
 			</table>

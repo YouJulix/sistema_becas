@@ -23,7 +23,7 @@ angular.
 					$scope.porcentaje_sugerido = 0 ;
 					$scope.porcentaje_final = 0 ;
 					$scope.libre_de_extra = false;
-					$scope.biblioteca_completa = false;
+					$scope.biblioteca_completa = true;
 					$scope.fecha_envio = "";
 
 
@@ -53,6 +53,20 @@ angular.
 					$scope.aceptar1 = function(){
 
 						$scope.idsolicitud = localStorage.getItem("idSolicitud");
+
+						//Depende economicamente
+						$http({
+							method: 'GET',
+							url: 'http://localhost:8000/api/v1.0/deps_econs/' + $scope.idsolicitud
+						}).success(function(data){//data es un array que contiene lo que enviamos(Un solo objeto en este caso)
+							object = data[0];
+							if(!object){
+								alert("Falta Agregar Personas de quien depende económicamente");
+								window.location = "/#!/dependencia_economica";
+							}else{
+	
+
+
 
 						//ingreso mensual
 						$http({
@@ -121,6 +135,12 @@ angular.
 								});
 							}
 						}).error(function(err){
+							console.log(err);
+						});
+
+
+													}
+						}).error(function(){
 							console.log(err);
 						});
 
@@ -267,7 +287,7 @@ angular.
 				    }
 
 				    $scope.regresar = function() {
-				    	window.location = "/#/gastos_familiares"
+				    	window.location = "/#!/gastos_familiares"
 				    }
 				}
 			]
