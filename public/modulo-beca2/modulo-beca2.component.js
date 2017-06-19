@@ -41,12 +41,12 @@ angular.
 						console.log("val");
 					if( (self.ingresoMenGubernamental) > 0 && (self.ingresoMenGubernamental<200) ){
 						console.log("invalido");
-						alert("el rango valido es 200-10000");
+						alert("el rango valido en ingreso gubernamental es 200-10000 o 0");
 						return;
 					}
 					
 					if( (self.ingresoMenTerceros > 0) && (self.ingresoMenTerceros<200) ){
-						alert("el rango valido es 200-10000");
+						alert("el rango valido en ingreso de terceros es 200-10000 o 0");
 						return;
 					}
 						$http({
