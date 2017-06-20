@@ -18,6 +18,18 @@ angular.
 					self.solicitudId=localStorage.getItem("idSolicitud");
 					//console.log(self.solicitudId);
 					self.method="POST";
+
+					object= $http({
+						method : 'GET',
+						url : 'http://localhost:8000/api/v1.0/ingresoMensual/' + self.solicitudId
+ 					}).success(function(data){
+ 						$scope.dato = data[0];
+						console.log($scope.dato);
+						$scope.dato.ingreso = parseInt($scope.dato.ingresoMenGubernamental) + parseInt($scope.dato.ingresoMenJefe) + parseInt($scope.dato.ingresoMenTerceros);
+					}).error(function(err){
+						console.log(err);
+					});
+
 					object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/gastos_familiares/'+ self.solicitudId
@@ -118,6 +130,16 @@ angular.
 							alert("Gasto mensual de otros gastos por familia, incorrecto rango de 50-25000");
 							return;	
 						}
+
+						self.total = self.agua + self.luz + self.telefono + self.gas + self.educacion + self.transporte + self.educacion 
+									+self.transporte + self.rentadomicilio + self.television + self.internet + self.alimentacion + self.vestido
+									+self.medico + self.diversion + self.otro;
+
+						if(self.total > $scope.dato.ingreso){
+							alert("La suma de los fastos familiares es mayor a su ingreso mensual");
+							return;
+						}
+						
 						self.data = {
 							"solicitudId"	: self.solicitudId,
 							"agua"          : self.agua,

@@ -180,9 +180,8 @@ angular.
 										self.nombreHuesped == " ";
 									}else{
 										self.nombreHuesped = data[0].nombreHuesped;
-								}
-
-								
+									}
+									self.viewRecidencia();
 								}
 							}else{
 								window.location = "/#!/login";
@@ -193,6 +192,16 @@ angular.
 					}
 
 					self.imprimirDatos();
+
+					self.viewRecidencia = function(){
+						if(self.recidencia == 'Si'){
+							self.viewRecid = {"display":"block"}
+						}else{
+							self.viewRecid = {"display":"none"}
+						}
+					}
+
+					self.viewRecidencia();
 
 
 					$scope.remove = function(idm){	

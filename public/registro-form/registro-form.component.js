@@ -115,44 +115,59 @@ angular.
 					self.valueFecha();
 
 					self.addUser = function(){
-						if (!(self.password===self.password2)){
+						if (!(self.password == self.password2)){
 							alert("Las Contraseñas no coinciden");	
 						}else{
+							//alert("Consulta");
 							$http({
-								method: 'POST',
-								url: 'http://localhost:8000/api/v1.0/users',
-								data: 'matricula='+self.matricula+
-									'&password='+self.password+
-									'&password2='+self.password2+
-									'&nombre='+self.nombre+
-									'&apellido1='+self.apellido1+
-									'&apellido2='+self.apellido2+
-									'&fechaNac='+self.diaFecha+"/"+self.mesFecha+"/"+self.anyoFecha+
-									'&carrera='+self.carrera+
-									'&semestre='+self.semestre+
-									'&grupo='+self.grupo+
-									'&sexo='+self.sexo+
-									'&idiomaExt='+self.idiomaExt+
-									'&edoCivil='+self.edoCivil+
-									'&telefono='+self.telefono+
-									'&recidencia='+self.recidencia+
-									'&calle='+self.calle+
-									'&numCalle='+self.numCalle+
-									'&colonia='+self.colonia+
-									'&municipio='+self.municipio+
-									'&estado='+self.estado+
-									'&nombreHuesped='+self.nombreHuesped+
-									'&parentesco='+self.parentesco+
-									'&isAdmin=false',
-								headers: {'Content-Type':'application/x-www-form-urlencoded'}
-
+								method:'GET',
+								url: 'http://localhost:8000/api/v1.0/users/' + self.matricula
 							}).
 							success(function(data){
-								//alert("Registro Realizado Exitosamente.! :)");
-								window.location="#!/notificacion";
+								//alert(data);
+								if(data==''){
+									$http({
+										method: 'POST',
+										url: 'http://localhost:8000/api/v1.0/users',
+										data: 'matricula='+self.matricula+
+											'&password='+self.password+
+											'&password2='+self.password2+
+											'&nombre='+self.nombre+
+											'&apellido1='+self.apellido1+
+											'&apellido2='+self.apellido2+
+											'&fechaNac='+self.diaFecha+"/"+self.mesFecha+"/"+self.anyoFecha+
+											'&carrera='+self.carrera+
+											'&semestre='+self.semestre+
+											'&grupo='+self.grupo+
+											'&sexo='+self.sexo+
+											'&idiomaExt='+self.idiomaExt+
+											'&edoCivil='+self.edoCivil+
+											'&telefono='+self.telefono+
+											'&recidencia='+self.recidencia+
+											'&calle='+self.calle+
+											'&numCalle='+self.numCalle+
+											'&colonia='+self.colonia+
+											'&municipio='+self.municipio+
+											'&estado='+self.estado+
+											'&nombreHuesped='+self.nombreHuesped+
+											'&parentesco='+self.parentesco+
+											'&isAdmin=false',
+										headers: {'Content-Type':'application/x-www-form-urlencoded'}
+
+									}).
+									success(function(data){
+										//alert("Registro Realizado Exitosamente.! :)");
+										window.location="#!/notificacion";
+									}).
+									error(function(){
+										alert("Error al registrar Usuario! :'(");
+									});
+								}else{
+									alert("La Matricula ya existe");	
+								}
 							}).
-							error(function(){
-								alert("Error al registrar Usuario! :'(");
+							error(function(data){
+								console.log(data);
 							});
 						}
 					}

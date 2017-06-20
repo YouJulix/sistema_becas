@@ -32,7 +32,10 @@
 		<p><b>Escribir los gastos familiares mensuales (sin incluir los del solicitante):</b></p>
 	</div>
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-3">
+			<p>Ingreso Mensual Total: <strong>{{dato.ingreso}}</strong></p>
+		</div>
+		<div class="col-md-6">
 			<form ng-submit="$ctrl.validat()">
 				<p>Pago mensual de servicios</p>
 				<p ng-show="!$ctrl.msgerror" style="color:red;">Error con algunos de los campos</p>

@@ -38,7 +38,7 @@
 				<div class="col-md-offset-1">
 					<p><b>Actividades complementarias: </b></p>
 
-					<input type="checkbox" ng-model="$ctrl.biblioteca_completa" id="biblioteca" ng-change="$ctrl.bibliotecaCambio()">
+					<input type="checkbox" ng-model="$ctrl.biblioteca_completa" id="biblioteca" ng-change="$ctrl.bibliotecaCambio()" ng-disabled="$ctrl.caso_especial">
 					<label for="biblioteca">El alumno cumplio con el 85% de sus actividades complementarias</label>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 				<div class="col-md-offset-1">
 					<p><b>Examenes extraordinarios: </b></p>
 					<div>
-						<input type="checkbox" ng-model="$ctrl.libre_de_extra" id="libre_de_extra" ng-change="$ctrl.extraCambio()">
+						<input type="checkbox" ng-model="$ctrl.libre_de_extra" id="libre_de_extra" ng-change="$ctrl.extraCambio()" ng-disabled="$ctrl.caso_especial">
 						<label for="libre_de_extra">El alumno adeuda después de exámenes extraordinario 1, 3 asignaturas de un semestre en el que curse o recurse 5 o más. </label>
 					</div>
 				</div>
