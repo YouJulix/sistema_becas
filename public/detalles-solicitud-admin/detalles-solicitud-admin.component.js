@@ -80,7 +80,7 @@ angular.
 
 					};
 					self.saveData = function(){
-						alert(self.estado);
+						//alert(self.estado);
 						self.data =  {
 							"estado" 				:self.estado,
 							"porcentaje_sugerido"	:self.porcentaje_sugerido,
