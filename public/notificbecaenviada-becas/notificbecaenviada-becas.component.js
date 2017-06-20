@@ -21,7 +21,7 @@ angular.
 						$scope.matricula = localStorage.getItem("matricula");
 
 
-						console.log(localStorage.getItem("matricula"));
+						//console.log(localStorage.getItem("matricula"));
 
 						if($scope.matricula == null){
 							window.location = "/#!/login";

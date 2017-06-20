@@ -14,8 +14,8 @@ angular.
 						//url 	: 	'http://192.168.43.247:8000/api/v1.0/gastos/'+ self.solicitud
 					}).success(function(data){
 						object = data[0];
-						console.log(object);
-						console.log(object);
+						//console.log(object);
+						//console.log(object);
 						if(object){
 							self.method = "PUT";
 							self.gastosMedicos	= parseInt(object.gastosMedicos);
@@ -104,7 +104,7 @@ angular.
 							data 	: self.data
 						}).success(function(gastos){
 							if(typeof(gastos) == "object"){
-								console.log(gastos);
+								//console.log(gastos);
 								window.location = "/#!/informacion_hogar";
 							}
 						}).error(function(err){

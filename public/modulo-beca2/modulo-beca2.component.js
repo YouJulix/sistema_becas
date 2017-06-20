@@ -14,7 +14,7 @@ angular.
 						url 	: 	'http://localhost:8000/api/v1.0/ingresoMensual/'+ self.solicitudId
 					}).success(function(data){
 						object = data[0];
-						console.log(object);
+						//console.log(object);
 						if(object){
 							self.ingresoMenJefe	= parseInt(object.ingresoMenJefe);
 							self.ingresoMenGubernamental = parseInt(object.ingresoMenGubernamental);
@@ -37,10 +37,10 @@ angular.
 							"ingresoMenGubernamental" : self.ingresoMenGubernamental,
 							"ingresoMenTerceros"      : self.ingresoMenTerceros
 						};
-						console.log(self.method);
-						console.log("val");
+						//console.log(self.method);
+						//console.log("val");
 					if( (self.ingresoMenGubernamental) > 0 && (self.ingresoMenGubernamental<200) ){
-						console.log("invalido");
+						//console.log("invalido");
 						alert("el rango valido en ingreso gubernamental es 200-10000 o 0");
 						return;
 					}

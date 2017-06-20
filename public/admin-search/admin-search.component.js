@@ -16,18 +16,6 @@ angular.
 					//console.log("sdds");
 					self.busqueda = function(){
 						//console.log(self.matricula);
-						if(self.matricula.length != 10){
-							alert("La matricula del alumno contiene 10 digitos");
-							return;
-						}
-						if(self.matricula < 0){
-							alert("La matricula debe ser mayor de 0 y de 10 digitos");
-							return;
-						}
-						if(self.matricula.indexOf('.') != -1){
-							alert("La matricula no puede contener punto decimal");
-							return;
-						}
 						object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/users/'+ self.matricula
@@ -36,18 +24,18 @@ angular.
 								self.msgerror = true;
 								self.infoper = false;
 								$scope.dato = data[0];
-								console.log($scope.dato);
+								//console.log($scope.dato);
 								object = $http({
 									method : 'GET',
 									url    : 'http://localhost:8000/api/v1.0/solicitudes/'+ self.matricula 
 								}).success(function(data){
 									$scope.solicitudes = [];
 									$scope.solicitud = data;
-									console.log($scope.solicitud);
+									//console.log($scope.solicitud);
 									angular.forEach($scope.solicitud, function(sol){
 										$scope.solicitudes.push(sol);
 									});
-									console.log($scope.solicitudes);
+									//console.log($scope.solicitudes);
 								}).error(function(err){
 									console.log(err);
 								}); 
@@ -80,7 +68,7 @@ angular.
 						window.location = "/#!/dependencia_economica";
 					};
 					$scope.remove = function(idmat){
-						console.log(idmat);
+						//console.log(idmat);
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
 					        $http({ 

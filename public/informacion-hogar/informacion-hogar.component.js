@@ -20,7 +20,7 @@ angular.
 						url 	: 	'http://localhost:8000/api/v1.0/informacionHogar/'+ self.solicitudId
 					}).success(function(data){
 						object = data[0];
-						console.log(object);
+						//console.log(object);
 						if(object){
 							self.tipoCasa		= object.tipoCasa;
 							self.materialParedes= object.materialParedes;

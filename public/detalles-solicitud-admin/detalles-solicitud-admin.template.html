@@ -5,7 +5,7 @@
 				<h4>Detalle solicitud</h4>
 			</div>
 			<div class="col-md-2">
-				<a href="#!/login">Cerrar Sesión</a>
+				<a href="#" ng-click="$ctrl.closeApp()">Cerrar Sesión</a>
 				<a href="#!/admin_principal">Regresar</a>
 			</div>
 		</div>
@@ -58,20 +58,20 @@
 				<div class="col-md-offset-1">
 					<p><b>Criterio del evaludaror: </b></p>
 					<div>
-						<input type="checkbox" ng-model="$ctrl.criterio" id="criterio">
+						<input type="checkbox" ng-model="$ctrl.caso_especial" id="criterio">
 						<label for="criterio">Existe un criterio especial para designar el procentaje de beca</label>
 					</div>
 				</div>
 			</div>
 			<br>
-			<div class="row" ng-show="!$ctrl.criterio">
+			<div class="row" ng-show="!$ctrl.caso_especial">
 				<div class="col-md-4 col-md-offset-4">
 					<p><strong>Porcentaje final asignado: </strong>{{$ctrl.porcentaje_final}}</p>
 				</div>			
 			</div>
 			<br>
 	
-			<div class="row" ng-show="$ctrl.criterio">
+			<div class="row" ng-show="$ctrl.caso_especial">
 				<div class="col-md-4 col-md-offset-4">
 					<label for="porcentaje_final">Ingrese el porcentaje final.</label><br>
 					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="0">0<br>
@@ -84,9 +84,9 @@
 			<br>
 
 			<div class="row">
-				<div class="col-md-offset-6">
-					<input type="submit" value="Guardar" /><br /><br />
-
+				<div class="col-md-offset-4">
+					<a href="#!/admin_principal"><button class="btn btn-default">Volver</button></a>
+					<input type="submit" class="btn btn-default" value="Guardar" />
 				</div>
 			</div>
 		</form>			

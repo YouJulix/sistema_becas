@@ -92,19 +92,20 @@ angular.
 					self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 					self.anyos = ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017',];
 					self.valueFecha = function(){
-						if(self.mesFecha == '02'){
-							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'];
-						}else if (self.mesFecha == '04' || self.mesFecha == '06' || self.mesFecha == '09' || self.mesFecha == '11') {
-							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
-						}else if(self.diaFecha == '29' || self.diaFecha == '30'){
+						if(self.diaFecha == '29' || self.diaFecha == '30'){
 							self.meses = ['01','03','04','05','06','07','08','09','10','11','12'];
 						}else if ( self.diaFecha == '31') {
 							self.meses = ['01','03','05','07','08','10','12'];
+						}else if(self.mesFecha == '02'){
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'];
+						}else if (self.mesFecha == '04' || self.mesFecha == '06' || self.mesFecha == '09' || self.mesFecha == '11') {
+							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
 						}else{
 							self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 						}
 					}
+					
 
 					self.renderFecha = function(fecha){
 						self.diaFecha = fecha.substring(0,2);
@@ -149,6 +150,7 @@ angular.
 
 								self.valueFecha();
 								self.valueGrupo();
+								self.viewRecidencia();
 
 								if(data[0].telefono == 'undefined'){
 									self.telefono == " ";
@@ -183,40 +185,8 @@ angular.
 					}
 
 					self.updateUser = function(){
-						var expReg = new RegExp("^[a-zA-Z0-9]{0,30}$");
-						var expRegText = new RegExp("^[a-zA-Z\\\sáéíóú]{0,40}$");
-						var expRegFecha = new RegExp("^[0-3]{1}[0-9]{1}\/[0|1]{1}[0-9]\/[12][09][0-9][0-9]$");
-						var expRegTel = new RegExp("^[0-9\\\s]{7,20}$");
-						var expRegDom =  new RegExp("^[a-zA-Z\\\sáéíóú0-9]{0,40}$");
-						if (!parseInt(self.matricula)){
-							alert("Matricula Incorrecta");
-						}else if(!(self.matricula.length===10)){
-							//$('#inputMAtricula')[0].setCustomValidity("Matricula Incorrecta");
-							alert("Matricula Incorrecta");
-						}else if (!expReg.test(self.password)){
-							alert("Las Contraseñas no debe contener caracteres especiales");	
-						}else if (!expReg.test(self.password2)){
-							alert("Las Contraseñas no debe contener caracteres especiales");	
-						}else if (!(self.password===self.password2)){
+						if (!(self.password===self.password2)){
 							alert("Las Contraseñas no coinciden");	
-						}else if (!(expRegText.test(self.nombre))) {
-							alert("El campo nombre contiene datos incorrectos");
-						}else if (!(expRegText.test(self.apellido1))) {
-							alert("El campo de Primer Apellido contiene datos incorrectos");
-						}else if (!(expRegText.test(self.apellido2))) {
-							alert("El campo de Segundo Apellido contiene datos incorrectos");
-						}else if (!(expReg.test(self.idiomaExt))) {
-							alert("El campor Idioma datos no permitidos");
-						}else if (!(expRegDom.test(self.calle))) {
-							alert("El registro Calle contiene valores incorrectos");	
-						}else if (!(expRegDom.test(self.numCalle))) {
-							alert("El registro Número de Calle contiene valores incorrectos");	
-						}else if (!(expRegDom.test(self.colonia))) {
-							alert("El registro Colonia contiene valores incorrectos");	
-						}else if (!(expRegDom.test(self.municipio))) {
-							alert("El registro Municipio contiene valores incorrectos");	
-						}else if (!(expRegDom.test(self.nombreHuesped))) {
-							alert("El registro Nombre Huesped contiene valores incorrectos");	
 						}else{
 							$http({
 								method: 'PUT',
@@ -259,6 +229,16 @@ angular.
 						alert("Actualización Cancelada! :'(");
 						window.location = "/#!/admin_principal";
 					}
+
+					self.viewRecidencia = function(){
+						if(self.recidencia == 'Si'){
+							self.viewRecid = {"display":"block"}
+						}else{
+							self.viewRecid = {"display":"none"}
+						}
+					}
+
+					self.viewRecidencia();
 
 					self.renderUser(localStorage.getItem("alumno"));
 					//self.renderUser("0113010010");

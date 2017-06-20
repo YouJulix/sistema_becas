@@ -28,11 +28,11 @@ angular.
 					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
 					self.menuChangue = function(){									//
 						if(localStorage.getItem("isAdmin") == "true"){
-							console.log("is admin to #!menu_admin");				//
+							//console.log("is admin to #!menu_admin");				//
 							window.location = "/#!/admin_principal";
 																					//	
 						}else{														//
-							console.log("is not admin to #!solicitudes");           //
+							//console.log("is not admin to #!solicitudes");           //
 							window.location = "/#!/solicitudes";					//
 						}															//
 					}																//

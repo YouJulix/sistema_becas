@@ -32,7 +32,7 @@ angular.
 					self.validar = function(){
 						$scope.matricula = localStorage.getItem("matricula");
 					
-						console.log(localStorage.getItem("matricula"));
+						//console.log(localStorage.getItem("matricula"));
 
 						if($scope.matricula == null){
 							window.location = "/#!/login";
@@ -87,7 +87,7 @@ angular.
 									async : true
 								}).success(function(data){
 									object = data[0];
-									console.log(object);
+									//console.log(object);
 									if(!object){
 										alert("Falta Ingresar Datos Del Alumno");
 										window.location = "/#!/gastos_alumno";
@@ -175,10 +175,10 @@ angular.
 										$scope.ingresoMenTerceros = $scope.datos[0].ingresoMenTerceros ;
 										$scope.solicitudId = $scope.datos[0].solicitudId;
 										
-										console.log($scope.ingresoMenJefe);
-										console.log($scope.ingresoMenGubernamental);
-										console.log($scope.ingresoMenTerceros);
-										console.log($scope.solicitudId);
+										//console.log($scope.ingresoMenJefe);
+										//console.log($scope.ingresoMenGubernamental);
+										//console.log($scope.ingresoMenTerceros);
+										//console.log($scope.solicitudId);
 
 
 										$scope.suma = parseInt($scope.ingresoMenJefe) + parseInt($scope.ingresoMenGubernamental) + parseInt($scope.ingresoMenTerceros);
@@ -201,9 +201,9 @@ angular.
 											$scope.becaSugerida = 0;
 										}
 
-										console.log($scope.becaSugerida);
+										//console.log($scope.becaSugerida);
 
-										console.log("++++++++++");
+										//console.log("++++++++++");
 										
 										/////////////////////////////extraer datos de solicitudes
 										$http({
@@ -211,11 +211,11 @@ angular.
 											url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + $scope.idsolicitud,
 
 										}).success(function(data){
-											console.log(data);
+											//console.log(data);
 											//alert("success "+data)
-											console.log(data);
+											//console.log(data);
 											if(typeof(data) == 'object'){
-												console.log(data);
+												//console.log(data);
 												if(data != ""){
 													
 														$scope.datos = data;

@@ -21,7 +21,7 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<b>Matriculass: {{dato[0].matricula}}</b><br />
+			<b>Matricula: {{dato[0].matricula}}</b><br />
 			<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
 		</div>
 		<div class="col-md-3">
@@ -67,19 +67,19 @@
 			<div class="row">				
 				<div class="col-md-3">
 					<label>Nombre Calle:<span>*</span></label>
-					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="^[a-zA-Z\\\sáéíóú0-9]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales, solo letras">
 				</div>
 				<div class="col-md-3">
 					<label>Número de Calle:<span>*</span></label>
-					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,5}$" title="Verifique que no contenga caracteres especiales, solo números">
+					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números">
 				</div>
 				<div class="col-md-3">
 					<label>Colonia o Barrio:<span>*</span></label>
-					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales, solo letras">
 				</div>
 				<div class="col-md-3">
 					<label>Municipio:<span>*</span></label>
-					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú]{0,45}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.]{0,45}$" title="Verifique que no contenga caracteres especiales, solo letras">
 				</div>
 			</div>
 			
@@ -93,10 +93,10 @@
 				</div>
 				<div class="col-md-3">
 					<label>Nombre, Dueño de la Casa:</label>
-					<input type="text" ng-disabled="$ctrl.recidencia == No" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<input type="text" ng-disabled="$ctrl.recidencia == 'No'" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
 				</div>
 				<div class="col-md-3">
-					<label>Parentesco<span>*</span></label>
+					<label>Parentesco</label>
 					<select ng-model="$ctrl.parentesco" required>
 						<option value="">Seleccione una Opción</option>
 						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>

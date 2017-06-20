@@ -28,7 +28,7 @@ angular.
 					
 
 
-						console.log(localStorage.getItem("matricula"));
+						//console.log(localStorage.getItem("matricula"));
 
 						if($scope.matricula == null){
 							window.location = "/#!/login";
@@ -197,7 +197,7 @@ angular.
 
 					$scope.remove = function(idm){	
 
-						console.log("entro aqui 1");
+						//console.log("entro aqui 1");
 
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
@@ -216,7 +216,7 @@ angular.
 							});*/
 
 				            $http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + idm).success(function() {
-				              	self.imprimir();
+				              	//self.imprimir();
 					        	//location.reload();
 					        	window.location = "/#!/solicitudes";
 				              	//console.log("ya");
