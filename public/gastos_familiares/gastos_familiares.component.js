@@ -131,8 +131,8 @@ angular.
 							return;	
 						}
 
-						self.total = self.agua + self.luz + self.telefono + self.gas + self.educacion + self.transporte + self.educacion 
-									+self.transporte + self.rentadomicilio + self.television + self.internet + self.alimentacion + self.vestido
+						self.total = self.agua + self.luz + self.telefono + self.gas + self.educacion + self.transporte 
+								+ self.rentadomicilio + self.television + self.internet + self.alimentacion + self.vestido
 									+self.medico + self.diversion + self.otro;
 
 						if(self.total > $scope.dato.ingreso){
