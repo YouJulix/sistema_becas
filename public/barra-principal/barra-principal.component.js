@@ -43,7 +43,6 @@ angular.
 						window.location = "/#!/login";
 					}
 
-
 					self.CancelarSolicitud = function(){
 
 						//console.log("==================");
@@ -55,8 +54,7 @@ angular.
 
 				            $http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + self.id).success(function() {
 				              	
-					        	
-
+		
 					        	////////////////////////////////////////
 					        	$http['delete']('http://localhost:8000/api/v1.0/ingresoMensual/' + self.id).success(function() {
 					        	});
@@ -68,8 +66,13 @@ angular.
 					        	});
 					        	////////////////////////////////////////
 
-					        	window.location = "/#!/solicitudes";
-
+					        	if(localStorage.getItem("isAdmin") == "true"){
+									//console.log("is admin to #!menu_admin");				//
+									window.location = "/#!/admin_principal";
+								}else{														//
+									//console.log("is not admin to #!solicitudes");           //
+									window.location = "/#!/solicitudes";					//
+								}
 				            });
 						}
 
