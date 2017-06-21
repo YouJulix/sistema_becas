@@ -82,7 +82,7 @@ exports.updateSolicitudes = function(req, res) {
         solicitudes[0].libre_de_extra = req.body.libre_de_extra;
         solicitudes[0].biblioteca_completa   = req.body.biblioteca_completa;
         solicitudes[0].fecha_envio = req.body.fecha_envio;
-
+        solicitudes[0].caso_especial = req.body.caso_especial;
         solicitudes[0].save(function(err) {
         	console.log("UPDATE /solicitudes/id/");
             if(err) return res.status(500).send(err.message);

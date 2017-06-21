@@ -9,6 +9,11 @@ angular.
 					self.matricula = localStorage.getItem('matricula');
 					self.solicitudId = localStorage.getItem('idSolicitud');
 					
+					self.closeApp =  function(){
+						localStorage.clear();
+						window.location = "/#!/login";
+					}
+
 					self.renderUser = function(){
 						$http({
 							method:'GET',
@@ -54,10 +59,20 @@ angular.
 							console.log(data);
 							self.estado 			 		= data.estado;
 							self.porcentaje_sugerido 		= data.porcentaje_sugerido;
-							self.porcentaje_final			= data.porcentaje_sugerido;
+							self.porcentaje_final			= data.porcentaje_final;
 							self.libre_de_extra				= data.libre_de_extra;
 							self.biblioteca_completa		= data.biblioteca_completa;
 							self.fecha_envio				= data.fecha_envio;
+							self.caso_especial				= data.caso_especial;
+							console.log(self.caso_especial);
+							/*if(self.caso_especial){
+								//self.porcentaje_final = 
+							}else{
+								if(!biblioteca_completa){
+									self.porcentaje_final
+								}
+							}*/
+
 						}).
 						error(function(){
 							alert("Error.");
@@ -71,7 +86,8 @@ angular.
 							"porcentaje_final"		:self.porcentaje_final,
 							"libre_de_extra"		:self.libre_de_extra,	
 							"biblioteca_completa"	:self.biblioteca_completa,
-							"fecha_envio"			:self.fecha_envio						
+							"fecha_envio"			:self.fecha_envio,
+							"caso_especial"			:self.caso_especial						
 						};
 						$http({
 							method:'PUT',

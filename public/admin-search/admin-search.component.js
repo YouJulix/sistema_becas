@@ -16,18 +16,6 @@ angular.
 					//console.log("sdds");
 					self.busqueda = function(){
 						//console.log(self.matricula);
-						if(self.matricula.length != 10){
-							alert("La matricula del alumno contiene 10 digitos");
-							return;
-						}
-						if(self.matricula < 0){
-							alert("La matricula debe ser mayor de 0 y de 10 digitos");
-							return;
-						}
-						if(self.matricula.indexOf('.') != -1){
-							alert("La matricula no puede contener punto decimal");
-							return;
-						}
 						object = $http({
 						method 	: 	'GET',
 						url 	: 	'http://localhost:8000/api/v1.0/users/'+ self.matricula

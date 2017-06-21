@@ -216,7 +216,7 @@ angular.
 							});*/
 
 				            $http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + idm).success(function() {
-				              	self.imprimir();
+				              	//self.imprimir();
 					        	//location.reload();
 					        	window.location = "/#!/solicitudes";
 				              	//console.log("ya");

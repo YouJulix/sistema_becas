@@ -11,6 +11,7 @@ var  solicitudesSchema = new Schema({
 		porcentaje_final: {type : Number },	
 		libre_de_extra: {type : Boolean },
 		biblioteca_completa: {type : Boolean },
+		caso_especial	: {type : Boolean}, 
 		fecha_envio:{type : String }
 	},
 	{ collection: 'solicitudes' }

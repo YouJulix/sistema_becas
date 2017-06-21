@@ -66,55 +66,55 @@ angular.
 							alert("Gasto mensual de agua por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.luz > 0 && self.agua < 50){
+						if(self.luz > 0 && self.luz < 50){
 							alert("Gasto mensual de luz por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.telefono > 0 && self.agua < 50){
+						if(self.telefono > 0 && self.telefono < 50){
 							alert("Gasto mensual de telefono por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.gas > 0 && self.agua < 50){
+						if(self.gas > 0 && self.gas < 50){
 							alert("Gasto mensual de gas por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.educacion > 0 && self.agua < 50){
+						if(self.educacion > 0 && self.educacion < 50){
 							alert("Gasto mensual de educacion por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.transporte > 0 && self.agua < 50){
+						if(self.transporte > 0 && self.transporte < 50){
 							alert("Gasto mensual de transporte por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.rentadomicilio > 0 && self.agua < 50){
+						if(self.rentadomicilio > 0 && self.rentadomicilio < 50){
 							alert("Gasto mensual de renta por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.television > 0 && self.agua < 50){
+						if(self.television > 0 && self.television < 50){
 							alert("Gasto mensual de television por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.internet > 0 && self.agua < 50){
+						if(self.internet > 0 && self.internet < 50){
 							alert("Gasto mensual de internet por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.alimentacion > 0 && self.agua < 50){
+						if(self.alimentacion > 0 && self.alimentacion < 50){
 							alert("Gasto mensual de alimentacion por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.vestido > 0 && self.agua < 50){
+						if(self.vestido > 0 && self.vestido < 50){
 							alert("Gasto mensual de vestido por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.medico > 0 && self.agua < 50){
+						if(self.medico > 0 && self.medico < 50){
 							alert("Gasto mensual de medico por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.diversion > 0 && self.agua < 50){
+						if(self.diversion > 0 && self.diversion < 50){
 							alert("Gasto mensual de diversion por familia, incorrecto rango de 50-25000");
 							return;	
 						}
-						if(self.otro > 0 && self.agua < 50){
+						if(self.otro > 0 && self.otro < 50){
 							alert("Gasto mensual de otros gastos por familia, incorrecto rango de 50-25000");
 							return;	
 						}
