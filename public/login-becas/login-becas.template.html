@@ -1,4 +1,4 @@
-<div class="container">
+	<div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<img id="logoCabecera" src="img/logo.png" />
@@ -12,9 +12,9 @@
 				<p ng-show="!$ctrl.dataValid" style="color:red;">{{$ctrl.mensajeError}}</p>
 				<p><b>Matrícula</b></p>
 				<input type="text" name="matricula" ng-model="$ctrl.matricula" 
-				pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX" /><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
+				pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX | adminXXX...X" /><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
 				<p><b>Contraseña</b></p>
-				<input type="password" name="password" ng-model="$ctrl.password" required pattern="[A-Za-z0-9]{1,}" title="Solo se aceptan caracteres alfanuméricos" /><br /><br />
+				<input type="password" name="password" ng-model="$ctrl.password" required pattern="[A-Za-z0-9]{1,30}" title="Solo se aceptan caracteres alfanuméricos(max. 30)" /><br /><br />
 				<input type="submit" value="Ingresar" class="btn btn-default" /><br /><br />
 				<a href="#!/registro" >Registrarse</a>
 			</form>

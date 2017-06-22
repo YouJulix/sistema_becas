@@ -81,27 +81,32 @@ angular.
 						}
 					}
 
-					self.estadosCivil = ['Soltero/a','Casado/a','Viudo/a','Divorciado/a'];
+					//Modificación Estado Civil
+					self.estadosCivil = ['Soltero/a','Casado/a','Otro'];
 
-					self.estados = ['Oaxaca','Puebla','Guerrero','Chiapas','Veracruz'];
-					self.estado = self.estados[0];
+					//Modificación de Estado
+					self.estados = ['Oaxaca'];
+					self.estado = 'Oaxaca';
 
 					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
 
 					self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 					self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 					self.anyos = ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017',];
+					//Cambio en la fecha
 					self.valueFecha = function(){
 						if(self.diaFecha == '29' || self.diaFecha == '30'){
 							self.meses = ['01','03','04','05','06','07','08','09','10','11','12'];
 						}else if ( self.diaFecha == '31') {
 							self.meses = ['01','03','05','07','08','10','12'];
-						}else if(self.mesFecha == '02'){
+						}else{
+							self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+						}
+						if(self.mesFecha == '02'){
 							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'];
 						}else if (self.mesFecha == '04' || self.mesFecha == '06' || self.mesFecha == '09' || self.mesFecha == '11') {
 							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
 						}else{
-							self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 						}
 					}
@@ -147,7 +152,6 @@ angular.
 								self.parentesco = data[0].parentesco;
 
 								self.renderFecha(data[0].fechaNac);
-
 								self.valueFecha();
 								self.valueGrupo();
 								self.viewRecidencia();
@@ -235,6 +239,8 @@ angular.
 							self.viewRecid = {"display":"block"}
 						}else{
 							self.viewRecid = {"display":"none"}
+							self.nombreHuesped = "";
+							self.parentesco = "";
 						}
 					}
 

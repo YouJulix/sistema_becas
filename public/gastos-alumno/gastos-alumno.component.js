@@ -53,18 +53,18 @@ angular.
  							return;
  						}
  						
- 						if(self.gastosMedicos > 15000){
+ 						if(self.gastosMedicos > 25000){
  							alert("Los gastos medicos son demasiado altos, comunicarse con el administrador");
  							return;
  						}
 
-						if(self.montoRenta > 10000){
+						if(self.montoRenta > 25000){
 							alert("El monto de la renta es demasiado alto, comunicarse con el administrador");
 							return;
 						}
 						
 						if( !self.taxi && !self.caminar &&  !self.bicicleta && !self.vehiculo){
-							alert("Elija minimo un metodo de transporte");
+							alert("Elija mínimo un método de transporte");
 							return;
 						}
 

@@ -34,7 +34,7 @@ angular.
 			   		
 				    $scope.cerrarSesion = function() {
 				    	//alert("entra");
-				        localStorage.removeItem("matricula");
+				        localStorage.clear();
 				        window.location = "/#!/login";
 				    }
 

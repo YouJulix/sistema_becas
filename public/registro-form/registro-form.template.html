@@ -10,30 +10,30 @@
 			<div class="row">
 				<div class="col-md-3">
 					<label>Matrícula:<span>*</span></label>
-					<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00?((0[1-9])|([1-9][0-9]))$" title="Matricula Inválida" placeholder="011301000X">				
+					<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00?((0[1-9])|([1-9][0-9]))$" title="Matricula Inválida" placeholder="011301000X" maxlength="10">
 				</div>
 				<div class="col-md-3">
 					<label>Contraseña:<span>*</span></label>
-					<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9]{1,30}$" title="Verifique que no contenga caracteres especiales" placeholder="Contraseña">
+					<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
 				</div>
 				<div class="col-md-3">
 					<label>Repetir Contraseña:<span>*</span></label>
-					<input type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9]{1,30}$" title="Verifique que no contenga caracteres especiales" placeholder="Contraseña">
+					<input type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
 				</div>
 			</div>
 			<br>
 			<div class="row">
 				<div class="col-md-3">
 					<label>Nombre (s):<span>*</span></label>
-					<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" placeholder="Nombre(s)">
+					<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" placeholder="Nombre(s)">
 				</div>
 				<div class="col-md-3">
 					<label>Primer Apellido:<span>*</span></label>
-					<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" placeholder="Apellido">
+					<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" placeholder="Apellido" maxlength="40">
 				</div>
 				<div class="col-md-3">
 					<label>Segundo Apellido:<span>*</span></label>
-					<input type="text" ng-model="$ctrl.apellido2" required pattern="^[A-Z][a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" placeholder="Apellido">
+					<input type="text" ng-model="$ctrl.apellido2" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" placeholder="Apellido">
 				</div>
 			</div>
 			<br>
@@ -87,7 +87,9 @@
 			<div class="row">
 				<div class="col-md-3">
 					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
-					<input type="text" ng-model="$ctrl.idiomaExt" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<select ng-model="$ctrl.idiomaExt">
+						<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
+					</select>
 				</div>
 				<div class="col-md-3">
 					<label>Estado Civil:<span>*</span></label>
@@ -97,11 +99,11 @@
 					</select>
 				</div>
 				<div class="col-md-3">
-					<label>Telefono Celular (lada):</label>
-					<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{10,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
+					<label>Telefono Celular:</label>
+					<input type="text" ng-model="$ctrl.telefono" pattern="(^951|^055|^081|^033|^656|^614|^999|^222|^442|^449|^664|^844|^686|^667|^722|^998|^871|^744|^444|^833|^477|^961|^662|^229|^443)[0-9]{7}$" title="Verifique que el formato sean un número válido solo de 10 números"  placeholder="XXXXXXXXXX" maxlength="10">
 				</div>
 				<div class="col-md-3">
-					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
+					<label>¿Su estancia en la Universidad, implica recidensia distinta a la familia?<span>*</span></label>
 					<label><input type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No">No</label>
 					<label><input type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si">Si</label>
 				</div>
@@ -111,19 +113,19 @@
 			<div class="row">				
 				<div class="col-md-3">
 					<label>Nombre Calle:<span>*</span></label>
-					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}|^[^0-9]{4,}" title="Verifique que no contenga caracteres especiales o solo números" maxlength="40">
 				</div>
 				<div class="col-md-3">
 					<label>Número de Calle:<span>*</span></label>
-					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)">
+					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)" maxlength="3">
 				</div>
 				<div class="col-md-3">
 					<label>Colonia o Barrio:<span>*</span></label>
-					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}|^[^0-9]{4,}" title="Verifique que no contenga caracteres especiales o solo números" maxlength="40">
 				</div>
 				<div class="col-md-3">
 					<label>Municipio:<span>*</span></label>
-					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.]{0,45}$" title="Verifique que no contenga caracteres especiales ni números, solo letras">
+					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.ñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales ni números, solo letras" maxlength="40">
 				</div>
 			</div>
 			<br>
@@ -136,11 +138,11 @@
 					</select>
 				</div>
 				<div class="col-md-3" ng-style="$ctrl.viewRecid">
-					<label>Nombre, Dueño de la Casa:</label>
-					<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<label>Nombre del dueño de la Casa:</label>
+					<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40">
 				</div>
 				<div class="col-md-3" ng-style="$ctrl.viewRecid">
-					<label>Parentesco</label>
+					<label>Parentesco:</label>
 					<select ng-model="$ctrl.parentesco">
 						<option value="" disabled>Seleccione una Opción</option>
 						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>

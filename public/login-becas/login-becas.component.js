@@ -58,7 +58,23 @@ angular.
 						/*$http.get('http://localhost:8000/api/v1.0/users/' + self.matricula + "/" + self.password).then(function(response){ //the URL is relative to our index.html file
 							console.log(response.data);
 						})*/
-					}				
+					}	
+
+
+					self.iniciar = function(){
+
+						if(localStorage.length > 0){
+							if(localStorage.getItem("isAdmin") == "true"){
+								window.location = "#!/admin_principal";
+							}else{
+									window.location = "/#!/solicitudes";
+							}
+						}
+
+
+					}
+
+					self.iniciar();			
 				}
 			]
 		});
