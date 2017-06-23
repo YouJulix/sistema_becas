@@ -55,13 +55,102 @@ angular.
 							url: 'http://localhost:8000/api/v1.0/ingresoMensual',
 							data: self.data
 						}).success(function(ingresos){
+							if(localStorage.getItem("isAdmin") == "true"){
+									self.CambiarIngresoMensual();
+							}
+
 							window.location = "#!/gastos_alumno";
 						}).error(function(error){
 							console.log(error);
 							alert("Error al agregar ingresos mensuales");
 						});
+
+
+
+
 					}
+
+
+
+					self.CambiarIngresoMensual = function(){
+
+						//console.log("Entro");
+						var suma = self.ingresoMenJefe + self.ingresoMenGubernamental + self.ingresoMenTerceros;
+						
+						//calcular porcentaje de beca sugerida
+						perCapita = ((suma/30) /80.04);
+						perCapita = (perCapita * 640.74);
+
+						
+
+						if(perCapita < 2562.97){
+							becaSugerida = 100;
+						}else if(perCapita < 5125.93){
+							becaSugerida = 75;
+						}else if(perCapita < 7688.90){
+							becaSugerida = 50;
+						}else if(perCapita < 10251.86){
+							becaSugerida = 25;
+						}else if(perCapita > 10251.86 ){
+							becaSugerida = 0;
+						}
+
+						$http({
+							method: 'GET',
+							url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + self.solicitudId,
+
+						}).success(function(data){
+		
+							if(typeof(data) == 'object'){
+								
+								if(data != ""){
+									
+										datos = data;
+										//console.log(datos);
+										matricula = datos.matricula;
+										estado = datos.estado;
+										porcentaje_sugerido = datos.porcentaje_sugerido;
+										porcentaje_final = datos.porcentaje_final;
+										libre_de_extra = datos.libre_de_extra;
+										biblioteca_completa = datos.biblioteca_completa;
+										fecha_envio = datos.fecha_envio;
+
+
+										if(estado == "terminado"){
+											$http({
+										        url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + self.solicitudId,
+										        method: "PUT",
+										        data: { 								
+										        	'estado' : estado,
+													'porcentaje_sugerido' : becaSugerida,
+													'porcentaje_final' : porcentaje_final,
+													'libre_de_extra' : libre_de_extra,
+													'biblioteca_completa' : biblioteca_completa,
+													'fecha_envio' : fecha_envio,
+													'matricula' : matricula 
+												}
+										    }).success(function(data){
+										    	//localStorage.removeItem("idSolicitud");
+												//window.location = "/#!/notificbecaenviada";
+									        }).error(function(){
+												//alert('! ERROR No se envio la solicitud!');
+											});
+										}
+
+								}
+							}else{
+								alert('! ERROR La solicitud esta vacia!');
+							}
+
+						}).error(function(){
+							alert('! ERROR No se encontro la solicitud en la base de datos !');
+						});
+
+					}
+
+
 					
 				}
 			]
 		});
+

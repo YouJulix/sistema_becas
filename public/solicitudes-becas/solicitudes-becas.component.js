@@ -15,6 +15,9 @@ angular.
 
 
 
+
+
+
 					//$scope.valor = 5; //ejemplo para declarar variables
 
 					var self = this; //BUena practica es no manipular el this directamente
@@ -22,6 +25,9 @@ angular.
 					
 					//localStorage.setItem("matricula","12345");
 					self.ver = false;
+					self.password_Actual = "";
+					self.password_Nueva = "";
+					self.password_Repetir = "";
 
 					self.validar = function(){
 						$scope.matricula = localStorage.getItem("matricula");
@@ -166,7 +172,7 @@ angular.
 
 									self.renderFecha(data[0].fechaNac);
 
-
+									self.viewRecidencia();
 									if(data[0].telefono == 'undefined'){
 										self.telefono == " ";
 									}else{
@@ -187,7 +193,7 @@ angular.
 									}else{
 										self.nombreHuesped = data[0].nombreHuesped;
 									}
-									self.viewRecidencia();
+									
 								}
 							}else{
 								window.location = "/#!/login";
@@ -199,6 +205,7 @@ angular.
 
 					self.imprimirDatos();
 
+					//Esconder Otros datos
 					self.viewRecidencia = function(){
 						if(self.recidencia == 'Si'){
 							self.viewRecid = {"display":"block"}
@@ -208,7 +215,6 @@ angular.
 							self.parentesco = "";
 						}
 					}
-
 					self.viewRecidencia();
 
 
@@ -324,46 +330,103 @@ angular.
 
 
 					self.updateUser = function(){
-						
-							$http({
-								method: 'PUT',
-								url: 'http://localhost:8000/api/v1.0/users/'+self.matricula,
-								data: 'matricula='+self.matricula+
-									'&password='+self.password+
-									'&password2='+self.password2+
-									'&nombre='+self.nombre+
-									'&apellido1='+self.apellido1+
-									'&apellido2='+self.apellido2+
-									'&fechaNac='+self.diaFecha+"/"+self.mesFecha+"/"+self.anyoFecha+
-									'&carrera='+self.carrera+
-									'&semestre='+self.semestre+
-									'&grupo='+self.grupo+
-									'&sexo='+self.sexo+
-									'&idiomaExt='+self.idiomaExt+
-									'&edoCivil='+self.edoCivil+
-									'&telefono='+self.telefono+
-									'&recidencia='+self.recidencia+
-									'&calle='+self.calle+
-									'&numCalle='+self.numCalle+
-									'&colonia='+self.colonia+
-									'&municipio='+self.municipio+
-									'&estado='+self.estado1+
-									'&nombreHuesped='+self.nombreHuesped+
-									'&parentesco='+self.parentesco,
-								headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
-							}).
-							success(function(data){
-								alert("Actualización Realizada Exitosamente.! :)");
-								//window.location="#!/admin_principal";
-								self.ver = false;
-							}).
-							error(function(){
-								alert("Error al registrar Usuario! :'(");
-							});	
-					
+							//si cambia contraseña
+							if(self.cambiar_contrasenia == true){
+								//console.log(self.cambiar_contrasenia);
+								//console.log(self.password_Actual);
+								//console.log(self.password_Nueva);
+								//console.log(self.password_Repetir);
+								if(self.password_Actual == "" || self.password_Nueva == "" || self.password_Repetir== ""){
+									alert("! Falta agregar campo contraseña !");
+								}else{
+
+									//verificar la contraseña actual con la guardada en la base de datos
+									if(self.password_Actual == self.password){
+
+										//comparar contraseña nueva con la  repetir contraseña
+										if(self.password_Nueva == self.password_Repetir){
+											self.password = self.password_Nueva;
+											self.password2 = self.password_Repetir;
+											self.cancel();
+											self.modificarUsuario();
+										}else{
+											alert("La contraseña Nueva y la contraseña repetir no coinciden");
+										}
+
+									}else{
+										alert("Contraseña Incorrecta Vuelva a Intentarlo");
+									}
+									
+								}
+							}else{
+
+								self.modificarUsuario();
+				
+							}
 					}
 
+
+
+					self.modificarUsuario = function(){
+
+						$http({
+							method: 'PUT',
+							url: 'http://localhost:8000/api/v1.0/users/'+self.matricula,
+							data: 'matricula='+self.matricula+
+								'&password='+self.password+
+								'&password2='+self.password2+
+								'&nombre='+self.nombre+
+								'&apellido1='+self.apellido1+
+								'&apellido2='+self.apellido2+
+								'&fechaNac='+self.diaFecha+"/"+self.mesFecha+"/"+self.anyoFecha+
+								'&carrera='+self.carrera+
+								'&semestre='+self.semestre+
+								'&grupo='+self.grupo+
+								'&sexo='+self.sexo+
+								'&idiomaExt='+self.idiomaExt+
+								'&edoCivil='+self.edoCivil+
+								'&telefono='+self.telefono+
+								'&recidencia='+self.recidencia+
+								'&calle='+self.calle+
+								'&numCalle='+self.numCalle+
+								'&colonia='+self.colonia+
+								'&municipio='+self.municipio+
+								'&estado='+self.estado1+
+								'&nombreHuesped='+self.nombreHuesped+
+								'&parentesco='+self.parentesco,
+							headers: {'Content-Type':'application/x-www-form-urlencoded'}
+
+						}).
+						success(function(data){
+							alert("Actualización Realizada Exitosamente.! :)");
+							//window.location="#!/admin_principal";
+							self.ver = false;
+						}).
+						error(function(){
+							alert("Error al registrar Usuario! :'(");
+						});
+
+
+					}
+
+
+					self.cancel = function(){
+						self.ver = false;
+						self.password_Actual = "";
+						self.password_Nueva = "";
+						self.password_Repetir = "";
+						self.cambiar_contrasenia = false;
+
+						self.verCampo = false;
+					}	
+
+					self.limpiarCampos = function(){
+						self.password_Actual = "";
+						self.password_Nueva = "";
+						self.password_Repetir = "";
+						self.verCampo = !self.verCampo;
+					}
 
 
 					  

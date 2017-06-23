@@ -35,11 +35,31 @@
 	</div>
 
 	<hr />
-	<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>
-	<br>
+	<button ng-click="$ctrl.ver = !$ctrl.ver" ng-show="!$ctrl.ver" >Modificar Datos Personales</button>
+	
 
 		<form ng-submit="$ctrl.updateUser()">
 		<div ng-show="$ctrl.ver">
+			<h3>Modificar Datos Personales</h3>
+			<div class="row">
+				<div class="checkbox col-md-3">
+						<label><input ng-click="$ctrl.limpiarCampos()" type="checkbox" ng-model="$ctrl.cambiar_contrasenia">
+						Cambiar Contraseña</label>
+				</div>
+				<div ng-show="$ctrl.verCampo" class="col-md-3">
+					<label>Contraseña Actual:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password_Actual" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
+				</div>
+				<div ng-show="$ctrl.verCampo" class="col-md-3">
+					<label>Contraseña Nueva:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password_Nueva" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+				</div>
+				<div ng-show="$ctrl.verCampo" class="col-md-3">
+					<label>Repetir Contraseña Nueva:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password_Repetir" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+				</div>
+			</div>
+			<br>
 			<div class="row">
 				<div class="col-md-3">
 					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
@@ -108,7 +128,7 @@
 			<br>
 			<div class="row">
 				<div class="col-md-2 col-md-offset-6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
-				<div class="col-md-2"><input type="button" class="btn btn-default" value="Cancelar" ng-click="$ctrl.ver = false"></div>
+				<div class="col-md-2"><input type="button" class="btn btn-default" value="Cancelar" ng-click=" $ctrl.cancel()"></div>
 			</div>
 
 			</div>
