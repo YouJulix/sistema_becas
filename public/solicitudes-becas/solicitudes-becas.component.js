@@ -300,7 +300,7 @@ angular.
 					    $http({
 							url: 'http://localhost:8000/api/v1.0/solicitudes/',
 							method: "POST",
-							data: { 								
+							data: { 		: 						
 								'estado' : "pendiente",
 									'porcentaje_sugerido' : 0,
 									'porcentaje_final' : 0,
