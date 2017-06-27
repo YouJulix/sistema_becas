@@ -56,10 +56,10 @@
 									<td>
 										 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit"/>
 									</td>
-									<td ng-if="user.isAdmin == 'true'">
+									<td ng-if="user.isAdmin == true">
 											Evaluador
 									</td>
-									<td ng-if="user.isAdmin != 'true'">
+									<td ng-if="user.isAdmin != true">
 											Estudiante
 									</td>
 									<td>

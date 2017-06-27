@@ -25,7 +25,7 @@ angular.
 						password2: self.password,
 						isAdmin	: self.isEval
 					}
-					
+					console.log(self.data);
 					$http({
 						method: 'POST',
 						url: 'http://localhost:8000/api/v1.0/users',

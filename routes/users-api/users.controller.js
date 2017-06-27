@@ -74,7 +74,8 @@ exports.addUser = function(req,res){
 		municipio: 	req.body.municipio,
 		estado: 	req.body.estado,
 		nombreHuesped: req.body.nombreHuesped,
-		parentesco: req.body.parentesco
+		parentesco: req.body.parentesco,
+		isAdmin	: req.body.isAdmin, 
 	});
 
 	user.save(function(err,user){
