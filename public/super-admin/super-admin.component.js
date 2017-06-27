@@ -4,7 +4,7 @@ angular.
 			templateUrl: 'super-admin/super-admin.template.html',
 			controller: ['$http', function superAdminController($http){
 				var self = this;
-				
+				//self.isEval = true;
 				$http({
 					method 	: 	'GET',
 					url 	: 	'http://localhost:8000/api/v1.0//users'
@@ -20,10 +20,16 @@ angular.
 					self.data = {
 						matricula: self.username,
 						password: self.password,
-						password2: self.password2,
-						nombre: self.name
+						password2: self.password,
+						nombre: self.name,
+						apellido1: self.apellido1,
+						apellido2: self.apellido2,
+						isAdmin	: self.isEval
 					}
 
+					console.log(self.data);
+
+					
 					$http({
 						method: 'POST',
 						url: 'http://localhost:8000/api/v1.0/users',
