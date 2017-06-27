@@ -277,7 +277,7 @@ angular.
 					    }).success(function (data, status, headers, config) {
 			                localStorage.setItem("idSolicitud",data._id);
 			            	//alert(data._id);
-			            	window.location = "/#!/dependencia_economica";
+			            	window.location = "/#!/gastos_alumno";
 			            }).error(function (data, status, headers, config) {
 			                alert('Error al intentar recuperar el cliente');
 			            });
@@ -287,12 +287,12 @@ angular.
 					//Sugerencia... podrian ser la misma funcion
 					$scope.modificar = function(id){
 						localStorage.setItem("idSolicitud",id);
-						window.location = "/#!/dependencia_economica";
+						window.location = "/#!/gastos_alumno";
 
 
 					};
 
-					$scope.agregar = function(id){
+					/*$scope.agregar = function(id){
 					    var f = new Date();
 					    var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
 
@@ -315,9 +315,7 @@ angular.
 					    }).error(function (data, status, headers, config) {
 						alert('Error al intentar recuperar el cliente');
 					    });
-
-
-					};
+					};*/
 
 
 					$scope.cerrarSesion = function() {
