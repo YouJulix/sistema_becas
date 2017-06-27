@@ -10,7 +10,7 @@
 			</div>
 			<div class="input-field col s4">
 				 <i class="material-icons prefix">search</i>
-	          	<input id="icon_prefix" type="text" class="validate">
+	          	<input ng-model="$ctrl.searchText" id="icon_prefix" type="text" class="validate">
 	          	<label for="icon_prefix">Buscar...</label>	
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 	
 	<div class="row">
 		<ul  class="collapsible popout" data-collapsible="accordion">
-			<li ng-repeat="user in $ctrl.users track by $index" >
+			<li ng-repeat="user in $ctrl.users | filter:$ctrl.searchText" >
 				<div class="collapsible-header" ng-click="$ctrl.edit = true">
 					<i class="material-icons">visibility</i>
 					{{user.nombre}} {{user.apellido1}} ({{user.matricula}})
