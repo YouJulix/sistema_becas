@@ -34,28 +34,32 @@
 					<div class="section">
 						<table class="responsive-table">
 							<thead>
+								<th>Username</th>
 								<th>Nombre</th>
-								<th>Apellidos</th>
+								<th>Apellido1</th>
+								<th>Apellido2</th>
 								<th>Rol</th>
 								<th>password</th>
 							</thead>
 							<tbody>
 								<tr>
 									<td>
+										{{user.matricula}}
+									</td>
+									<td>
 										{{user.nombre}}
 									</td>
 									<td>
-										{{user.apellido1}} {{user.apellido2}}
+										{{user.apellido1}}
+									</td>
+									<td>
+										 {{user.apellido2}}
 									</td>
 									<td ng-if="user.isAdmin == 'true'">
-										<td>
 											Evaluador
-										</td>
 									</td>
-									<td ng-if="user.isAdmin == 'true'">
-										<td>
+									<td ng-if="user.isAdmin != 'true'">
 											Estudiante
-										</td>
 									</td>
 									<td>
 										<input type="password" value="user.password" ng-disabled="$ctrl.edit"/>
@@ -63,9 +67,15 @@
 								</tr>
 							</tbody>
 						</table>
+						<div class="row">
+							<div class="col s12">
+								<button ></button>
+							</div>
+						</div>
 					</div>
 					<div class="section">
 						<a ng-click="$ctrl.edit=!$ctrl.edit" class="btn-floating waves-effect waves-light"><i class="material-icons left">edit</i> </a>
+						<button  ng-click="$ctrl.deleteUser(user.matricula)" class="btn-floating waves-effect waves-light"><i class="material-icons left red">delete</i> </button>
 					</div>
 				</div>
 			</li>
