@@ -119,8 +119,8 @@ exports.updateUser = function(req,res){
 
 //DELETE Alumno
 exports.deleteUser = function(req,res){
-	User.findByMatricula({'matricula' : req.params.matricula},function(err,user){
-		user.remove(function(err){
+	User.find({'matricula' : req.params.matricula},function(err,user){
+		user[0].remove(function(err){ //EL find regresa un array, solo necesitamos el primer y único elemento
 			if(err) return res.status(500).send(err.message);
 			res.status(200).send();
 		})
