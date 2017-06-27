@@ -16,19 +16,20 @@ angular.
 				});
 
 				self.addUser = function(){
+					
 					self.data = {
 						matricula: self.username,
 						password: self.password,
 						password2: self.password2,
-						nombre: self.nombre
+						nombre: self.name
 					}
 
 					$http({
 						method: 'POST',
-						url: 'http://localhost/api/v1.0/users',
+						url: 'http://localhost:8000/api/v1.0/users',
 						data: self.data
 					}).success(function(data){
-						alert('Usuario agregado exitosamente');
+						window.location.reload();
 					}).error(function(){
 						alert('Ocurrio un error');
 					});
