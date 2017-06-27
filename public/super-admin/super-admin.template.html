@@ -84,42 +84,38 @@
 </div>
 
 <!--Modal para agregar un usuario-->
-<div id="addusermodal" class="modal">
-	<form>    
+<div id="addusermodal" class="modal modal-fixed-footer">
+	<form ng-submit="$ctrl.addUser()">    
 	    <div class="modal-content">
 	      <h5>Nuevo usuario</h5>
 			<div class="row">
-		    	<form class="col s12">
 		      	<div class="row">
 		      		
 		      		<div class="input-field col s4">
 		      			<i class="material-icons prefix">account_circle</i>
-			      		<input id="newusername" type="text" class="validate" ng-model="$ctrl.name">
+			      		<input id="newusername" type="text" class="validate" ng-model="$ctrl.name" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
 			    		<label for="newusername">Nombre</label>
 		      		</div>
 			      	
 			      	<div class="input-field col s4">
-			      		
-				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.apellido1">
+				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
 				    	<label for="newusercid">Apellido paterno</label>
 			      	</div>
 
-			      	<div class="input-field col s4">
-			      		
-				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.apellido2">
+			      	<div class="input-field col s4">	
+				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.apellido2" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
 				    	<label for="newusercid">Apellido materno</label>
 			      	</div>
 
 			      	<div class="input-field col s12">
 			      		<i class="material-icons prefix">perm_identity</i>
-				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.username">
+				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.username" pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX | adminXXX...X">
 				    	<label for="newusercid">Nombre de usuario</label>
 			      	</div>
 
-			      	
 			      	<div class="input-field col s12">
 			      		<i class="material-icons prefix">lock</i>
-				      	<input id="password" type="password" class="validate" ng-model="$ctrl.password">
+				      	<input id="password" type="password" class="validate" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30">
 				    	<label for="password">Contraseña</label>
 			      	</div>
 			      	
@@ -130,17 +126,14 @@
 				    <p>
 				    	<input ng-click="$ctrl.isEval = false" name="group1" type="radio" id="estu" />
 				     	<label for="estu">Estudiante</label>
-				    </p>
-			      		
-			      	
-
+				    </p> 	
 		      	</div>
-		      	
 	      	</div>
 	    </div>
+
 		<div class="modal-footer">
-			<a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-	    	<a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="$ctrl.addUser()">Agregar</a>
+	    	<a class="modal-action modal-close waves-effect waves-green btn-flat" >Cancelar</a>
+	    	<input class="waves-effect waves-green btn-flat" type="submit" value="Agregar" />
 		</div>
 	</form>
 </div>

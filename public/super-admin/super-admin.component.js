@@ -25,9 +25,6 @@ angular.
 						apellido2: self.apellido2,
 						isAdmin	: self.isEval
 					}
-
-					console.log(self.data);
-
 					
 					$http({
 						method: 'POST',
