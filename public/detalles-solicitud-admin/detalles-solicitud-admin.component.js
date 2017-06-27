@@ -109,7 +109,9 @@ angular.
 							self.porcentaje_final = self.porcentaje_sugerido; 
 						}
 						else{
-							self.porcentaje_final = self.porcentaje_sugerido - 25; 
+							if(self.porcentaje_sugerido > 0){
+								self.porcentaje_final = self.porcentaje_sugerido - 25; 
+							}
 						}
 						self.extraCambio();
 					};
@@ -117,7 +119,9 @@ angular.
 					self.extraCambio = function(){
 						if(self.libre_de_extra){
 							if(self.biblioteca_completa){
-								self.porcentaje_final = self.porcentaje_sugerido - 25; 
+								if(self.porcentaje_sugerido > 0){
+									self.porcentaje_final = self.porcentaje_sugerido - 25; 
+								}
 							}
 							else{
 								self.porcentaje_final = self.porcentaje_final; 
