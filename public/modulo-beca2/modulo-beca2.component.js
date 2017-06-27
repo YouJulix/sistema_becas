@@ -59,7 +59,13 @@ angular.
 									self.CambiarIngresoMensual();
 							}
 
-							window.location = "#!/gastos_alumno";
+							if(localStorage.getItem("isAdmin") == "true"){
+								//console.log("isAdmin return to admin_principal");		
+								window.location = "/#!/admin_principal";   				
+							}else{
+								//console.log("is not Admin return to cartaProtesta");
+								window.location = "/#!/cartaProtesta";
+							}
 						}).error(function(error){
 							console.log(error);
 							alert("Error al agregar ingresos mensuales");

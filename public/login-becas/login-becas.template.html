@@ -1,20 +1,20 @@
-	<div class="container">
+<div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col xl12 l12 m12">
 			<img id="logoCabecera" src="img/logo.png" />
 			<h2> Sistema de Becas NU</h2>
 			<hr />
 		</div>
 	</div>
 	<div class="row">
-		<div id="loginBecasForm" class="col-md-6 col-md-offset-3" >
-			<form ng-submit="$ctrl.validateData()"> <!--Cuando se trabaja con componentes $ctrl hace referencia al controlador(Así no se manipula directamente el $scope) == -->
+		<div id="loginBecasForm" class="col xl5 l6 m6 offset-xl4 offset-l4 offset-m3">
+			<form class="" ng-submit="$ctrl.validateData()"> <!--Cuando se trabaja con componentes $ctrl hace referencia al controlador(Así no se manipula directamente el $scope) == -->
 				<p ng-show="!$ctrl.dataValid" style="color:red;">{{$ctrl.mensajeError}}</p>
 				<p><b>Matrícula</b></p>
 				<input type="text" name="matricula" ng-model="$ctrl.matricula" 
-				pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX | adminXXX...X" /><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
+				pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX" /><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
 				<p><b>Contraseña</b></p>
-				<input type="password" name="password" ng-model="$ctrl.password" required pattern="[A-Za-z0-9]{1,30}" title="Solo se aceptan caracteres alfanuméricos(max. 30)" /><br /><br />
+				<input type="password" name="password" ng-model="$ctrl.password" required pattern="[A-Za-z0-9]{1,}" title="Solo se aceptan caracteres alfanuméricos" /><br /><br />
 				<input type="submit" value="Ingresar" class="btn btn-default" /><br /><br />
 				<a href="#!/registro" >Registrarse</a>
 			</form>

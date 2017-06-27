@@ -52,5 +52,9 @@
 					});
 				}
 				self.searchSaved();
+
+				self.regresar = function(){
+					window.location = "#!/informacion_hogar";	
+				};
 			}]
 		});

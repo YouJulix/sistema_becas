@@ -105,7 +105,7 @@ angular.
 						}).success(function(gastos){
 							if(typeof(gastos) == "object"){
 								//console.log(gastos);
-								window.location = "/#!/informacion_hogar";
+								window.location = "/#!/gastos_familiares";
 							}
 						}).error(function(err){
 							console.log(err);

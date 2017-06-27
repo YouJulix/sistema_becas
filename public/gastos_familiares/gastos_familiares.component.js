@@ -131,14 +131,14 @@ angular.
 							return;	
 						}
 
-						self.total = self.agua + self.luz + self.telefono + self.gas + self.educacion + self.transporte 
+						/*self.total = self.agua + self.luz + self.telefono + self.gas + self.educacion + self.transporte 
 								+ self.rentadomicilio + self.television + self.internet + self.alimentacion + self.vestido
 									+self.medico + self.diversion + self.otro;
 
 						if(self.total > $scope.dato.ingreso){
 							alert("La suma de los fastos familiares es mayor a su ingreso mensual");
 							return;
-						}
+						}*/
 						
 						self.data = {
 							"solicitudId"	: self.solicitudId,
@@ -163,22 +163,23 @@ angular.
 							url    : 'http://localhost:8000/api/v1.0/gastos_familiares/',
 							data   : self.data
 						}).success(function(gastosfam){
+							window.location = "/#!/informacion_hogar";
 							//console.log(gastosfam);
 							//if(typeof(gastosfam) == "object"){
-								if(localStorage.getItem("isAdmin") == "true"){
+								/*if(localStorage.getItem("isAdmin") == "true"){
 									//console.log("isAdmin return to admin_principal");		
 									window.location = "/#!/admin_principal";   				
 								}else{
 									//console.log("is not Admin return to cartaProtesta");
 									window.location = "/#!/cartaProtesta";
-								}
+								}*/
 							//}
 						}).error(function(err){
 							console.log(err);
 						});
 					},
 					self.volver = function(){
-						window.location = "/#!/informacion_hogar";
+						window.location = "/#!/gastos_alumno";
 					}
 				}
 			]
