@@ -1,0 +1,106 @@
+<div class="container">
+	<div class="row card blue-grey lighten-4">
+		<div class="row">
+			<div class="col s6">
+				<div>
+					<h4>Super administrador</h4>
+				</div>
+			</div>
+			<div class="col s2">
+			</div>
+			<div class="input-field col s4">
+				 <i class="material-icons prefix">search</i>
+	          	<input id="icon_prefix" type="text" class="validate">
+	          	<label for="icon_prefix">Buscar...</label>	
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col s12">
+			<a id="adduser" class=" btn-floating waves-effect waves-light" data-target="addusermodal"><i class="material-icons left">add</i></a>
+		</div>
+	</div>
+	
+	<div class="row">
+		<ul  class="collapsible popout" data-collapsible="accordion">
+			<li ng-repeat="user in $ctrl.users track by $index" >
+				<div class="collapsible-header" ng-click="$ctrl.edit = true">
+					<i class="material-icons">visibility</i>
+					{{user.nombre}} {{user.apellido1}} ({{user.matricula}})
+				</div>
+				
+				<div class="collapsible-body">
+					<div class="section">
+						<table class="responsive-table">
+							<thead>
+								<th>Nombre</th>
+								<th>Apellidos</th>
+								<th>Rol</th>
+								<th>password</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										{{user.nombre}}
+									</td>
+									<td>
+										{{user.apellido1}} {{user.apellido2}}
+									</td>
+									<td ng-if="user.isAdmin == 'true'">
+										<td>
+											Evaluador
+										</td>
+									</td>
+									<td ng-if="user.isAdmin == 'true'">
+										<td>
+											Estudiante
+										</td>
+									</td>
+									<td>
+										<input type="password" value="user.password" ng-disabled="$ctrl.edit"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="section">
+						<a ng-click="$ctrl.edit=!$ctrl.edit" class="btn-floating waves-effect waves-light"><i class="material-icons left">edit</i> </a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>	
+</div>
+
+<!--Modal para agregar un usuario-->
+<div id="addusermodal" class="modal">
+    <div class="modal-content">
+      <h5>Nuevo usuario</h5>
+		<div class="row">
+	    	<form ng-submit="$ctrl.saveNewUser()" class="col s12">
+	      	<div class="row">
+	      		<div class="input-field col s12">
+	      			<i class="material-icons prefix">account_circle</i>
+		      		<input id="newusername" type="text" class="validate" ng-model="$ctrl.name">
+		    		<label for="newusername">Nombre</label>
+	      		</div>
+		      	<div class="input-field col s12">
+		      		<i class="material-icons prefix">perm_identity</i>
+			      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.username">
+			    	<label for="newusercid">Nombre de usuario</label>
+		      	</div>
+		      	<div class="input-field col s12">
+		      		<i class="material-icons prefix">lock</i>
+			      	<input id="password" type="password" class="validate" ng-model="$ctrl.password">
+			    	<label for="password">Contraseña</label>
+		      	</div>
+	      	</div>
+	      </form>	
+      	</div>
+    </div>
+	<div class="modal-footer">
+		<a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    	<a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="$ctrl.addUser()">Agregar</a>
+	</div>
+</div>

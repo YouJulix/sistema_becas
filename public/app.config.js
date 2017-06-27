@@ -50,6 +50,9 @@ angular.
 				when('/admin_principal', {
 					template: '<admin-search></admin-search>'
 				}).
+				when('/superadmin',{
+					template : '<super-admin></super-admin>'
+				}).
 				otherwise('/login');
 			}
 		]);

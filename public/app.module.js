@@ -14,5 +14,7 @@ angular.module('sistBecasApp',[
 	'notificbecaenviadaBecas',
 	'detallesSolicitudAdmin',
 	'barraPrincipal',
-	'adminSearch'
+	'adminSearch',
+	'adminSearch',
+	'superAdmin'
 	]);

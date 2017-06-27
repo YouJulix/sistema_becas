@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="sistBecasApp">
 	<head>
-		<title>NU Help Desk</title>
+		<title>Sistema de Becas</title>
 		<meta charset="utf-8">
-		<!-- Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css"></link>
-
+		
+		<link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.min.css">
+		<link rel="stylesheet" type="text/css" href="lib/materialize/css/material-icons.css">
 		<!-- My CSS-->
 		<link rel="stylesheet" type="text/css" href="css/style.css"></link>
+
 	</head>
 
 	<body>
@@ -17,6 +18,8 @@
 			<!-- <script type="text/javascript" src="lib/angular/angular.js"></script> NOta: cuando se corre index.html en el navegador como 'file//..''  los enlaces no necesitan la diagonal de inicio en src -->
 		<script type="text/javascript" src="lib/angular/angular.js"></script> <!-- NOta: cuando se corre desde un servidor(Nodejs en este caso) si necesita la diagonal de inicio en src-->
 		<script type="text/javascript" src="lib/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="lib/materialize/js/materialize.js"></script>
 
 		<!-- Config modulo principal-->
 		<script type="text/javascript" src="app.module.js"></script>
@@ -66,8 +69,17 @@
 		<script type="text/javascript" src="barra-principal/barra-principal.module.js"></script>
 		<script type="text/javascript" src="barra-principal/barra-principal.component.js"></script>
 		
-
 		<script type="text/javascript" src="admin-search/admin-search.module.js"></script>
 		<script type="text/javascript" src="admin-search/admin-search.component.js"></script>
+		<!--Super admin-->
+		<script type="text/javascript" src="super-admin/super-admin.module.js"></script>
+		<script type="text/javascript" src="super-admin/super-admin.component.js"></script>
+		<!--Super Admin finish-->
+		<script type="text/javascript" src="admin-search/admin-search.module.js"></script>
+		<script type="text/javascript" src="admin-search/admin-search.component.js"></script>
+		<script type="text/javascript">
+			if(history.forward(1))
+				location.replace(history.forward(1))
+		</script>
 	</body>
 </html>
