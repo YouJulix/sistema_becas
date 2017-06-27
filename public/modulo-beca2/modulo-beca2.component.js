@@ -6,6 +6,8 @@ angular.
 				function ModuloBeca2Controller($http){
 					var self=this;
 							
+					self.gastoTotal = 0;
+
 					self.solicitudId=localStorage.getItem("idSolicitud");
 					/**Obtener los datos guardados*/
 					self.method="POST";
@@ -48,6 +50,13 @@ angular.
 					if( (self.ingresoMenTerceros > 0) && (self.ingresoMenTerceros<200) ){
 						alert("el rango valido en ingreso de terceros es 200-10000 o 0");
 						return;
+					}
+					self.ingresoTotal = parseInt(self.ingresoMenJefe)+parseInt(self.ingresoMenGubernamental)+parseInt(self.ingresoMenTerceros);
+
+					//alert(self.ingresoTotal + self.gastoTotal);
+					if(self.ingresoTotal<self.gastoTotal){
+						alert("Verifique que su ingreso mensual es mayor o igual a su gasto mensual");
+						return
 					}
 						$http({
 							
@@ -154,8 +163,26 @@ angular.
 
 					}
 
+					//Funcion Para calcular los gastos que determinan el ingreso mensual
+					self.calculaGastos = function(){
+						$http({
+							method 	: 	'GET',
+							url 	: 	'http://localhost:8000/api/v1.0/gastos_familiares/'+ self.solicitudId
+						}).success(function(data){
+							object = data[0];
+							self.gastoTotal = parseInt(object.agua) + parseInt(object.luz) + 
+												parseInt(object.telefono) + parseInt(object.gas) + 
+												parseInt(object.educacion) + parseInt(object.transporte) +
+												parseInt(object.rentadomicilio) + parseInt(object.television) +
+												parseInt(object.internet) + parseInt(object.alimentacion) + 
+												parseInt(object.vestido) + parseInt(object.medico) + 
+												parseInt(object.diversion) + parseInt(object.otro);
+						}).error(function(err){
+							console.log(err);
+						});
+					}
 
-					
+					self.calculaGastos();					
 				}
 			]
 		});

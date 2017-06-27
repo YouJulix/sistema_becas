@@ -26,30 +26,38 @@
 				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
 			</ul>
 		</div>-->
-        <div id="moduloBeca2" class="col-md-12" >
-			
-			<div class="col-md-12">
+		<div class="row">
+			<div class="col xl12">
 				<h2>Ingreso mensual en el hogar</h2>
 			</div>
-			<form ng-submit="$ctrl.addIngresoMensual()">
-				<div class="form-group col-md-7">
-					<label >Ingreso mensual del jefe de familia <b> * </b></label>
-						<input type="number" min="1050" max="25000" class="form-control" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe">
-				</div>
-				<div class="form-group col-md-7">
-					<label >Apoyo mensual gubernamental</label>
-						<input type="number" min="0" max="25000" class="form-control" placeholder="apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental">
-				</div>
-				<div class="form-group col-md-7">
-					<label >Apoyo mensual de terceros</label>
-						<input type="number" min="0" max="25000" class="form-control" placeholder="apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros">
-				</div>
-				<br>
-				<div class="col-md-7">
-					<a href="#!/dependencia_economica" class="btn btn-default" >Volver</a>
-					<button type="submit" class="btn btn-default">Continuar</button>
-				</div>
-			</form>
+		</div>
+        <div id="moduloBeca2" class="row">
+        	<div class="col xl6">
+				<form ng-submit="$ctrl.addIngresoMensual()">
+					<div class="col xl12">
+						<label >Ingreso mensual del jefe de familia <b> * </b></label>
+							<input type="number" min="1050" max="25000" class="" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe">
+					</div>
+					<div class="col xl12">
+						<label >Apoyo mensual gubernamental</label>
+							<input type="number" min="0" max="25000" class="" placeholder="apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental">
+					</div>
+					<div class="col xl12">
+						<label >Apoyo mensual de terceros</label>
+							<input type="number" min="0" max="25000" class="" placeholder="apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros">
+					</div>
+					<br>
+					<div class="col xl12">
+						<a href="#!/dependencia_economica" class="btn btn-default" >Volver</a>
+						<button type="submit" class="btn btn-default">Continuar</button>
+					</div>
+				</form>
+			</div>
+			<div class="col xl3 offset-xl3">
+				<label>Su gasto mensual es: <b>$ {{$ctrl.gastoTotal}}</b></label>
+				<br />
+				<label>Nota: Su ingreso mensual debe ser mayor o igual al gasto mensual.</label>
+			</div>
 		</div>
     </div>
 </div>

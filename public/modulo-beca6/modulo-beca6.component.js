@@ -287,7 +287,7 @@ angular.
 				    }
 
 				    $scope.regresar = function() {
-				    	window.location = "/#!/gastos_familiares"
+				    	window.location = "/#!/ingreso_mensual";
 				    }
 				}
 			]

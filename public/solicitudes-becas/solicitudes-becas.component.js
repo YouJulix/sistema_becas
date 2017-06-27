@@ -15,9 +15,6 @@ angular.
 
 
 
-
-
-
 					//$scope.valor = 5; //ejemplo para declarar variables
 
 					var self = this; //BUena practica es no manipular el this directamente
