@@ -62,7 +62,9 @@
 			<div class="row">
 				<div class="col xl3 l4 m5">
 					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
-					<input type="text" ng-model="$ctrl.idiomaExt" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					<select ng-model="$ctrl.idiomaExt">
+						<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
+					</select>
 				</div>
 				<div class="col xl3 l4 m5">
 					<label>Estado Civil:<span>*</span></label>
@@ -93,8 +95,8 @@
 					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)">
 				</div>
 				<div class="col xl3 l4 m5">
-					<label>Colonia o Barrio:<span>*</span></label>
-					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					<label>Colonia o Barrio:<span></span></label>
+					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
 				</div>
 				<div class="col xl3 l4 m5">
 					<label>Municipio:<span>*</span></label>
@@ -103,13 +105,13 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col xl3 l4 m5">
+				<!--<div class="col xl3 l4 m5">
 					<label>Estado : <span>*</span></label>
 					<br>
 					<select class="browser-default" ng-model="$ctrl.estado1" required>
 						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
 					</select>
-				</div>
+				</div>-->
 				<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
 					<label>Nombre, Dueño de la Casa:</label>
 					<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
@@ -128,6 +130,7 @@
 				<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
 				<div class="col xl2 l3 m4"><input type="button" class="btn btn-default" value="Cancelar" ng-click=" $ctrl.cancel()"></div>
 			</div>
+			<hr/>
 
 			</div>
 
@@ -161,6 +164,7 @@
 		
 	</div>
 	<br />
+	
 
 	<div class="row">
 		<h4>Historial de Solicitudes</h4>
