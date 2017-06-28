@@ -44,7 +44,7 @@ angular.
 						alert("Usuario agregado exitosamente!");
 						window.location.reload();
 					}).error(function(){
-						alert('Ocurrio un error');
+						alert('Ocurrio un error, porfavor intente otra vez');
 					});
 				}
 
