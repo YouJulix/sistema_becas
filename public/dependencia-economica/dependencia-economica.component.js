@@ -45,6 +45,7 @@
 							self.method = 'PUT';
 							self.escolaridad = data[0].escolaridad; //data[0] = objeto regresado por el servidor
 							self.tipoTrabajo = data[0].tipoTrabajo;
+							$("#escolaridad").val(self.escolaridad);
 						}
 					}).
 					error(function(){
@@ -56,5 +57,8 @@
 				self.regresar = function(){
 					window.location = "#!/informacion_hogar";	
 				};
+				$(document).ready(function(){
+					//$('select').material_select();
+				});
 			}]
 		});
