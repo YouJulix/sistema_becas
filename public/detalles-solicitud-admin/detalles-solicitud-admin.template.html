@@ -56,7 +56,7 @@
 			<br>
 			<div class="row">
 				<div class="col-md-offset-1">
-					<p><b>Criterio del evaludaror: </b></p>
+					<p><b>Criterio del evaluador: </b></p>
 					<div>
 						<input type="checkbox" ng-model="$ctrl.caso_especial" id="criterio">
 						<label for="criterio">Existe un criterio especial para designar el procentaje de beca</label>
@@ -73,12 +73,33 @@
 	
 			<div class="row" ng-show="$ctrl.caso_especial">
 				<div class="col-md-4 col-md-offset-4">
+					<p>
+				    	<input name="porcentaje" type="radio" id="bc1" ng-model="$ctrl.porcentaje_final" value="0" />
+				    	<label for="bc1">0</label>
+				    </p>
+				    <p>
+				    	<input name="porcentaje" type="radio" id="bc2" ng-model="$ctrl.porcentaje_final" value="25" />
+				    	<label for="bc2">25</label>
+				    </p>
+				    <p>
+				    	<input name="porcentaje" type="radio" id="bc3" ng-model="$ctrl.porcentaje_final" value="50" />
+				    	<label for="bc3">50</label>
+				    </p>
+				    <p>
+				    	<input name="porcentaje" type="radio" id="bc4" ng-model="$ctrl.porcentaje_final" value="75" />
+				    	<label for="bc4">75</label>
+				    </p>
+				    <p>
+				    	<input name="porcentaje" type="radio" id="bc5" ng-model="$ctrl.porcentaje_final" value="100" />
+				    	<label for="bc5">100</label>
+				    </p>
+				   <!--
 					<label for="porcentaje_final">Ingrese el porcentaje final.</label><br>
 					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="0">0<br>
 					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="25">25<br>
 					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="50">50<br>
 					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="75">75<br>
-					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="100">100<br>
+					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="100">100<br> -->
 				</div>			
 			</div>
 			<br>
