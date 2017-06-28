@@ -23,13 +23,19 @@ angular.
 									}).
 									success(function(data){
 										//console.log("Julio");
-										//console.log(data);
+										console.log(data);
 										if(typeof(data) == 'object'){
+
 											if(data == ""){
 												self.dataValid = false;
 												self.mensajeError = "Contraseña incorrecta";
 											}else{
 												//self.dataValid = true;
+												if(data[0].matricula == self.matricula && data[0].matricula == "adminSuper"){
+													localStorage.setItem("super",true);
+													window.location = "#!/superadmin";
+													return;
+												}
 												localStorage.setItem("matricula",data[0].matricula);
 												localStorage.setItem("isAdmin", data[0].isAdmin);
 												if(data[0].isAdmin == true){

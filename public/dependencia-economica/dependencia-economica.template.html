@@ -34,6 +34,7 @@
 		</div>
 		<div class="row col xl5 offset-xl3 " >
 			<!-- <form action="l.php" method="post"> -->
+<<<<<<< HEAD
 			<form class="col xl6 offset-xl1" ng-submit="$ctrl.saveSection()">
 				Grado de escolaridad:<br>
 				<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
@@ -49,6 +50,25 @@
 					<option value="doctorado">Doctorado</option>
 					<option value="post-doctorado">Post-Doctorado</option>
 				</select>
+=======
+			<form ng-submit="$ctrl.saveSection()">
+				GXrado de escolaridad:<br>
+				<div class="input-field col s12">
+					<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
+						<option value=""> --- Selecciona una opción --- </option>
+						<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
+						<option value="ninguna" >Ninguna</option>
+						<option value="preescolar" >Preescolar</option>
+						<option value="primaria">Primaria</option>
+						<option value="secundaria">Secundaria</option>
+						<option value="bachillerato">Bachillerato</option>
+						<option value="universidad">Universidad</option>
+						<option value="maestria">Maestría</option>
+						<option value="doctorado">Doctorado</option>
+						<option value="post-doctorado">Post-Doctorado</option>
+					</select>
+				</div>
+>>>>>>> cd39c5aba61c7eeaf6baf8f1b473bbfdb7dd9adc
 				<br><br>
 				Tipo de trabajo:<br>
 				<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
