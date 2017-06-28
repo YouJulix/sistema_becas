@@ -15,6 +15,7 @@
 		</div>
 	</div>
 	<div class="row">
+
 		<div class="col s4">
 			<a id="adduser" class=" btn-floating waves-effect waves-light" data-target="addusermodal"><i class="material-icons left">add</i></a>
 		</div>
@@ -51,13 +52,13 @@
 										{{user.matricula}}
 									</td>
 									<td>
-										<input ng-model="user.nombre" ng-disabled="$ctrl.edit"/>
+										<input ng-model="user.nombre" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
 									</td>
 									<td>
-										<input ng-model="user.apellido1" ng-disabled="$ctrl.edit"/>
+										<input ng-model="user.apellido1" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
 									</td>
 									<td>
-										 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit"/>
+										 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
 									</td>
 									<td ng-if="user.isAdmin == true">
 											Evaluador
@@ -66,7 +67,7 @@
 											Estudiante
 									</td>
 									<td>
-										<input type="password" ng-model="user.password" ng-disabled="$ctrl.edit"/>
+										<input type="password" ng-model="user.password" ng-disabled="$ctrl.edit" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30"/>
 									</td>
 								</tr>
 							</tbody>
