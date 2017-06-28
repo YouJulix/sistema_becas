@@ -97,7 +97,16 @@
 	      <h5>Nuevo usuario</h5>
 			<div class="row">
 		      	<div class="row">
-		      		
+		      		<div class="input-field col xl2">
+		      			<label>Rol: </label>
+		      		</div>
+		      		<div class="input-field col xl10">
+		      			<input ng-init="$ctrl.helper = 'adminXXX...X'" checked="checked" ng-click="$ctrl.helper = 'adminXXX...X'" name="group1" type="radio" id="eval" />
+				     	<label for="eval">Evaluador</label>
+				    	<input ng-click="$ctrl.helper = '011X0X00XX'" name="group1" type="radio" id="estu" />
+				     	<label for="estu">Estudiante</label>	
+		      		</div>
+
 		      		<div class="input-field col xl4">
 		      			<i class="material-icons prefix">account_circle</i>
 			      		<input id="newusername" type="text" class="validate" ng-model="$ctrl.name" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
@@ -117,7 +126,7 @@
 			      	<div class="input-field col xl12">
 			      		<i class="material-icons prefix">perm_identity</i>
 				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.username" pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX | adminXXX...X">
-				    	<label for="newusercid">Nombre de usuario</label>
+				    	<label for="newusercid">{{$ctrl.helper}}</label>
 			      	</div>
 
 			      	<div class="input-field col xl12">
@@ -126,14 +135,7 @@
 				    	<label for="password">Contraseña</label>
 			      	</div>
 			      	<!--
-			      	<p>
-				    	<input ng-click="$ctrl.isEval = true" name="group1" type="radio" id="eval" />
-				     	<label for="eval">Evaluador</label>
-				    </p>
-				    <p>
-				    	<input ng-click="$ctrl.isEval = false" name="group1" type="radio" id="estu" />
-				     	<label for="estu">Estudiante</label>
-				    </p>--> 	
+			      	--> 	
 		      	</div>
 	      	</div>
 	    </div>
