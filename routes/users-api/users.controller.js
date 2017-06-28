@@ -88,7 +88,7 @@ exports.updateUser = function(req,res){
 	User.find({'matricula' : req.params.matricula},function(err,user){
 
 		//user[0].matricula = 	req.body.matricula;
-		user[0].password= 	req.body.password;
+		user[0].password = 	req.body.password;
 		user[0].password2= 	req.body.password2;
 		user[0].nombre= 		req.body.nombre;
 		user[0].apellido1= 	req.body.apellido1;

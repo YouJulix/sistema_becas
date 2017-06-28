@@ -32,6 +32,7 @@
 				
 				<div class="collapsible-body">
 					<div class="section">
+						<form ng-submit="$ctrl.updateUser(user)">
 						<table class="responsive-table">
 							<thead>
 								<th>Username</th>
@@ -47,13 +48,13 @@
 										{{user.matricula}}
 									</td>
 									<td>
-										{{user.nombre}}
+										<input ng-model="user.nombre" ng-disabled="$ctrl.edit"/>
 									</td>
 									<td>
-										{{user.apellido1}}
+										<input ng-model="user.apellido1" ng-disabled="$ctrl.edit"/>
 									</td>
 									<td>
-										 {{user.apellido2}}
+										 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit"/>
 									</td>
 									<td ng-if="user.isAdmin == 'true'">
 											Evaluador
@@ -62,16 +63,18 @@
 											Estudiante
 									</td>
 									<td>
-										<input type="password" value="user.password" ng-disabled="$ctrl.edit"/>
+										<input type="password" ng-model="user.password" ng-disabled="$ctrl.edit"/>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<div class="row">
+						<div class="row" ng-hide="$ctrl.edit" >
 							<div class="col s12">
-								<button ></button>
+								<button class="btn waves-effect waves-light"><i class="material-icons left" type="submit">save</i>Guardar cambios</button>
+								<a class="btn waves-effect waves-light" ng-click="$ctrl.refreshPage()"><i class="material-icons left" >cancel</i>Cancelar cambios</a>
 							</div>
 						</div>
+						</form>
 					</div>
 					<div class="section">
 						<a ng-click="$ctrl.edit=!$ctrl.edit" class="btn-floating waves-effect waves-light"><i class="material-icons left">edit</i> </a>
