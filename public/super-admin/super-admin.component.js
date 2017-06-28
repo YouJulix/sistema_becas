@@ -18,10 +18,11 @@ angular.
 				self.addUser = function(){
 					self.data = {
 						matricula: self.username,
-						password2: self.password,
 						nombre: self.name,
 						apellido1: self.apellido1,
 						apellido2: self.apellido2,
+						password: self.password,
+						password2: self.password,
 						isAdmin	: self.isEval
 					}
 					
