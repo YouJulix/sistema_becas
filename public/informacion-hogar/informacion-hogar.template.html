@@ -30,10 +30,10 @@
 		</div>
 	</div>-->
 	<div class="row col xl12">
-		<h3>Información del hogar</h3>
+		<h4>Información del hogar</h4>
 		<div class="col xl8 offset-xl2" >
 			<form ng-submit="$ctrl.saveData()"> 
-				<div class="input-field col xl5">
+				<div class="col xl5">
 					<label>Tipo de casa:</label>
 					<select class="browser-default" ng-model="$ctrl.tipoCasa" required="">
 						<option value="" disabled>-Seleccion una opcion-</option>
@@ -42,7 +42,7 @@
 						<option value="prestada">Prestada</option>
 					</select>
 				</div>
-				<div class="input-field col xl5 offset-xl1">
+				<div class=" col xl5 offset-xl1">
 					<label>Material de las paredes:</label>
 					<select class="browser-default" ng-model="$ctrl.materialParedes" required="" ng-change="$ctrl.cambioParedes()">
 						<option value="" disabled>-Seleccion una opcion-</option>
@@ -52,7 +52,7 @@
 						<option value="concreto">Concreto</option>
 					</select>
 				</div>
-				<div class="input-field col xl5">
+				<div class=" col xl5">
 					<label>Material del piso:</label>
 					<select class="browser-default" ng-model="$ctrl.materialPiso" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
@@ -60,7 +60,7 @@
 						<option value="contreto" >Concreto</option>
 					</select>
 				</div>
-				<div class="input-field col xl5 offset-xl1">
+				<div class=" col xl5 offset-xl1">
 					<label>Material del techo:</label>
 					<select class="browser-default" ng-model="$ctrl.materialTecho" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
