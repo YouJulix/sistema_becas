@@ -51,14 +51,16 @@
 	<div class="row">
 		<p><b>Becas Solicitadas: </b></p>
 		<br>
-		<table class="table table-bordered">
+		<table class="table table-bordered centered">
 			<thead>
 				<tr class="bg-info">
 					<td>Matricula</td>
 					<td>Fecha de envio</td>
 					<td>% de beca calculado</td>
 					<td>% de beca final asignado</td>
-					<td colspan="3">Opciones</td>
+					<td>Editar Porcentaje</td>
+					<td>Ver Solicitud</td>
+					<td>Eliminar Solicitud</td>
 				</tr>
 			</thead>
 
@@ -67,9 +69,17 @@
 				<td>{{u.fecha_envio}}</td>
 				<td>{{u.porcentaje_sugerido}}</td>
 				<td>{{u.porcentaje_final}}</td>
-				<td><button class="btn btn-default" ng-click="detalle(u._id,u.matricula)">Porcentaje Editar</button></td>
-				<td><button class="btn btn-default" ng-click="modificar(u._id)">Editar Solicitud</button></td>
-				<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
+				<td>
+					<button class="btn btn-floating" ng-click="detalle(u._id,u.matricula)"><i class="material-icons">edit</i></button>
+					<!-- <br><label>Editar porcentaje</label> -->
+				</td>
+				<td>
+					<button class="btn btn-floating" ng-click="modificar(u._id)"><i class="material-icons">visibility</i></button>
+					<!-- <br><label>Ver Solicitud</label></td> -->
+				<td>
+					<button class="btn btn-floating red" ng-click="remove(u._id)"><i class="material-icons">delete</i></button>
+					<!-- <br><label>Eliminar solicitud</label> -->
+				</td>
 			</tbody>
 		</table>
 	</div>
