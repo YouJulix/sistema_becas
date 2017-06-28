@@ -26,6 +26,11 @@ angular.
 				}
 
 				self.addUser = function(){
+					if(self.username.substring(0,5) == "admin" ){
+						self.isEval = true;
+					}else{
+						self.isEval = false;
+					}
 					self.data = {
 						matricula: self.username,
 						nombre: self.name,
