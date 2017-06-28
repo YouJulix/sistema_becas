@@ -34,11 +34,31 @@
 	</div>
 
 	<hr />
-	<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>
+	<!--<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>-->
+	<input type="button" class="btn btn-default" value="Modificar Datos Personales" ng-click="$ctrl.ver = !$ctrl.ver">
 	<br>
 
 		<form ng-submit="$ctrl.updateUser()">
 		<div ng-show="$ctrl.ver">
+		<div class="row">
+				<div class="col xl3 l4 m5">
+						<input id="unos" ng-click="$ctrl.limpiarCampos()" type="checkbox" ng-model="$ctrl.cambiar_contrasenia">
+						<label for="unos">Cambiar Contraseña</label>
+				</div>
+				<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
+					<label>Contraseña Actual:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password_Actual" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
+				</div>
+				<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
+					<label>Contraseña Nueva:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password_Nueva" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+				</div>
+				<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
+					<label>Repetir Contraseña Nueva:<span>*</span></label>
+					<input type="password" ng-model="$ctrl.password_Repetir" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+				</div>
+			</div>
+			<br>
 			<div class="row">
 				<div class="col xl3 l4 m5">
 					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
@@ -46,7 +66,7 @@
 				</div>
 				<div class="col xl3 l4 m5">
 					<label>Estado Civil:<span>*</span></label>
-					<select ng-model="$ctrl.edoCivil" required>
+					<select class="browser-default" ng-model="$ctrl.edoCivil" required>
 						<option value="" disabled>Seleccione una Opción</option>
 						<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
 					</select>
@@ -57,8 +77,8 @@
 				</div>
 				<div class="col xl3 l4 m5">
 					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
-					<label><input type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No">No</label>
-					<label><input type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si">Si</label>
+					<input id="No" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No"><label for="No">No</label>
+					<label><input id="Si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si"><label for="Si">Si</label>
 				</div>
 			</div>
 			<br>
@@ -74,7 +94,7 @@
 				</div>
 				<div class="col xl3 l4 m5">
 					<label>Colonia o Barrio:<span>*</span></label>
-					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
 				</div>
 				<div class="col xl3 l4 m5">
 					<label>Municipio:<span>*</span></label>
@@ -86,7 +106,7 @@
 				<div class="col xl3 l4 m5">
 					<label>Estado : <span>*</span></label>
 					<br>
-					<select ng-model="$ctrl.estado1" required>
+					<select class="browser-default" ng-model="$ctrl.estado1" required>
 						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
 					</select>
 				</div>
@@ -96,16 +116,17 @@
 				</div>
 				<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
 					<label>Parentesco</label>
-					<select ng-model="$ctrl.parentesco">
+					<select class="browser-default" ng-model="$ctrl.parentesco">
 						<option value="" disabled>Seleccione una Opción</option>
 						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
 					</select>
 				</div>
 			</div>
 			<br>
+
 			<div class="row">
 				<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
-				<div class="col xl2 l3 m4"><input type="button" class="btn btn-default" value="Cancelar" ng-click="$ctrl.ver = false"></div>
+				<div class="col xl2 l3 m4"><input type="button" class="btn btn-default" value="Cancelar" ng-click=" $ctrl.cancel()"></div>
 			</div>
 
 			</div>
