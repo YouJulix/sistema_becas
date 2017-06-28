@@ -1,32 +1,5 @@
 <div class="container">
 	<barra-principal></barra-principal>
-	<!--<div class="row">
-		<div class="col-md-12">
-			<img id="logoCabecera" src="img/logo.png" />
-			<h2> Sistema de Becas NU</h2>
-			<hr />
-		</div>
-	</div>
-	<div class="row">
-		<div id="menu" class="col-md-3 col-md-offset-9">			
-			<ul>
-				<li><a href="#!/login" >Cerrar sesión</a></li>
-				<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
-				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
-			</ul>
-		</div>
-
-		<div id="menuSuperior" class="col-md-12">
-			<ul>
-				<li><b><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></b></li>
-				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
-				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
-				<li><a href="#!/informacion_hogar" >Información del hogar</a></li>
-				<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
-				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
-			</ul>
-			<br><br>
-		</div>-->
 		<div class="row">
 			<div class="col xl12">
 				<h3>Personas de quien depende económicamente</h3>	
@@ -34,7 +7,6 @@
 		</div>
 		<div class="row col xl5 offset-xl3 " >
 			<!-- <form action="l.php" method="post"> -->
-<<<<<<< HEAD
 			<form class="col xl6 offset-xl1" ng-submit="$ctrl.saveSection()">
 				Grado de escolaridad:<br>
 				<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
@@ -50,25 +22,6 @@
 					<option value="doctorado">Doctorado</option>
 					<option value="post-doctorado">Post-Doctorado</option>
 				</select>
-=======
-			<form ng-submit="$ctrl.saveSection()">
-				GXrado de escolaridad:<br>
-				<div class="input-field col s12">
-					<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
-						<option value=""> --- Selecciona una opción --- </option>
-						<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
-						<option value="ninguna" >Ninguna</option>
-						<option value="preescolar" >Preescolar</option>
-						<option value="primaria">Primaria</option>
-						<option value="secundaria">Secundaria</option>
-						<option value="bachillerato">Bachillerato</option>
-						<option value="universidad">Universidad</option>
-						<option value="maestria">Maestría</option>
-						<option value="doctorado">Doctorado</option>
-						<option value="post-doctorado">Post-Doctorado</option>
-					</select>
-				</div>
->>>>>>> cd39c5aba61c7eeaf6baf8f1b473bbfdb7dd9adc
 				<br><br>
 				Tipo de trabajo:<br>
 				<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
