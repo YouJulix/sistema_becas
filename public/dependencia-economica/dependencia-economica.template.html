@@ -28,15 +28,15 @@
 			<br><br>
 		</div>-->
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col xl12">
 				<h3>Personas de quien depende económicamente</h3>	
 			</div>
 		</div>
-		<div class="col-md-5 col-md-offset-3 " >
+		<div class="row col xl5 offset-xl3 " >
 			<!-- <form action="l.php" method="post"> -->
-			<form ng-submit="$ctrl.saveSection()">
+			<form class="col xl6 offset-xl1" ng-submit="$ctrl.saveSection()">
 				Grado de escolaridad:<br>
-				<select name="escolaridad" ng-model="$ctrl.escolaridad" required>
+				<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
 					<option value=""> --- Selecciona una opción --- </option>
 					<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
 					<option value="ninguna" >Ninguna</option>
@@ -51,7 +51,7 @@
 				</select>
 				<br><br>
 				Tipo de trabajo:<br>
-				<select name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
+				<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
 					<option value=""> --- Selecciona una opción --- </option>
 					<option value="temporal">Temporal</option>
 					<option value="permanente">Permanente</option>

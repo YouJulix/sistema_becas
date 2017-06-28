@@ -3,62 +3,74 @@
 	<barra-principal></barra-principal>
 
 	<div class="row">
-		<div id="tittle" class="container">
+		<div id="tittle" class="row col xl12">
 				<h2>Gastos del alumno</h2>
 		</div>
 		
-		<div id="gastosAlumnos" class="container">
-			<div class="container">
-				<form ng-submit="$ctrl.saveData()" class="form-horizontal col-md-6 col-md-offset-3">
+		<div id="gastosAlumnos" class="row col xl12">
+				<form ng-submit="$ctrl.saveData()" class="col xl6 offset-xl3">
 
-					<div class="form-group">
-						<label for="medicalServices" class="col-sm-4">Servicios medicos:</label>
-						<div class="col-sm-8">
+					<div class="">
+						<label for="medicalServices" class="col xl4">Servicios medicos:</label>
+						<div class="col xl8">
 							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos"/>	
 						</div>
 					</div>
 					
-					<div class="form-group">
-						<label class="col-sm-4"> Renta de domicilio: </label>
-						<div class="col-sm-8" >
-							<label class="radio-inline">
-						    	<input type="radio"   ng-click="$ctrl.rentaSi = true" value="" name="renta">Si
-						    </label>
-						    <label class="radio-inline">
-						    	<input checked="checked" type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">No
-						    </label>
+					<div class="">
+						<label class="col xl4"> Renta de domicilio: </label>
+						<div class="col xl8" >
+							<div class="col xl6">
+								<input id="si" type="radio" ng-click="$ctrl.rentaSi = true" value="" name="renta">
+								<label for="si">Si</label>
+							</div>
+							<div class="col xl6">
+								<input id="no" checked="checked" type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">
+						    	<label for="no">No</label>
+						    </div>
 						</div>
 					</div>
 
-					<div class="form-group" ng-show="$ctrl.rentaSi">
-						<label for="costoRenta" class="col-sm-4">Costo de la renta:</label>
-						<div class="col-sm-8">
-							<input type="number" id="costoRenta"  ng-model="$ctrl.montoRenta" class="form-control" placeholder="Monto de la renta (mensual)"/>	
+					<div class="" ng-show="$ctrl.rentaSi">
+						<label for="costoRenta" class="col xl4">Costo de la renta:</label>
+						<div class="col xl8">
+							<input type="number" id="costoRenta"  ng-model="$ctrl.montoRenta" class="" placeholder="Monto de la renta (mensual)"/>
 						</div>
 					</div>					
-					<div class="form-group">
-						<label class="col-sm-4">Modo de traslado: *</label>
-						<div class="checkbox col-sm-8">
-						 	<label class="checkbox-inline"><input type="checkbox" ng-click="$ctrl.transportValid()"  id="taxi"  ng-model="$ctrl.taxi" > Taxi</label>
-						    <label class=" checkbox-inline col-sm-offset-3"><input type="checkbox" ng-click="$ctrl.transportVehiculo()" ng-model="$ctrl.vehiculo"> Vehículo propio (Moto/auto)</label>
+					<div class="">
+						<label class="col xl4">Modo de traslado: *</label>
+						<div class="col xl8">
+							<div class="col xl5">
+								<input type="checkbox" ng-click="$ctrl.transportValid()"  id="taxi"  ng-model="$ctrl.taxi" >
+						 		<label for="taxi">Taxi</label>
+						 	</div>
+						 	<div class="col xl7">
+						 		<input id="vehiculo" type="checkbox" ng-click="$ctrl.transportVehiculo()" ng-model="$ctrl.vehiculo">
+						    	<label for="vehiculo">Vehículo propio (Moto/auto)</label>
+						    </div>
 						</div>
 					</div>
 					
-					<div class="form-group">
-						<label class="col-sm-4"></label>
-						<div class="checkbox col-sm-8">
-						 	<label class="checkbox-inline"><input type="checkbox" ng-click="$ctrl.transportValid()" ng-model="$ctrl.caminar">Caminado</label>
-						    <label class="checkbox-inline col-md-offset-3"><input ng-click="$ctrl.transportValid()" type="checkbox"  ng-model="$ctrl.bicicleta">Bicicleta</label>
+					<div class="">
+						<label class="col xl4"></label>
+						<div class="col xl8">
+							<div class="col xl5">
+								<input id="caminar" type="checkbox" ng-click="$ctrl.transportValid()" ng-model="$ctrl.caminar">
+						 		<label for="caminar">Caminado</label>
+						 	</div>
+						 	<div class="col xl7">
+						 		<input id="bicicleta" ng-click="$ctrl.transportValid()" type="checkbox"  ng-model="$ctrl.bicicleta">
+						    	<label for="bicicleta" ">Bicicleta</label>
+						    </div>
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="">
 						<!-- <a href="#!/ingreso_mensual"><button type="button" class="btn btn-default ">Atras</button></a> -->
 						<input type="submit" class="btn btn-default col-md-offset-6" value="Continuar"/>
 					</div>
 
 				</form>
-			</div>
 		</div>
 	</div>	
 </div>

@@ -6,7 +6,7 @@ angular.
 				function informacion_hogarController($http){
 					var self = this; //Buena practica es no manipular el this directamente
 					
-					
+
 					self.method = 'POST';
 					//self.solicitudId = localStorage.getItem('idsolicitud'); //Pruebas de desarrollo solicitud == 1 <-- Recuperar del local storage
  					self.solicitud = localStorage.getItem("idSolicitud");
@@ -38,7 +38,8 @@ angular.
 							self.banios 		= 0;
 							self.focos 			= 0;
 							self.errorTeja 		= true;
-						}   
+						}
+						//$('select').material_select();
 					}).error(function(err){
 						console.log(err);
 					});
@@ -61,6 +62,7 @@ angular.
 						}
 					};
 					self.saveData = function(){
+						//alert("m");
 						self.materialPisoError = false;
 						self.materialTechoError = false;
 						if(/^[a-z][a-z]*$/.test(self.materialPiso)==false){

@@ -29,22 +29,22 @@
 			<br><br>
 		</div>
 	</div>-->
-	<div class="row">
+	<div class="row col xl12">
 		<h3>Información del hogar</h3>
-		<div class="col-md-8 col-md-offset-2" >
+		<div class="col xl8 offset-xl2" >
 			<form ng-submit="$ctrl.saveData()"> 
-				<div>
-					<p>Tipo de casa:</p>
-					<select ng-model="$ctrl.tipoCasa" required>
+				<div class="input-field col xl5">
+					<label>Tipo de casa:</label>
+					<select class="browser-default" ng-model="$ctrl.tipoCasa" required="">
 						<option value="" disabled>-Seleccion una opcion-</option>
 						<option value="propia">Propia</option>
 						<option value="alquilada">Alquilada</option>
 						<option value="prestada">Prestada</option>
 					</select>
 				</div>
-				<div>
-					<p>Material de las paredes:</p>
-					<select ng-model="$ctrl.materialParedes" required ng-change="$ctrl.cambioParedes()">
+				<div class="input-field col xl5 offset-xl1">
+					<label>Material de las paredes:</label>
+					<select class="browser-default" ng-model="$ctrl.materialParedes" required="" ng-change="$ctrl.cambioParedes()">
 						<option value="" disabled>-Seleccion una opcion-</option>
 						<option value="adobe">Adobe</option>
 						<option value="lamina">Lámina</option>
@@ -52,42 +52,45 @@
 						<option value="concreto">Concreto</option>
 					</select>
 				</div>
-					
-				<div>
-					<p>Material del piso:</p>
-					<select ng-model="$ctrl.materialPiso" required>
+				<div class="input-field col xl5">
+					<label>Material del piso:</label>
+					<select class="browser-default" ng-model="$ctrl.materialPiso" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="tierra">Tierra</option>
 						<option value="contreto" >Concreto</option>
 					</select>
 				</div>
-				<div>
-					<p>Material del techo:</p>
-					<select ng-model="$ctrl.materialTecho" required>
+				<div class="input-field col xl5 offset-xl1">
+					<label>Material del techo:</label>
+					<select class="browser-default" ng-model="$ctrl.materialTecho" required>
 						<option value="" disabled>-Seleccione una opcion-</option>
 						<option value="lamina">Lamina</option>
 						<option value="teja" ng-show="$ctrl.errorTeja">Teja</option>
 						<option value="concreto" ng-show="$ctrl.errorConcreto">Concreto</option>
 					</select>
 				</div>
-				<div>
-					<p>Número de personas que habitan la vivienda: *</p>
-					<input type="number" name="habitantes" ng-model="$ctrl.habitantes" min="1" max="15">
-					<hr>
-					<p>Espacio con los que cuenta la vivienda(Indique con número)</p>
-					<div>
-						<p>Cuartos: *</p>
-						<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" max="10" required>
-						<p>Baños: *</p>
-						<input type="number" name="banios" ng-model="$ctrl.banios" min="1" max="5" required>
-						<p>Focos: *</p>
-						<input type="number" name="focos" ng-model="$ctrl.focos" min="1" max="15" required>
+				<div class="col xl12">
+					<div class="col xl7">
+						<p>Número de personas que habitan la vivienda: *</p>
+						<input type="number" name="habitantes" ng-model="$ctrl.habitantes" min="1" max="15">
+					</div>
+					<hr class="col xl12">
+					<div class="col xl12">
+						<p>Espacio con los que cuenta la vivienda(Indique con número)</p>
+						<div class="col xl6">
+							<p>Cuartos: *</p>
+							<input type="number" name="cuartos" ng-model="$ctrl.cuartos" min="1" max="10" required>
+							<p>Baños: *</p>
+							<input type="number" name="banios" ng-model="$ctrl.banios" min="1" max="5" required>
+							<p>Focos: *</p>
+							<input type="number" name="focos" ng-model="$ctrl.focos" min="1" max="15" required>
+						</div>
 					</div>
 				</div>
-				<br><br>
+				<br/><br/>
 				<input type="button" class="btn btn-default" value="Regresar" ng-click="$ctrl.regresar()"/>
 				<input type="submit" class="btn btn-default" value="Continuar" />
-				<br /><br />
+				<br/><br/>
 			</form>
 		</div>	
 </div>

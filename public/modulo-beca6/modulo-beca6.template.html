@@ -29,15 +29,18 @@
 			<h2>Carta Protesta</h2>
 		</div>
 		-->
-		<div id="modBeca6" class="col-md-6 col-md-offset-3" >
-			<div class="checkbox">
-				<label><input id="aceptare" ng-model="checked" type="checkbox" value="">Declaro que los datos aquí asentados son verídicos, entrando en conocimiento de que 						   la falsedad de los mismos es motivo de pérdida temporal o definitiva del derecho a la beca.
+		<div id="modBeca6" class="row" >
+			<div class="col xl6 offset-xl3">
+				<input id="aceptare" ng-model="checked" type="checkbox" value="">
+				<label for="aceptare">Declaro que los datos aquí asentados son verídicos, entrando en conocimiento de que 						   la falsedad de los mismos es motivo de pérdida temporal o definitiva del derecho a la beca.
 				</label>
 			</div>
-			<br><br>
-			<button class="btn btn-default" ng-click="regresar()">Volver</button>
-			<button class="btn btn-default" ng-click="aceptar()">Enviar</button>
-			<!-- <button ng-disabled="!checked" ng-click="aceptar()">Enviar</button> -->
+			<div class="col xl6 offset-xl3">
+				<br>
+				<button class="btn btn-default" ng-click="regresar()">Volver</button>
+				<button class="btn btn-default" ng-click="aceptar()">Enviar</button>
+				<!-- <button ng-disabled="!checked" ng-click="aceptar()">Enviar</button> -->
+			</div>
 		</div>
 	</div>	
 </div>
