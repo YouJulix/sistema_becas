@@ -26,6 +26,7 @@
 		                    'Content-Type' : 'application/json' //Codificacion por defecto de Angular, y soportada por Node Js(No es soportado directamente por PHP) con esta tipo de contenido se puede enviar 'data' como un objeto o un String de objeto(stringify)
 						}
 					}).success(function(data){
+						//alert(self.data.escolaridad);
 						window.location = "#!/ingreso_mensual";
 					}).error(function(){
 						alert("Error al guardar información");
@@ -33,6 +34,7 @@
 				}
 
 				self.searchSaved = function(){
+					
 					$http({
 						method: 'GET',
 						url: 'http://localhost:8000/api/v1.0/deps_econs/' + localStorage.getItem("idSolicitud")
