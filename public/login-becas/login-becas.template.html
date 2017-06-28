@@ -10,7 +10,7 @@
 		<div id="loginBecasForm" class="col xl5 l6 m6 offset-xl4 offset-l4 offset-m3">
 			<form class="" ng-submit="$ctrl.validateData()"> <!--Cuando se trabaja con componentes $ctrl hace referencia al controlador(Así no se manipula directamente el $scope) == -->
 				<p ng-show="!$ctrl.dataValid" style="color:red;">{{$ctrl.mensajeError}}</p>
-				<p><b>Matrícula</b></p>
+				<p><b>Usuario</b></p>
 				<input type="text" name="matricula" ng-model="$ctrl.matricula" 
 				pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX" /><br /><br /><!-- las expresiones regulares NO deben llevar espacios, de lo contrario funcionará-->
 				<p><b>Contraseña</b></p>
