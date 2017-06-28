@@ -24,11 +24,11 @@
 			<br>
 			<div class="row">
 				<div class="input-field col xl3">
-					<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
+					<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
 					<label>Nombre (s):<span>*</span></label>
 				</div>
 				<div class="input-field col xl3">					
-					<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{3,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40">
+					<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40">
 					<label>Primer Apellido:<span>*</span></label>
 				</div>
 				<div class="input-field col xl3">
@@ -147,13 +147,13 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col xl3">
+				<!-- <div class="col xl3">
 					<label>Estado : <span>*</span></label>
 					<br>
 					<select class="browser-default" ng-model="$ctrl.estado" required>
 						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
 					</select>
-				</div>
+				</div> -->
 				<div class="col xl3" ng-style="$ctrl.viewRecid">
 					<label>Nombre del dueño de la Casa:</label>
 					<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40">
