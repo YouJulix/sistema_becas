@@ -5,8 +5,9 @@ img#logoCabecera{
 	height: 60px;
 }
 img#logoLogin{
-	width: 70px;
-	height: 80px;
+	margin-top:20px;
+	width: 80px;
+	height: 90px;
 }
 .login-form-text{
 	text-transform:uppercase;
