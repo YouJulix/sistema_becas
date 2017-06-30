@@ -1,28 +1,34 @@
-<div class="row">
-	<div class="col xl12 l12 m12">
-		<img id="logoCabecera" src="img/logo.png" />
-		<h3> Sistema de Becas NU</h3>
-		<hr />
-	</div>
+<div class="navbar-fixed">
+	<nav class="nav-extended grey darken-3">
+		<div class="nav-wrapper">
+	  		<a href="#" class="brand-logo">
+	  			<img id="logoCabecera" src="img/logo.png" />
+	  			Sistema de Becas NU
+	  		</a>
+	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
+				<li><a href="" ng-click="$ctrl.CancelarSolicitud()">Cancelar solicitud actual</a></li>
+				<li><a href="" ng-click="$ctrl.closeApp()" >Cerrar sesión</a></li>
+	  		</ul>
+		</div>
+		<div class="nav-content">
+	  		<ul class="tabs tabs-transparent">
+	    		<li class="tab"><a ng-class="$ctrl.alumno" href="#!/beca/gastos_alumno" >Gastos del alumno</a></li>
+				<li class="tab"><a ng-class="$ctrl.familia" href="#!/beca/gastos_familiares" >Gastos familiares</a></li>
+				<li class="tab"><a ng-class="$ctrl.hogar" href="#!/beca/informacion_hogar" >Información del hogar</a></li>
+				<li class="tab"><a ng-class="$ctrl.depende" href="#!/beca/dependencia_economica" >Persona de quien depende económicamente</a></li>
+				<li class="tab"><a ng-class="$ctrl.ingreso" href="#!/beca/ingreso_mensual" >Ingreso mensual</a></li>
+				<li class="tab" ng-if="$ctrl.carta" ><a ng-class="$ctrl.carta" href="#!/beca/cartaProtesta" >Carta Protesta</a></li>
+	  		</ul>
+		</div>
+	</nav>
 </div>
 <div class="row">
-	<div id="menu" class="col xl3 offset-xl9">			
-		<ul>
-			<li><a href="" ng-click="$ctrl.closeApp()" >Cerrar sesión</a></li>
-			<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
-			<li><a href="" ng-click="$ctrl.CancelarSolicitud()">Cancelar solicitud actual</a></li>
-		</ul>
-	</div>
-
-	<div id="menuSuperior" class="col xl12">
-		<ul>
-			<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
-			<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
-			<li><a href="#!/informacion_hogar" >Información del hogar</a></li>
-			<li><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></li>
-			<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
-			<li ng-if="$ctrl.carta" ><a href="#!/cartaProtesta" >Carta Protesta</a></li>
-		</ul>
-		<br><br>
-	</div>
+	
+</div>
+<div  class="row">
+	
+</div>
+<div class="row">
+	
 </div>
