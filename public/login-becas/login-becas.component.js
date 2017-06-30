@@ -38,6 +38,8 @@ angular.
 												}
 												localStorage.setItem("matricula",data[0].matricula);
 												localStorage.setItem("isAdmin", data[0].isAdmin);
+												localStorage.setItem("nombre", data[0].nombre);
+												localStorage.setItem("apellido1", data[0].apellido1);
 												if(data[0].isAdmin == true){
 													//Cambiar a otra locacion de los routes //De la Single Page Application
 													window.location = "#!/admin_principal";

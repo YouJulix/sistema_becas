@@ -46,7 +46,8 @@ angular.
 						if(document.getElementById("aceptare").checked == true ){
 							$scope.aceptar1();
 						}else{
-							alert("Deberá Aceptar Condiciones");
+							//alert("Deberá Aceptar Condiciones");
+							$('#modalErrorTerminos').modal('open');
 						}
 					}
 
@@ -61,12 +62,10 @@ angular.
 						}).success(function(data){//data es un array que contiene lo que enviamos(Un solo objeto en este caso)
 							object = data[0];
 							if(!object){
-								alert("Falta Agregar Personas de quien depende económicamente");
-								window.location = "/#!/dependencia_economica";
+								//alert("Falta Agregar Personas de quien depende económicamente");
+								//window.location = "/#!/dependencia_economica";
+								$('#modalErrorPersonas').modal('open');
 							}else{
-	
-
-
 
 						//ingreso mensual
 						$http({
@@ -77,8 +76,9 @@ angular.
 							object = data[0];
 							//console.log(object);
 							if(!object){
-								alert("Falta Agregar Ingreso Mensual");
-								window.location = "/#!/ingreso_mensual";
+								//alert("Falta Agregar Ingreso Mensual");
+								//window.location = "/#!/ingreso_mensual";
+								$('#modalErrorIngreso').modal('open');
 							}else{
 								//gastos del alumno
 								$http({
@@ -89,8 +89,9 @@ angular.
 									object = data[0];
 									//console.log(object);
 									if(!object){
-										alert("Falta Ingresar Datos Del Alumno");
-										window.location = "/#!/gastos_alumno";
+										//alert("Falta Ingresar Datos Del Alumno");
+										//window.location = "/#!/gastos_alumno";
+										$('#modalErrorAlumno').modal('open');
 									}else{
 
 
@@ -103,8 +104,9 @@ angular.
 											object = data[0];
 											//console.log(object);
 											if(!object){
-												alert("Falta Ingresar Informacion Del Hogar");
-												window.location = "/#!/informacion_hogar";
+												//alert("Falta Ingresar Informacion Del Hogar");
+												//window.location = "/#!/informacion_hogar";
+												$('#modalErrorHogar').modal('open');
 											}else{
 												//gastos familiares
 												$http({
@@ -115,8 +117,9 @@ angular.
 													object = data[0];
 													//console.log(object);
 													if(!object){
-														alert("Falta Ingresar Gastos Familiares");
-														window.location = "/#!/gastos_familiares";
+														//alert("Falta Ingresar Gastos Familiares");
+														//window.location = "/#!/gastos_familiares";
+														$('#modalErrorFamiliares').modal('open');
 													}else{
 														$scope.aceptar2();
 													}
