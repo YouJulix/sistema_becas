@@ -1,11 +1,13 @@
 /*Estilo para el formulario principal de login*/
-#loginBecasForm{
-	text-align: center;
-}
 img#logoCabecera{
 	float:left;
-	width: 50px;
-	height: 60px;
+	width: 80px;
+	height: 90px;
+}
+.login-form-text{
+	text-transform:uppercase;
+	letter-spacing:2px;
+	font-size:0.8rem
 }
 /**/
 
