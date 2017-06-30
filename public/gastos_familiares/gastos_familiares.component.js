@@ -163,7 +163,7 @@ angular.
 							url    : 'http://localhost:8000/api/v1.0/gastos_familiares/',
 							data   : self.data
 						}).success(function(gastosfam){
-							window.location = "/#!/informacion_hogar";
+							window.location = "/#!/beca/informacion_hogar";
 							//console.log(gastosfam);
 							//if(typeof(gastosfam) == "object"){
 								/*if(localStorage.getItem("isAdmin") == "true"){
@@ -179,7 +179,7 @@ angular.
 						});
 					},
 					self.volver = function(){
-						window.location = "/#!/gastos_alumno";
+						window.location = "/#!/beca/gastos_alumno";
 					}
 				}
 			]

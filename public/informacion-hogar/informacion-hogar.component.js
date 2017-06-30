@@ -95,14 +95,14 @@ angular.
 			                    'Content-Type' : 'application/json' //Codificacion por defecto de Angular, y soportada por Node Js(No es soportado directamente por PHP) con esta tipo de contenido se puede enviar 'data' como un objeto o un String de objeto(stringify)
 							}
 						}).success(function(data){
-							window.location = "#!/dependencia_economica";
+							window.location = "#!/beca/dependencia_economica";
 						}).
 						error(function(){
 							alert('Error al intentar agregar informacion del hogar');
 						});
 					};
 					self.regresar = function(){
-						window.location = "#!/gastos_familiares";	
+						window.location = "#!/beca/gastos_familiares";	
 					};				
 				}
 			]

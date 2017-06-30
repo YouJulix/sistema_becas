@@ -79,7 +79,7 @@ angular.
 								window.location = "/#!/admin_principal";   				
 							}else{
 								//console.log("is not Admin return to cartaProtesta");
-								window.location = "/#!/cartaProtesta";
+								window.location = "/#!/beca/cartaProtesta";
 							}
 						}).error(function(error){
 							console.log(error);
