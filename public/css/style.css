@@ -25,4 +25,18 @@ img#logoCabecera{
 	float: right;
 }
 
+ul.tabs li.tab a{
+	color: #37474f;
+}
 
+ul.tabs li.tab a.active{
+	color: #37474f;
+}
+
+ul.tabs li.tab a:hover{
+	color: #e0e0e0;
+}
+	
+ul.tabs>li.indicator{
+	background-color: #37474f;
+}

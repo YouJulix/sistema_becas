@@ -76,7 +76,8 @@ exports.addUser = function(req,res){
 		estado: 	req.body.estado,
 		nombreHuesped: req.body.nombreHuesped,
 		parentesco: req.body.parentesco,
-		isAdmin : req.body.isAdmin
+		isAdmin : req.body.isAdmin,
+		isNew : req.body.isNew
 	});
 
 	user.save(function(err,user){

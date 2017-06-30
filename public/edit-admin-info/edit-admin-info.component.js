@@ -110,6 +110,10 @@ angular.
 							self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 						}
 					}
+
+					//Se Agrega para selección de lengua
+					self.lenguas = ['Ninguna','Zapoteco','Mixteco','Mazateco','Mixe','Otra'];
+					self.idiomaExt = 'Ninguna';
 					
 
 					self.renderFecha = function(fecha){
@@ -216,7 +220,8 @@ angular.
 									'&municipio='+self.municipio+
 									'&estado='+self.estado+
 									'&nombreHuesped='+self.nombreHuesped+
-									'&parentesco='+self.parentesco,
+									'&parentesco='+self.parentesco +
+									'&isNew = false',
 								headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
 							}).
@@ -230,8 +235,24 @@ angular.
 						}
 					}
 					self.cancel = function(){
+						//$('#formPersoal')[0].defualtPrevented();
 						alert("Actualización Cancelada! :'(");
 						window.location = "/#!/admin_principal";
+					}
+
+					self.avanzaEscolar = function(){
+						//alert($('#escolares'));
+						//console.log($('#escolares'));
+						//$('form').defualtPrevented();
+						$('#escolar').click();
+					}
+
+					self.avanzaDomicilio = function(){
+						$('#domicilio').click();
+					}
+
+					self.regresaPersonal = function(){
+						$('#personal').click();
 					}
 
 					self.viewRecidencia = function(){

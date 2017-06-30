@@ -26,7 +26,8 @@ var  userSchema = new Schema({
 		estado: 	{type:String},
 		nombreHuesped: {type:String},
 		parentesco: {type:String},
-		isAdmin: Boolean
+		isAdmin: Boolean,
+		isNew : Boolean
 	},
 	{ collection: 'users' }
 );
