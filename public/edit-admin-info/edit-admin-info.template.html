@@ -1,178 +1,186 @@
 <div class="container">
-		<h1>Sistema de Asignación de Becas NU</h1>
-		<div class="row">
-			<div class="col xl10">
-				<h4>Datos Generales</h4>
-			</div>
-			<div class="col xl2">
-				<a href="#!/login">Cerrar Sesión</a>
-				<a href="#!/admin_principal">Regresar</a>
-			</div>
-		</div>
-		<form ng-submit="$ctrl.updateUser()">
-			<div class="row">
-				<div class="input-field col xl3">
-					<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00?((0[1-9])|([1-9][0-9]))$" title="Matricula Inválida" maxlength="10">
-					<label>Matrícula:<span>*</span></label>
-				</div>
-				<div class="input-field col xl3">
-					<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30">
-					<label>Contraseña:<span>*</span></label>
-				</div>
-				<div class="input-field col xl3">
-					<input type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales">
-					<label>Repetir Contraseña:<span>*</span></label>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="input-field col xl3">
-					<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
-					<label>Nombre (s):<span>*</span></label>
-				</div>
-				<div class="input-field col xl3">					
-					<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40">
-					<label>Primer Apellido:<span>*</span></label>
-				</div>
-				<div class="input-field col xl3">
-					<input type="text" ng-model="$ctrl.apellido2" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
-					<label>Segundo Apellido:<span>*</span></label>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col xl3">
-					<label>Fecha de Nacimiento:<span>*</span></label>
+	<div>
+		<h4>Sistema de Asignación de Becas NU</h4>
+	</div>
+	<h4>Registro</h4>
+	<div class="row">
+	    <div class="col s12">
+	      <ul class="tabs black-text">
+	        <li class="tab col s3 "><a id="personal" class="active" href="#infoPersonal">Información Personal</a></li>
+	        <li class="tab col s3"><a id="escolar" href="#infoEscolar">Información Escolar</a></li>
+	        <li class="tab col s3"><a id="domicilio" href="#infoDomicilio">Información del Domicilio</a></li>
+	      </ul>
+	    </div>
+	    <div class="row col xl10"><br></div>
+		    <div id="infoPersonal" class="col xl12">
+		    	<form id="formPersonal" autocomplete="off">
+		    		<div class="row">
+						<div class="col xl3">
+							<label>Matrícula:<span>*</span></label>
+							<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00?((0[1-9])|([1-9][0-9]))$" title="Matricula Inválida" maxlength="10" placeholder="" class="validate" autocomplete="off">
+						</div>
+						<div class="col xl3">
+							<label>Contraseña:<span>*</span></label>
+							<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="" class="validate" autocomplete="off">
+						</div>
+						<div class="col xl3">
+							<label>Repetir Contraseña:<span>*</span></label>
+							<input type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="" class="validate" autocomplete="off">
+						</div>
+					</div>
 					<div class="row">
-					<div class="Xinput-field col xl4">
-						<select class="browser-default" ng-model="$ctrl.diaFecha" required="" ng-change="$ctrl.valueFecha()">
-							<option value="" disabled>dd</option>
-							<option ng-repeat="d in $ctrl.dias">{{d}}</option>
-						</select>
+						<div class="col xl3">
+							<label>Nombre (s):<span>*</span></label>
+							<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate" >
+						</div>
+						<div class="col xl3">					
+							<label>Primer Apellido:<span>*</span></label>
+							<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate">
+						</div>
+						<div class="col xl3">
+							<label>Segundo Apellido:<span>*</span></label>
+							<input type="text" ng-model="$ctrl.apellido2" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate">
+						</div>
 					</div>
-					<div class="Xinput-field col xl4">
-						<select class="browser-default" ng-model="$ctrl.mesFecha" required="" ng-change="$ctrl.valueFecha()">
-							<option value="" disabled>mm</option>
-							<option ng-repeat="m in $ctrl.meses">{{m}}</option>
-						</select>
+					<div class="row">
+						<div class="col xl3">
+							<label>Fecha de Nacimiento:<span>*</span></label>
+							<div class="row">
+							<div class="col xl3">
+								<select class="browser-default" ng-model="$ctrl.diaFecha" required="" ng-change="$ctrl.valueFecha()">
+									<option value="" disabled>dd</option>
+									<option ng-repeat="d in $ctrl.dias">{{d}}</option>
+								</select>
+							</div>
+							<div class="col xl3">
+								<select class="browser-default" ng-model="$ctrl.mesFecha" required="" ng-change="$ctrl.valueFecha()">
+									<option value="" disabled>mm</option>
+									<option ng-repeat="m in $ctrl.meses">{{m}}</option>
+								</select>
+							</div>
+							<div class="col xl3">
+								<select class="browser-default" ng-model="$ctrl.anyoFecha" required="" ng-change="$ctrl.valueFecha()">
+									<option value="" disabled>aaaa</option>
+									<option ng-repeat="a in $ctrl.anyos">{{a}}</option>
+								</select>
+							</div>
+							</div>
+						</div>
+						<div class="col xl3">
+							<label>Estado Civil:<span>*</span></label>
+							<select class="browser-default" ng-model="$ctrl.edoCivil" required>
+								<option value="" disabled>Seleccione una Opción</option>
+								<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
+							</select>
+						</div>
+						<div class="col xl2">
+							<div class="col xl12"><label>Sexo:<span>*</span></label><br></div>
+							<div class="col xl7">
+								<input id="F" type="radio" ng-model="$ctrl.sexo" value="F">
+								<label for="F">F</label>
+							</div>
+							<div class="col xl5">
+								<input id="M" type="radio" ng-model="$ctrl.sexo" value="M">
+								<label for="M">M</label>
+							</div>
+						</div>
 					</div>
-					<div class="Xinput-field col xl4">
-						<select class="browser-default" ng-model="$ctrl.anyoFecha" required="" ng-change="$ctrl.valueFecha()">
-							<option value="" disabled>aaaa</option>
-							<option ng-repeat="a in $ctrl.anyos">{{a}}</option>
-						</select>
+					<div class="row">
+						<div class="col xl3">
+							<label>Telefono Celular:</label>
+							<input type="text" ng-model="$ctrl.telefono" pattern="(^951|^055|^081|^033|^656|^614|^999|^222|^442|^449|^664|^844|^686|^667|^722|^998|^871|^744|^444|^833|^477|^961|^662|^229|^443)[0-9]{7}$" title="Verifique que el formato sean un número válido solo de 10 números"  placeholder="XXXXXXXXXX" maxlength="10" class="validate">
+						</div>
+						<div class="col xl3">
+							<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
+							<select class="browser-default" ng-model="$ctrl.idiomaExt">
+								<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
+							</select>
+						</div>
 					</div>
-					</div>
-				</div>
-				<div class="col xl3">
-					<label>Carrera:<span>*</span></label>
-					<select class="browser-default" ng-model="$ctrl.carrera" required ng-change="$ctrl.valueGrupo()">
-						<option value="" disabled>Seleccione una opción</option>
-						<option ng-repeat="t in $ctrl.carreras">{{t}}</option>
-					</select>
-				</div>
-				<div class="col xl2">
-					<label>Semestre:<span>*</span></label>
-					<select class="browser-default" ng-model="$ctrl.semestre" required ng-change="$ctrl.valueGrupo()">
-						<option value="" disabled>Seleccione una opción</option>
-						<option ng-repeat="s in $ctrl.semestres">{{s}}</option>
-					</select>
-				</div>
-				<div class="col xl2">
-					<label>Grupo:<span>*</span></label>
-					<select class="browser-default" ng-model="$ctrl.grupo" required>
-						<option value="" disabled selected>Seleccione una opción</option>
-						<option ng-repeat="g in $ctrl.grupos">{{g}}</option>
-					</select>
-				</div>
-				<div class="col xl2">
-					<label>Sexo:<span>*</span></label><br>
-					<p>
-						<input id="F" type="radio" ng-model="$ctrl.sexo" value="F">
-						<label for="F">F</label>
-					</p>
-					<p>
-						<input id="M" type="radio" ng-model="$ctrl.sexo" value="M">
-						<label for="M">M</label>
-					</p>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col xl3">
-					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
-					<select class="browser-default" ng-model="$ctrl.idiomaExt">
-						<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
-					</select>
-				</div>
-				<div class="col xl3">
-					<label>Estado Civil:<span>*</span></label>
-					<select class="browser-default" ng-model="$ctrl.edoCivil" required>
-						<option value="" disabled>Seleccione una Opción</option>
-						<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
-					</select>
-				</div>
-				<div class="col xl3">
-					<label>Telefono Celular:</label>
-					<input type="text" ng-model="$ctrl.telefono" pattern="(^951|^055|^081|^033|^656|^614|^999|^222|^442|^449|^664|^844|^686|^667|^722|^998|^871|^744|^444|^833|^477|^961|^662|^229|^443)[0-9]{7}$" title="Verifique que el formato sean un número válido solo de 10 números"  placeholder="XXXXXXXXXX" maxlength="10">
-				</div>
-				<div class="col xl3">
-					<label>¿Su estancia en la Universidad, implica recidensia distinta a la familia?<span>*</span></label>
-					<p>
-						<input id="no" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No">
-						<label for="no">No</label>	
-					</p>
-					<p>
-						<input id="si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si">
-						<label for="si">Si</label>
-					</p>
-				</div>
-			</div>
-			<br>
-			<div><label>Domicilio donde vivirá mientras estudias:</label></div>
-			<div class="row">				
-				<div class="col xl3">
-					<label>Nombre Calle:<span>*</span></label>
-					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}|^[^0-9]{4,}" title="Verifique que no contenga caracteres especiales o solo números" maxlength="40">
-				</div>
-				<div class="col xl3">
-					<label>Número de Calle:<span>*</span></label>
-					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)" maxlength="3">
-				</div>
-				<div class="col xl3">
-					<label>Colonia o Barrio:</label>
-					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}|^[^0-9]{4,}" title="Verifique que no contenga caracteres especiales o solo números" maxlength="40">
-				</div>
-				<div class="col xl3">
-					<label>Municipio:<span>*</span></label>
-					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.ñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales ni números, solo letras" maxlength="40">
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<!-- <div class="col xl3">
-					<label>Estado : <span>*</span></label>
-					<br>
-					<select class="browser-default" ng-model="$ctrl.estado" required>
-						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
-					</select>
-				</div> -->
-				<div class="col xl3" ng-style="$ctrl.viewRecid">
-					<label>Nombre del dueño de la Casa:</label>
-					<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40">
-				</div>
-				<div class="col xl3" ng-style="$ctrl.viewRecid">
-					<label>Parentesco:</label>
-					<select class="browser-default" ng-model="$ctrl.parentesco">
-						<option value="" disabled>Seleccione una Opción</option>
-						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
-					</select>
-				</div>
-			</div>		
-			<br>
-			<div class="row">
-				<div class="col xl2 offset-xl6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
-				<div class="col xl2 offset-xl1"><input type="button" class="btn btn-default" value="Cancelar" ng-click="$ctrl.cancel()"></div>
-			</div>
-		</form>
+					<button ng-click="$ctrl.cancel()" class="btn">Cancelar</button>
+		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Continuar</button>
+		    	</form>
+		    </div>
+		    <div id="infoEscolar" class="col xl12">
+		    	<form autocomplete="off">
+		    		<div class="row">
+		    			<div class="col xl3">
+							<label>Carrera:<span>*</span></label>
+							<select class="browser-default" ng-model="$ctrl.carrera" required ng-change="$ctrl.valueGrupo()">
+								<option value="" disabled>Seleccione una opción</option>
+								<option ng-repeat="t in $ctrl.carreras">{{t}}</option>
+							</select>
+						</div>
+						<div class="col xl2">
+							<label>Semestre:<span>*</span></label>
+							<select class="browser-default" ng-model="$ctrl.semestre" required ng-change="$ctrl.valueGrupo()">
+								<option value="" disabled>Seleccione una opción</option>
+								<option ng-repeat="s in $ctrl.semestres">{{s}}</option>
+							</select>
+						</div>
+						<div class="col xl2">
+							<label>Grupo:<span>*</span></label>
+							<select class="browser-default" ng-model="$ctrl.grupo" required>
+								<option value="" disabled selected>Seleccione una opción</option>
+								<option ng-repeat="g in $ctrl.grupos">{{g}}</option>
+							</select>
+						</div>
+		    		</div>
+		    		<button ng-click="$ctrl.regresaPersonal()" class="btn">Atras</button>
+		    		<button ng-click="$ctrl.avanzaDomicilio()" class="btn">Continuar</button>
+		    	</form>
+		    </div>
+		    <div id="infoDomicilio" class="col xl12">
+		    	<form autocomplete="off">
+		    		<div class="row">
+							<div class="col xl12"><label>¿Su estancia en la Universidad, implica recidensia distinta a la familia?<span>*</span></label></div>
+							<div class="col xl2">
+								<input id="no" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No">
+								<label for="no">No</label>	
+							</div>
+							<div class="col xl2">
+								<input id="si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si">
+								<label for="si">Si</label>
+							</div>
+		    		</div>
+		    		<div class="row">
+		    			<div class="col xl12"><label>Domicilio donde vivirá mientras 
+		    			estudias:</label></div>
+		    			<div class="col xl3">
+							<label>Nombre Calle:<span>*</span></label>
+							<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}|^[^0-9]{4,}" title="Verifique que no contenga caracteres especiales o solo números" maxlength="40" class="validate">
+						</div>
+						<div class="col xl3">
+							<label>Número de Calle:<span>*</span></label>
+							<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)" maxlength="3" class="validate">
+						</div>
+						<div class="col xl3">
+							<label>Colonia o Barrio:</label>
+							<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}[a-zA-Z\\\sáéíóú.ñÑ]{1,40}[0-9]{0,3}|^[^0-9]{4,}" title="Verifique que no contenga caracteres especiales o solo números" maxlength="40" class="validate">
+						</div>
+		    		</div>
+		    		<div class=" row">
+		    			<div class="col xl3">
+							<label>Municipio:<span>*</span></label>
+							<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.ñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales ni números, solo letras" maxlength="40" class="validate">
+						</div>
+		    			<div class="col xl3" ng-style="$ctrl.viewRecid">
+							<label>Nombre del dueño de la Casa:</label>
+							<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40" class="validate">
+						</div>
+						<div class="col xl3" ng-style="$ctrl.viewRecid">
+							<label>Parentesco:</label>
+							<select class="browser-default" ng-model="$ctrl.parentesco">
+								<option value="" disabled>Seleccione una Opción</option>
+								<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
+							</select>
+						</div>
+		    		</div>
+		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Atras</button>
+		    		<button ng-click="$ctrl.updateUser()" class="btn">Crear cuenta</button>	
+		    	</form>
+		    </div>
+  	</div>	
 </div>
+<!--Script aux materialize-->
+<script type="text/javascript" src="js/query.js"></script>		

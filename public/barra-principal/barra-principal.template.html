@@ -1,3 +1,13 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  	<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
+	<li class="divider"></li>
+	<li><a href="" ng-click="$ctrl.CancelarSolicitud()">Cancelar solicitud actual</a></li>
+	<li class="divider"></li>
+	<li><a href="" ng-click="$ctrl.closeApp()" >Cerrar sesión</a></li>
+</ul>
+
+
 <div class="navbar-fixed">
 	<nav class="nav-extended grey darken-3">
 		<div class="nav-wrapper">
@@ -6,9 +16,8 @@
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
-				<li><a href="" ng-click="$ctrl.CancelarSolicitud()">Cancelar solicitud actual</a></li>
-				<li><a href="" ng-click="$ctrl.closeApp()" >Cerrar sesión</a></li>
+	  			<li>{{$ctrl.nombre}}</li>
+				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
 	  		</ul>
 		</div>
 		<div class="nav-content">
@@ -32,3 +41,4 @@
 <div class="row">
 	
 </div>
+<script type="text/javascript" src="js/query.js"></script>

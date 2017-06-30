@@ -14,7 +14,49 @@ angular.
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					self.infoper = true;
 					//console.log("sdds");
-					self.busqueda = function(){
+					object = $http({
+					method 	: 	'GET',
+					url 	: 	'http://localhost:8000/api/v1.0/users/'
+					}).success(function(data){
+						if(data.length > 0 ){
+							$('.collapsible').collapsible();
+							self.msgerror = true;
+							self.infoper = false;
+							$scope.resultado = data;
+							$scope.resultados = [];
+							angular.forEach($scope.resultado, function(res){
+								//console.log(res);
+								if((!res.isAdmin) && (res.matricula != "adminSuper"))
+									$scope.resultados.push(res);
+							});
+							//console.log($scope.dato);
+						}else{
+							self.infoper = true;
+							self.msgerror = false;
+						}
+					}).error(function(err){
+						console.log(err);
+					});
+
+					self.solicitudes = function(matricula){
+						//alert(matricula);
+						object = $http({
+							method : 'GET',
+							url    : 'http://localhost:8000/api/v1.0/solicitudes/'+ matricula
+						}).success(function(data){
+							$scope.solicitudes = [];
+							$scope.solicitud = data;
+							//console.log($scope.solicitud);
+							angular.forEach($scope.solicitud, function(sol){
+								$scope.solicitudes.push(sol);
+							});
+							//console.log($scope.solicitudes);
+						}).error(function(err){
+							console.log(err);
+						});
+					}
+
+					/*self.busqueda = function(){
 						//console.log(self.matricula);
 						object = $http({
 						method 	: 	'GET',
@@ -53,7 +95,7 @@ angular.
 						}).error(function(err){
 							console.log(err);
 						});
-					};
+					};*/
 					$scope.detalle = function(idmat,mat){
 						localStorage.setItem("idSolicitud",idmat);
 						localStorage.setItem("matricula",mat);
@@ -65,7 +107,7 @@ angular.
 					}
 					$scope.modificar = function(idmat){
 						localStorage.setItem("idSolicitud",idmat);
-						window.location = "/#!/dependencia_economica";
+						window.location = "/#!/gastos_alumno";
 					};
 					$scope.remove = function(idmat){
 						//console.log(idmat);
