@@ -79,6 +79,10 @@ angular.
 						});
 
 					};
+					self.mandar = function(){
+						$('#modalDatosGuardados').modal('close');
+						window.location = "#!/admin_principal";
+					}
 					self.saveData = function(){
 						//alert(self.estado);
 						self.data =  {
@@ -96,8 +100,10 @@ angular.
 							data : self.data
 						}).
 						success(function(data){
-							alert("Datos guardados");
-							window.location = "#!/admin_principal";
+							$('#modalDatosGuardados').modal('open');
+						//	$('#clicModel').click();
+						//	alert("Datos guardados");
+						//	window.location = "#!/admin_principal";
 						}).
 						error(function(){
 							alert("Error.");
