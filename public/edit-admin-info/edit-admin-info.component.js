@@ -221,7 +221,7 @@ angular.
 									'&estado='+self.estado+
 									'&nombreHuesped='+self.nombreHuesped+
 									'&parentesco='+self.parentesco +
-									'&isNew = false',
+									'&isNewU = false',
 								headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
 							}).
