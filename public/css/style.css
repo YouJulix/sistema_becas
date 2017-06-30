@@ -1,8 +1,12 @@
 /*Estilo para el formulario principal de login*/
 img#logoCabecera{
 	float:left;
-	width: 80px;
-	height: 90px;
+	width: 50px;
+	height: 60px;
+}
+img#logoLogin{
+	width: 70px;
+	height: 80px;
 }
 .login-form-text{
 	text-transform:uppercase;
