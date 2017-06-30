@@ -14,24 +14,19 @@ angular.
 					$scope.becaAsignada = 0;
 
 
-
 					//$scope.valor = 5; //ejemplo para declarar variables
 
 					var self = this; //BUena practica es no manipular el this directamente
 					//self.matricula = '12345'; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					
 					//localStorage.setItem("matricula","12345");
-					self.ver = false;
+
 					self.password_Actual = "";
 					self.password_Nueva = "";
 					self.password_Repetir = "";
 
 					self.validar = function(){
 						$scope.matricula = localStorage.getItem("matricula");
-					
-
-
-						//console.log(localStorage.getItem("matricula"));
 
 						if($scope.matricula == null){
 							window.location = "/#!/login";
@@ -217,23 +212,8 @@ angular.
 
 					$scope.remove = function(idm){	
 
-						//console.log("entro aqui 1");
-
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
-
-					        /*$http({ 
-					            method: 'DELETE',
-								url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idm
-					        }).success(function(data){
-					        	console.log("entro aqui 2");
-					        	self.imprimir();
-					        	//location.reload();
-					        	window.location = "/#!/solicitudes";
-					        	console.log("entro aqui 3");
-					        }).error(function(){
-								alert('Error al intentar recuperar el cliente');
-							});*/
 
 				            $http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + idm).success(function() {
 				              	//self.imprimir();
@@ -274,7 +254,7 @@ angular.
 					    }).success(function (data, status, headers, config) {
 			                localStorage.setItem("idSolicitud",data._id);
 			            	//alert(data._id);
-			            	window.location = "/#!/gastos_alumno";
+			            	window.location = "/#!/beca/gastos_alumno";
 			            }).error(function (data, status, headers, config) {
 			                alert('Error al intentar recuperar el cliente');
 			            });
@@ -284,35 +264,11 @@ angular.
 					//Sugerencia... podrian ser la misma funcion
 					$scope.modificar = function(id){
 						localStorage.setItem("idSolicitud",id);
-						window.location = "/#!/gastos_alumno";
+						window.location = "/#!/beca/gastos_alumno";
 
 
 					};
 
-					/*$scope.agregar = function(id){
-					    var f = new Date();
-					    var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
-
-
-					    $http({
-							url: 'http://localhost:8000/api/v1.0/solicitudes/',
-							method: "POST",
-							data: { 								
-								'estado' : "pendiente",
-									'porcentaje_sugerido' : 0,
-									'porcentaje_final' : 0,
-									'libre_de_extra' : false,
-									'biblioteca_completa' : true,
-									'fecha_envio' : fecha,
-									'matricula' : $scope.matricula }
-						    }).success(function (data, status, headers, config) {
-						localStorage.setItem("idSolicitud",data._id);
-						//alert(data._id);
-						window.location = "/#!/dependencia_economica";
-					    }).error(function (data, status, headers, config) {
-						alert('Error al intentar recuperar el cliente');
-					    });
-					};*/
 
 
 					$scope.cerrarSesion = function() {
@@ -324,7 +280,7 @@ angular.
 
 
 
-					self.updateUser = function(){
+					/*self.updateUser = function(){
 
 							//si cambia contraseña
 							if(self.cambiar_contrasenia == true){
@@ -359,7 +315,7 @@ angular.
 								self.modificarUsuario();
 				
 							}
-					}
+					}*/
 
 
 
@@ -394,9 +350,8 @@ angular.
 
 						}).
 						success(function(data){
-							alert("Actualización Realizada Exitosamente.! :)");
+							//alert("Actualización Realizada Exitosamente.! :)");
 							//window.location="#!/admin_principal";
-							self.ver = false;
 						}).
 						error(function(){
 							alert("Error al registrar Usuario! :'(");
@@ -407,13 +362,13 @@ angular.
 
 
 					self.cancel = function(){
-						self.ver = false;
+						
 						self.password_Actual = "";
 						self.password_Nueva = "";
 						self.password_Repetir = "";
-						self.cambiar_contrasenia = false;
 
-						self.verCampo = false;
+						$('#modalCambiarContra').modal('close')
+
 					}	
 
 					self.limpiarCampos = function(){
@@ -424,7 +379,41 @@ angular.
 					}
 
 
-					  
+					self.modalCambiarContra = function(){
+
+						//verificar la contraseña actual con la guardada en la base de datos
+						if(self.password_Actual == self.password){
+
+							//comparar contraseña nueva con la  repetir contraseña
+							if(self.password_Nueva == self.password_Repetir){
+								self.password = self.password_Nueva;
+								self.password2 = self.password_Repetir;
+							
+								self.modificarUsuario();
+								 $('#modalCambiarContra').modal('close');
+								 $('#cambiarContraBien').modal('open'); 
+								 self.limpiarCampos();
+							}else{
+								//alert("La contraseña Nueva y la contraseña repetir no coinciden");
+								
+								$('#repetircontraseniaInco').modal('open'); 
+							}
+
+						}else{
+							$('#contraseniaInco').modal('open');
+						}
+
+					}
+
+
+
+					self.modalCambiarDatos = function(){
+
+						self.modificarUsuario();
+						$('#modalCambiarDatos').modal('close');
+						$('#cambiarContraBien').modal('open');
+					}
+
 
 
 					

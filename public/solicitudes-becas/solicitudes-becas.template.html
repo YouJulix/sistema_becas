@@ -1,196 +1,412 @@
-<div class="container">
-	<div class="row">
-		<div class="col xl12 l12 m12">
+
+	<div class="row grey">
+		<div class="col xl10 l12 m12">
 			<img id="logoCabecera" src="img/logo.png" />
-			<h2> Sistema de Becas NU</h2>
-			<hr />
+			<h4> Sistema de asignación de becas NU</h4>
+		</div>
+		<div class="col xl2 l12 m12">
+  <!-- Dropdown Trigger -->
+  <a class='dropdown-button btn' href='' data-activates='dropdown1'>Perfil</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a data-target="modalCambiarDatos" href="">Editar mi información</a></li>
+    <li><a data-target="modalCambiarContra">Cambiar Contraseña</a></li>
+    <li class="divider"></li>
+    <li><a ng-click="cerrarSesion()"><i class="material-icons">power_settings_new</i>Cerrar Sesión</a></li>
+  </ul>
+
+	<script type="text/javascript">
+		
+
+
+
+	</script>
+        
 		</div>
 	</div>
+<div class="container">
+	<div class="row  grey lighten-2">
 
-	<div class="row">
-		<div class="col xl2 l3 m4">
-			<input id="ocultar" ng-click="agregar()" type="button" name="" value="Nueva Solicitud">
+		<div class="row">
+			<div class="col xl4 l3 m4 offset-xl1">
+				<b><h4><i class="large material-icons">store</i> Solicitudes</h4></b>
+			</div>
+
+			<div class="col xl4 l3 m4 offset-xl3">
+				<br />
+				<br />
+				<input class="waves-effect waves-light btn-large  black-text white" id="ocultar" ng-click="agregar()" type="button" name="" value="Nueva Solicitud">
+			</div>
+			<!--<div class="col xl2 l3 m4 offset-xl8 offset-l8 offset-m8">
+				<a href="" ng-click="cerrarSesion()">Cerrar Sesion</a>
+			</div>-->
+			<div class="col xl10 l3 m4 offset-xl1">
+			<hr/>	
+			</div>
+		
 		</div>
-		<div class="col xl2 l3 m4 offset-xl8 offset-l8 offset-m8">
-			<a href="" ng-click="cerrarSesion()">Cerrar Sesion</a>
+
+		<div class="row">
+			<div class="col xl10 l10 m10 offset-xl1">
+				<div class="col xl4 l4 m5">
+					<b>Matricula: {{dato[0].matricula}}</b><br/>
+					<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
+				</div>
+				<div class="col xl3 l4 m5">
+					<b>Carrera: <br/>{{dato[0].carrera}}</b><br />
+					<b>Semestre: {{dato[0].semestre}}</b>
+				</div>
+				<div class="col xl5 l4 m5">
+					<b><h5 class="center-align">Porcentaje de beca actual: {{ becaAsignada }}%</h5></b>
+				</div>
+			</div>
+		</div>
+
+		<!--<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>-->
+		<!--<input type="button" class="btn btn-default" value="Modificar Datos Personales" ng-click="$ctrl.ver = !$ctrl.ver">-->
+		
+<!--
+			<form ng-submit="$ctrl.updateUser()">
+			<div ng-show="$ctrl.ver">
+			<div class="row">
+					<div class="col xl3 l4 m5">
+							<input id="unos" ng-click="$ctrl.limpiarCampos()" type="checkbox" ng-model="$ctrl.cambiar_contrasenia">
+							<label for="unos">Cambiar Contraseña</label>
+					</div>
+					<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
+						<label>Contraseña Actual:<span>*</span></label>
+						<input type="password" ng-model="$ctrl.password_Actual" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
+					</div>
+					<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
+						<label>Contraseña Nueva:<span>*</span></label>
+						<input type="password" ng-model="$ctrl.password_Nueva" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+					</div>
+					<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
+						<label>Repetir Contraseña Nueva:<span>*</span></label>
+						<input type="password" ng-model="$ctrl.password_Repetir" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col xl3 l4 m5">
+						<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
+						<select class="browser-default" ng-model="$ctrl.idiomaExt">
+							<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
+						</select>
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Estado Civil:<span>*</span></label>
+						<select class="browser-default" ng-model="$ctrl.edoCivil" required>
+							<option value="" disabled>Seleccione una Opción</option>
+							<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
+						</select>
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Telefono Celular (lada):</label>
+						<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{10,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
+						<input id="No" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No"><label for="No">No</label>
+						<label><input id="Si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si"><label for="Si">Si</label>
+					</div>
+				</div>
+				<br>
+				<div><label>Domicilio donde vivirá mientras estudias:</label></div>
+				<div class="row">				
+					<div class="col xl3 l4 m5">
+						<label>Nombre Calle:<span>*</span></label>
+						<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Número de Calle:<span>*</span></label>
+						<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Colonia o Barrio:<span></span></label>
+						<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Municipio:<span>*</span></label>
+						<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.]{0,45}$" title="Verifique que no contenga caracteres especiales ni números, solo letras">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col xl3 l4 m5">
+						<label>Estado : <span>*</span></label>
+						<br>
+						<select class="browser-default" ng-model="$ctrl.estado1" required>
+							<option ng-repeat="e in $ctrl.estados">{{e}}</option>
+						</select>
+					</div>
+					<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
+						<label>Nombre, Dueño de la Casa:</label>
+						<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					</div>
+					<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
+						<label>Parentesco</label>
+						<select class="browser-default" ng-model="$ctrl.parentesco">
+							<option value="" disabled>Seleccione una Opción</option>
+							<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
+						</select>
+					</div>
+				</div>
+				<br>
+
+				<div class="row">
+					<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
+					<div class="col xl2 l3 m4"><input type="button" class="btn btn-default" value="Cancelar" ng-click=" $ctrl.cancel()"></div>
+				</div>
+				<hr/>
+
+				</div>
+
+			</form>	
+		-->
+
+		<div class="row">
+			
+			<div class="col xl10 l10 m11 offset-xl1">
+				<h5 class="center-align grey lighten-4">Solicitud en Proceso</h5>
+				<table class="striped">
+					<thead>
+						<tr class="grey lighten-4">
+							<td>Matricula</td>
+							<td>Fecha de envio</td>
+							<td>Estado</td>
+							<td>Continuar</td>
+							<td>Borrar</td>
+						</tr>
+					</thead>
+
+					<tbody class="white" ng-repeat="u in pendientes">
+						<td>{{u.matricula}}</td>
+						<td>{{u.fecha_envio}}</td>
+						<td>{{u.estado}}</td>
+						<td> <button class="btn btn-default" ng-click="modificar(u._id)">Continuar</button></td>
+						<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
+					</tbody>
+				</table>
+			</div>
+			
 		</div>
 		
-	</div>
-	<hr/>
+		
 
-	<div class="row">
-		<div class="col xl3 l4 m5">
-			<b>Matricula: {{dato[0].matricula}}</b><br/>
-			<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
-		</div>
-		<div class="col xl3 l4 m5">
-			<b>Carrera: {{dato[0].carrera}}</b><br />
-			<b>Semestre: {{dato[0].semestre}}</b>
-		</div>
-		<div class="col xl3 l4 m5">
-			<br />
-			<b>Porcentaje de beca actual: {{ becaAsignada }}</b>
-		</div>
-	</div>
-
-	<hr />
-	<!--<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>-->
-	<input type="button" class="btn btn-default" value="Modificar Datos Personales" ng-click="$ctrl.ver = !$ctrl.ver">
-	<br>
-
-		<form ng-submit="$ctrl.updateUser()">
-		<div ng-show="$ctrl.ver">
 		<div class="row">
-				<div class="col xl3 l4 m5">
-						<input id="unos" ng-click="$ctrl.limpiarCampos()" type="checkbox" ng-model="$ctrl.cambiar_contrasenia">
-						<label for="unos">Cambiar Contraseña</label>
-				</div>
-				<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
-					<label>Contraseña Actual:<span>*</span></label>
-					<input type="password" ng-model="$ctrl.password_Actual" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
-				</div>
-				<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
-					<label>Contraseña Nueva:<span>*</span></label>
-					<input type="password" ng-model="$ctrl.password_Nueva" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
-				</div>
-				<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
-					<label>Repetir Contraseña Nueva:<span>*</span></label>
-					<input type="password" ng-model="$ctrl.password_Repetir" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col xl3 l4 m5">
-					<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
-					<select class="browser-default" ng-model="$ctrl.idiomaExt">
-						<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
-					</select>
-				</div>
-				<div class="col xl3 l4 m5">
-					<label>Estado Civil:<span>*</span></label>
-					<select class="browser-default" ng-model="$ctrl.edoCivil" required>
-						<option value="" disabled>Seleccione una Opción</option>
-						<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
-					</select>
-				</div>
-				<div class="col xl3 l4 m5">
-					<label>Telefono Celular (lada):</label>
-					<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{10,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
-				</div>
-				<div class="col xl3 l4 m5">
-					<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
-					<input id="No" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No"><label for="No">No</label>
-					<label><input id="Si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si"><label for="Si">Si</label>
-				</div>
-			</div>
-			<br>
-			<div><label>Domicilio donde vivirá mientras estudias:</label></div>
-			<div class="row">				
-				<div class="col xl3 l4 m5">
-					<label>Nombre Calle:<span>*</span></label>
-					<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
-				</div>
-				<div class="col xl3 l4 m5">
-					<label>Número de Calle:<span>*</span></label>
-					<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)">
-				</div>
-				<div class="col xl3 l4 m5">
-					<label>Colonia o Barrio:<span></span></label>
-					<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
-				</div>
-				<div class="col xl3 l4 m5">
-					<label>Municipio:<span>*</span></label>
-					<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.]{0,45}$" title="Verifique que no contenga caracteres especiales ni números, solo letras">
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<!--<div class="col xl3 l4 m5">
-					<label>Estado : <span>*</span></label>
-					<br>
-					<select class="browser-default" ng-model="$ctrl.estado1" required>
-						<option ng-repeat="e in $ctrl.estados">{{e}}</option>
-					</select>
-				</div>-->
-				<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
-					<label>Nombre, Dueño de la Casa:</label>
-					<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
-				</div>
-				<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
-					<label>Parentesco</label>
-					<select class="browser-default" ng-model="$ctrl.parentesco">
-						<option value="" disabled>Seleccione una Opción</option>
-						<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
-					</select>
-				</div>
-			</div>
-			<br>
 
-			<div class="row">
-				<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
-				<div class="col xl2 l3 m4"><input type="button" class="btn btn-default" value="Cancelar" ng-click=" $ctrl.cancel()"></div>
-			</div>
-			<hr/>
+			<div class="col xl10 l10 m11 offset-xl1">
+				<h5 class="center-align grey lighten-4">Historial de Solicitudes</h5>
+				<table class="striped">
+					<thead>
+						<tr class="grey lighten-4">
+							<td>Matricula</td>
+							<td>Fecha de envio</td>
+							<td>% de beca asignada</td>
+							<td>Estado</td>
+							<!-- <td>% de beca final asignada</td> -->
+						</tr>
+					</thead>
 
-			</div>
 
-		</form>	
-	<br />
-
-	<div class="row">
-		<h4>Solicitud en Proceso</h4>
-
-		<div class="col xl10 l10 m10">
-			<table class="striped">
-				<thead>
-					<tr class="bg-info">
-						<td>Matricula</td>
-						<td>Fecha de envio</td>
-						<td>Estado</td>
-						<td>Continuar</td>
-						<td>Borrar</td>
-					</tr>
-				</thead>
-
-				<tbody ng-repeat="u in pendientes">
+				<tbody class="white" ng-repeat="u in terminados">
 					<td>{{u.matricula}}</td>
 					<td>{{u.fecha_envio}}</td>
+					<!-- <td>{{u.porcentaje_sugerido}}</td> -->
+					<td>{{u.porcentaje_final}}</td>
 					<td>{{u.estado}}</td>
-					<td> <button class="btn btn-default" ng-click="modificar(u._id)">Continuar</button></td>
-					<td><button class="btn btn-danger" ng-click="remove(u._id)">Borrar</button></td>
 				</tbody>
-			</table>
+					
+				</table>
+			</div>
 		</div>
-		
-	</div>
-	<br />
-	
+		<br />
 
-	<div class="row">
-		<h4>Historial de Solicitudes</h4>
+		<!--Seccion de Modal-->
+	  <div id="modalCambiarContra" class="modal modal-fixed-footer">
+	  	<form ng-submit="$ctrl.modalCambiarContra()">
+		    <div class="modal-content">
+		      <h4><i class="material-icons prefix">lock</i>  Cambiar mi contraseña</h4>
+		      <hr />
+		      <div class="row">
+		      	<div class="row">
+	      			<div class="col xl4 l4 m5  offset-xl4">
 
-		<div class="col xl10 l10 m11">
-			<table class="striped">
-				<thead>
-					<tr class="bg-info">
-						<td>Matricula</td>
-						<td>Fecha de envio</td>
-						<td>% de beca asignada</td>
-						<td>Estado</td>
-						<!-- <td>% de beca final asignada</td> -->
-					</tr>
-				</thead>
+						<label>Contraseña Actual:<span>*</span></label>
+
+						<input class="validate" type="password" ng-model="$ctrl.password_Actual" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col xl4 l4 m5 offset-xl4">
+						<label>Contraseña Nueva:<span>*</span></label>
+						<input class="validate" type="password" ng-model="$ctrl.password_Nueva" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col xl4 l4 m5 offset-xl4">
+						<label>Repetir Contraseña Nueva:<span>*</span></label>
+						<input class="validate" type="password" ng-model="$ctrl.password_Repetir" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
+					</div>
+				</div>
+		      </div>
+		    </div>
+		    <div class="modal-footer">
+		      <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+		      <!--<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input class="btn btn-default" value="Cancelar"></div>-->
+		      <div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Guardar Cambios"></div>
+		      <a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel()">Cancelar</a>
+		    </div>
+		</form>    
+
+	  </div>
 
 
-			<tbody ng-repeat="u in terminados">
-				<td>{{u.matricula}}</td>
-				<td>{{u.fecha_envio}}</td>
-				<!-- <td>{{u.porcentaje_sugerido}}</td> -->
-				<td>{{u.porcentaje_final}}</td>
-				<td>{{u.estado}}</td>
-			</tbody>
+<!-- ####################################  -->
+
+
+
+	  <!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
+	  <div id="contraseniaInco" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align">Error contraseña Incorrecta</h4>
+		      	<h4 class="center-align">:(</h4>
+	      	</div>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+	    </div>
+	  </div>
+
+	  <!--Modal para mostrar mensaj La contraseña Nueva y la contraseña repetir no coinciden-->
+	  <div id="repetircontraseniaInco" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align">La contraseña Nueva y la contraseña repetir no coinciden</h4>
+		      	<h4 class="center-align">:(</h4>
+	      	</div>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+	    </div>
+	  </div>
+
+
+
+	  <!--Modal para mostrar mensaje Contraseña cambiada correctamente-->
+	  <div id="cambiarContraBien" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align">Actualización Realizada Exitosamente.!</h4>
+		      	<h4 class="center-align">:)</h4>
+	      	</div>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+	    </div>
+	  </div>
+
+	  <!-- ********************    Modificar Datos personales ********************************************* -->
+	  <div id="modalCambiarDatos" class="modal modal-fixed-footer">
+	  	<form ng-submit="$ctrl.modalCambiarDatos()">
+		    <div class="modal-content">
+		      <h4><i class="material-icons prefix">assignment_ind</i>  Editar mi información</h4>
+		      <hr />
+		      <div class="row">
+
+		      	<div class="row">
+					<div class="col xl3 l4 m5 offset-xl1">
+						<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
+						<select class="browser-default" ng-model="$ctrl.idiomaExt">
+							<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
+						</select>
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Estado Civil:<span>*</span></label>
+						<select class="browser-default" ng-model="$ctrl.edoCivil" required>
+							<option value="" disabled>Seleccione una Opción</option>
+							<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
+						</select>
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Telefono Celular (lada):</label>
+						<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{10,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col xl7 l4 m5 offset-xl3">
+						<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
+						
+					</div>
+					<div class="col xl3 l4 m5 offset-xl5">
+						<input id="No" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No"><label for="No">No</label>
+						<label><input id="Si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si"><label for="Si">Si</label>
+					</div>
+				</div>
 				
-			</table>
-		</div>
+				<br>
+				<div><label>Domicilio donde vivirá mientras estudias:</label></div>
+				<div class="row">				
+					<div class="col xl3 l4 m5">
+						<label>Nombre Calle:<span>*</span></label>
+						<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Número de Calle:<span>*</span></label>
+						<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Colonia o Barrio:<span></span></label>
+						<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
+					</div>
+					<div class="col xl3 l4 m5">
+						<label>Municipio:<span>*</span></label>
+						<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.]{0,45}$" title="Verifique que no contenga caracteres especiales ni números, solo letras">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
+						<label>Nombre, Dueño de la Casa:</label>
+						<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
+					</div>
+					<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
+						<label>Parentesco</label>
+						<select class="browser-default" ng-model="$ctrl.parentesco">
+							<option value="" disabled>Seleccione una Opción</option>
+							<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
+						</select>
+					</div>
+				</div>
+
+
+		      </div>
+		    </div>
+		    <div class="modal-footer">
+		      <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+		      <!--<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input class="btn btn-default" value="Cancelar"></div>-->
+		      <div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Guardar Cambios"></div>
+		      <!--<a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel2()">Cancelar</a>-->
+		      <a class="btn btn-default modal-action modal-close waves-effect waves-green btn-flat red">Cancelar</a>
+		    </div>
+		</form>    
+
+	  </div>
+
+
+
+
+
+
+
 	</div>
 </div>
+
+	<script type="text/javascript" src="js/query.js"></script>

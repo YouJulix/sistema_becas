@@ -2,11 +2,30 @@ angular.
 	module('barraPrincipal').
 		component('barraPrincipal',{
 			templateUrl: 'barra-principal/barra-principal.template.html',
-			controller: ['$http',
-				
-				function ComponentBarraPrincipal($http){
+			controller: ['$http', '$routeParams',
+				function ComponentBarraPrincipal($http,$routeParams){
 					var self = this;
-					
+					console.log($routeParams);
+					switch($routeParams.section){
+						case "gastos_alumno":
+							self.alumno = "active";
+						 	break;
+						case "gastos_familiares":
+							self.familia = "active";
+						 	break;
+						case "informacion_hogar":
+							self.hogar = "active";
+						 	break;
+						case "dependencia_economica":
+							self.depende = "active";
+						 	break;
+						case "ingreso_mensual":
+							self.ingreso = "active";
+						 	break;
+						case "cartaProtesta":
+							self.carta = "active";
+						 	break;
+					} 
 					//=============Valid routes=================================//
 					if(localStorage.getItem("isAdmin") == null){				//
 						window.location = "/#!/login";							//
