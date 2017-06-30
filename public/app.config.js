@@ -8,8 +8,29 @@ angular.
 				$routeProvider.when('/login',{
 					template: '<login-becas></login-becas>'
 				}).
-				when('/gastos_alumno',{
-					template:'<gastos-alumno></gastos-alumno>'
+				when('/beca/:section',{
+					template:function(url){
+						switch(url.section){
+							case "gastos_alumno":
+								return '<gastos-alumno></gastos-alumno>';
+							 	break;
+							case "gastos_familiares":
+								return '<gastos_familiares></gastos_familiares>';
+							 	break;
+							case "informacion_hogar":
+								return '<informacion-hogar></informacion-hogar>';
+							 	break;
+							case "dependencia_economica":
+								return '<dependencia-economica></dependencia-economica>';
+							 	break;
+							case "ingreso_mensual":
+								return '<modulo-beca2></modulo-beca2>';
+							 	break;
+							case "cartaProtesta":
+								return '<gastos-alumno></gastos-alumno>';
+							 	break;
+						} 
+					}
 				}).
 				when('/registro',{
 					template: '<registro-form></registro-form>'
@@ -20,23 +41,8 @@ angular.
 				when('/notificacion', {
 					template: '<notificacion-registro></notificacion-registro>'
 				}).
-				when('/cartaProtesta', {
-					template: '<modulo-beca6></modulo-beca6>'
-				}).
 				when('/edit-user', {
 					template: '<edit-admin-info></edit-admin-info>'
-				}).
-				when('/dependencia_economica', {
-					template: '<dependencia-economica></dependencia-economica>'
-				}).
-				when('/ingreso_mensual', {
-					template: '<modulo-beca2></modulo-beca2>'
-				}).
-				when('/informacion_hogar', {
-					template: '<informacion-hogar></informacion-hogar>'
-				}).
-				when('/gastos_familiares', {
-					template: '<gastos_familiares></gastos_familiares>'
 				}).
 				when('/solicitudes', {
 					template: '<solicitudes-becas></solicitudes-becas>'
