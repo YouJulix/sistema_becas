@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+$(document).ready(function() {
+	$('select').material_select();
+});
+
+$(document).ready(function(){
+	$('ul.tabs').tabs();
+});
+=======
 
 	$(document).ready(function() {
 		$('select').material_select();
@@ -20,3 +29,4 @@
 		  stopPropagation: false // Stops event propagation
 	}
 	);
+>>>>>>> a54891f7a97107888d60ff73f57c3f3e8bffafa9

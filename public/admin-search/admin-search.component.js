@@ -107,7 +107,7 @@ angular.
 					}
 					$scope.modificar = function(idmat){
 						localStorage.setItem("idSolicitud",idmat);
-						window.location = "/#!/dependencia_economica";
+						window.location = "/#!/gastos_alumno";
 					};
 					$scope.remove = function(idmat){
 						//console.log(idmat);
