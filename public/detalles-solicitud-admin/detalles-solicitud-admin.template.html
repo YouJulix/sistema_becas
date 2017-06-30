@@ -10,32 +10,32 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col xl4 l4 m4">
 				<p><b>MATRÍCULA:</b> {{$ctrl.matricula}}</p>				
 			</div>
-			<div class="col-md-4">
+			<div class="col xl4 l4 m4">
 				<p><b>Carrera:</b> {{$ctrl.carrera}}</p>				
 			</div>
-			<div class="col-md-4">
+			<div class="col xl4 l4 m4">
 				<p><b>Fecha:</b> {{$ctrl.fecha_envio}}</p>				
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col xl4 l4 m4">
 				<p><b>Nombre:</b> {{$ctrl.nombre}} {{$ctrl.apellido1}} {{$ctrl.apellido2}}</p>				
 			</div>
-			<div class="col-md-4">
+			<div class="col xl4 l4 m4">
 				<p><b>Semestre:</b> {{$ctrl.semestre}}</p>				
 			</div>
 		</div>
 		<form ng-submit="$ctrl.saveData()">
 			<div class="row">
-				<div class="col-md-4 col-md-offset-4">
-					<p><i>Porcentaje sugerido para esta beca: </i>{{$ctrl.porcentaje_sugerido}}</p>
+				<div class="col xl4 l4 m6 offset-xl4 offset-l4 offset-m3">
+					<h6><i>Porcentaje sugerido para esta beca: </i>{{$ctrl.porcentaje_sugerido}}</h6>
 				</div>			
 			</div>
 			<div class="row">
-				<div class="col-md-offset-1">
+				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
 					<p><b>Actividades complementarias: </b></p>
 
 					<input type="checkbox" ng-model="$ctrl.biblioteca_completa" id="biblioteca" ng-change="$ctrl.bibliotecaCambio()" ng-disabled="$ctrl.caso_especial">
@@ -45,7 +45,7 @@
 
 			<br>
 			<div class="row">
-				<div class="col-md-offset-1">
+				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
 					<p><b>Examenes extraordinarios: </b></p>
 					<div>
 						<input type="checkbox" ng-model="$ctrl.libre_de_extra" id="libre_de_extra" ng-change="$ctrl.extraCambio()" ng-disabled="$ctrl.caso_especial">
@@ -55,7 +55,7 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-offset-1">
+				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
 					<p><b>Criterio del evaluador: </b></p>
 					<div>
 						<input type="checkbox" ng-model="$ctrl.caso_especial" id="criterio">
@@ -63,16 +63,13 @@
 					</div>
 				</div>
 			</div>
-			<br>
 			<div class="row" ng-show="!$ctrl.caso_especial">
-				<div class="col-md-4 col-md-offset-4">
-					<p><strong>Porcentaje final asignado: </strong>{{$ctrl.porcentaje_final}}</p>
+				<div class="col xl8 l8 m10 offset-xl3 offset-l3 offset-m2">
+					<h6><strong>Porcentaje final asignado: </strong>{{$ctrl.porcentaje_final}}</h6>
 				</div>			
 			</div>
-			<br>
-	
 			<div class="row" ng-show="$ctrl.caso_especial">
-				<div class="col-md-4 col-md-offset-4">
+				<div class="col xl8 l8 m10 offset-xl3 offset-l3 offset-m2">
 					<p>
 				    	<input name="porcentaje" type="radio" id="bc1" ng-model="$ctrl.porcentaje_final" value="0" />
 				    	<label for="bc1">0</label>
@@ -103,12 +100,28 @@
 				</div>			
 			</div>
 			<br>
+			
+			<a data-target="modalDatosGuardados" class="waves-effect waves-light" ng-show="false" id="clicModel">hadsh</a>
+			<div id="modalDatosGuardados" class="modal">
+				<div class="modal-content">
+					<h2>Datos Guardados</h2>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-default" data ng-click="$ctrl.mandar()">Aceptar</a>	
+				</div>
+			</div>
 
 			<div class="row">
-				<div class="col-md-offset-4">
+				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
 					<a href="#!/admin_principal"><button class="btn btn-default">Volver</button></a>
 					<input type="submit" class="btn btn-default" value="Guardar" />
 				</div>
 			</div>
 		</form>			
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.modal').modal();
+	});
+</script>

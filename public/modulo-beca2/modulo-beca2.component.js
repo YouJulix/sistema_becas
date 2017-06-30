@@ -7,8 +7,9 @@ angular.
 					var self=this;
 							
 					self.gastoTotal = 0;
-
 					self.solicitudId=localStorage.getItem("idSolicitud");
+					
+
 					/**Obtener los datos guardados*/
 					self.method="POST";
 					object = $http({
@@ -43,19 +44,24 @@ angular.
 						//console.log("val");
 					if( (self.ingresoMenGubernamental) > 0 && (self.ingresoMenGubernamental<200) ){
 						//console.log("invalido");
-						alert("el rango valido en ingreso gubernamental es 200-10000 o 0");
+						//alert("el rango valido en ingreso gubernamental es 200-10000 o 0");
+						//self.modalErrorGubernamental=true;
+						$('#modalErrorGubernamental').modal('open');
 						return;
 					}
 					
 					if( (self.ingresoMenTerceros > 0) && (self.ingresoMenTerceros<200) ){
-						alert("el rango valido en ingreso de terceros es 200-10000 o 0");
+						//alert("el rango valido en ingreso de terceros es 200-10000 o 0");
+						//self.modalErrorApoyoTer=true;
+						$('#modalErrorApoyoTer').modal('open');
 						return;
 					}
 					self.ingresoTotal = parseInt(self.ingresoMenJefe)+parseInt(self.ingresoMenGubernamental)+parseInt(self.ingresoMenTerceros);
 
 					//alert(self.ingresoTotal + self.gastoTotal);
 					if(self.ingresoTotal<self.gastoTotal){
-						alert("Verifique que su ingreso mensual es mayor o igual a su gasto mensual");
+						//alert("Verifique que su ingreso mensual es mayor o igual a su gasto mensual");
+						$('#modalErrorGastos').modal('open');
 						return
 					}
 						$http({
@@ -154,7 +160,7 @@ angular.
 
 								}
 							}else{
-								alert('! ERROR La solicitud esta vacia!');
+								alert('! ERROR La solicitud esta vacía!');
 							}
 
 						}).error(function(){

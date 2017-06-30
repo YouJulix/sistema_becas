@@ -27,35 +27,83 @@
 			</ul>
 		</div>-->
 		<div class="row">
-			<h4>Ingreso mensual en el hogar</h4>
+			<!--<h4 class="center-align">Ingreso mensual en el hogar</h4>-->
 		</div>
         <div id="moduloBeca2" class="row">
-        	<div class="col xl6 offset-xl1">
+        	<div class="col xl6 l6 m6 s12 offset-xl3 offset-l3 offset-m3 card center-align">
+        		<div class="row">
+					<div class="col xl12">
+						<p>Sus gastos familiares ingresados son: <h5><b>$ {{$ctrl.gastoTotal}}</b></h5></p>
+						<p><b>Nota:</b> Su ingreso mensual total debe ser mayor o igual a este, o puede regresar a modificar el gasto familiar. </p>
+					</div>
+				</div>
 				<form ng-submit="$ctrl.addIngresoMensual()">
-					<div class="col xl12">
-						<label >Ingreso mensual del jefe de familia <b> * </b></label>
-							<input type="number" min="1050" max="25000" class="" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe">
+					<div class="col xl12 l12 m12 s12 input-field">
+						<p>Ingreso mensual del jefe de familia <b class="red-text text-darken-2"> * </b></p>
+						<br>
+						<i class="material-icons prefix small">monetization_on</i>
+						<input type="number" min="1050" max="25000" class="validate" placeholder="Ingreso mensual" required ng-model="$ctrl.ingresoMenJefe" title="El valor mínimo aceptado es 1050">
 					</div>
-					<div class="col xl12">
-						<label >Apoyo mensual gubernamental</label>
-							<input type="number" min="0" max="25000" class="" placeholder="apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental">
+					<div class="col xl12 l12 m12 s12 input-field">
+						 <p>Apoyo mensual gubernamental</p>
+						 <br>
+				          <i class="material-icons prefix small">monetization_on</i>
+				          <input type="number" min="0" max="25000" class="validate" placeholder="Apoyo gubernamental" required ng-model="$ctrl.ingresoMenGubernamental" title="El valor debe ser >= 200 o 0 si no aplica">
 					</div>
-					<div class="col xl12">
-						<label >Apoyo mensual de terceros</label>
-							<input type="number" min="0" max="25000" class="" placeholder="apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros">
+					<div class="col xl12 l12 m12 s12 input-field">
+						<p>Apoyo mensual de terceros</p>
+						<br>
+						<i class="material-icons prefix small">monetization_on</i>
+						<input type="number" min="0" max="25000" class="validate" placeholder="Apoyo de terceros" required ng-model="$ctrl.ingresoMenTerceros" title="El valor debe ser >= 200 o 0 si no aplica">
 					</div>
-					<br>
-					<div class="col xl12">
-						<a href="#!/dependencia_economica" class="btn btn-default" >Volver</a>
-						<button type="submit" class="btn btn-default">Continuar</button>
+					<div class="col xl12 l12 m12 s12">
+						<a href="#!/dependencia_economica" class="btn" >Atrás</a>
+						<button type="submit" class="btn">Continuar</button>
 					</div>
 				</form>
 			</div>
-			<div class="col xl3 offset-xl1">
-				<label>Su gasto mensual es: <b>$ {{$ctrl.gastoTotal}}</b></label>
-				<br />
-				<label>Nota: Su ingreso mensual debe ser mayor o igual al gasto mensual.</label>
-			</div>
 		</div>
     </div>
+
+ <!-- Modal Trigger -->
+ <!-- <a class="waves-effect waves-light btn" data-target="modalErrorApoyoTer">Modal</a> -->
+
+  <!-- Modal error apoyo de terceros -->
+  <div id="modalErrorApoyoTer" class="modal" >
+    <div class="modal-content">
+      <h4 class="red-text">Error ! <i class="material-icons small black-text">mood_bad</i> </h4>
+      <p class="center-align">El apoyo mensual de terceros debe ser mayor a 200 o 0 si no aplica</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/ingreso_mensual" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+  <!-- Modal error apoyo gubernamental -->
+  <div id="modalErrorGubernamental" class="modal" >
+    <div class="modal-content">
+      <h4 class="red-text">Error ! <i class="material-icons small black-text">mood_bad</i> </h4>
+      <p class="center-align">El apoyo mensual gubernamental debe ser mayor a 200 o 0 si no aplica</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/ingreso_mensual" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+   <!-- Modal error no coinciden gastos familiares e ingreso mensual -->
+  <div id="modalErrorGastos" class="modal" >
+    <div class="modal-content">
+      <h4 class="red-text">Error ! <i class="material-icons small black-text">mood_bad</i> </h4>
+      <p class="center-align">Haz coincidir tus gastos familiares con el ingreso mensual.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/ingreso_mensual" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+	    $('.modal').modal();
+	  }); 
+</script>
 </div>
+
