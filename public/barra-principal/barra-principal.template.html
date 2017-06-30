@@ -11,7 +11,7 @@
 <div class="navbar-fixed">
 	<nav class="nav-extended  blue darken-4">
 		<div class="nav-wrapper">
-	  		<a href="#" class="brand-logo">
+	  		<a class="brand-logo">
 	  			<img id="logoCabecera" src="img/logo.png" />
 	  			Sistema de Becas NU
 	  		</a>
@@ -20,22 +20,25 @@
 				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
 	  		</ul>
 		</div>
+		
 		<div class="nav-content">
-	  		<ul class="tabs tabs-transparent">
-	    		<li class="tab"><a ng-class="$ctrl.alumno" href="#!/beca/gastos_alumno" >Gastos del alumno</a></li>
-				<li class="tab"><a ng-class="$ctrl.familia" href="#!/beca/gastos_familiares" >Gastos familiares</a></li>
-				<li class="tab"><a ng-class="$ctrl.hogar" href="#!/beca/informacion_hogar" >Información del hogar</a></li>
-				<li class="tab"><a ng-class="$ctrl.depende" href="#!/beca/dependencia_economica" >Persona de quien depende económicamente</a></li>
-				<li class="tab"><a ng-class="$ctrl.ingreso" href="#!/beca/ingreso_mensual" >Ingreso mensual</a></li>
-				<li class="tab" ng-if="$ctrl.carta" ><a ng-class="$ctrl.carta" href="#!/beca/cartaProtesta" >Carta Protesta</a></li>
-	  		</ul>
+			<div class="col xl12">
+				<ul>
+				    <li style="padding:10px" ng-class="$ctrl.alumno"> <a  href="#!/beca/gastos_alumno" >Gastos del alumno</a></li>
+				    <li style="padding:10px" ng-class="$ctrl.familia"><a  href="#!/beca/gastos_familiares" >Gastos familiares</a></li>
+				    <li style="padding:10px" ng-class="$ctrl.hogar">  <a  href="#!/beca/informacion_hogar" >Información del hogar</a></li>
+				    <li style="padding:10px" ng-class="$ctrl.depende"><a  href="#!/beca/dependencia_economica" >Dependencia económica</a></li>
+				    <li style="padding:10px" ng-class="$ctrl.ingreso"><a  href="#!/beca/ingreso_mensual" >Ingreso mensual</a></li>
+				    <li style="padding:10px" ng-class="$ctrl.cartap"> <a  href="#!/beca/cartaProtesta" >Carta Protesta</a></li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 </div>
 <div class="row">
 	
 </div>
-<div  class="row">
+<div class="row">
 	
 </div>
 <div class="row">

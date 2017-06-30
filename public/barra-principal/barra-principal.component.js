@@ -6,24 +6,33 @@ angular.
 				function ComponentBarraPrincipal($http,$routeParams){
 					var self = this;
 					self.nombre = localStorage.getItem("nombre") + " " + localStorage.getItem("apellido1");
+					
+					self.alumno = "waves-effect";
+					self.familia= "waves-effect";
+					self.depende= "waves-effect";
+					self.hogar  = "waves-effect";
+					self.ingreso= "waves-effect";
+					self.cartap  = "waves-effect";
+					console.log($routeParams.section);
+
 					switch($routeParams.section){
 						case "gastos_alumno":
-							self.alumno = "active";
+							self.alumno = "grey darken-2";
 						 	break;
 						case "gastos_familiares":
-							self.familia = "active";
+							self.familia = "grey darken-2";
 						 	break;
 						case "informacion_hogar":
-							self.hogar = "active";
+							self.hogar = "grey darken-2";
 						 	break;
 						case "dependencia_economica":
-							self.depende = "active";
+							self.depende = "grey darken-2";
 						 	break;
 						case "ingreso_mensual":
-							self.ingreso = "active";
+							self.ingreso = "grey darken-2";
 						 	break;
 						case "cartaProtesta":
-							self.carta = "active";
+							self.cartap = "grey darken-2";
 						 	break;
 					} 
 					//=============Valid routes=================================//
