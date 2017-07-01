@@ -14,25 +14,24 @@ angular.
 					self.ingreso= "waves-effect";
 					self.cartap  = "waves-effect";
 					console.log($routeParams.section);
-
 					switch($routeParams.section){
 						case "gastos_alumno":
-							self.alumno = "grey darken-2";
+							self.alumno = "indigo darken-4";
 						 	break;
 						case "gastos_familiares":
-							self.familia = "grey darken-2";
+							self.familia = "indigo darken-4";
 						 	break;
 						case "informacion_hogar":
-							self.hogar = "grey darken-2";
+							self.hogar = "indigo darken-4";
 						 	break;
 						case "dependencia_economica":
-							self.depende = "grey darken-2";
+							self.depende = "indigo darken-4";
 						 	break;
 						case "ingreso_mensual":
-							self.ingreso = "grey darken-2";
+							self.ingreso = "indigo darken-4";
 						 	break;
 						case "cartaProtesta":
-							self.cartap = "grey darken-2";
+							self.cartap = "indigo darken-4";
 						 	break;
 					} 
 					//=============Valid routes=================================//
