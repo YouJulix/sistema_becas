@@ -77,7 +77,7 @@ exports.addUser = function(req,res){
 		nombreHuesped: req.body.nombreHuesped,
 		parentesco: req.body.parentesco,
 		isAdmin : req.body.isAdmin,
-		isNew : req.body.isNew
+		isNewU : req.body.isNewU
 	});
 
 	user.save(function(err,user){
@@ -112,6 +112,7 @@ exports.updateUser = function(req,res){
 		user[0].estado= 	req.body.estado;
 		user[0].nombreHuesped= req.body.nombreHuesped;
 		user[0].parentesco= 	req.body.parentesco;
+		user[0].isNewU = req.body.isNewU;
 
 		user[0].save(function(err){
 			if (err) return res.status(500).send(err.message);

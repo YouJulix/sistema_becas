@@ -120,6 +120,7 @@ angular.
 
 
 					self.imprimirDatos = function(){
+						localStorage.setItem('alumno',$scope.matricula);
 						$http({
 							method: 'GET',
 							url: 'http://localhost:8000/api/v1.0/users/' + $scope.matricula
@@ -135,8 +136,7 @@ angular.
 
 									$scope.dato = data;
 
-									if(!(data[0].isNewU)){
-										localStorage.setItem('alumno',$scope.matricula);
+									if((data[0].isNewU)){
 										window.location = "/#!/edit-user";	
 									}
 							
