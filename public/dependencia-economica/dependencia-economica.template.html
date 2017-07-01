@@ -3,9 +3,24 @@
 
 		<div class="row col xl12 offset-xl12 card">
 			<div class="row">
-				<div class="col xl12">
-					<h5 class="center-align">Personas de quien depende económicamente</h5>	
+				<div class="col xl9">
+					<blockquote class="">
+						<p class="thin">
+							<h5>
+							Personas de quien depende económicamente
+							</h5>
+						</p>
+					</blockquote>
 				</div>
+				<div class="col xl3">
+					<div class="orange white-text">
+						<p class="center-align"><b>Paso 4 de 6</b></p>
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				
 			</div>
 			<!-- <form action="l.php" method="post"> -->
 			<form class="col xl5 offset-xl3" ng-submit="$ctrl.saveSection()">
@@ -30,9 +45,17 @@
 					<option value="temporal">Temporal</option>
 					<option value="permanente">Permanente</option>
 				</select><br><br>
-				<input type="button" class="btn btn-default blue darken-4" value="Regresar" ng-click="$ctrl.regresar()"/>
-				<button id="btnContinuar" type="submit" class="btn btn-default blue darken-4">Continuar</button>
-
+				<div class="row">
+					<div class="col xl6">
+						<button type="submit" class="btn btn-default orange right"  ng-click="$ctrl.regresar()">Regresar
+						</button>
+					</div>
+					<div class="col xl6">
+						<button type="submit" class="btn btn-default orange right">
+							Continuar
+						</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>	
