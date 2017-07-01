@@ -10,7 +10,7 @@
 
   <!-- Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
-    <li><a data-target="modalCambiarDatos" href="">Editar mi información</a></li>
+    <li><a href="/#!/edit-user">Editar mi información</a></li>
     <li><a data-target="modalCambiarContra">Cambiar Contraseña</a></li>
     <li class="divider"></li>
     <li><a ng-click="cerrarSesion()"><i class="material-icons">power_settings_new</i>Cerrar Sesión</a></li>
@@ -224,7 +224,32 @@
 		</div>
 		<br />
 
-		<!--Seccion de Modal-->
+		<!-- Seccion de modal ####################################  -->
+
+
+	  <!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
+	  <div id="eliminarSolicitud" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align">¿ Esta seguro que desea eliminar ?</h4>
+	      	</div>
+
+	      	 <div id="concatenar"></div>
+
+	    </div>
+	    <div class="modal-footer">
+	  
+
+
+	    <!--  <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+	      <a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel()">Aceptar</a>-->
+	    </div>
+	  </div>
+
+
+
+		<!--Modal cambiar contraseña-->
 	  <div id="modalCambiarContra" class="modal modal-fixed-footer">
 	  	<form ng-submit="$ctrl.modalCambiarContra()">
 		    <div class="modal-content">
@@ -265,7 +290,6 @@
 	  </div>
 
 
-<!-- ####################################  -->
 
 
 

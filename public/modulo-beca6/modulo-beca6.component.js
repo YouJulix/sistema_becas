@@ -250,6 +250,7 @@ angular.
 																'matricula' : $scope.matricula }
 													    }).success(function(data){
 													    	localStorage.removeItem("idSolicitud");
+													    	//$('#modalSolicitudEnviada').modal('open');
 															window.location = "/#!/notificbecaenviada";
 												        }).error(function(){
 															alert('! ERROR No se envio la solicitud!');
