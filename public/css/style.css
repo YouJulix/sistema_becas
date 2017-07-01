@@ -1,4 +1,8 @@
 /*Estilo para el formulario principal de login*/
+
+html, body, #contenedorPrincipal{
+	height: 100%;
+}
 img#logoCabecera{
 	float:left;
 	width: 50px;
@@ -17,16 +21,17 @@ img#logoLogin{
 
 #loginContainer  {
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
+  /*position: absolute;*/
+  /*position: relative;*/
+  /*top: 0;
+  left: 0;*/
   height: 100%;
-  width: 100%;
+/*  width: 100%;*/
 }
-
+/*
 #loginContainer > .row {
   margin: 0 auto;
-}
+}*/
 
 
 /**/
