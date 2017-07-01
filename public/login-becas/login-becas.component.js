@@ -83,6 +83,10 @@ angular.
 					}
 
 					self.iniciar();			
+
+					$(document).on("ready",function(){
+			            $('#login-page').css({'height': window.innerHeight + 'px'});
+			        })
 				}
 			]
 		});

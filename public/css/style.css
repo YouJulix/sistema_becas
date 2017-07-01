@@ -12,8 +12,23 @@ img#logoLogin{
 .login-form-text{
 	text-transform:uppercase;
 	letter-spacing:2px;
-	font-size:0.8rem
+	/*font-size:0.8rem*/
 }
+
+#loginContainer  {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#loginContainer > .row {
+  margin: 0 auto;
+}
+
+
 /**/
 
 /*Estilo para el menu superior*/
