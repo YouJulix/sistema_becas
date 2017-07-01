@@ -39,7 +39,7 @@ angular.
 						password: self.password,
 						password2: self.password,
 						isAdmin	: self.isEval,
-						isNew : true
+						isNewU : true
 
 					}
 					console.log(self.data);

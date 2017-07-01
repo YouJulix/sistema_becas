@@ -120,6 +120,7 @@ angular.
 
 
 					self.imprimirDatos = function(){
+						localStorage.setItem('alumno',$scope.matricula);
 						$http({
 							method: 'GET',
 							url: 'http://localhost:8000/api/v1.0/users/' + $scope.matricula
@@ -135,8 +136,7 @@ angular.
 
 									$scope.dato = data;
 
-									if(!(data[0].isNewU)){
-										localStorage.setItem('alumno',$scope.matricula);
+									if((data[0].isNewU)){
 										window.location = "/#!/edit-user";	
 									}
 							
@@ -214,6 +214,14 @@ angular.
 
 					$scope.remove = function(idm){	
 
+						$('#eliminarSolicitud').modal('open');
+
+
+							//$("#concatenar").empty();
+          				$("#concatenar").append("<a class='waves-effect waves-light btn' ng-click='$ctrl.eliminarSol()'>Aceptar</a>");
+          				//document.getElementById("concatenar").innerHTML = "<a class='waves-effect waves-light btn' ng-click='$ctrl.eliminarSo()'>Aceptar</a>";
+						
+						/*
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
 
@@ -225,9 +233,14 @@ angular.
 				              	location.reload();
 				              	//location.reload();
 				            });
-						}
+						}*/
 
 					};
+
+					self.eliminarSol = function(){
+						alert("vnjjfnv");
+					};
+
 
 
 					$scope.modificar = function(id){
