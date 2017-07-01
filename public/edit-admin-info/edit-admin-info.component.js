@@ -286,26 +286,37 @@ angular.
 
 							}).
 							success(function(data){
-								alert("Actualización Realizada Exitosamente.! :)");
-								if(localStorage.getItem('isAdmin')=="true"){
-									window.location = "/#!/admin_principal";
-								}else{
-									window.location = "/#!/solicitudes";
-								}	
+								$('#actualizacionExitosa').modal('open');					
 							}).
 							error(function(){
 								alert("Error de user Usuario! :'(");
 							});	
 						}
 					}
-					self.cancel = function(){
-						//$('#formPersoal')[0].defualtPrevented();
-						alert("Actualización Cancelada! :'(");
+
+					self.closeEdicion = function(){
+						$('#actualizacionExitosa').modal('close');
 						if(localStorage.getItem('isAdmin')=="true"){
 							window.location = "/#!/admin_principal";
 						}else{
 							window.location = "/#!/solicitudes";
 						}	
+					}
+
+					self.cancel = function(){
+						//$('#formPersoal')[0].defualtPrevented();
+						//alert("Actualización Cancelada! :'(");
+						//$('#cancelarActualizacion').modal('open');
+						$('#cancelarActualizacion').modal('close');
+						if(localStorage.getItem('isAdmin')=="true"){
+							window.location = "/#!/admin_principal";
+						}else{
+							window.location = "/#!/solicitudes";
+						}	
+					}
+
+					self.modalCancel = function (){
+						$('#cancelarActualizacion').modal('open');
 					}
 
 					self.avanzaEscolar = function(){
@@ -331,6 +342,11 @@ angular.
 							self.nombreHuesped = "";
 							self.parentesco = "";
 						}
+					}
+
+					self.closeApp =  function(){
+						localStorage.clear();
+						window.location = "/#!/login";
 					}
 
 					self.viewRecidencia();
