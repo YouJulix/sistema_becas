@@ -37,8 +37,8 @@
 			</div>
 			<div class="col xl12 l12 m12 s12 offset-xl4 offset-l4 offset-m4">
 				<br>
-				<button class="btn btn-default" ng-click="regresar()">Regresar</button>
-				<button class="btn btn-default" ng-click="aceptar()">Enviar</button>
+				<button class="btn btn-default blue darken-4" ng-click="regresar()">Regresar</button>
+				<button class="btn btn-default blue darken-4" ng-click="aceptar()">Enviar</button>
 				<!-- <button ng-disabled="!checked" ng-click="aceptar()">Enviar</button> -->
 			</div>
 		</div>
@@ -50,7 +50,7 @@
       <p class="center-align">Aún no has aceptado los términos y condiciones.</p>
     </div>
     <div class="modal-footer">
-      <a href="#!/cartaProtesta" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+      <a href="#!/beca/cartaProtesta" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
   </div>
   	<!-- Modal error apoyo de terceros -->
@@ -60,7 +60,7 @@
       <p class="center-align">Falta Agregar Personas de quien depende económicamente</p>
     </div>
     <div class="modal-footer">
-      <a href="#!/dependencia_economica" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+      <a href="#!/beca/dependencia_economica" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
   </div>
    	<!-- Modal error apoyo de terceros -->
@@ -70,7 +70,7 @@
       <p class="center-align">Falta Agregar el Ingreso Mensual</p>
     </div>
     <div class="modal-footer">
-      <a href="#!/ingreso_mensual" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+      <a href="#!/beca/ingreso_mensual" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
   </div>
  	<!-- Modal error apoyo de terceros -->
@@ -80,7 +80,7 @@
       <p class="center-align">Falta Ingresar Datos Del Alumno</p>
     </div>
     <div class="modal-footer">
-      <a href="#!/gastos_alumno" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+      <a href="#!/beca/gastos_alumno" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
   </div> 
   	<!-- Modal error apoyo de terceros -->
@@ -90,7 +90,7 @@
       <p class="center-align">Falta Ingresar Informacion Del Hogar</p>
     </div>
     <div class="modal-footer">
-      <a href="#!/informacion_hogar" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+      <a href="#!/beca/informacion_hogar" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
   </div>
 	<!-- Modal error apoyo de terceros -->
@@ -100,7 +100,25 @@
       <p class="center-align">Falta Ingresar Gastos Familiares</p>
     </div>
     <div class="modal-footer">
-      <a href="#!/gastos_familiares" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+      <a href="#!/beca/gastos_familiares" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+  
+  <!-- Modal Solicitud enviada -->
+  <div id="modalSolicitudEnviada" class="modal" >
+    <div class="modal-content">
+      <div class="row">
+        <div class="col xl8  offset-xl2">
+          <b>! Tu solicitud de beca a sido enviada !</b>
+        </div>
+        <br />
+        <div class="col xl8  offset-xl2">
+          <span>Tus datos seran revisados y te será notificado <br />el porcentaje de beca <b>final</b> que has obtenido </span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/solicitudes" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
   </div>
 
@@ -108,6 +126,11 @@
 	$(document).ready(function(){
 	    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
 	    $('.modal').modal();
-	  }); 
+      $('.modal').openModal({
+        complete: function(){
+          alert("se");
+        }
+      );
+	}); 
 	</script>
 </div>

@@ -49,7 +49,8 @@ angular.
  						}
 
  						if(self.gastosMedicos < 200  &&  self.gastosMedicos > 0){
- 							alert("Tus gastos medicos deben ser superiores a 200");
+ 							//alert("Tus gastos medicos deben ser superiores a 200");
+ 							$('#modalErrorGastosMedicos').modal('open');
  							return;
  						}
  						
@@ -64,15 +65,15 @@ angular.
 						}
 						
 						if( !self.taxi && !self.caminar &&  !self.bicicleta && !self.vehiculo){
-							alert("Elija mínimo un método de transporte");
+							//alert("Elija mínimo un método de transporte");
+							$('#modalErrorTransporte').modal('open');
 							return;
 						}
 
-
-
 						if(self.rentaSi){
 							if(self.montoRenta < 200){
-								alert("Los gastos de renta son inferiores a 200, contacta a un administrador");
+								//alert("Los gastos de renta son inferiores a 200, contacta a un administrador");
+								$('#modalErrorRenta').modal('open');
 								return;
 							}
 
@@ -125,7 +126,6 @@ angular.
 							self.vehiculo = false;
 						}
 					}
-
 				}
 			]
 		});

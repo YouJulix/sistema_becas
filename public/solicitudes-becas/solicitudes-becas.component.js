@@ -21,6 +21,8 @@ angular.
 					
 					//localStorage.setItem("matricula","12345");
 
+					self.EliminarSolicitud = "";//////////////////////////////////////////////////////////////
+
 					self.password_Actual = "";
 					self.password_Nueva = "";
 					self.password_Repetir = "";
@@ -216,6 +218,14 @@ angular.
 
 					$scope.remove = function(idm){	
 
+<<<<<<< HEAD
+=======
+						$('#eliminarSolicitud').modal('open');
+
+						self.EliminarSolicitud = idm;
+
+						/*
+>>>>>>> 42dc354a6843a50d865699269a14829b5426e350
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
 
@@ -229,6 +239,18 @@ angular.
 				            });
 						}
 
+<<<<<<< HEAD
+=======
+					self.eliminarSol = function(){
+							$http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + self.EliminarSolicitud).success(function() {
+				              	//self.imprimir();
+					        	//location.reload();
+					        	window.location = "/#!/solicitudes";
+				              	//console.log("ya");
+				              	location.reload();
+				              	//location.reload();
+				            });
+>>>>>>> 42dc354a6843a50d865699269a14829b5426e350
 					};
 
 

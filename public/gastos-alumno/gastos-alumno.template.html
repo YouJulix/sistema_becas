@@ -2,21 +2,20 @@
 
 <div class="container">
 	<div class="row">
-		<div id="tittle" class="row col xl12">
-				<h4>Gastos del alumno</h4>
+		<div id="gastosAlumnos" class="row col xl12 card">
+		<div id="tittle" class="row">
+				<h5 class="center-align">Gastos del alumno</h5>
 		</div>
-		
-		<div id="gastosAlumnos" class="row col xl12">
 				<form ng-submit="$ctrl.saveData()" class="col xl6 offset-xl3">
 
-					<div class="">
+					<div class="row">
 						<label for="medicalServices" class="col xl4">Servicios medicos:</label>
 						<div class="col xl8">
-							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos"/>	
+							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos" min="0" max="25000" />	
 						</div>
 					</div>
 					
-					<div class="">
+					<div class="row">
 						<label class="col xl4"> Renta de domicilio: </label>
 						<div class="col xl8" >
 							<div class="col xl6">
@@ -28,15 +27,17 @@
 						    	<label for="no">No</label>
 						    </div>
 						</div>
+						<br>
 					</div>
 
-					<div class="" ng-show="$ctrl.rentaSi">
+					<div class="row" ng-show="$ctrl.rentaSi">
+						<br>
 						<label for="costoRenta" class="col xl4">Costo de la renta:</label>
 						<div class="col xl8">
-							<input type="number" id="costoRenta"  ng-model="$ctrl.montoRenta" class="" placeholder="Monto de la renta (mensual)"/>
+							<input type="number" id="costoRenta"  ng-model="$ctrl.montoRenta" class="" placeholder="Monto de la renta (mensual)" min="0" max="25000" />
 						</div>
 					</div>					
-					<div class="">
+					<div class="row">
 						<label class="col xl4">Modo de traslado: *</label>
 						<div class="col xl8">
 							<div class="col xl5">
@@ -50,7 +51,7 @@
 						</div>
 					</div>
 					
-					<div class="">
+					<div class="row">
 						<label class="col xl4"></label>
 						<div class="col xl8">
 							<div class="col xl5">
@@ -64,12 +65,53 @@
 						</div>
 					</div>
 
-					<div class="">
+					<div class="row col m5 offset-m5">
 						<!-- <a href="#!/ingreso_mensual"><button type="button" class="btn btn-default ">Atras</button></a> -->
-						<input type="submit" class="btn btn-default col-md-offset-6  grey darken-3" value="Continuar"/>
+						
+						<input type="submit" class="btn align-center blue darken-4" value="Continuar"/>
+						<!-- <input type="submit" class="btn btn-default col-md-offset-6 blue darken-4" value="Continuar"/> -->
 					</div>
 
 				</form>
 		</div>
 	</div>	
+
+ <!-- Modal error no coinciden gastos familiares e ingreso mensual -->
+  <div id="modalErrorTransporte" class="modal">
+    <div class="modal-content">
+      <h4 class="red-text">Error ! <i class="material-icons small black-text">mood_bad</i> </h4>
+      <p class="center-align">Elige como mínimo un metodo de transporte</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/beca/gastos_alumno" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+   <!-- Modal error no coinciden gastos familiares e ingreso mensual -->
+  <div id="modalErrorGastosMedicos" class="modal">
+    <div class="modal-content">
+      <h4 class="red-text">Error ! <i class="material-icons small black-text">mood_bad</i> </h4>
+      <p class="center-align">Tus gastos médicos deben ser mayores a 200, si no aplica 0</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/beca/gastos_alumno" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+   <!-- Modal error no coinciden gastos familiares e ingreso mensual -->
+  <div id="modalErrorRenta" class="modal">
+    <div class="modal-content">
+      <h4 class="red-text">Error ! <i class="material-icons small black-text">mood_bad</i> </h4>
+      <p class="center-align">Tus gastos de la renta deben ser mayores a 200, si no aplica 0</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!/beca/gastos_alumno" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+	    $('.modal').modal();
+	  }); 
+</script>
+
 </div>
