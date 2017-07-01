@@ -154,6 +154,9 @@ angular.
 								self.estado = data[0].estado;
 								//self.nombreHuesped = data[0].nombreHuesped;
 								self.parentesco = data[0].parentesco;
+								self.isNewU = data[0].isNewU;
+
+								//alert(self.isNewU);
 
 								self.renderFecha(data[0].fechaNac);
 								self.valueFecha();
@@ -221,16 +224,20 @@ angular.
 									'&estado='+self.estado+
 									'&nombreHuesped='+self.nombreHuesped+
 									'&parentesco='+self.parentesco +
-									'&isNewU = false',
+									'&isNewU=false',
 								headers: {'Content-Type':'application/x-www-form-urlencoded'}
 
 							}).
 							success(function(data){
 								alert("Actualización Realizada Exitosamente.! :)");
-								window.location="#!/admin_principal";
+								if (localStorage.getItem('isAdmin')) {
+									window.location="#!/admin_principal";
+								}else{
+									window.location="#!/solicitudes";
+								}
 							}).
 							error(function(){
-								alert("Error al registrar Usuario! :'(");
+								alert("Error de user Usuario! :'(");
 							});	
 						}
 					}
