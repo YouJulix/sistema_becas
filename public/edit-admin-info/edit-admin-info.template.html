@@ -13,7 +13,7 @@
 	    </div>
 	    <div class="row col xl10"><br></div>
 		    <div id="infoPersonal" class="col xl12">
-		    	<form id="formPersonal" autocomplete="off">
+		    	<form id="formPersonal" autocomplete="off" ng-submit="$ctrl.avanzaEscolar()">
 		    		<div class="row">
 						<div class="col xl3">
 							<label>Matrícula:<span>*</span></label>
@@ -98,11 +98,11 @@
 						</div>
 					</div>
 					<button ng-disabled="$ctrl.isNewU" ng-click="$ctrl.cancel()" class="btn">Cancelar</button>
-		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Continuar</button>
+					<input class="btn" type="submit" value="Continuar">
 		    	</form>
 		    </div>
 		    <div id="infoEscolar" class="col xl12">
-		    	<form autocomplete="off">
+		    	<form autocomplete="off" ng-submit="$ctrl.avanzaDomicilio()">
 		    		<div class="row">
 		    			<div class="col xl3">
 							<label>Carrera:<span>*</span></label>
@@ -127,11 +127,11 @@
 						</div>
 		    		</div>
 		    		<button ng-click="$ctrl.regresaPersonal()" class="btn">Atras</button>
-		    		<button ng-click="$ctrl.avanzaDomicilio()" class="btn">Continuar</button>
+		    		<input class="btn" type="submit" value="Continuar">
 		    	</form>
 		    </div>
 		    <div id="infoDomicilio" class="col xl12">
-		    	<form autocomplete="off">
+		    	<form autocomplete="off" ng-submit="$ctrl.updateUser()">
 		    		<div class="row">
 							<div class="col xl12"><label>¿Su estancia en la Universidad, implica recidensia distinta a la familia?<span>*</span></label></div>
 							<div class="col xl2">
@@ -177,7 +177,7 @@
 						</div>
 		    		</div>
 		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Atras</button>
-		    		<button ng-click="$ctrl.updateUser()" class="btn">Crear cuenta</button>	
+		    		<input class="btn" type="submit" value="Actualizar Datos">
 		    	</form>
 		    </div>
   	</div>	
