@@ -79,6 +79,7 @@ angular.
 								self.grupos = ['1003-A','1003-B'];
 							}
 						}
+						self.grupo = "";
 					}
 
 					//Modificación Estado Civil
@@ -137,23 +138,79 @@ angular.
 								self.password2 = data[0].password2;
 								self.nombre = data[0].nombre;
 								self.apellido1 = data[0].apellido1;
-								self.apellido2 = data[0].apellido2;
-								self.carrera = data[0].carrera;
-								self.semestre = data[0].semestre;
-								self.grupo = data[0].grupo;
-								self.sexo = data[0].sexo;
-								//alert(data[0].sexo);
-								//self.idiomaExt = data[0].idiomaExt;
-								self.edoCivil = data[0].edoCivil;
-								//self.telefono = data[0].telefono;
-								self.recidencia = data[0].recidencia;
-								self.calle = data[0].calle;
-								self.numCalle = data[0].numCalle;
-								//self.colonia = data[0].colonia;
-								self.municipio = data[0].municipio;
-								self.estado = data[0].estado;
-								//self.nombreHuesped = data[0].nombreHuesped;
-								self.parentesco = data[0].parentesco;
+
+								if (data[0].apellido2=="undefined"){
+									self.apellido2 = "";
+								}else{
+									self.apellido2 = data[0].apellido2;
+								}
+
+								if (data[0].carrera=="undefined") {
+									self.carrera = "";
+								}else{
+									self.carrera = data[0].carrera;	
+								}
+								
+								if (data[0].semestre == "undefined") {
+									self.semestre = "";	
+								}else{
+									self.semestre = data[0].semestre;
+								}
+
+								if (data[0].grupo=="undefined") {
+									self.grupo = "";	
+								}else{
+									self.grupo = data[0].grupo;
+								}
+								
+								if (data[0].sexo=="undefined") {
+									self.sexo = "F";
+								}else{
+									self.sexo = data[0].sexo;
+								}
+								
+								if (data[0].edoCivil=="undefined") {
+									self.edoCivil = "";
+								}else{
+									self.edoCivil = data[0].edoCivil;
+								}
+								
+								if (data[0].recidencia=="undefined") {
+									self.recidencia = "No";
+								}else{
+									self.recidencia = data[0].recidencia;
+								}
+								
+								if (data[0].calle=="undefined") {
+									self.calle = "";
+								}else{
+									self.calle = data[0].calle;
+								}
+								
+								if (data[0].numCalle=="undefined") {
+									self.numCalle = "";
+								}else{
+									self.numCalle = data[0].numCalle;
+								}								
+								
+								if (data[0].municipio=="undefined") {
+									self.municipio = "";
+								}else{
+									self.municipio = data[0].municipio;
+								}	
+								
+								if (data[0].estado=="undefined") {
+									self.estado = "";
+								}else{
+									self.estado = data[0].estado;
+								}
+								
+								if (data[0].parentesco=="undefined") {
+									self.parentesco = "";
+								}else{
+									self.parentesco = data[0].parentesco;
+								}	
+
 								self.isNewU = data[0].isNewU;
 
 								//alert(self.isNewU);
@@ -229,22 +286,37 @@ angular.
 
 							}).
 							success(function(data){
-								alert("Actualización Realizada Exitosamente.! :)");
-								if (localStorage.getItem('isAdmin')) {
-									window.location="#!/admin_principal";
-								}else{
-									window.location="#!/solicitudes";
-								}
+								$('#actualizacionExitosa').modal('open');					
 							}).
 							error(function(){
 								alert("Error de user Usuario! :'(");
 							});	
 						}
 					}
+
+					self.closeEdicion = function(){
+						$('#actualizacionExitosa').modal('close');
+						if(localStorage.getItem('isAdmin')=="true"){
+							window.location = "/#!/admin_principal";
+						}else{
+							window.location = "/#!/solicitudes";
+						}	
+					}
+
 					self.cancel = function(){
 						//$('#formPersoal')[0].defualtPrevented();
-						alert("Actualización Cancelada! :'(");
-						window.location = "/#!/admin_principal";
+						//alert("Actualización Cancelada! :'(");
+						//$('#cancelarActualizacion').modal('open');
+						$('#cancelarActualizacion').modal('close');
+						if(localStorage.getItem('isAdmin')=="true"){
+							window.location = "/#!/admin_principal";
+						}else{
+							window.location = "/#!/solicitudes";
+						}	
+					}
+
+					self.modalCancel = function (){
+						$('#cancelarActualizacion').modal('open');
 					}
 
 					self.avanzaEscolar = function(){
@@ -272,10 +344,18 @@ angular.
 						}
 					}
 
+					self.closeApp =  function(){
+						localStorage.clear();
+						window.location = "/#!/login";
+					}
+
 					self.viewRecidencia();
 
-					self.renderUser(localStorage.getItem("alumno"));
-					//self.renderUser("0113010010");
+					if (localStorage.getItem("alumno")==null){
+						self.renderUser(localStorage.getItem("matricula"));
+					}else{
+						self.renderUser(localStorage.getItem("alumno"));
+					}
 				}
 			]
 		});

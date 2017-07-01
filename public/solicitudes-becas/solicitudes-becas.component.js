@@ -166,6 +166,7 @@ angular.
 									//self.nombreHuesped = data[0].nombreHuesped;
 									self.parentesco = data[0].parentesco;
 
+
 									self.renderFecha(data[0].fechaNac);
 
 									self.viewRecidencia();

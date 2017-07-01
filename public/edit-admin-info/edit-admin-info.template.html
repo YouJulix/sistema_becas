@@ -1,3 +1,23 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  	<li><a href="#!/solicitudes" >Regresar a Solicitudes</a></li>
+	<li class="divider"></li>
+	<li><a href="" ng-click="$ctrl.closeApp()" ><i class="material-icons">power_settings_new</i>Cerrar sesión</a></li>
+</ul>
+
+<nav class="nav-extended  blue darken-4">
+		<div class="nav-wrapper">
+	  		<a class="brand-logo">
+	  			<img id="logoCabecera" src="img/logo.png" />
+	  			Sistema de Becas NU
+	  		</a>
+	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
+	  			<li>{{$ctrl.nombre}}</li>
+				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
+	  		</ul>
+		</div>
+</nav>
+
 <div class="container">
 	<div>
 		<h4>Sistema de Asignación de Becas NU</h4>
@@ -11,9 +31,8 @@
 	        <li class="tab col s3"><a id="domicilio" href="#infoDomicilio">Información del Domicilio</a></li>
 	      </ul>
 	    </div>
-	    <div class="row col xl10"><br></div>
 		    <div id="infoPersonal" class="col xl12">
-		    	<form id="formPersonal" autocomplete="off">
+		    	<form id="formPersonal" autocomplete="off" ng-submit="$ctrl.avanzaEscolar()">
 		    		<div class="row">
 						<div class="col xl3">
 							<label>Matrícula:<span>*</span></label>
@@ -97,12 +116,12 @@
 							</select>
 						</div>
 					</div>
-					<button ng-disabled="$ctrl.isNewU" ng-click="$ctrl.cancel()" class="btn">Cancelar</button>
-		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Continuar</button>
+					<button ng-disabled="$ctrl.isNewU" ng-click="$ctrl.modalCancel()" class="btn">Cancelar</button>
+					<input class="btn" type="submit" value="Continuar">
 		    	</form>
 		    </div>
 		    <div id="infoEscolar" class="col xl12">
-		    	<form autocomplete="off">
+		    	<form autocomplete="off" ng-submit="$ctrl.avanzaDomicilio()">
 		    		<div class="row">
 		    			<div class="col xl3">
 							<label>Carrera:<span>*</span></label>
@@ -127,11 +146,11 @@
 						</div>
 		    		</div>
 		    		<button ng-click="$ctrl.regresaPersonal()" class="btn">Atras</button>
-		    		<button ng-click="$ctrl.avanzaDomicilio()" class="btn">Continuar</button>
+		    		<input class="btn" type="submit" value="Continuar">
 		    	</form>
 		    </div>
 		    <div id="infoDomicilio" class="col xl12">
-		    	<form autocomplete="off">
+		    	<form autocomplete="off" ng-submit="$ctrl.updateUser()">
 		    		<div class="row">
 							<div class="col xl12"><label>¿Su estancia en la Universidad, implica recidensia distinta a la familia?<span>*</span></label></div>
 							<div class="col xl2">
@@ -177,10 +196,46 @@
 						</div>
 		    		</div>
 		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Atras</button>
-		    		<button ng-click="$ctrl.updateUser()" class="btn">Crear cuenta</button>	
+		    		<input class="btn" type="submit" value="Actualizar Datos">
 		    	</form>
 		    </div>
   	</div>	
 </div>
+
+<!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
+	  <div id="cancelarActualizacion" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align"> Actualización Cancelada </h4>
+	      	</div>
+	    </div>
+	    <div class="modal-footer">
+	    	<!--<a class="modal-action modal-close waves-effect waves-green btn-flat teal lighten-2">Cancelar</a>-->
+	    	<a class='waves-effect waves-light btn modal-close'>Cancelar</a>
+	    	<button class='waves-effect waves-light btn' ng-click="$ctrl.cancel()">Aceptar</button>
+
+	    <!--  <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+	      <a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel()">Aceptar</a>-->
+	    </div>
+	  </div>
+
+<!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
+	  <div id="actualizacionExitosa" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align"> Actualización Realizada Exitosamente </h4>
+	      	</div>
+	    </div>
+	    <div class="modal-footer">
+	    	<!--<a class="modal-action modal-close waves-effect waves-green btn-flat teal lighten-2">Cancelar</a>-->
+	    	<button class='waves-effect waves-light btn' ng-click="$ctrl.closeEdicion()">Aceptar</button>
+
+	    <!--  <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+	      <a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel()">Aceptar</a>-->
+	    </div>
+	  </div>
+
 <!--Script aux materialize-->
 <script type="text/javascript" src="js/query.js"></script>		
