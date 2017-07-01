@@ -1,13 +1,14 @@
 <barra-principal></barra-principal>
 <div class="container">
-		<div class="row">
-			<div class="col xl12">
-				<h4>Personas de quien depende económicamente</h4>	
+
+		<div class="row col xl12 offset-xl12 card">
+			<div class="row">
+				<div class="col xl12">
+					<h5 class="center-align">Personas de quien depende económicamente</h5>	
+				</div>
 			</div>
-		</div>
-		<div class="row col xl5 offset-xl3 " >
 			<!-- <form action="l.php" method="post"> -->
-			<form class="col xl6 offset-xl1" ng-submit="$ctrl.saveSection()">
+			<form class="col xl5 offset-xl3" ng-submit="$ctrl.saveSection()">
 				Grado de escolaridad:<br>
 				<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
 					<option value=""> --- Selecciona una opción --- </option>
