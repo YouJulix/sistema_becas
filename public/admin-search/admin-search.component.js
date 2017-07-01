@@ -125,8 +125,9 @@ angular.
 							});
 						}
 					};
-					$scope.editinfo = function(){
-						localStorage.setItem("alumno",self.matricula);
+					$scope.editinfo = function(idmat){
+						//alert(idmat);
+						localStorage.setItem("alumno",idmat);
 						window.location = "/#!/edit-user";
 					}		
 				}

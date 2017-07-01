@@ -122,7 +122,7 @@ angular.
 
 
 					self.imprimirDatos = function(){
-						localStorage.setItem('alumno',$scope.matricula);
+						//	localStorage.setItem('alumno',$scope.matricula);
 						$http({
 							method: 'GET',
 							url: 'http://localhost:8000/api/v1.0/users/' + $scope.matricula
@@ -189,6 +189,8 @@ angular.
 									}else{
 										self.nombreHuesped = data[0].nombreHuesped;
 									}
+
+									self.isNewU = data[0].isNewU;
 									
 								}
 							}else{
@@ -216,11 +218,14 @@ angular.
 
 					$scope.remove = function(idm){	
 
+<<<<<<< HEAD
+=======
 						$('#eliminarSolicitud').modal('open');
 
 						self.EliminarSolicitud = idm;
 
 						/*
+>>>>>>> 42dc354a6843a50d865699269a14829b5426e350
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
 
@@ -232,10 +237,10 @@ angular.
 				              	location.reload();
 				              	//location.reload();
 				            });
-						}*/
+						}
 
-					};
-
+<<<<<<< HEAD
+=======
 					self.eliminarSol = function(){
 							$http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + self.EliminarSolicitud).success(function() {
 				              	//self.imprimir();
@@ -245,8 +250,8 @@ angular.
 				              	location.reload();
 				              	//location.reload();
 				            });
+>>>>>>> 42dc354a6843a50d865699269a14829b5426e350
 					};
-
 
 
 					$scope.modificar = function(id){
