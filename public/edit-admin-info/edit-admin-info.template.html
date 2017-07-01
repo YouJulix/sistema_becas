@@ -32,7 +32,7 @@
 	      </ul>
 	    </div>
 		    <div id="infoPersonal" class="col xl12">
-		    	<form id="formPersonal" autocomplete="off" ng-submit="$ctrl.avanzaEscolar()">
+		    	<form id="formPersonal" autocomplete="off" ng-submit="$ctrl.avanzaEscolar()" >
 		    		<div class="row">
 						<div class="col xl3">
 							<label>Matrícula:<span>*</span></label>
@@ -40,11 +40,11 @@
 						</div>
 						<div class="col xl3">
 							<label>Contraseña:<span>*</span></label>
-							<input type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="" class="validate" autocomplete="off">
+							<input ng-change="$ctrl.valuePassword()" type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="" class="validate" autocomplete="off">
 						</div>
 						<div class="col xl3">
 							<label>Repetir Contraseña:<span>*</span></label>
-							<input type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="" class="validate" autocomplete="off">
+							<input id="password2" ng-change="$ctrl.valuePassword()" type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="" class="validate" autocomplete="off">
 						</div>
 					</div>
 					<div class="row">
@@ -62,7 +62,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col xl3">
+						<div class="col xl4">
 							<label>Fecha de Nacimiento:<span>*</span></label>
 							<div class="row">
 							<div class="col xl3">
@@ -116,8 +116,10 @@
 							</select>
 						</div>
 					</div>
-					<button ng-disabled="$ctrl.isNewU" ng-click="$ctrl.modalCancel()" class="btn">Cancelar</button>
-					<input class="btn" type="submit" value="Continuar">
+					<div class="row">
+						<div class="col xl1"><input type="button" ng-disabled="$ctrl.isNewU" ng-click="$ctrl.modalCancel()" class="btn orange" value="Cancelar"></div>
+						<div class="col xl1 offset-xl5"><input class="btn orange" type="submit" value="Continuar"></div>
+					</div>
 		    	</form>
 		    </div>
 		    <div id="infoEscolar" class="col xl12">
@@ -145,8 +147,10 @@
 							</select>
 						</div>
 		    		</div>
-		    		<button ng-click="$ctrl.regresaPersonal()" class="btn">Atras</button>
-		    		<input class="btn" type="submit" value="Continuar">
+		    		<div class="row">
+		    			<div class="col xl1"><button ng-click="$ctrl.regresaPersonal()" class="btn orange">Atras</button></div>
+		    			<div class="col xl1 offset-xl5"><input class="btn orange" type="submit" value="Continuar"></div>
+		    		</div>
 		    	</form>
 		    </div>
 		    <div id="infoDomicilio" class="col xl12">
@@ -195,14 +199,15 @@
 							</select>
 						</div>
 		    		</div>
-		    		<button ng-click="$ctrl.avanzaEscolar()" class="btn">Atras</button>
-		    		<input class="btn" type="submit" value="Actualizar Datos">
+		    		<div class="row">
+		    			<div class="col xl1"><button ng-click="$ctrl.avanzaEscolar()" class="btn orange">Atras</button></div>
+		    			<div class="col xl1 offset-xl5"><input class="btn orange" type="submit" value="Actualizar Datos"></div>
+		    		</div>
 		    	</form>
 		    </div>
   	</div>	
 </div>
 
-<!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
 	  <div id="cancelarActualizacion" class="modal">
 	    <div class="modal-content">
 	    	<div class="row">
@@ -211,16 +216,12 @@
 	      	</div>
 	    </div>
 	    <div class="modal-footer">
-	    	<!--<a class="modal-action modal-close waves-effect waves-green btn-flat teal lighten-2">Cancelar</a>-->
-	    	<a class='waves-effect waves-light btn modal-close'>Cancelar</a>
-	    	<button class='waves-effect waves-light btn' ng-click="$ctrl.cancel()">Aceptar</button>
-
-	    <!--  <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-	      <a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel()">Aceptar</a>-->
+	    	<a class='waves-effect waves-light btn modal-close orange'>Cancelar</a>
+	    	<button class='waves-effect waves-light btn orange' ng-click="$ctrl.cancel()">Aceptar</button>
 	    </div>
 	  </div>
 
-<!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
+
 	  <div id="actualizacionExitosa" class="modal">
 	    <div class="modal-content">
 	    	<div class="row">
@@ -229,11 +230,19 @@
 	      	</div>
 	    </div>
 	    <div class="modal-footer">
-	    	<!--<a class="modal-action modal-close waves-effect waves-green btn-flat teal lighten-2">Cancelar</a>-->
-	    	<button class='waves-effect waves-light btn' ng-click="$ctrl.closeEdicion()">Aceptar</button>
+	    	<button class='waves-effect waves-light btn orange' ng-click="$ctrl.closeEdicion()">Aceptar</button>
+	    </div>
+	  </div>
 
-	    <!--  <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-	      <a class="waves-effect waves-light btn" ng-click=" $ctrl.cancel()">Aceptar</a>-->
+	  <div id="passwordInvalid" class="modal">
+	    <div class="modal-content">
+	    	<div class="row">
+		    	<hr />
+		      	<h4 class="center-align"> Las contraseñas no coinciden </h4>
+	      	</div>
+	    </div>
+	    <div class="modal-footer">
+	    	<button ng-click="$ctrl.closeModal()" class='waves-effect waves-light btn orange'>Aceptar</button>
 	    </div>
 	  </div>
 

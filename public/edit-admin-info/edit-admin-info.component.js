@@ -157,6 +157,7 @@ angular.
 									self.semestre = data[0].semestre;
 								}
 
+								self.valueGrupo();
 								if (data[0].grupo=="undefined") {
 									self.grupo = "";	
 								}else{
@@ -217,7 +218,6 @@ angular.
 
 								self.renderFecha(data[0].fechaNac);
 								self.valueFecha();
-								self.valueGrupo();
 								self.viewRecidencia();
 
 								if(data[0].telefono == 'undefined'){
@@ -315,15 +315,29 @@ angular.
 						}	
 					}
 
+					self.valuePassword = function(){
+						if (self.password == self.password2) {
+
+						}else{
+							$('#password2').addClass('invalid');
+						}	
+					}
+
 					self.modalCancel = function (){
 						$('#cancelarActualizacion').modal('open');
 					}
 
 					self.avanzaEscolar = function(){
-						//alert($('#escolares'));
-						//console.log($('#escolares'));
-						//$('form').defualtPrevented();
-						$('#escolar').click();
+						if (self.password == self.password2) {
+							$('#escolar').click();
+						}else{
+							$('#passwordInvalid').modal('open');
+						}	
+					}
+
+					self.closeModal = function(){
+						$('#passwordInvalid').modal('close');
+						$('#password2').focus();
 					}
 
 					self.avanzaDomicilio = function(){
