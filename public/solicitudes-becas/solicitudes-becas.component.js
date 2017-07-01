@@ -21,6 +21,8 @@ angular.
 					
 					//localStorage.setItem("matricula","12345");
 
+					self.EliminarSolicitud = "";//////////////////////////////////////////////////////////////
+
 					self.password_Actual = "";
 					self.password_Nueva = "";
 					self.password_Repetir = "";
@@ -216,11 +218,8 @@ angular.
 
 						$('#eliminarSolicitud').modal('open');
 
+						self.EliminarSolicitud = idm;
 
-							//$("#concatenar").empty();
-          				$("#concatenar").append("<a class='waves-effect waves-light btn' ng-click='$ctrl.eliminarSol()'>Aceptar</a>");
-          				//document.getElementById("concatenar").innerHTML = "<a class='waves-effect waves-light btn' ng-click='$ctrl.eliminarSo()'>Aceptar</a>";
-						
 						/*
 						confirmar=confirm("Esta seguro que desea eliminar"); 
 						if(confirmar){  
@@ -238,7 +237,14 @@ angular.
 					};
 
 					self.eliminarSol = function(){
-						alert("vnjjfnv");
+							$http['delete']('http://localhost:8000/api/v1.0/solicitudes/id/' + self.EliminarSolicitud).success(function() {
+				              	//self.imprimir();
+					        	//location.reload();
+					        	window.location = "/#!/solicitudes";
+				              	//console.log("ya");
+				              	location.reload();
+				              	//location.reload();
+				            });
 					};
 
 
