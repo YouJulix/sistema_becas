@@ -27,7 +27,7 @@
 						}
 					}).success(function(data){
 						//alert(self.data.escolaridad);
-						window.location = "#!/ingreso_mensual";
+						window.location = "#!/beca/ingreso_mensual";
 					}).error(function(){
 						alert("Error al guardar información");
 					});
@@ -57,7 +57,7 @@
 				self.searchSaved();
 
 				self.regresar = function(){
-					window.location = "#!/informacion_hogar";	
+					window.location = "#!/beca/informacion_hogar";	
 				};
 				$(document).ready(function(){
 					//$('select').material_select();

@@ -5,7 +5,7 @@ angular.
 			controller: ['$http', '$routeParams',
 				function ComponentBarraPrincipal($http,$routeParams){
 					var self = this;
-					console.log($routeParams);
+					self.nombre = localStorage.getItem("nombre") + " " + localStorage.getItem("apellido1");
 					switch($routeParams.section){
 						case "gastos_alumno":
 							self.alumno = "active";

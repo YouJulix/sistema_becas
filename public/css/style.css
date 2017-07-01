@@ -1,11 +1,18 @@
 /*Estilo para el formulario principal de login*/
-#loginBecasForm{
-	text-align: center;
-}
 img#logoCabecera{
 	float:left;
 	width: 50px;
 	height: 60px;
+}
+img#logoLogin{
+	margin-top:20px;
+	width: 80px;
+	height: 90px;
+}
+.login-form-text{
+	text-transform:uppercase;
+	letter-spacing:2px;
+	font-size:0.8rem
 }
 /**/
 
@@ -25,4 +32,18 @@ img#logoCabecera{
 	float: right;
 }
 
+ul.tabs li.tab a{
+	color: #37474f;
+}
 
+ul.tabs li.tab a.active{
+	color: #37474f;
+}
+
+ul.tabs li.tab a:hover{
+	color: #e0e0e0;
+}
+	
+ul.tabs>li.indicator{
+	background-color: #37474f;
+}

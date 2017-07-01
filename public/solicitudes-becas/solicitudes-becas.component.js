@@ -27,7 +27,6 @@ angular.
 
 					self.validar = function(){
 						$scope.matricula = localStorage.getItem("matricula");
-
 						if($scope.matricula == null){
 							window.location = "/#!/login";
 						}
@@ -136,7 +135,10 @@ angular.
 
 									$scope.dato = data;
 
-									
+									if(!(data[0].isNewU)){
+										localStorage.setItem('alumno',$scope.matricula);
+										window.location = "/#!/edit-user";	
+									}
 							
 								
 									self.matricula = data[0].matricula;
@@ -285,8 +287,6 @@ angular.
 
 
 					$scope.cerrarSesion = function() {
-
-				  
 				        localStorage.clear();
 				        window.location = "/#!/login";
 				    };

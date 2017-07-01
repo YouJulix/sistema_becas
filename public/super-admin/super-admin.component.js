@@ -38,7 +38,9 @@ angular.
 						apellido2: self.apellido2,
 						password: self.password,
 						password2: self.password,
-						isAdmin	: self.isEval
+						isAdmin	: self.isEval,
+						isNew : true
+
 					}
 					console.log(self.data);
 					$http({

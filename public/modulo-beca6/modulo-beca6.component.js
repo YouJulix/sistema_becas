@@ -290,7 +290,7 @@ angular.
 				    }
 
 				    $scope.regresar = function() {
-				    	window.location = "/#!/ingreso_mensual";
+				    	window.location = "/#!/beca/ingreso_mensual";
 				    }
 				}
 			]

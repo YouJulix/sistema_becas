@@ -27,7 +27,7 @@ angular.
 								return '<modulo-beca2></modulo-beca2>';
 							 	break;
 							case "cartaProtesta":
-								return '<gastos-alumno></gastos-alumno>';
+								return '<modulo-beca6></modulo-beca6>';
 							 	break;
 						} 
 					}
