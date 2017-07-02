@@ -7,19 +7,19 @@
 
 <nav class="nav-extended  blue darken-4">
 		<div class="nav-wrapper">
-	  		<a class="brand-logo">
+	  		<a class="brand-logo" style="margin-left: 30px;">
 	  			<img id="logoCabecera" src="img/logo.png" />
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
-	  			<li>{{$ctrl.nombre}}</li>
+	  			<li><b>{{$ctrl.nombre}} {{$ctrl.apellido1}}</b></li>
 				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
 	  		</ul>
 		</div>
 </nav>
 
 <div class="container">
-	<h4>Editar Información Personal</h4>
+	<h5 class="orange-text"><i class="material-icons left">edit</i>Editar Información Personal</h5>
 	<div class="row">
 	    <div class="col xl12 l12 m12">
 	      <ul class="tabs black-text">
@@ -28,7 +28,8 @@
 	        <li class="tab col xl3 l3 m3 s3"><a id="domicilio" href="#infoDomicilio">Información del Domicilio</a></li>
 	      </ul>
 	    </div>
-		    <div id="infoPersonal" class="col xl12 l12 m12">
+
+		    <div id="infoPersonal" class="col xl12 l12 m12"><br><br>
 		    	<form id="formPersonal" autocomplete="off" ng-submit="$ctrl.avanzaEscolar()" >
 		    		<div class="row">
 						<div class="col xl3 l3 m3">
@@ -119,7 +120,7 @@
 					</div>
 		    	</form>
 		    </div>
-		    <div id="infoEscolar" class="col xl12 l12 m12">
+		    <div id="infoEscolar" class="col xl12 l12 m12"><br /><br />
 		    	<form autocomplete="off" ng-submit="$ctrl.avanzaDomicilio()">
 		    		<div class="row">
 		    			<div class="col xl3 l3 m3">
@@ -150,7 +151,7 @@
 		    		</div>
 		    	</form>
 		    </div>
-		    <div id="infoDomicilio" class="col xl12 l12 m12">
+		    <div id="infoDomicilio" class="col xl12 l12 m12"><br /><br />
 		    	<form autocomplete="off" ng-submit="$ctrl.updateUser()">
 		    		<div class="row">
 							<div class="col xl12 l12 m12"><label>¿Su estancia en la Universidad, implica recidensia distinta a la familia?<span>*</span></label></div>

@@ -10,12 +10,12 @@
 <div class="navbar-fixed">
 	<nav class="nav-extended  blue darken-4">
 		<div class="nav-wrapper">
-	  		<a href="#" class="brand-logo">
+	  		<a href="#" class="brand-logo thin" id="logoSB">
 	  			<img id="logoCabecera" src="img/logo.png" />
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
-	  			<li>{{$ctrl.nombre}}</li>
+	  			<li><b>{{$ctrl.nombre}} {{$ctrl.apellido1}}</b></li>
 				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
 	  		</ul>
 		</div>
@@ -23,197 +23,95 @@
 </div>
 	
 <div class="container">
-	<div class="row card">
-
-		<div class="row">
-			<div class="col xl4 l4 m4 offset-xl1 offset-l1 offset-m1">
-				<b><h4 class="orange-text"><i class="medium material-icons">store</i> Solicitudes</h4></b>
+	<div class="row ">
+		<div class="col xl12 l12 m12 card">
+		<div class="row" style="margin-bottom: 0px;">
+			<div class="col xl4 l4 m4 offset-xl0 offset-l1 offset-m1" >
+				<blockquote>
+					<b><h4 class="orange-text valign-wrapper"><i class=" material-icons left" style="font-size: 50px;">description</i> Solicitudes</h4></b>
+				</blockquote>
 			</div>
-
-			<div class="col xl4 l4 m4 offset-xl3 offset-l3 offset-m3">
-				<br />
-				<br />
-				<input class="waves-effect waves-light btn-large  orange" id="ocultar" ng-click="agregar()" type="button" value="Nueva Solicitud">
-			</div>
-			<!--<div class="col xl2 l3 m4 offset-xl8 offset-l8 offset-m8">
-				<a href="" ng-click="cerrarSesion()">Cerrar Sesion</a>
-			</div>-->
-			<div class="col xl10 l10 m10 offset-xl1 offset-l1 offset-m1">
-			<hr/>	
-			</div>
-		
 		</div>
-
 		<div class="row">
-			<div class="col xl10 l10 m10 offset-xl1 offset-l1 offset-m1">
-				<div class="col xl4 l4 m4">
-					<b>Matricula: {{dato[0].matricula}}</b><br/>
-					<b>Nombre: {{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}</b>
-				</div>
-				<div class="col xl3 l3 m3">
-					<b>Carrera: <br/>{{dato[0].carrera}}</b><br />
-					<b>Semestre: {{dato[0].semestre}}</b>
-				</div>
-				<div class="col xl5 l5 m5">
-					<b><h5 class="center-align">Porcentaje de beca actual: {{ becaAsignada }}%</h5></b>
+			<div class="col xl4 l4 m4 offset-xl8 offset-l8 offset-m8">
+				<a class="waves-effect waves-light btn orange {{ocultar}}" id="ocultar" ng-click="agregar()"><i class="material-icons left">add</i>Nueva Solicitud</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col xl10 offset-xl1">
+				<span class="Xcard-title"><i class="material-icons left">account_circle</i>Datos generales</span>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col xl10 l10 m10 offset-xl1 offset-l1 offset-m1 card">
+				<div class="row">
+					<br>
+					<div class="col xl4 l4 m4">
+						<b>Matricula:</b> {{dato[0].matricula}}<br/>
+						<b>Nombre: </b>{{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}
+					</div>
+					<div class="col xl3 l3 m3">
+						<b>Carrera: </b><br/>{{dato[0].carrera}}<br />
+						<b>Semestre: </b>{{dato[0].semestre}}
+					</div>
+					<div class="col xl5 l5 m5">
+						<b><p class="center-align">{{'Porcentaje de beca actual:'}} {{ becaAsignada }}%</p></b>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!--<button ng-click="$ctrl.ver = !$ctrl.ver" >Modificar Datos Personales</button>-->
 		<!--<input type="button" class="btn btn-default" value="Modificar Datos Personales" ng-click="$ctrl.ver = !$ctrl.ver">-->
-		
-<!--
-			<form ng-submit="$ctrl.updateUser()">
-			<div ng-show="$ctrl.ver">
-			<div class="row">
-					<div class="col xl3 l4 m5">
-							<input id="unos" ng-click="$ctrl.limpiarCampos()" type="checkbox" ng-model="$ctrl.cambiar_contrasenia">
-							<label for="unos">Cambiar Contraseña</label>
-					</div>
-					<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
-						<label>Contraseña Actual:<span>*</span></label>
-						<input type="password" ng-model="$ctrl.password_Actual" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="Contraseña">
-					</div>
-					<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
-						<label>Contraseña Nueva:<span>*</span></label>
-						<input type="password" ng-model="$ctrl.password_Nueva" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
-					</div>
-					<div ng-show="$ctrl.verCampo" class="col xl3 l4 m5">
-						<label>Repetir Contraseña Nueva:<span>*</span></label>
-						<input type="password" ng-model="$ctrl.password_Repetir" pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="Contraseña">
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col xl3 l4 m5">
-						<label>Idioma, Lenguaje o Dialecto a parte del español:</label>
-						<select class="browser-default" ng-model="$ctrl.idiomaExt">
-							<option ng-repeat="leng in $ctrl.lenguas">{{leng}}</option>
-						</select>
-					</div>
-					<div class="col xl3 l4 m5">
-						<label>Estado Civil:<span>*</span></label>
-						<select class="browser-default" ng-model="$ctrl.edoCivil" required>
-							<option value="" disabled>Seleccione una Opción</option>
-							<option ng-repeat="ec in $ctrl.estadosCivil">{{ec}}</option>
-						</select>
-					</div>
-					<div class="col xl3 l4 m5">
-						<label>Telefono Celular (lada):</label>
-						<input type="text" ng-model="$ctrl.telefono" pattern="^[0-9\\\s]{10,20}$" title="Verifique que el formato sean solo número"  placeholder="000 000 00 00">
-					</div>
-					<div class="col xl3 l4 m5">
-						<label>¿Su estancia en la Universidad, implica recidencia distinta a la familia?<span>*</span></label>
-						<input id="No" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="No"><label for="No">No</label>
-						<label><input id="Si" type="radio" ng-click="$ctrl.viewRecidencia()" ng-model="$ctrl.recidencia" value="Si"><label for="Si">Si</label>
-					</div>
-				</div>
-				<br>
-				<div><label>Domicilio donde vivirá mientras estudias:</label></div>
-				<div class="row">				
-					<div class="col xl3 l4 m5">
-						<label>Nombre Calle:<span>*</span></label>
-						<input type="text" placeholder="Calle" ng-model="$ctrl.calle" required pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
-					</div>
-					<div class="col xl3 l4 m5">
-						<label>Número de Calle:<span>*</span></label>
-						<input type="text" placeholder="No." ng-model="$ctrl.numCalle" required pattern="^[0-9]{0,3}|(s/n)|(S/N)$" title="Verifique que no contenga caracteres especiales, solo números o (s/n)">
-					</div>
-					<div class="col xl3 l4 m5">
-						<label>Colonia o Barrio:<span></span></label>
-						<input type="text" placeholder="Colonia o Barrio" ng-model="$ctrl.colonia" pattern="([0-9]{0,3}?[a-zA-Z\\\sáéíóú.]{0,40})|([a-zA-Z\\\sáéíóú.]{0,40}?[0-9]{0,3})" title="Verifique que no contenga caracteres especiales o solo números">
-					</div>
-					<div class="col xl3 l4 m5">
-						<label>Municipio:<span>*</span></label>
-						<input type="text" placeholder="Municipio" ng-model="$ctrl.municipio" required pattern="^[a-zA-Z\\\sáéíóú.]{0,45}$" title="Verifique que no contenga caracteres especiales ni números, solo letras">
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col xl3 l4 m5">
-						<label>Estado : <span>*</span></label>
-						<br>
-						<select class="browser-default" ng-model="$ctrl.estado1" required>
-							<option ng-repeat="e in $ctrl.estados">{{e}}</option>
-						</select>
-					</div>
-					<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
-						<label>Nombre, Dueño de la Casa:</label>
-						<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[a-zA-Z\\\sáéíóú]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras">
-					</div>
-					<div class="col xl3 l4 m5" ng-style="$ctrl.viewRecid">
-						<label>Parentesco</label>
-						<select class="browser-default" ng-model="$ctrl.parentesco">
-							<option value="" disabled>Seleccione una Opción</option>
-							<option ng-repeat="p in $ctrl.parentescos">{{p}}</option>
-						</select>
-					</div>
-				</div>
-				<br>
-
-				<div class="row">
-					<div class="col xl2 l3 m4 offset-xl6 offset-l6 offset-m6"><input type="submit" class="btn btn-default" value="Actualizar"></div>
-					<div class="col xl2 l3 m4"><input type="button" class="btn btn-default" value="Cancelar" ng-click=" $ctrl.cancel()"></div>
-				</div>
-				<hr/>
-
-				</div>
-
-			</form>	
-		-->
-
-		<div class="row">
+		<div class="row" ng-show="existPendientes">
 			
 			<div class="col xl10 l10 m10 offset-xl1 offset-l1 offset-m1">
-				<h5 class="center-align grey lighten-4">Solicitud en Proceso</h5>
-				<table class="striped">
+				<h5 class="center-align orange-text"><i class="material-icons left">pause</i>Solicitud en Proceso</h5>
+				<table class="bordered centered">
 					<thead>
-						<tr class="grey lighten-4">
-							<td>Matricula</td>
-							<td>Fecha de envio</td>
-							<td>Estado</td>
-							<td>Continuar</td>
-							<td>Borrar</td>
+						<tr >
+							<th>ID de Solicitud</th>
+							<th>Fecha de Creación</th>
+							<th>Estado</th>
+							<th>Continuar</th>
+							<th>Borrar</th>
 						</tr>
 					</thead>
 
-					<tbody class="white" ng-repeat="u in pendientes">
-						<td>{{u.matricula}}</td>
+					<tbody ng-repeat="u in pendientes">
+						<td>{{u._id}}</td>
 						<td>{{u.fecha_envio}}</td>
 						<td>{{u.estado}}</td>
 						<td> <button class="btn orange" ng-click="modificar(u._id)">Continuar</button></td>
 						<td><button class="btn orange" ng-click="remove(u._id)">Borrar</button></td>
 					</tbody>
 				</table>
+				<br>	
 			</div>
-			
 		</div>
 		
-		
+				
 
 		<div class="row">
 
 			<div class="col xl10 l10 m10 offset-xl1 offset-l1 offset-m1">
-					
-					
-						<h5 class="center-align grey lighten-4">Historial de Solicitudes</h5>
+						<h5 class="center-align orange-text"><i class="material-icons left">history</i>Historial de Solicitudes</h5>
 					
 				
-				<table class="striped">
+				<table class="bordered centered">
 					<thead>
-						<tr class="grey lighten-4">
-							<td>Matricula</td>
-							<td>Fecha de envio</td>
-							<td>% de beca asignada</td>
-							<td>Estado</td>
+						<tr>
+							<th>ID de Solicitud</th>
+							<th>Fecha de envio</th>
+							<th>% de beca asignada</th>
+							<th>Estado</th>
 							<!-- <td>% de beca final asignada</td> -->
 						</tr>
 					</thead>
 
 
-				<tbody class="white" ng-repeat="u in terminados">
-					<td>{{u.matricula}}</td>
+				<tbody ng-repeat="u in terminados">
+					<td>{{u._id}}</td>
 					<td>{{u.fecha_envio}}</td>
 					<!-- <td>{{u.porcentaje_sugerido}}</td> -->
 					<td>{{u.porcentaje_final}}</td>
@@ -227,7 +125,7 @@
 
 		<!-- Seccion de modal ####################################  -->
 
-
+	</div>
 	  <!--Modal para mostrar mensaje Contraseña Incorrecta Vuelva a Intentarlo-->
 	  <div id="eliminarSolicitud" class="modal">
 	    <div class="modal-content">

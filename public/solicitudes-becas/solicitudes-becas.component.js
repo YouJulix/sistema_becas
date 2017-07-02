@@ -9,6 +9,8 @@ angular.
 					$scope.datos = {}; //declarar arreglo de arreglos
 
 					$scope.pendientes = [];
+					$scope.existPendientes = false;
+					$scope.ocultar = "";
 					$scope.terminados = [];
 
 					$scope.becaAsignada = 0;
@@ -66,7 +68,8 @@ angular.
 
 											if(solicitudes.estado == 'pendiente'){
 												$scope.pendientes.push(solicitudes);
-												document.getElementById("ocultar").disabled = true;
+												//document.getElementById("ocultar").disabled = true;
+												$scope.ocultar = "disabled";
 											}
 
 											
@@ -77,6 +80,9 @@ angular.
 											
 										});
 
+										if($scope.pendientes.length>0){
+											$scope.existPendientes = true;
+										}
 
 			
 

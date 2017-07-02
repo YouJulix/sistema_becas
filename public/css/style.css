@@ -13,6 +13,9 @@ img#logoLogin{
 	width: 80px;
 	height: 90px;
 }
+#logoSB{
+	margin-left: 50px;
+}
 .login-form-text{
 	text-transform:uppercase;
 	letter-spacing:2px;
@@ -48,6 +51,10 @@ img#logoLogin{
 ul#menuSolicitud li{
 	padding: 15px;
 }
+ul#menuSolicitud a:first-of-type{
+	margin-left:50px;
+}
+
 /*Estilo para el menu*/
 #menu ul li{
 	list-style:none;

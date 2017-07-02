@@ -47,7 +47,7 @@ angular.
 						self.carta = false;				                        //	
 					}else{	
 						self.terminar = "Continuar";							//
-						self.solicitudToMenu = "Regresar a solicitudes";		//
+						self.solicitudToMenu = "Continuar más tarde";		//
 						self.carta = true;
 					}															//
 					//==========================================================//

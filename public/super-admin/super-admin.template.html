@@ -30,86 +30,73 @@
 			</div>
 			<div class="row">
 				<div class="col xl10 l10 m10">
-					<div>
-						<h5 class="Xcard-title orange-text"><i class="material-icons left">group</i>Lista de Usuarios</h5>
-					</div>
+					<h5 class="Xcard-title orange-text"><i class="material-icons left">group</i>Lista de Usuarios</h5>
 				</div>				
-				<div class="col xl2 l2 m2">
-					<a class=" btn-floating waves-effect waves-light red" ng-click="$ctrl.close()"><i class="material-icons left">power_settings_new</i></a>
+			</div>
+			<div class="row">
+				<div class="col xl12 l12 m12">
+					<ul  class="collapsible popout" data-collapsible="accordion">
+						<li ng-repeat="user in $ctrl.users | filter:$ctrl.searchText" ng-if="user.matricula != 'adminSuper'">
+							<div class="collapsible-header" ng-click="$ctrl.edit = true">
+								<i class="material-icons">visibility</i>
+								{{user.nombre}} {{user.apellido1}} ({{user.matricula}})
+							</div>
+							<div class="collapsible-body">
+								<div class="section">
+									<form ng-submit="$ctrl.updateUser(user)">
+									<table class="responsive-table">
+										<thead>
+											<th>Username</th>
+											<th>Nombre</th>
+											<th>Apellido1</th>
+											<th>Apellido2</th>
+											<th>Rol</th>
+											<th>password</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													{{user.matricula}}
+												</td>
+												<td>
+													<input ng-model="user.nombre" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+												</td>
+												<td>
+													<input ng-model="user.apellido1" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+												</td>
+												<td>
+													 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+												</td>
+												<td ng-if="user.isAdmin == true">
+														Evaluador
+												</td>
+												<td ng-if="user.isAdmin != true">
+														Estudiante
+												</td>
+												<td>
+													<input type="password" ng-model="user.password" ng-disabled="$ctrl.edit" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30"/>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row" ng-hide="$ctrl.edit" >
+										<div class="col xl12 l12 m12">
+											<button class="btn waves-effect waves-light orange"><i class="material-icons left" type="submit">save</i>Guardar cambios</button>
+											<a class="btn waves-effect waves-light orange" ng-click="$ctrl.refreshPage()"><i class="material-icons left" >cancel</i>Cancelar cambios</a>
+										</div>
+									</div>
+									</form>
+								</div>
+								<div class="section">
+									<a ng-click="$ctrl.edit=!$ctrl.edit" class="btn-floating waves-effect waves-light"><i class="material-icons left">edit</i> </a>
+									<button  ng-click="$ctrl.deleteUser(user.matricula)" class="btn-floating waves-effect waves-light"><i class="material-icons left red">delete</i> </button>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col xl4 l4 m4">
-			<a id="adduser" class=" btn-floating waves-effect waves-light" data-target="addusermodal"><i class="material-icons left">add</i></a>
-		</div>
-		<div class="input-field col xl4 l4 m4">
-			 <i class="material-icons prefix">search</i>
-          	<input ng-model="$ctrl.searchText" id="icon_prefix" type="text" class="validate">
-          	<label for="icon_prefix">Buscar...</label>	
-		</div>
-	</div>
-	<div class="row">
-		<ul  class="collapsible popout" data-collapsible="accordion">
-			<li ng-repeat="user in $ctrl.users | filter:$ctrl.searchText" ng-if="user.matricula != 'adminSuper'">
-				<div class="collapsible-header" ng-click="$ctrl.edit = true">
-					<i class="material-icons">visibility</i>
-					{{user.nombre}} {{user.apellido1}} ({{user.matricula}})
-				</div>
-				<div class="collapsible-body">
-					<div class="section">
-						<form ng-submit="$ctrl.updateUser(user)">
-						<table class="responsive-table">
-							<thead>
-								<th>Username</th>
-								<th>Nombre</th>
-								<th>Apellido1</th>
-								<th>Apellido2</th>
-								<th>Rol</th>
-								<th>password</th>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										{{user.matricula}}
-									</td>
-									<td>
-										<input ng-model="user.nombre" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
-									</td>
-									<td>
-										<input ng-model="user.apellido1" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
-									</td>
-									<td>
-										 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
-									</td>
-									<td ng-if="user.isAdmin == true">
-											Evaluador
-									</td>
-									<td ng-if="user.isAdmin != true">
-											Estudiante
-									</td>
-									<td>
-										<input type="password" ng-model="user.password" ng-disabled="$ctrl.edit" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30"/>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="row" ng-hide="$ctrl.edit" >
-							<div class="col xl12 l12 m12">
-								<button class="btn waves-effect waves-light orange"><i class="material-icons left" type="submit">save</i>Guardar cambios</button>
-								<a class="btn waves-effect waves-light orange" ng-click="$ctrl.refreshPage()"><i class="material-icons left" >cancel</i>Cancelar cambios</a>
-							</div>
-						</div>
-						</form>
-					</div>
-					<div class="section">
-						<a ng-click="$ctrl.edit=!$ctrl.edit" class="btn-floating waves-effect waves-light"><i class="material-icons left">edit</i> </a>
-						<button  ng-click="$ctrl.deleteUser(user.matricula)" class="btn-floating waves-effect waves-light"><i class="material-icons left red">delete</i> </button>
-					</div>
-				</div>
-			</li>
-		</ul>
 	</div>
 </div>
 
@@ -122,9 +109,6 @@
 		      	<div class="row">
 		      		<div class="input-field col xl2 l2 m2">
 		      			<label>Rol: </label>
-		      		</div>
-		      		<div class="input-field col xl10 l10 m10">
-		      			<input ng-init="$ctrl.helper = 'adminXXX...X'" checked="checked" ng-click="$ctrl.helper = 'adminXXX...X'" name="group1" type="radio" id="eval" />
 		      		</div>
 		      		<div class="input-field col xl10">	      			
 		      			<input ng-init="$ctrl.role = 'Evaluador'" name="group1" type="radio" id="eval" ng-model="$ctrl.role"  value="Evaluador"/>
@@ -149,11 +133,7 @@
 				    	<label for="newusercid">Apellido materno</label>
 			      	</div>
 
-			      	<div class="input-field col xl12 l12 m12">
-			      		<i class="material-icons prefix">perm_identity</i>
-				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.username" pattern="(^011[1-9]0[1-9]00[0-9][0-9])|admin[A-Za-z]{5,15}" required title="011X0X00XX | adminXXX...X">
-				    	<label for="newusercid">{{$ctrl.helper}}</label>
-				    </div>
+			      	
 			      	<div ng-switch on = "$ctrl.role">
 			      		<div class="input-field col xl12 l12 m12" ng-switch-when="Estudiante">
 				      		<i class="material-icons prefix">perm_identity</i>
