@@ -45,7 +45,9 @@ img#logoLogin{
 	float: left;
 	padding:1%;
 }
-
+ul#menuSolicitud li{
+	padding: 15px;
+}
 /*Estilo para el menu*/
 #menu ul li{
 	list-style:none;
@@ -69,4 +71,31 @@ ul.tabs li.tab a:hover{
 	
 ul.tabs>li.indicator{
 	background-color: #37474f;
+}
+
+/*.material-icons{
+	color: red;
+}*/
+
+.material-icons.active{
+  color: #0d47a1 !important; /*Important ignorará los estilos css siguientes de este elemento(Bloque el estilo)*/
+}
+i.material-icons.active + input{
+	border-bottom: 1px solid blue !important;	
+}
+label.active{
+  color: #0d47a1 !important;
+}
+
+label{
+	color:black;
+	font-size: 1em;
+	/*font-weight: bold;*/
+}
+blockquote{
+	border-left-color: #0d47a1 !important;
+}
+
+div.stepBeca{ /*Div que indica el número de paso actual*/
+	border-radius: 20px;
 }

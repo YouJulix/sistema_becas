@@ -1,45 +1,41 @@
 <barra-principal></barra-principal>
 <div class="container">
-	<!--<div class="row">
-		<div class="col-md-12">
-			<img id="logoCabecera" src="img/logo.png" />
-			<h2> Sistema de Becas NU</h2>
-			<hr />
-		</div>
-	</div>
-	<div class="row">
-		<div id="menu" class="col-md-3 col-md-offset-9">			
-			<ul>
-				<li><a href="" ng-click="cerrarSesion()" >Cerrar sesión</a></li>
-				<li><a href="#!/solicitudes" >Regresar a solicitudes</a></li>
-				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
-			</ul>
-		</div>
-
-		<div id="menuSuperior" class="col-md-12">
-			<ul>
-				<li><b><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></b></li>
-				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
-				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
-				<li><a href="#!/informacion_hogar" >Información del hogar</a></li>
-				<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
-				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
-			</ul>
-			<br><br>
-			<h2>Carta Protesta</h2>
-		</div>
-		-->
 		<div id="modBeca6" class="row" >
-			<div class="col xl6 l6 m6 s12 offset-xl3 offset-l3 offset-m3 card center-align">
-				<input id="aceptare" ng-model="checked" type="checkbox" value="">
-				<label for="aceptare">Declaro que los datos aquí asentados son verídicos, entrando en conocimiento de que 						   la falsedad de los mismos es motivo de pérdida temporal o definitiva del derecho a la beca.
-				</label>
-			</div>
-			<div class="col xl12 l12 m12 s12 offset-xl4 offset-l4 offset-m4">
-				<br>
-				<button class="btn btn-default blue darken-4" ng-click="regresar()">Regresar</button>
-				<button class="btn btn-default blue darken-4" ng-click="aceptar()">Enviar</button>
-				<!-- <button ng-disabled="!checked" ng-click="aceptar()">Enviar</button> -->
+			<div class="col xl12 l12 m12 s12 card ">
+                <div class="row">
+                    <div class="col xl9">
+                        <blockquote class="">
+                            <p class="thin">
+                                <h5 class="orange-text">
+                                    Carta Protesta
+                                </h5>
+                            </p>
+                        </blockquote>
+                    </div>
+                    <div class="col xl3">
+                        <div class="blue darken-1 white-text stepBeca">
+                            <p class="center-align"><b>Paso 6 de 6</b></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col xl8 offset-xl2">
+                        <form>
+                            <input id="aceptare" ng-model="checked" type="checkbox" value="">
+                            <label for="aceptare">Declaro que los datos aquí asentados son verídicos, entrando en conocimiento de que                          la falsedad de los mismos es motivo de pérdida temporal o definitiva del derecho a la beca.
+                            </label>    
+                        </form>    
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col xl6 l6 m6 s6">              
+                        <button class="btn btn-default orange right" ng-click="regresar()">Regresar</button>
+                    </div>
+                    <div class="col xl6 l6 m6 s6">
+                        <button class="btn btn-default orange" ng-click="aceptar()">Enviar</button>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>	
@@ -134,3 +130,4 @@
 	}); 
 	</script>
 </div>
+<footer-becas></footer-becas>

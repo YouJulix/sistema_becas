@@ -29,12 +29,12 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div class="col xl10 l10 m10 s10 offset-xl1 offset-l1 offset-m1 offset-s1">
+		<div class="col xl12 l12 m12 s12">
 			<ul class="collapsible popout" data-collapsible="acordion">
 				<li ng-repeat="u in resultados|filter:$ctrl.matricula">
 					<div class="collapsible-header" ng-click="$ctrl.solicitudes(u.matricula)" id="{{u.matricula}}">
 					<i class="material-icons">person_pin</i>
-					{{u.matricula}} {{u.nombre}} {{u.apellido1}} {{u.apellido2}} {{u.grupo}}
+					{{u.matricula}} | {{u.nombre}} {{u.apellido1}} {{u.apellido2}} | {{u.grupo}}
 					</div>
 					<div class="collapsible-body">
 						<div class="row">
@@ -65,95 +65,47 @@
 							</div>
 							<p><b>Becas Solicitadas: </b></p>
 							<br>
-							<table class="table table-bordered">
-								<thead>
-									<tr class="bg-info">	
-										<td>Matricula</td>
-										<td>Fecha de envio</td>
-										<td>% de beca calculado</td>
-										<td>% de beca asignado</td>
-										<td colspan="3">Opciones</td>
-									</tr>
-								</thead>
+							<div class="row">
+								<div class="col xl12">
+									<table class="centered bordered">
+										<thead>
+											<tr class="bg-info">	
+												<th>ID Solicitud</th>
+												<th>Estado</th>
+												<th>Fecha de envio</th>
+												<th>% de beca calculado</th>
+												<th>% final asignado</th>
+												<th colspan="3">Opciones</th>
+											</tr>
+										</thead>
 
-								<tbody ng-repeat="u in solicitudes">
-									<td>{{u.matricula}}</td>
-									<td>{{u.fecha_envio}}</td>
-									<td>{{u.porcentaje_sugerido}}</td>
-									<td>{{u.porcentaje_final}}</td>
-									<td>
-										<button class="btn btn-floating" ng-click="detalle(u._id,u.matricula)"><i class="material-icons">edit</i></button>
-									</td>
-									<td>
-										<button class="btn btn-floating" ng-click="modificar(u._id)"><i class="material-icons">visibility</i></button>
-									<td>
-										<button class="btn btn-floating red" ng-click="remove(u._id)"><i class="material-icons">delete</i></button>
-									</td>
-								</tbody>
-							</table>
+										<tbody ng-repeat="u in solicitudes">
+											<td>{{u._id}}</td>
+											<td>{{u.estado}}</td>
+											<td ng-if="u.estado == 'pendiente'">-</td>
+											<td ng-if="u.estado == 'pendiente'">-</td>
+											<td ng-if="u.estado == 'pendiente'">-</td>
+											
+											<td ng-if="u.estado == 'terminado'">{{u.fecha_envio}}</td>
+											<td ng-if="u.estado == 'terminado'">{{u.porcentaje_sugerido}}</td>
+											<td ng-if="u.estado == 'terminado'">{{u.porcentaje_final}}</td>	
+
+											<td>
+												<button class="btn btn-floating" ng-click="detalle(u._id,u.matricula)"><i class="material-icons">edit</i></button>
+											</td>
+											<td>
+												<button class="btn btn-floating blue" ng-click="modificar(u._id)"><i class="material-icons">visibility</i></button>
+											<td>
+												<button class="btn btn-floating red" ng-click="remove(u._id)"><i class="material-icons">delete</i></button>
+											</td>
+										</tbody>
+									</table>		
+								</div>
+							</div>
 						</div>
 					</div>
 				</li>
 			</ul>	
 		</div>	
 	</div>
-	<!--<div class="row">
-		<div class="col-md-4">
-			<p><b>Matricula: </b></p>
-			<p id="tmatricula">{{dato.matricula}}</p>
-		</div>
-		<div class="col-md-4">
-			<p><b>Carrera: </b></p>
-			<p id="tcarrera">{{dato.carrera}}</p>
-		</div>
-		<div class="col-md-4">
-			<p><b>Porcentaje de beca Actual: </b></p>
-			<p id="tbecaact"></p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<p><b>Nombre: </b></p>
-			<p id="tnombre">{{dato.nombre}} {{dato.apellido1}} {{dato.apellido2}}</p>
-		</div>
-		<div class="col-md-4">
-			<p><b>Semestre: </b></p>
-			<p id="tsemestre">{{dato.semestre}}</p>
-		</div>
-		<div class="col-md-4">
-			<p ng-show="!$ctrl.infoper"><a href="" ng-click="editinfo()">Editar informacion Personal</a></p>
-		</div>
-	</div>
-	<div class="row">
-		<p><b>Becas Solicitadas: </b></p>
-		<br>
-		<table class="table table-bordered centered">
-			<thead>
-				<tr class="bg-info">
-					<td>Matricula</td>
-					<td>Fecha de envio</td>
-					<td>% de beca calculado</td>
-					<td>% de beca final asignado</td>
-					<td>Editar Porcentaje</td>
-					<td>Ver Solicitud</td>
-					<td>Eliminar Solicitud</td>
-				</tr>
-			</thead>
-
-			<tbody ng-repeat="u in solicitudes">
-				<td>{{u.matricula}}</td>
-				<td>{{u.fecha_envio}}</td>
-				<td>{{u.porcentaje_sugerido}}</td>
-				<td>{{u.porcentaje_final}}</td>
-				<td>
-					<button class="btn btn-floating" ng-click="detalle(u._id,u.matricula)"><i class="material-icons">edit</i></button>
-				</td>
-				<td>
-					<button class="btn btn-floating" ng-click="modificar(u._id)"><i class="material-icons">visibility</i></button>
-				<td>
-					<button class="btn btn-floating red" ng-click="remove(u._id)"><i class="material-icons">delete</i></button>
-				</td>
-			</tbody>
-		</table>
-	</div>-->
 </div>

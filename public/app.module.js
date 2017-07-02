@@ -16,5 +16,6 @@ angular.module('sistBecasApp',[
 	'barraPrincipal',
 	'adminSearch',
 	'adminSearch',
-	'superAdmin'
+	'superAdmin',
+	'footerBecas'
 	]);

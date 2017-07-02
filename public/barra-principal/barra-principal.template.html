@@ -11,9 +11,9 @@
 <div class="navbar-fixed">
 	<nav class="nav-extended  blue darken-4">
 		<div class="nav-wrapper">
-	  		<a class="brand-logo">
+	  		<a class="brand-logo left" style="margin-left: 20px;">
 	  			<img id="logoCabecera" src="img/logo.png" />
-	  			Sistema de Becas NU
+	  			<span class="">Sistema de Becas NU</span>
 	  		</a>
 	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
 	  			<li><b>{{$ctrl.nombre}}</b></li>
@@ -23,19 +23,20 @@
 		
 		<div class="nav-content">
 			<div class="col xl12">
-				<ul>
-				    <a  href="#!/beca/gastos_alumno" ><li style="padding:10px" ng-class="$ctrl.alumno"> Gastos del alumno</li></a>
-				    <a  href="#!/beca/gastos_familiares" ><li style="padding:10px" ng-class="$ctrl.familia">Gastos familiares</li></a>
-				    <a  href="#!/beca/informacion_hogar" ><li style="padding:10px" ng-class="$ctrl.hogar">  Información del hogar</li></a>
-				    <a  href="#!/beca/dependencia_economica" ><li style="padding:10px" ng-class="$ctrl.depende">Dependencia económica</li></a>
-				    <a  href="#!/beca/ingreso_mensual" ><li style="padding:10px" ng-class="$ctrl.ingreso">Ingreso mensual</li></a>
-				    <a  href="#!/beca/cartaProtesta" ><li style="padding:10px" ng-class="$ctrl.cartap">Carta Protesta</li></a>
+				<ul id="menuSolicitud">
+				    <a  href="#!/beca/gastos_alumno" ><li ng-class="$ctrl.alumno"> Gastos del alumno</li></a>
+				    <a  href="#!/beca/gastos_familiares" ><li ng-class="$ctrl.familia">Gastos familiares</li></a>
+				    <a  href="#!/beca/informacion_hogar" ><li ng-class="$ctrl.hogar">  Información del hogar</li></a>
+				    <a  href="#!/beca/dependencia_economica" ><li ng-class="$ctrl.depende">Dependencia económica</li></a>
+				    <a  href="#!/beca/ingreso_mensual" ><li ng-class="$ctrl.ingreso">Ingreso mensual</li></a>
+				    <a  href="#!/beca/cartaProtesta" ><li ng-class="$ctrl.cartap">Carta Protesta</li></a>
 				</ul>
 			</div>
 		</div>
 	</nav>
 </div>
-<div class="row">
+
+<div class="row" style="clear: both;">
 	
 </div>
 <div class="row">

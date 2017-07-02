@@ -1,62 +1,64 @@
 <barra-principal></barra-principal>
 <div class="container">
 
-		<div class="row col xl12 offset-xl12 card">
-			<div class="row">
-				<div class="col xl9">
-					<blockquote class="">
-						<p class="thin">
-							<h5>
-							Personas de quien depende económicamente
-							</h5>
-						</p>
-					</blockquote>
-				</div>
-				<div class="col xl3">
-					<div class="orange white-text">
-						<p class="center-align"><b>Paso 4 de 6</b></p>
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				
-			</div>
-			<!-- <form action="l.php" method="post"> -->
-			<form class="col xl5 offset-xl3" ng-submit="$ctrl.saveSection()">
-				Grado de escolaridad:<br>
-				<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
-					<option value=""> --- Selecciona una opción --- </option>
-					<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
-					<option value="ninguna" >Ninguna</option>
-					<option value="preescolar" >Preescolar</option>
-					<option value="primaria">Primaria</option>
-					<option value="secundaria">Secundaria</option>
-					<option value="bachillerato">Bachillerato</option>
-					<option value="universidad">Universidad</option>
-					<option value="maestria">Maestría</option>
-					<option value="doctorado">Doctorado</option>
-					<option value="post-doctorado">Post-Doctorado</option>
-				</select>
-				<br><br>
-				Tipo de trabajo:<br>
-				<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
-					<option value=""> --- Selecciona una opción --- </option>
-					<option value="temporal">Temporal</option>
-					<option value="permanente">Permanente</option>
-				</select><br><br>
+		<div class="row">
+			<div class="col xl12 card">
 				<div class="row">
-					<div class="col xl6">
-						<button type="submit" class="btn btn-default orange right"  ng-click="$ctrl.regresar()">Regresar
-						</button>
+					<div class="col xl9">
+						<blockquote class="">
+							<p class="thin">
+								<h5 class="orange-text">
+								Personas de quien depende económicamente
+								</h5>
+							</p>
+						</blockquote>
 					</div>
-					<div class="col xl6">
-						<button type="submit" class="btn btn-default orange right">
-							Continuar
-						</button>
+					<div class="col xl3">
+						<div class="blue darken-1 white-text stepBeca">
+							<p class="center-align"><b>Paso 4 de 6</b></p>
+						</div>
 					</div>
 				</div>
-			</form>
+				<div class="row">
+				</div>
+				<!-- <form action="l.php" method="post"> -->
+				<form class="col xl5 offset-xl3" ng-submit="$ctrl.saveSection()">
+					Grado de escolaridad:<br>
+					<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
+						<option value=""> --- Selecciona una opción --- </option>
+						<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
+						<option value="ninguna" >Ninguna</option>
+						<option value="preescolar" >Preescolar</option>
+						<option value="primaria">Primaria</option>
+						<option value="secundaria">Secundaria</option>
+						<option value="bachillerato">Bachillerato</option>
+						<option value="universidad">Universidad</option>
+						<option value="maestria">Maestría</option>
+						<option value="doctorado">Doctorado</option>
+						<option value="post-doctorado">Post-Doctorado</option>
+					</select>
+					<br><br>
+					Tipo de trabajo:<br>
+					<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
+						<option value=""> --- Selecciona una opción --- </option>
+						<option value="temporal">Temporal</option>
+						<option value="permanente">Permanente</option>
+					</select><br><br>
+					<div class="row">
+						<div class="col xl6">
+							<button type="submit" class="btn btn-default orange right"  ng-click="$ctrl.regresar()">Regresar
+							</button>
+						</div>
+						<div class="col xl6">
+							<button type="submit" class="btn btn-default orange right">
+								Continuar
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>	
 </div>
+
+<footer-becas></footer-becas>

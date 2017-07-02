@@ -1,45 +1,31 @@
 <barra-principal></barra-principal>
 <div class="container">
-	<!--<div class="row">
-		<div class="col-md-12">
-			<img id="logoCabecera" src="img/logo.png" />
-			<h2>Sistema de Becas NU</h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2 col-md-offset-10">
-			<li><a href="#!/login" >Cerrar sesión</a></li>
-				<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
-				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
-		</div>
-	</div>
-	<hr>
-	<div class="row">
-		<div id="menuSuperior" class="col-md-12">
-			<ul>
-				<li><b><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></b></li>
-				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
-				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
-				<li><a href="#!/informacion_hogar" >Información del hogar</a></li>
-				<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
-				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
-			</ul>
-			<br><br>
-		</div>
-	</div>-->
-	<div class="row">
-		<h4>Gastos Familiares</h4>
-		<p><b>Escribir los gastos familiares mensuales (sin incluir los del solicitante):</b></p>
-	</div>
+	
 	<div class="row">
 
 		<!-- Preguntar sobre este dato ===========================================
 		<div class="col xl3">
 			<p>Ingreso Mensual Total: <strong>{{dato.ingreso}}</strong></p>
 		</div> -->
-		<div class="col xl12">
+		<div class="col xl12 card">
+			<div class="row">
+				<div class="col xl9">
+					<blockquote class="">
+						<p class="thin">
+							<h5 class="orange-text">
+								Gastos familiares
+							</h5>
+							<b>Escribir los gastos familiares mensuales (sin incluir los del solicitante):</b>
+						</p>
+					</blockquote>
+				</div>
+				<div class="col xl3">
+					<div class="blue darken-1 white-text stepBeca">
+						<p class="center-align"><b>Paso 2 de 6</b></p>
+					</div>
+				</div>
+			</div>
 			<form ng-submit="$ctrl.validat()">
-				<p>Pago mensual de servicios</p>
 				<p ng-show="!$ctrl.msgerror" style="color:red;">Error con algunos de los campos</p>
 			<div class="col xl5">	
 				<div class="row">
@@ -160,15 +146,14 @@
 			
 				<div class="row">
 					<div class="col xl6 l6 m6 s6">				
-						<input type="button" class="btn btn-default right blue darken-4" value="Regresar" ng-click="$ctrl.volver()"/>
+						<input type="button" class="btn btn-default right orange" value="Regresar" ng-click="$ctrl.volver()"/>
 					</div>
 					<div class="col xl6 l6 m6 s6">
-						<input type="submit" class="btn btn-default left blue darken-4" value="Continuar" />
+						<input type="submit" class="btn btn-default left orange" value="Continuar" />
 					</div>
 				</div>
-			
-
 			</form>
 		</div>
 	</div>
 </div>
+<footer-becas></footer-becas>

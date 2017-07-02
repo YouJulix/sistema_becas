@@ -1,38 +1,24 @@
 <barra-principal></barra-principal>
 <div class="container">
-	<!--<div class="row">
-		<div class="col-md-12">
-			<img id="logoCabecera" src="img/logo.png" />
-			<h2> Sistema de Becas NU</h2>
-			<hr />
-		</div>
-	</div>
-
-	<div class="row">
-		<div id="menu" class="col-md-3 col-md-offset-9">			
-			<ul>
-				<li><a href="#!/login" >Cerrar sesión</a></li>
-				<li><a href="" ng-click="$ctrl.menuChangue()">{{$ctrl.solicitudToMenu}}</a></li>
-				<li><a href="#!/login" >Cancelar solicitud actual</a></li>
-			</ul>
-		</div>
-
-		<div id="menuSuperior" class="col-md-12">
-			<ul>
-				<li><a href="#!/dependencia_economica" >Persona de quien depende económicamente</a></li>
-				<li><a href="#!/ingreso_mensual" >Ingreso mensual</a></li>
-				<li><a href="#!/gastos_alumno" >Gastos del alumno</a></li>
-				<li><b><a href="#!/informacion_hogar" >Información del hogar</a></b></li>
-				<li><a href="#!/gastos_familiares" >Gastos familiares</a></li>
-				<li><a href="#!/cartaProtesta" >Carta Protesta</a></li>
-			</ul>
-			<br><br>
-		</div>
-	</div>-->
 	<div class="row">
 		<!-- col xl6 l6 m6 s12 offset-xl3 offset-l3 offset-m3 card center-align -->
-		<div class="col card xl10 l10 m10 s12 offset-xl1 offset-l1 offset-m1" >
-		<h5 class="center-align">Información del hogar</h5>
+		<div class="col card xl12 l12 m12 s12 " >
+			<div class="row">
+				<div class="col xl9">
+					<blockquote class="">
+						<p class="thin">
+							<h5 class="orange-text">
+								Información del Hogar
+							</h5>
+						</p>
+					</blockquote>
+				</div>
+				<div class="col xl3">
+					<div class="blue darken-1 white-text stepBeca">
+						<p class="center-align"><b>Paso 3 de 6</b></p>
+					</div>
+				</div>
+			</div>
 			<form ng-submit="$ctrl.saveData()" > 
 				<div class="col xl5 l5 m5 s12 offset-xl3 offset-l2 offset-m2">
 					<label>Tipo de casa:</label>
@@ -95,13 +81,14 @@
 				</div>
 				<div class="row">
 					<div class="col xl6 l6 m6 s6">				
-						<input type="button" class="btn btn-default right blue darken-4" value="Regresar" ng-click="$ctrl.regresar()"/>
+						<input type="button" class="btn btn-default right orange" value="Regresar" ng-click="$ctrl.regresar()"/>
 					</div>
 					<div class="col xl6 l6 m6 s6">
-						<input type="submit" class="btn btn-default left blue darken-4" value="Continuar" />
+						<input type="submit" class="btn btn-default left orange" value="Continuar" />
 					</div>
 				</div>
 			</form>
 		</div>	
 	</div>
 </div>
+<footer-becas></footer-becas>
