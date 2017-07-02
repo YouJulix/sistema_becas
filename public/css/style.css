@@ -99,3 +99,28 @@ blockquote{
 div.stepBeca{ /*Div que indica el número de paso actual*/
 	border-radius: 20px;
 }
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:before,
+[type="radio"].with-gap:checked + label:after {
+  border: 2px solid #0d47a1;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after {
+  background-color: #0d47a1;
+}
+
+/*[type="checkbox"].filled-in:checked + label:after {
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0d47a1;
+  background-color: #0d47a1;
+  z-index: 0;
+}*/
+
+[type="checkbox"]:checked + label:before {
+  border-right: 2px solid #0d47a1;
+  border-bottom: 2px solid #0d47a1;
+}
