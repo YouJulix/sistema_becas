@@ -4,7 +4,7 @@
 	<div class="row">
 		<div id="gastosAlumnos" class="row col xl12 l12 m12 s12 card">
 			<div class="row">
-				<div class="col xl9">
+				<div class="col xl9 l9 m9">
 					<blockquote class="">
 						<p class="thin">
 							<h5 class="orange-text">
@@ -13,29 +13,29 @@
 						</p>
 					</blockquote>
 				</div>
-				<div class="col xl3">
+				<div class="col xl3 l3 m9">
 					<div class="blue darken-1 white-text stepBeca">
 						<p class="center-align"><b>Paso 1 de 6</b></p>
 					</div>
 				</div>
 			</div>
-				<form ng-submit="$ctrl.saveData()" class="col xl6 offset-xl3">
+				<form ng-submit="$ctrl.saveData()" class="col xl6 l6 m6 offset-xl3 offset-l3 offset-m3">
 
 					<div class="row">
-						<label for="medicalServices" class="col xl4">Servicios medicos:</label>
-						<div class="col xl8">
+						<label for="medicalServices" class="col xl4 l4 m4">Servicios medicos:</label>
+						<div class="col xl8 l8 m8">
 							<input type="number" ng-model="$ctrl.gastosMedicos" id="medicalServices" class="form-control" placeholder="Gastos en servicios medicos" min="0" max="25000" />	
 						</div>
 					</div>
 					
 					<div class="row">
-						<label class="col xl4"> Renta de domicilio: </label>
-						<div class="col xl8" >
-							<div class="col xl6">
+						<label class="col xl4 l4 m4"> Renta de domicilio: </label>
+						<div class="col xl8 l8 m8" >
+							<div class="col xl6 l6 m6">
 								<input id="si" type="radio" ng-click="$ctrl.rentaSi = true" value="" name="renta">
 								<label for="si">Si</label>
 							</div>
-							<div class="col xl6">
+							<div class="col xl6 l6 m6">
 								<input id="no" checked="checked" type="radio"  ng-click="$ctrl.rentaSi = false; $ctrl.montoRenta = 0" value="" name="renta">
 						    	<label for="no">No</label>
 						    </div>
@@ -45,19 +45,19 @@
 
 					<div class="row" ng-show="$ctrl.rentaSi">
 						<br>
-						<label for="costoRenta" class="col xl4">Costo de la renta:</label>
-						<div class="col xl8">
+						<label for="costoRenta" class="col xl4 l4 m4">Costo de la renta:</label>
+						<div class="col xl8 l8 m8">
 							<input type="number" id="costoRenta"  ng-model="$ctrl.montoRenta" class="" placeholder="Monto de la renta (mensual)" min="0" max="25000" />
 						</div>
 					</div>					
 					<div class="row">
-						<label class="col xl4">Modo de traslado: *</label>
-						<div class="col xl8">
-							<div class="col xl5">
+						<label class="col xl4 l4 m4">Modo de traslado: *</label>
+						<div class="col xl8 l8 m8">
+							<div class="col xl5 l5 m5">
 								<input type="checkbox" ng-click="$ctrl.transportValid()"  id="taxi"  ng-model="$ctrl.taxi" >
 						 		<label for="taxi">Taxi</label>
 						 	</div>
-						 	<div class="col xl7">
+						 	<div class="col xl7 l7 m7">
 						 		<input id="vehiculo" type="checkbox" ng-click="$ctrl.transportVehiculo()" ng-model="$ctrl.vehiculo">
 						    	<label for="vehiculo">Vehículo propio (Moto/auto)</label>
 						    </div>
@@ -65,13 +65,13 @@
 					</div>
 					
 					<div class="row">
-						<label class="col xl4"></label>
-						<div class="col xl8">
-							<div class="col xl5">
+						<label class="col xl4 l7 m7"></label>
+						<div class="col xl8 l8 m8">
+							<div class="col xl5 l5 m5">
 								<input id="caminar" type="checkbox" ng-click="$ctrl.transportValid()" ng-model="$ctrl.caminar">
 						 		<label for="caminar">Caminado</label>
 						 	</div>
-						 	<div class="col xl7">
+						 	<div class="col xl7 l7 m7">
 						 		<input id="bicicleta" ng-click="$ctrl.transportValid()" type="checkbox"  ng-model="$ctrl.bicicleta">
 						    	<label for="bicicleta" ">Bicicleta</label>
 						    </div>
@@ -79,10 +79,10 @@
 					</div>
 
 					<div class="row">
-						<div class="col xl6">
+						<div class="col xl6 l6 m6">
 							
 						</div>
-						<div class="col xl6">
+						<div class="col xl6 l6 m6">
 							<input type="submit" class="btn align-center orange" value="Continuar"/>
 						</div>
 					</div>

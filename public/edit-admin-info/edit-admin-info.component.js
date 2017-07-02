@@ -365,6 +365,29 @@ angular.
 
 					self.viewRecidencia();
 
+					//=Cambiar la locacion de la pagina en base a si es admin o no Ed=
+					self.menuChangue = function(){									//
+						if(localStorage.getItem("isAdmin") == "true"){
+							//console.log("is admin to #!menu_admin");				//
+							window.location = "/#!/admin_principal";
+																					//	
+						}else{														//
+							//console.log("is not admin to #!solicitudes");           //
+							window.location = "/#!/solicitudes";					//
+						}															//
+					}
+
+					//metodo para dicernir visualmente si es admin o alumno ===Ed=
+					if(localStorage.getItem("isAdmin") == "true"){				//
+						self.solicitudToMenu = "Menú principal";
+						self.terminar = "Terminar";
+						self.carta = false;				                        //	
+					}else{	
+						self.terminar = "Continuar";							//
+						self.solicitudToMenu = "Regresar a solicitudes";		//
+						self.carta = true;
+					}
+
 					if (localStorage.getItem("alumno")==null){
 						self.renderUser(localStorage.getItem("matricula"));
 					}else{
