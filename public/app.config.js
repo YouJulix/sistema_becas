@@ -6,7 +6,10 @@ angular.
 				//Setting a prefix is not necessary, but it is considered a good practice (for reasons that are outside the scope of this tutorial). ! is the most commonly used prefix.
 				//Al agregar este prefijo, en nuestros enlaces debemos colocar dicho prefijo: ejemplo:  <a href="#!/phones/{{phone.id}}>..."
 				$routeProvider.when('/login',{
-					template: '<login-becas></login-becas>'
+					template: function(){
+						localStorage.clear();
+						return '<login-becas></login-becas>';
+					}
 				}).
 				when('/beca/:section',{
 					template:function(url){

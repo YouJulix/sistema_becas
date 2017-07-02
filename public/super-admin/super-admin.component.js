@@ -10,11 +10,19 @@ angular.
 				}else{
 					window.location = "/#!/login";
 				}
-				$http({
-					method 	: 	'GET',
-					url 	: 	'http://localhost:8000/api/v1.0//users'
-				}).success(function(data){self.users = data}).error(function(err){console.log(err)});
+				self.leerUsuarios = function(){
+					$http({
+						method 	: 	'GET',
+						url 	: 	'http://localhost:8000/api/v1.0//users'
+					}).success(function(data){
+						self.users = data
+					}).error(function(err){
+						console.log(err)
+					});	
+				}
 				
+				self.leerUsuarios();
+
 				$(document).ready(function(){
 					$('.collapsible').collapsible();
 					$('.modal').modal();
@@ -24,12 +32,21 @@ angular.
 					localStorage.clear();
 					window.location.reload();
 				}
+				self.limpiarFormAddUser = function(){
+					self.role = "Evaluador";
+					self.name = "";
+					self.apellido1 = "";
+					self.apellido2 = "";
+					self.username = "";
+					self.password = "";
+				}
 
 				self.addUser = function(){
-					if(self.username.substring(0,5) == "admin" ){
-						self.isEval = true;
-					}else{
+					if(self.role == "Estudiante"){
 						self.isEval = false;
+					}
+					if(self.role == "Evaluador"){
+						self.isEval = true;
 					}
 					self.data = {
 						matricula: self.username,
@@ -49,7 +66,10 @@ angular.
 						data: self.data
 					}).success(function(data){
 						alert("Usuario agregado exitosamente!");
-						window.location.reload();
+						//window.location.reload();
+						self.leerUsuarios();//Se ejecuta de manera asincrona, de todas maneras se dibujará cuando se descargue todo, gracias al two-binding de ANgular
+						self.limpiarFormAddUser();						
+						$('.modal').modal('close');
 					}).error(function(){
 						alert('Ocurrio un error, porfavor intente otra vez');
 					});
