@@ -10,7 +10,7 @@ angular.
 						localStorage.clear();
 						window.location = "/#!/login";
 					}
-
+					self.porcBecaActual = 0;
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					self.infoper = true;
 					//console.log("sdds");
@@ -49,6 +49,10 @@ angular.
 							//console.log($scope.solicitud);
 							angular.forEach($scope.solicitud, function(sol){
 								$scope.solicitudes.push(sol);
+
+								if($scope.solicitudes.estado == "terminado"){
+									self.porcBecaActual = $scope.solicitudes.porcentaje_final;
+								}
 							});
 							//console.log($scope.solicitudes);
 						}).error(function(err){
@@ -107,7 +111,7 @@ angular.
 					}
 					$scope.modificar = function(idmat){
 						localStorage.setItem("idSolicitud",idmat);
-						window.location = "/#!/gastos_alumno";
+						window.location = "/#!/beca/gastos_alumno";
 					};
 					$scope.remove = function(idmat){
 						//console.log(idmat);
@@ -129,7 +133,9 @@ angular.
 						//alert(idmat);
 						localStorage.setItem("alumno",idmat);
 						window.location = "/#!/edit-user";
-					}		
+					}
+					self.nombre = localStorage.getItem("nombre");
+					self.apellido1 = localStorage.getItem("apellido1");
 				}
 			]
 		});

@@ -108,7 +108,8 @@ angular.
 						data: self.data
 					}).success(function(user){
 						alert("Usuario actualizado exitosamente");
-						window.location.reload();
+						//window.location.reload();
+						self.leerUsuarios();
 					}).error(function(){
 						alert("Error, no se puede actualizar el usuario");
 					});

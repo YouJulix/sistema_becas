@@ -1,12 +1,12 @@
 <div class="navbar-fixed" >
-	<nav class="nav-extended  blue darken-4" style="padding: 0px 30px;">
+	<nav class="nav-extended  blue darken-4" style="padding-right: 30px;">
 		<div class="nav-wrapper">
-	  		<a href="#" class="brand-logo thin">
+	  		<a href="#" class="brand-logo thin" id="logoSB">
 	  			<img id="logoCabecera" src="img/logo.png" />
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul class="right hide-on-med-and-down">
-	  			<li><b>Super Administrador</b></li>
+	  			<li><i class="material-icons left">account_circle</i><b>Super Administrador</b></li>
 	  			<li><a class="btn-floating waves-effect waves-light red" ng-click="$ctrl.close()"><i class="material-icons left">power_settings_new</i></a></li>
 	  		</ul>
 		</div>
@@ -16,7 +16,6 @@
 <div class="container">
 	<div class="row card">
 		<div class="card-content">
-			
 			<div class="row">
 				<div class="col xl2 l2 m2 center-align">
 					<button id="adduser" class="btn-large btn-floating waves-effect waves-light orange" data-target="addusermodal"><i class="material-icons left">person_add</i></button><br>
@@ -65,7 +64,7 @@
 													<input ng-model="user.apellido1" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
 												</td>
 												<td>
-													 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+													 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
 												</td>
 												<td ng-if="user.isAdmin == true">
 														Evaluador
@@ -81,8 +80,8 @@
 									</table>
 									<div class="row" ng-hide="$ctrl.edit" >
 										<div class="col xl12 l12 m12">
-											<button class="btn waves-effect waves-light orange"><i class="material-icons left" type="submit">save</i>Guardar cambios</button>
-											<a class="btn waves-effect waves-light orange" ng-click="$ctrl.refreshPage()"><i class="material-icons left" >cancel</i>Cancelar cambios</a>
+											<button class="btn waves-effect waves-light "><i class="material-icons left" type="submit">save</i>Guardar</button>
+											<a class="btn waves-effect waves-light red" ng-click="$ctrl.leerUsuarios()"><i class="material-icons left" >cancel</i>Cancelar</a>
 										</div>
 									</div>
 									</form>

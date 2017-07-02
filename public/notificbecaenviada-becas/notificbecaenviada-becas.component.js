@@ -13,9 +13,8 @@ angular.
 					//}
 					$scope.matricula = "";
 					//localStorage.setItem("matricula","23232");
-					
-
-					
+					$scope.nombre = localStorage.getItem("nombre");
+					$scope.apellido1 = localStorage.getItem("apellido1");					
 
 					self.validar = function(){
 						$scope.matricula = localStorage.getItem("matricula");

@@ -22,35 +22,37 @@
 				<div class="row">
 				</div>
 				<!-- <form action="l.php" method="post"> -->
-				<form class="col xl5 l5 m5 offset-xl3 offset-l3 offset-m3" ng-submit="$ctrl.saveSection()">
-					Grado de escolaridad:<br>
-					<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
-						<option value=""> --- Selecciona una opción --- </option>
-						<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
-						<option value="ninguna" >Ninguna</option>
-						<option value="preescolar" >Preescolar</option>
-						<option value="primaria">Primaria</option>
-						<option value="secundaria">Secundaria</option>
-						<option value="bachillerato">Bachillerato</option>
-						<option value="universidad">Universidad</option>
-						<option value="maestria">Maestría</option>
-						<option value="doctorado">Doctorado</option>
-						<option value="post-doctorado">Post-Doctorado</option>
-					</select>
-					<br><br>
-					Tipo de trabajo:<br>
-					<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
-						<option value=""> --- Selecciona una opción --- </option>
-						<option value="temporal">Temporal</option>
-						<option value="permanente">Permanente</option>
-					</select><br><br>
+				<form  ng-submit="$ctrl.saveSection()">
+					<div class="col xl5 l5 m5 offset-xl3 offset-l3 offset-m3">
+						Grado de escolaridad:<br>
+						<select class="browser-default" name="escolaridad" ng-model="$ctrl.escolaridad" required>
+							<option value=""> --- Selecciona una opción --- </option>
+							<!--<option value="preescolar" selected>Preescolar</option> --><!--El 'selected' también deja de funcionar cuando se agrega un ng-model al select -->
+							<option value="ninguna" >Ninguna</option>
+							<option value="preescolar" >Preescolar</option>
+							<option value="primaria">Primaria</option>
+							<option value="secundaria">Secundaria</option>
+							<option value="bachillerato">Bachillerato</option>
+							<option value="universidad">Universidad</option>
+							<option value="maestria">Maestría</option>
+							<option value="doctorado">Doctorado</option>
+							<option value="post-doctorado">Post-Doctorado</option>
+						</select>
+						<br><br>
+						Tipo de trabajo:<br>
+						<select class="browser-default" name="tipo_trabajo" ng-model="$ctrl.tipoTrabajo" required>
+							<option value=""> --- Selecciona una opción --- </option>
+							<option value="temporal">Temporal</option>
+							<option value="permanente">Permanente</option>
+						</select><br><br>
+					</div>
 					<div class="row">
-						<div class="col xl6 l6 m6">
-							<button type="submit" class="btn btn-default orange right"  ng-click="$ctrl.regresar()">Regresar
+						<div class="col xl5 l6 m6 s6">
+							<button type="submit" class="btn right orange"  ng-click="$ctrl.regresar()"><i class="material-icons left">navigate_before</i>Regresar
 							</button>
 						</div>
-						<div class="col xl6 l6 m6">
-							<button type="submit" class="btn btn-default orange right">
+						<div class="col xl7 l6 m6 s6">
+							<button class="btn orange"><i class="material-icons right">navigate_next</i>
 								Continuar
 							</button>
 						</div>
