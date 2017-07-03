@@ -21,9 +21,9 @@ angular.
 					$scope.matricul = "";
 					$scope.estado = "" ;
 					$scope.porcentaje_sugerido = 0 ;
-					$scope.porcentaje_final = 0 ;
-					$scope.libre_de_extra = false;
-					$scope.biblioteca_completa = true;
+//					$scope.porcentaje_final = 0 ;
+//					$scope.libre_de_extra = false;
+//					$scope.biblioteca_completa = true;
 					$scope.fecha_envio = "";
 
 
@@ -251,7 +251,12 @@ angular.
 													    }).success(function(data){
 													    	localStorage.removeItem("idSolicitud");
 													    	//$('#modalSolicitudEnviada').modal('open');
-															window.location = "/#!/notificbecaenviada";
+													    	if(localStorage.getItem("isAdmin") == "true"){
+																window.location = "/#!/admin_principal";
+													    	}else{
+													    		window.location = "/#!/notificbecaenviada";
+													    	}
+															
 												        }).error(function(){
 															alert('! ERROR No se envio la solicitud!');
 														});

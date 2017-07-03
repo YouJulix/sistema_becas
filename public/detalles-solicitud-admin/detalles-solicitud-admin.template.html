@@ -1,125 +1,164 @@
-<div class="container">
-		<h1>Sistema de Asignación de Becas NU</h1>
-		<div class="row">
-			<div class="col xl10 l10 m10">
-				<h4>Detalle solicitud</h4>
-			</div>
-			<div class="col xl2 l12 m12">
-				<a href="#" ng-click="$ctrl.closeApp()">Cerrar Sesión</a>
-				<a href="#!/admin_principal">Regresar</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col xl4 l4 m4">
-				<p><b>MATRÍCULA:</b> {{$ctrl.matricula}}</p>				
-			</div>
-			<div class="col xl4 l4 m4">
-				<p><b>Carrera:</b> {{$ctrl.carrera}}</p>				
-			</div>
-			<div class="col xl4 l4 m4">
-				<p><b>Fecha:</b> {{$ctrl.fecha_envio}}</p>				
-			</div>
-		</div>
-		<div class="row">
-			<div class="col xl4 l4 m4">
-				<p><b>Nombre:</b> {{$ctrl.nombre}} {{$ctrl.apellido1}} {{$ctrl.apellido2}}</p>				
-			</div>
-			<div class="col xl4 l4 m4">
-				<p><b>Semestre:</b> {{$ctrl.semestre}}</p>				
-			</div>
-		</div>
-		<form ng-submit="$ctrl.saveData()">
-			<div class="row">
-				<div class="col xl4 l4 m6 offset-xl4 offset-l4 offset-m3">
-					<h6><i>Porcentaje sugerido para esta beca: </i>{{$ctrl.porcentaje_sugerido}}</h6>
-				</div>			
-			</div>
-			<div class="row">
-				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
-					<p><b>Actividades complementarias: </b></p>
 
-					<input type="checkbox" ng-model="$ctrl.biblioteca_completa" id="biblioteca" ng-change="$ctrl.bibliotecaCambio()" ng-disabled="$ctrl.caso_especial">
-					<label for="biblioteca">El alumno cumplio con el 85% de sus actividades complementarias</label>
-				</div>
-			</div>
+<ul id="dropdown1" class="dropdown-content">
+	<li><a id="editInfo" href="/#!/admin_principal">Menú Principal</a></li>
+	<li class="divider"></li>
+    <li><a ng-click="$ctrl.closeApp()"><i class="material-icons">power_settings_new</i>Cerrar Sesión</a></li>
+</ul>
 
-			<br>
-			<div class="row">
-				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
-					<p><b>Examenes extraordinarios: </b></p>
-					<div>
-						<input type="checkbox" ng-model="$ctrl.libre_de_extra" id="libre_de_extra" ng-change="$ctrl.extraCambio()" ng-disabled="$ctrl.caso_especial">
-						<label for="libre_de_extra">El alumno adeuda después de exámenes extraordinario 1, 3 asignaturas de un semestre en el que curse o recurse 5 o más. </label>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
-					<p><b>Criterio del evaluador: </b></p>
-					<div>
-						<input type="checkbox" ng-model="$ctrl.caso_especial" id="criterio">
-						<label for="criterio">Existe un criterio especial para designar el procentaje de beca</label>
-					</div>
-				</div>
-			</div>
-			<div class="row" ng-show="!$ctrl.caso_especial">
-				<div class="col xl8 l8 m10 offset-xl3 offset-l3 offset-m2">
-					<h6><strong>Porcentaje final asignado: </strong>{{$ctrl.porcentaje_final}}</h6>
-				</div>			
-			</div>
-			<div class="row" ng-show="$ctrl.caso_especial">
-				<div class="col xl8 l8 m10 offset-xl3 offset-l3 offset-m2">
-					<p>
-				    	<input name="porcentaje" type="radio" id="bc1" ng-model="$ctrl.porcentaje_final" value="0" />
-				    	<label for="bc1">0</label>
-				    </p>
-				    <p>
-				    	<input name="porcentaje" type="radio" id="bc2" ng-model="$ctrl.porcentaje_final" value="25" />
-				    	<label for="bc2">25</label>
-				    </p>
-				    <p>
-				    	<input name="porcentaje" type="radio" id="bc3" ng-model="$ctrl.porcentaje_final" value="50" />
-				    	<label for="bc3">50</label>
-				    </p>
-				    <p>
-				    	<input name="porcentaje" type="radio" id="bc4" ng-model="$ctrl.porcentaje_final" value="75" />
-				    	<label for="bc4">75</label>
-				    </p>
-				    <p>
-				    	<input name="porcentaje" type="radio" id="bc5" ng-model="$ctrl.porcentaje_final" value="100" />
-				    	<label for="bc5">100</label>
-				    </p>
-				   <!--
-					<label for="porcentaje_final">Ingrese el porcentaje final.</label><br>
-					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="0">0<br>
-					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="25">25<br>
-					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="50">50<br>
-					<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="75">75<br>
-					<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="100">100<br> -->
-				</div>			
-			</div>
-			<br>
-			
-			<a data-target="modalDatosGuardados" class="waves-effect waves-light" ng-show="false" id="clicModel">hadsh</a>
-			<div id="modalDatosGuardados" class="modal">
-				<div class="modal-content">
-					<h2>Datos Guardados</h2>
-				</div>
-				<div class="modal-footer">
-					<a href="#" class="btn btn-default" data ng-click="$ctrl.mandar()">Aceptar</a>	
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
-					<a href="#!/admin_principal"><button class="btn btn-default">Volver</button></a>
-					<input type="submit" class="btn btn-default" value="Guardar" />
-				</div>
-			</div>
-		</form>			
+<div class="navbar-fixed" >
+	<nav class="nav-extended  blue darken-4" >
+		<div class="nav-wrapper">
+	  		<a href="#" class="brand-logo thin" id="logoSB">
+	  			<img id="logoCabecera" src="img/logo.png" />
+	  			Sistema de Becas NU
+	  		</a>
+	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
+	  			<li><i class="material-icons left">account_circle</i><b>{{$ctrl.nombre}} {{$ctrl.apellido1}}</b></li>
+				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
+	  		</ul>
+		</div>
+	</nav>
 </div>
 
+<div class="container">
+	<div class="row">
+		<div class="col xl12 l12 m12 s12 card">
+			<div class="row">
+				<br>
+				<div class="col xl10 l10 m10">
+					<a href="#!/admin_principal" class="btn btn-floating orange left"><i class="material-icons left">keyboard_backspace</i>Regresar</a>
+					<h5 class="orange-text">Definir porcentaje final de beca</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col xl4 l4 m4 offset-xl1 offset-l1 offset-m1">
+					<p><b>ID Solicitud:</b> {{$ctrl.solicitudId}}</p>				
+				</div>
+				<div class="col xl4 l4 m4">
+					<p><b>Nombre:</b> {{$ctrl.nombre}} {{$ctrl.apellido1}} {{$ctrl.apellido2}}</p>				
+				</div>
+				<div class="col xl3 l3 m3">
+					<p><b>Enviado:</b> {{$ctrl.fecha_envio}}</p>				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col xl4 l4 m4 offset-xl1 offset-l1 offset-m1">
+					<p><b>Matricula:</b> {{$ctrl.matricula}}</p>				
+				</div>
+				<div class="col xl4 l4 m4">
+					<p><b>Carrera:</b> {{$ctrl.carrera}}</p>				
+				</div>
+				<div class="col xl3 l3 m3">
+					<p><b>Semestre:</b> {{$ctrl.semestre}}</p>				
+				</div>
+			</div>
+			<form ng-submit="$ctrl.saveData()">
+				<div class="row">
+					<div class="col xl4 l4 m6 offset-xl4 offset-l4 offset-m3 center-align">
+						<h6 class="orange-text">Porcentaje sugerido para esta beca: </h6>
+						<h5 class="orange-text"><b>{{$ctrl.porcentaje_sugerido}} %</b></h5>
+					</div>			
+				</div>
+				<div class="row">
+					<div class="col xl11 l11 m11 offset-xl1 offset-l1 offset-m1">
+						<span class="orange-text">
+							<b>Criterios finales</b>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
+						<p><b>Actividades complementarias: </b></p>
+
+						<input type="checkbox" ng-model="$ctrl.biblioteca_completa" id="biblioteca" ng-change="$ctrl.bibliotecaCambio()" ng-disabled="$ctrl.caso_especial">
+						<label for="biblioteca">El alumno cumplió con el 85% de sus actividades complementarias</label>
+					</div>
+				</div>
+
+				<br>
+				<div class="row">
+					<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
+						<p><b>Examenes extraordinarios: </b></p>
+						<div>
+							<input type="checkbox" ng-model="$ctrl.libre_de_extra" id="libre_de_extra" ng-change="$ctrl.extraCambio()" ng-disabled="$ctrl.caso_especial">
+							<label for="libre_de_extra">El alumno adeuda después de exámenes extraordinarios 1, 3 asignaturas de un semestre en el que curse o recurse 5 o más. </label>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col xl8 l8 m10 offset-xl2 offset-l2 offset-m1">
+						<p><b>Criterio del evaluador: </b></p>
+						<div>
+							<input type="checkbox" ng-model="$ctrl.caso_especial" id="criterio" ng-change="$ctrl.casoEspecialCambio()">
+							<label for="criterio">Existe un criterio especial para designar el procentaje de beca</label>
+						</div>
+					</div>
+				</div>
+				<div class="row" ng-show="$ctrl.caso_especial">
+					<div class="col xl8 l8 m10 offset-xl3 offset-l3 offset-m2">
+						<p>Elige el porcentaje:</p>
+						<p>
+					    	<input name="porcentaje" type="radio" id="bc1" ng-model="$ctrl.porcentaje_final" value="0" />
+					    	<label for="bc1">0</label>
+					    </p>
+					    <p>
+					    	<input name="porcentaje" type="radio" id="bc2" ng-model="$ctrl.porcentaje_final" value="25" />
+					    	<label for="bc2">25</label>
+					    </p>
+					    <p>
+					    	<input name="porcentaje" type="radio" id="bc3" ng-model="$ctrl.porcentaje_final" value="50" />
+					    	<label for="bc3">50</label>
+					    </p>
+					    <p>
+					    	<input name="porcentaje" type="radio" id="bc4" ng-model="$ctrl.porcentaje_final" value="75" />
+					    	<label for="bc4">75</label>
+					    </p>
+					    <p>
+					    	<input name="porcentaje" type="radio" id="bc5" ng-model="$ctrl.porcentaje_final" value="100" />
+					    	<label for="bc5">100</label>
+					    </p>
+					   <!--
+						<label for="porcentaje_final">Ingrese el porcentaje final.</label><br>
+						<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="0">0<br>
+						<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="25">25<br>
+						<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="50">50<br>
+						<input type="radio" name="procentaje" ng-model="$ctrl.porcentaje_final" value="75">75<br>
+						<input type="radio" name="porcentaje" ng-model="$ctrl.porcentaje_final" value="100">100<br> -->
+					</div>			
+				</div>
+				<div class="row" >
+					<div class="col xl4 l4 m6 offset-xl4 offset-l4 offset-m3 center-align">
+						<h6 class="green-text"><b>Porcentaje final a asignar: </b></h6>
+						<h5 class="green-text "><b>{{$ctrl.porcentaje_final}} %</b></h5>
+					</div>						
+				</div>
+				<br>
+				
+				<a data-target="modalDatosGuardados" class="waves-effect waves-light" ng-show="false" id="clicModel">hadsh</a>
+				<div id="modalDatosGuardados" class="modal">
+					<div class="modal-content">
+						<h4>Beca Establecida al <span class="green-text">{{$ctrl.porcentaje_final}}%</span></h4>
+						<p>Ahora el alumno ya puede consultar su porcentaje de beca.</p>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-default orange" data ng-click="$ctrl.mandar()">Aceptar</a>	
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col xl6 l6 m6">
+						<a href="#!/admin_principal"><button class="btn white right black-text">Cancelar</button></a>
+					</div>
+					<div class="col xl6 l6 m6">
+						<button class="btn orange" ><i class="material-icons left">done</i>Asignar</button>
+					</div>
+				</div>
+			</form>			
+		</div>
+	</div>
+</div>
+<footer-becas></footer-becas>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.modal').modal();

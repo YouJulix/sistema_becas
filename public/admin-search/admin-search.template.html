@@ -30,7 +30,7 @@
 			</div>
 			<div class="row">
 				<div class="col xl12 l12 m12 s12">
-					<ul class="collapsible popout" data-collapsible="acordion">
+					<ul class="collapsible popout" data-collapsible="accordion">
 						<li ng-repeat="u in resultados|filter:$ctrl.matricula">
 							<div class="collapsible-header" ng-click="$ctrl.solicitudes(u.matricula)" id="{{u.matricula}}">
 								<i class="material-icons">person_pin</i>
@@ -65,7 +65,7 @@
 									</div>
 									<div class="row">
 										<div class="col xl4 l4 m4 s6 offset-xl4 offset-l4 offset-m4 offset-s3">
-											<a ng-click="editinfo(u.matricula)">Editar informacion Personal</a>
+											<a href="" ng-click="editinfo(u.matricula)">Editar informacion Personal</a>
 										</div>
 									</div>
 
@@ -94,15 +94,20 @@
 													
 													<td ng-if="u.estado == 'terminado'">{{u.fecha_envio}}</td>
 													<td ng-if="u.estado == 'terminado'">{{u.porcentaje_sugerido}}</td>
-													<td ng-if="u.estado == 'terminado'">{{u.porcentaje_final}}</td>	
+													<td ng-if="u.estado == 'terminado'">	<span ng-if="u.porcentaje_final == -1">---</span>
+														<span ng-if="u.porcentaje_final != -1"><b>{{u.porcentaje_final}}</b></span>
+													</td>	
 
 													<td>
-														<button class="btn btn-floating" ng-click="detalle(u._id,u.matricula)"><i class="material-icons">edit</i></button>
+														<a ng-if="u.estado == 'pendiente'" class="btn btn-floating disabled" ng-click="detalle(u._id,u.matricula)"><i class="material-icons" title="Definir porcentaje de esta Solicitud">edit</i></a>
+
+														<a ng-if="u.estado == 'terminado'" class="btn btn-floating" ng-click="detalle(u._id,u.matricula)"><i class="material-icons" title="Modificar porcentaje de esta Solicitud">edit</i></a>
+
 													</td>
 													<td>
-														<button class="btn btn-floating blue" ng-click="modificar(u._id)"><i class="material-icons">visibility</i></button>
+														<button class="btn btn-floating blue" ng-click="modificar(u._id)" title="Ver esta solicitud"><i class="material-icons">visibility</i></button>
 													<td>
-														<button class="btn btn-floating red" ng-click="remove(u._id)"><i class="material-icons">delete</i></button>
+														<button class="btn btn-floating red" ng-click="remove(u._id)" title="Eliminar esta Solicitud"><i class="material-icons" >delete</i></button>
 													</td>
 												</tbody>
 											</table>		

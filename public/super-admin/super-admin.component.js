@@ -65,11 +65,11 @@ angular.
 						url: 'http://localhost:8000/api/v1.0/users',
 						data: self.data
 					}).success(function(data){
+						$('.modal').modal('close');
 						alert("Usuario agregado exitosamente!");
 						//window.location.reload();
 						self.leerUsuarios();//Se ejecuta de manera asincrona, de todas maneras se dibujará cuando se descargue todo, gracias al two-binding de ANgular
-						self.limpiarFormAddUser();						
-						$('.modal').modal('close');
+						self.limpiarFormAddUser();												
 					}).error(function(){
 						alert('Ocurrio un error, porfavor intente otra vez');
 					});
@@ -83,7 +83,8 @@ angular.
 							url: 'http://localhost:8000/api/v1.0/users/' + username,
 						}).success(function(data){
 							alert("Usuario eliminado exitosamente!");
-							window.location.reload();
+							//window.location.reload();
+							self.leerUsuarios();
 						}).error(function(){
 							alert('Ocurrio un error al eliminar');
 						});

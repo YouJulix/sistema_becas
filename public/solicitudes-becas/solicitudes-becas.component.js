@@ -88,6 +88,9 @@ angular.
 
 										if($scope.terminados.length != 0){
 											$scope.becaAsignada = $scope.terminados[$scope.terminados.length-1].porcentaje_final;
+											if($scope.becaAsignada == -1){ //Si existe una solicitud terminada, pero el administrador no la ha revisado
+												$scope.becaAsignada = 0;
+											}
 										}
 
 										
@@ -274,9 +277,11 @@ angular.
 					        data: { 								
 					        	'estado' : "pendiente",
 								'porcentaje_sugerido' : 0,
-								'porcentaje_final' : 0,
+//								'porcentaje_final' : 0,
+								'porcentaje_final' : -1, //Representacion de que el admon no ha asentado nada
 								'libre_de_extra' : false,
-								'biblioteca_completa' : false,
+//								'biblioteca_completa' : false,
+								'biblioteca_completa' : true, //Pongamos el caso ideal
 								'fecha_envio' : fecha,
 								'matricula' : $scope.matricula }
 					    }).success(function (data, status, headers, config) {
@@ -439,9 +444,6 @@ angular.
 						$('#modalCambiarDatos').modal('close');
 						$('#cambiarContraBien').modal('open');
 					}
-
-
-
 					
 				}
 			]

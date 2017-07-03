@@ -4,8 +4,8 @@
     <li><a data-target="modalCambiarContra">Cambiar Contraseña</a></li>
     <li class="divider"></li>
     <li><a ng-click="cerrarSesion()"><i class="material-icons">power_settings_new</i>Cerrar Sesión</a></li>
-</ul>
 
+</ul>
 
 <div class="navbar-fixed">
 	<nav class="nav-extended  blue darken-4">
@@ -114,7 +114,12 @@
 					<td>{{u._id}}</td>
 					<td>{{u.fecha_envio}}</td>
 					<!-- <td>{{u.porcentaje_sugerido}}</td> -->
-					<td>{{u.porcentaje_final}}</td>
+					<td ng-if="u.porcentaje_final == -1">
+						---
+					</td>
+					<td ng-if="u.porcentaje_final != -1">
+						<b>{{u.porcentaje_final}}</b>
+					</td>
 					<td>{{u.estado}}</td>
 				</tbody>
 					

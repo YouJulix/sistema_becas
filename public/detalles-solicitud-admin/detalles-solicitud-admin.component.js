@@ -14,6 +14,19 @@ angular.
 						window.location = "/#!/login";
 					}
 
+					self.calcularFinal = function(porc_sugerido, porc_final){
+						if(self.caso_especial){
+							return porc_final;
+						}else{
+							//alert(self.biblioteca_completa);
+							//alert(self.libre_de_extra);
+							if(self.libre_de_extra || !self.biblioteca_completa){//libre_De_extra, en realidad es un boolean que indica si el alumno ESTÁ en extra
+								return (porc_sugerido-25);
+							}else{ //Default(NO es caso especial, no está en extra y cumplió con biblio)
+								return porc_sugerido;
+							}
+						}
+					}
 					self.renderUser = function(){
 						$http({
 							method:'GET',
@@ -22,27 +35,12 @@ angular.
 						success(function(data){
 							//alert(data[0].fechaNac);
 							self.matricula = data[0].matricula;
-							self.password = data[0].password;
-							self.password2 = data[0].password2;
 							self.nombre = data[0].nombre;
 							self.apellido1 = data[0].apellido1;
 							self.apellido2 = data[0].apellido2;
-							self.fechaNac = data[0].fechaNac;
 							self.carrera = data[0].carrera;
 							self.semestre = data[0].semestre;
 							self.grupo = data[0].grupo;
-							self.sexo = data[0].sexo;
-							self.idiomaExt = data[0].idiomaExt;
-							self.edoCivil = data[0].edoCivil;
-							self.telefono = data[0].telefono;
-							self.recidencia = data[0].recidencia;
-							self.calle = data[0].calle;
-							self.numCalle = data[0].numCalle;
-							self.colonia = data[0].colonia;
-							self.municipio = data[0].municipio;
-							//self.estado = data[0].estado;
-							self.nombreHuesped = data[0].nombreHuesped;
-							self.parentesco = data[0].parentesco;
 
 						}).
 						error(function(){
@@ -60,10 +58,12 @@ angular.
 							self.estado 			 		= data.estado;
 							self.porcentaje_sugerido 		= data.porcentaje_sugerido;
 							self.porcentaje_final			= data.porcentaje_final;
-							self.libre_de_extra				= data.libre_de_extra;
+							self.libre_de_extra				= data.libre_de_extra;//Esta mal el nombre de la variable, debería ser EN EXTRA
 							self.biblioteca_completa		= data.biblioteca_completa;
 							self.fecha_envio				= data.fecha_envio;
 							self.caso_especial				= data.caso_especial;
+
+							self.porcentaje_final			= self.calcularFinal(self.porcentaje_sugerido, self.porcentaje_final);
 							//console.log(self.caso_especial);
 							/*if(self.caso_especial){
 								//self.porcentaje_final = 
@@ -81,7 +81,7 @@ angular.
 					};
 					self.mandar = function(){
 						$('#modalDatosGuardados').modal('close');
-						window.location = "#!/admin_principal";
+						window.location = "/#!/admin_principal";
 					}
 					self.saveData = function(){
 						//alert(self.estado);
@@ -111,17 +111,19 @@ angular.
 					};
 
 					self.bibliotecaCambio = function(){
-						if(self.biblioteca_completa){
+						self.porcentaje_final = self.calcularFinal(self.porcentaje_sugerido, self.porcentaje_final);
+						/*if(self.biblioteca_completa){
 							self.porcentaje_final = self.porcentaje_sugerido; 
 						}
 						else{
 							self.porcentaje_final = self.porcentaje_sugerido - 25; 
 						}
-						self.extraCambio();
+						self.extraCambio();*/
 					};
 
 					self.extraCambio = function(){
-						if(self.libre_de_extra){
+						self.porcentaje_final = self.calcularFinal(self.porcentaje_sugerido, self.porcentaje_final);
+						/*if(self.libre_de_extra){
 							if(self.biblioteca_completa){
 								self.porcentaje_final = self.porcentaje_sugerido - 25; 
 							}
@@ -136,10 +138,19 @@ angular.
 							else{
 								self.porcentaje_final = self.porcentaje_final; 
 							}	
-						}
+						}*/
 
 					}
+					self.casoEspecialCambio = function(){
+						if(!self.caso_especial){//Si se deselecciona caso especial, hay que calcular lo anterior
+							self.porcentaje_final = self.calcularFinal(self.porcentaje_sugerido, self.porcentaje_final);
+						}
+					}
 					this.renderUser();
+
+					$(document).ready(function(){
+						cargarDropdown();
+					});
 				}
 			]
 		});

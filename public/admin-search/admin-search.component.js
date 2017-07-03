@@ -14,29 +14,32 @@ angular.
 					self.msgerror = true; // Boleano que servirá para saber si se muestra o no un mensaje de error.//Al inicio no se muestra
 					self.infoper = true;
 					//console.log("sdds");
-					object = $http({
-					method 	: 	'GET',
-					url 	: 	'http://localhost:8000/api/v1.0/users/'
-					}).success(function(data){
-						if(data.length > 0 ){
-							$('.collapsible').collapsible();
-							self.msgerror = true;
-							self.infoper = false;
-							$scope.resultado = data;
-							$scope.resultados = [];
-							angular.forEach($scope.resultado, function(res){
-								//console.log(res);
-								if((!res.isAdmin) && (res.matricula != "adminSuper"))
-									$scope.resultados.push(res);
-							});
-							//console.log($scope.dato);
-						}else{
-							self.infoper = true;
-							self.msgerror = false;
-						}
-					}).error(function(err){
-						console.log(err);
-					});
+					self.leerUsuarios = function(){
+						object = $http({
+						method 	: 	'GET',
+						url 	: 	'http://localhost:8000/api/v1.0/users/'
+						}).success(function(data){
+							if(data.length > 0 ){
+								$('.collapsible').collapsible();
+								self.msgerror = true;
+								self.infoper = false;
+								$scope.resultado = data;
+								$scope.resultados = [];
+								angular.forEach($scope.resultado, function(res){
+									//console.log(res);
+									if((!res.isAdmin) && (res.matricula != "adminSuper"))
+										$scope.resultados.push(res);
+								});
+								//console.log($scope.dato);
+							}else{
+								self.infoper = true;
+								self.msgerror = false;
+							}
+						}).error(function(err){
+							console.log(err);
+						});
+					}
+					self.leerUsuarios();
 
 					self.solicitudes = function(matricula){
 						//alert(matricula);
@@ -121,8 +124,8 @@ angular.
 					            	method: 'DELETE',
 							url: 'http://localhost:8000/api/v1.0/solicitudes/id/' + idmat
 					        }).success(function(data){
-					        	self.busqueda();
-					        	window.location = "/#!/admin_principal";
+					        	//self.busqueda();
+					        	self.leerUsuarios();
 					        }).
 							error(function(){
 								alert('Error al intentar recuperar el cliente');
@@ -136,6 +139,9 @@ angular.
 					}
 					self.nombre = localStorage.getItem("nombre");
 					self.apellido1 = localStorage.getItem("apellido1");
+					$(document).ready(function(){
+					    $('#search').focus();
+					  });
 				}
 			]
 		});
