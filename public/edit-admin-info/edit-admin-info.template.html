@@ -48,15 +48,15 @@
 					<div class="row">
 						<div class="col xl3 l3 m3">
 							<label>Nombre (s):<span>*</span></label>
-							<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
+							<input type="text" ng-model="$ctrl.nombre" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
 						</div>
 						<div class="col xl3 l3 m3">					
 							<label>Primer Apellido:<span>*</span></label>
-							<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
+							<input type="text" ng-model="$ctrl.apellido1" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
 						</div>
 						<div class="col xl3 l3 m3">
 							<label>Segundo Apellido:<span>*</span></label>
-							<input type="text" ng-model="$ctrl.apellido2" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
+							<input type="text" ng-model="$ctrl.apellido2" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
 						</div>
 					</div>
 					<div class="row">
@@ -93,12 +93,12 @@
 						<div class="col xl2 l2 m2">
 							<div class="col xl12 l12 m12"><label>Sexo:<span>*</span></label><br></div>
 							<div class="col xl7 l7 m7">
-								<input id="F" type="radio" ng-model="$ctrl.sexo" value="F">
-								<label for="F">F</label>
+								<input id="Fem" type="radio" ng-model="$ctrl.sexo" value="F">
+								<label for="Fem">F</label>
 							</div>
 							<div class="col xl5 l5 m5">
-								<input id="M" type="radio" ng-model="$ctrl.sexo" value="M">
-								<label for="M">M</label>
+								<input id="Masc" type="radio" ng-model="$ctrl.sexo" value="M">
+								<label for="Masc">M</label>
 							</div>
 						</div>
 					</div>
@@ -187,7 +187,7 @@
 						</div>
 		    			<div class="col xl3 l3 m3" ng-style="$ctrl.viewRecid">
 							<label>Nombre del dueño de la Casa:</label>
-							<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40" class="validate">
+							<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40" class="validate">
 						</div>
 						<div class="col xl3" ng-style="$ctrl.viewRecid">
 							<label>Parentesco:</label>

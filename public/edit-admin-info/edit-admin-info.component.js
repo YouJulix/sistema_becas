@@ -164,7 +164,7 @@ angular.
 									self.grupo = data[0].grupo;
 								}
 								
-								if (data[0].sexo=="undefined") {
+								if (data[0].sexo == undefined) {
 									self.sexo = "F";
 								}else{
 									self.sexo = data[0].sexo;
