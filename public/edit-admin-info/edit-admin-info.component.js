@@ -6,6 +6,9 @@ angular.
 				function RegistroFormController($http){
 					var self = this;
 
+					$(document).ready(function(){
+						$('#preloader').css('display','none');
+					});
 					self.carreras = ['Lic. en Informática','Ing. en Agronomía','Lic. en Administración'];
 
 					self.semestres = ['1°','2°','3°','4°','5°','6°','7°','8°','9°','10°'];
@@ -89,7 +92,7 @@ angular.
 					self.estados = ['Oaxaca'];
 					self.estado = 'Oaxaca';
 
-					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a'];
+					self.parentescos = ['Padre','Madre','Abuelos','Tio/a','Primo/a', 'Ninguno', 'Otro'];
 
 					self.dias = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 					self.meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];

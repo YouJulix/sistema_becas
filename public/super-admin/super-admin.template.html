@@ -38,7 +38,7 @@
 						<li ng-repeat="user in $ctrl.users | filter:$ctrl.searchText" ng-if="user.matricula != 'adminSuper'">
 							<div class="collapsible-header" ng-click="$ctrl.edit = true">
 								<i class="material-icons">visibility</i>
-								{{user.nombre}} {{user.apellido1}} ({{user.matricula}})
+								{{user.nombre | uppercase }} {{user.apellido1 | uppercase}} ({{user.matricula }})
 							</div>
 							<div class="collapsible-body">
 								<div class="section">

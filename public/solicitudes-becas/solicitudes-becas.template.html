@@ -4,7 +4,6 @@
     <li><a data-target="modalCambiarContra">Cambiar Contraseña</a></li>
     <li class="divider"></li>
     <li><a ng-click="cerrarSesion()"><i class="material-icons">power_settings_new</i>Cerrar Sesión</a></li>
-
 </ul>
 
 <div class="navbar-fixed">
@@ -15,7 +14,7 @@
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
-	  			<li><i class="material-icons left">account_circle</i><b>{{$ctrl.nombre}} {{$ctrl.apellido1}}</b></li>
+	  			<li><i class="material-icons left">account_circle</i><b>{{$ctrl.nombre | uppercase}} {{$ctrl.apellido1 | uppercase}}</b></li>
 				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
 	  		</ul>
 		</div>
@@ -48,7 +47,7 @@
 					<br>
 					<div class="col xl4 l4 m4">
 						<b>Matricula:</b> {{dato[0].matricula}}<br/>
-						<b>Nombre: </b>{{dato[0].nombre}} {{dato[0].apellido1}} {{dato[0].apellido2}}
+						<b>Nombre: </b>{{dato[0].nombre | uppercase}} {{dato[0].apellido1 | uppercase}} {{dato[0].apellido2 | uppercase}}
 					</div>
 					<div class="col xl3 l3 m3">
 						<b>Carrera: </b><br/>{{dato[0].carrera}}<br />
@@ -136,7 +135,7 @@
 	    <div class="modal-content">
 	    	<div class="row">
 		    	<hr />
-		      	<h4 class="center-align">¿ Esta seguro que desea eliminar ?</h4>
+		      	<h4 class="center-align">¿ Está seguro que desea eliminar ?</h4>
 	      	</div>
 	    </div>
 	    <div class="modal-footer">

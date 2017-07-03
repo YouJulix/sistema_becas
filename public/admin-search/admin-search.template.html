@@ -6,7 +6,7 @@
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul class="right hide-on-med-and-down">
-	  			<li><i class="material-icons left">account_circle</i><b>{{$ctrl.nombre}} {{$ctrl.apellido1}}</b></li>
+	  			<li><i class="material-icons left">account_circle</i><b>{{$ctrl.nombre | uppercase }} {{$ctrl.apellido1 | uppercase}}</b></li>
 	  			<li><a class="btn-floating waves-effect waves-light red" ng-click="$ctrl.clear()"><i class="material-icons left">power_settings_new</i></a></li>
 	  		</ul>
 		</div>
@@ -34,7 +34,7 @@
 						<li ng-repeat="u in resultados|filter:$ctrl.matricula">
 							<div class="collapsible-header" ng-click="$ctrl.solicitudes(u.matricula)" id="{{u.matricula}}">
 								<i class="material-icons">person_pin</i>
-								<b>{{u.matricula}}</b> | {{u.nombre}} {{u.apellido1}} {{u.apellido2}} | {{u.grupo}}
+								<b>{{u.matricula}}</b> | {{u.nombre | uppercase }} {{u.apellido1 | uppercase}} {{u.apellido2 | uppercase}} | {{u.grupo}}
 							</div>
 							<div class="collapsible-body">
 								<div class="row">
@@ -51,7 +51,7 @@
 									<div class="row">
 										<div class="col xl4 l4 m4 s6 offset-xl2 offset-l2 offset-m2 offset-s3">
 											<p><b>Nombre: </b></p>
-											<p id="tnombre">{{u.nombre}} {{u.apellido1}} {{u.apellido2}}</p>
+											<p id="tnombre">{{u.nombre | uppercase}} {{u.apellido1 | uppercase}} {{u.apellido2 | uppercase}}</p>
 										</div>
 										<div class="col xl4 l4 m4 s6">
 											<p><b>Semestre: </b></p>

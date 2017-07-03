@@ -12,7 +12,7 @@
 	  			Sistema de Becas NU
 	  		</a>
 	  		<ul id="nav-mobile" class="right hide-on-med-and-down">
-	  			<li><b>{{$ctrl.nombre}} {{$ctrl.apellido1}}</b></li>
+	  			<li><b>{{$ctrl.nombre | uppercase}} {{$ctrl.apellido1 | uppercase}}</b></li>
 				<li><a class="dropdown-button" href="dropdown1" data-activates="dropdown1">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
 	  		</ul>
 		</div>
@@ -35,30 +35,34 @@
 				    	<form id="formPersonal" autocomplete="off" ng-submit="$ctrl.avanzaEscolar()" >
 				    		<div class="row">
 								<div class="col xl3 l3 m3">
-									<label>Matrícula:<span>*</span></label>
-									<input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00?((0[1-9])|([1-9][0-9]))$" title="Matricula Inválida" maxlength="10" placeholder="" class="validate" autocomplete="off">
+									<label>Matrícula:<!-- <span>*</span> --></label>
+									<b><p ng-bind="$ctrl.matricula"></p></b>
+									<!-- <input type="text" ng-model="$ctrl.matricula" required pattern="^011[0-9]0[0-9]00?((0[1-9])|([1-9][0-9]))$" title="Matricula Inválida" maxlength="10" placeholder="" class="validate" autocomplete="off" disabled="true"> -->
 								</div>
 								<div class="col xl3 l3 m3">
 									<label>Contraseña:<span>*</span></label>
 									<input ng-change="$ctrl.valuePassword()" type="password" ng-model="$ctrl.password" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" title="Verifique que el campo no contenga caracteres especiales" maxlength="30" placeholder="" class="validate" autocomplete="off">
 								</div>
 								<div class="col xl3 l3 m3">
-									<label>Repetir Contraseña:<span>*</span></label>
+									<label>Repetir Contraseña:<!-- <span>*</span> --></label>
 									<input id="password2" ng-change="$ctrl.valuePassword()" type="password" ng-model="$ctrl.password2" required pattern="^[a-zA-Z0-9ñÑ]{1,30}$" maxlength="30" title="Verifique que el campo no contenga caracteres especiales" placeholder="" class="validate" autocomplete="off">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col xl3 l3 m3">
-									<label>Nombre (s):<span>*</span></label>
-									<input type="text" ng-model="$ctrl.nombre" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
+									<label>Nombre (s):<!-- <span>*</span> --></label>
+									<b><p ng-bind="$ctrl.nombre | uppercase"></p></b>
+									<!-- <input type="text" ng-model="$ctrl.nombre" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" disabled="true"> -->
 								</div>
 								<div class="col xl3 l3 m3">					
-									<label>Primer Apellido:<span>*</span></label>
-									<input type="text" ng-model="$ctrl.apellido1" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
+									<label>Primer Apellido:<!-- <span>*</span> --></label>
+									<b><p ng-bind="$ctrl.apellido1 | uppercase"></p></b>
+									<!-- <input type="text" ng-model="$ctrl.apellido1" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper" disabled="true"> -->
 								</div>
 								<div class="col xl3 l3 m3">
-									<label>Segundo Apellido:<span>*</span></label>
-									<input type="text" ng-model="$ctrl.apellido2" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
+									<label>Segundo Apellido:<!-- <span>*</span> --></label>
+									<b><p ng-bind="$ctrl.apellido2 | uppercase"></p></b>
+									<!-- <input type="text" ng-model="$ctrl.apellido2" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" disabled="true"> -->
 								</div>
 							</div>
 							<div class="row">
