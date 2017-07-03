@@ -58,13 +58,13 @@
 													{{user.matricula}}
 												</td>
 												<td>
-													<input ng-model="user.nombre" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+													<input type="text" ng-model="user.nombre" ng-disabled="$ctrl.edit" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
 												</td>
 												<td>
-													<input ng-model="user.apellido1" ng-disabled="$ctrl.edit" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+													<input type="text" ng-model="user.apellido1" ng-disabled="$ctrl.edit" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
 												</td>
 												<td>
-													 <input ng-model="user.apellido2" ng-disabled="$ctrl.edit" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40"/>
+													 <input type="text" ng-model="user.apellido2" ng-disabled="$ctrl.edit" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
 												</td>
 												<td ng-if="user.isAdmin == true">
 														Evaluador
@@ -118,18 +118,19 @@
 					<br><br><br>
 		      		<div class="input-field col xl4 l4 m4">
 		      			<i class="material-icons prefix">account_circle</i>
-			      		<input id="newusername" type="text" class="validate" ng-model="$ctrl.name" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
+
+			    		<input id="newusername" type="text" ng-model="$ctrl.name" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
 			    		<label for="newusername">Nombre</label>
 		      		</div>
 			      	
 			      	<div class="input-field col xl4 l4 m4">
-				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
-				    	<label for="newusercid">Apellido paterno</label>
+				      	<input id="newuserAp1" type="text" ng-model="$ctrl.apellido1" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
+				    	<label for="newuserAp1">Apellido paterno</label>
 			      	</div>
 
-			      	<div class="input-field col xl4 l4 m4">	
-				      	<input id="newusercid" type="text" class="validate" ng-model="$ctrl.apellido2" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40">
-				    	<label for="newusercid">Apellido materno</label>
+			      	<div class="input-field col xl4 l4 m4">
+				      	<input id="newuserAp2" type="text" ng-model="$ctrl.apellido2" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
+				    	<label for="newuserAp2">Apellido materno</label>
 			      	</div>
 
 			      	
