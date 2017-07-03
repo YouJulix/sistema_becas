@@ -48,15 +48,15 @@
 					<div class="row">
 						<div class="col xl3 l3 m3">
 							<label>Nombre (s):<span>*</span></label>
-							<input type="text" ng-model="$ctrl.nombre" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
+							<input type="text" ng-model="$ctrl.nombre" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper" >
 						</div>
 						<div class="col xl3 l3 m3">					
 							<label>Primer Apellido:<span>*</span></label>
-							<input type="text" ng-model="$ctrl.apellido1" required pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{2,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
+							<input type="text" ng-model="$ctrl.apellido1" required pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{2,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras"  maxlength="40" class="validate upper">
 						</div>
 						<div class="col xl3 l3 m3">
 							<label>Segundo Apellido:<span>*</span></label>
-							<input type="text" ng-model="$ctrl.apellido2" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
+							<input type="text" ng-model="$ctrl.apellido2" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que el campo no contenga caracteres especiales, solo letras" maxlength="40" class="validate upper">
 						</div>
 					</div>
 					<div class="row">
@@ -187,7 +187,7 @@
 						</div>
 		    			<div class="col xl3 l3 m3" ng-style="$ctrl.viewRecid">
 							<label>Nombre del dueño de la Casa:</label>
-							<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="^[A-Z][a-zA-Z\\\sáéíóúñÑ]{0,40}$" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40" class="validate">
+							<input type="text" placeholder="Nombre de la casa de huésped o del propietario" ng-model="$ctrl.nombreHuesped" pattern="[A-Za-z\\\sÑÁÉÍÓÚáéíóú]{0,40}" title="Verifique que no contenga caracteres especiales, solo letras" maxlength="40" class="validate">
 						</div>
 						<div class="col xl3" ng-style="$ctrl.viewRecid">
 							<label>Parentesco:</label>
